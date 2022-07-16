@@ -1,3 +1,7 @@
+<?php 
+    require 'database.php' 
+?>
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
@@ -15,7 +19,7 @@
         <input type="text" name="email" placeholder="Ingresa tu correo">
         <input type="password" name="password" placeholder="Ingresa tu contraseña">
         <input type="password" name="confirm_password" placeholder="Confirma tu contraseña">
-        <input type="submit" value="Login">
+        <input type="submit" value="Sign Up">
     </form>
     </body>
 </html>
