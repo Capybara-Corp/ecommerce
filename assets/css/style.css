@@ -5,3 +5,12 @@ body{
     text-align: center;
 }
 
+input[type="text"], input[type="password"]{
+    outline: none;
+    padding: 10px;
+    display: block;
+    width: 100%;
+    border-radius: 15px;
+    border: 1px solid #ccc;
+    margin: 20px auto;
+}
