@@ -1,5 +1,23 @@
 <?php 
-    require 'database.php' 
+    require 'database.php';
+    
+    $message = ''; //Variable para almacenar el mensaje de error.
+
+//En caso de que los campos no esten vacíos puede empezar a añadir los datos a la base
+if (!empty($_POST['email']) && !empty($_POST['password'])) {
+    $sql = "INSERT INTO users (email, password) VALUES (:email, :password)";
+    $statement = $connection->prepare($sql); //Se prepara la conexión para que se pueda ejecutar
+    $statement->bindParam(':email', $_POST['email']); //Se le pasa el valor del campo email a la variable email
+    $password = password_hash($_POST['password'], PASSWORD_BCRYPT); //Se encripta la contraseña con el algoritmo de encriptación de contraseñas de bcrypt
+    $statement->bindParam(':password', $password); //Se le pasa el valor del campo password a la variable password
+
+    if ($statement->execute()) {
+        $message = 'Nuevo usuario creado';
+    } else {
+        $message = 'No se pudo crear el usuario';
+    }
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -13,6 +31,8 @@
     </head>
     <body>
     <?php require 'partials/header.php' ?>
+    <?php if(!empty($message)): ?> //Si la variable message no esta vacía, se muestra el mensaje de error.
+        <p><?php echo $message; ?></p>
     <h1>Sign Up</h1>
     <span>or <a href="login.php">Login</a></span>
     <form action="signup.php" method="post">
