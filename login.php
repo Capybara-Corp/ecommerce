@@ -5,8 +5,8 @@
         <title>Login</title>
         <link rel="stylesheet" href="assets/css/style.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!-- Esto es para que se pueda conectar con el servidor de Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet"> <!-- Esto es para que se pueda usar el tipo de letra Playfair Display -->
     <body>
     <?php require 'partials/header.php' ?>
         <h1>Login</h1>
