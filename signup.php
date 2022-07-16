@@ -30,9 +30,13 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
     </head>
     <body>
+    
     <?php require 'partials/header.php' ?>
-    <?php if(!empty($message)): ?> //Si la variable message no esta vacía, se muestra el mensaje de error.
-        <p><?php echo $message; ?></p>
+    
+    <?php if(!empty($message)): ?>
+        <p> <?= $message ?></p>
+    <?php endif; ?>
+    
     <h1>Sign Up</h1>
     <span>or <a href="login.php">Login</a></span>
     <form action="signup.php" method="post">
