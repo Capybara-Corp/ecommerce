@@ -8,7 +8,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
     </head>
-    <body>
+    <body> 
+    <php? require 'partials/header.php' ?>
         <h1>Please Login or Sign Up</h1>
         <a href="login.php">Login</a> or
         <a href="signup.php">Sign Up</a>
