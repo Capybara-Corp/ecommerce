@@ -1,11 +1,12 @@
-body{
+body {
     margin: 0;
     padding: 0;
     font-family: 'Playfair Display', serif;
     text-align: center;
 }
 
-input[type="text"], input[type="password"]{
+input[type="text"],
+input[type="password"] {
     outline: none;
     padding: 20px;
     display: block;
@@ -15,7 +16,7 @@ input[type="text"], input[type="password"]{
     margin: 20px auto;
 }
 
-input[type="submit"]{
+input[type="submit"] {
     padding: 10px;
     color: #fff;
     background: #0098cb;
@@ -27,14 +28,14 @@ input[type="submit"]{
     cursor: pointer;
 }
 
-input[type="submit"]:hover{
+input[type="submit"]:hover {
     background-color: purple;
     transition: 0.8 all ease;
 }
 
 /*Header*/
 
-.header{
+header {
     border-bottom: 2px solid #eee;
     padding: 20px 0;
     margin-bottom: 10px;
@@ -42,7 +43,7 @@ input[type="submit"]:hover{
     text-align: center;
 }
 
-header a{
+header a {
     text-decoration: none;
     color: #333;
 }
