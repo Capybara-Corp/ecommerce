@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
     <body>
-    <php? require 'partials/header.php' ?>
+    <?php require 'partials/header.php' ?>
         <h1>Login</h1>
         <span>or <a href="signup.php">Sign Up</a></span>
         <!-- Login Form, action es a dónde se van a enviar todos los datos, el metodo post

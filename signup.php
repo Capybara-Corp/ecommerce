@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
     </head>
     <body>
-    <php? require 'partials/header.php' ?>
+    <?php require 'partials/header.php' ?>
     <h1>Sign Up</h1>
     <span>or <a href="login.php">Login</a></span>
     <form action="index.html" method="post">
