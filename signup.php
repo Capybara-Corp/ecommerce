@@ -33,8 +33,8 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
     
     <?php require 'partials/header.php' ?>
     
-    <?php if(!empty($message)): ?>
-        <p> <?= $message ?></p>
+    <?php if(!empty($message)): ?> <!-- Si el mensaje no está vacío -->
+        <p> <?= $message ?></p> <!-- Se muestra el mensaje -->
     <?php endif; ?>
     
     <h1>Sign Up</h1>
