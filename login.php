@@ -1,3 +1,11 @@
+<?php 
+
+require 'database.php'; 
+if (!empty($_POST['email'] && !empty($_POST['password'])) {
+    $records = $conn->prepare('SELECT id, email, password FROM users WHERE email = :email');
+}
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
