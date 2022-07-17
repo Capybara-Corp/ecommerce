@@ -27,20 +27,17 @@ if (isset($_SESSION['user_id'])) { //Si ya hay una sesión iniciada
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
     </head>
-    <body> 
+    <body>
     <?php require 'partials/header.php' ?>
 
     <?php if(!empty($user)): ?> <!-- Si el usuario existe -->
     <h1>Welcome, <?= $user['email']; ?></h1> <!-- Se muestra el email del usuario junto a un mensaje de bienvenida-->
     <a href="logout.php">Log out</a> <!-- Se muestra un enlace para cerrar la sesión -->
-
     <?php else: ?> <!-- Si el usuario no existe -->
-    <h1>Please Login or Sign Up</h1> <!-- Se muestra un mensaje de error -->
+    <h1>Please Login or Sign Up</h1> <!-- Se muestra un mensaje para que inicie una sesión correcta o se registre-->
+
     <a href="login.php">Login</a> <!-- Se muestra un enlace para iniciar sesión -->
     <a href="signup.php">Sign Up</a> <!-- Se muestra un enlace para registrarse -->
     <?php endif; ?>
-        <h1>Please Login or Sign Up</h1>
-        <a href="login.php">Login</a> or
-        <a href="signup.php">Sign Up</a>
     </body>
 </html>
