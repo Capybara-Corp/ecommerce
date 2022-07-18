@@ -34,9 +34,9 @@ if (isset($_SESSION['user_id'])) { //Si ya hay una sesión iniciada
     <br>Welcome, <?= $user['email']; ?></br> <!-- Se muestra el email del usuario junto a un mensaje de bienvenida-->
     <a href="logout.php">Log out</a> <!-- Se muestra un enlace para cerrar la sesión -->
     <?php else: ?> <!-- Si el usuario no existe -->
-    <h1>Please Login or Sign Up</h1> <!-- Se muestra un mensaje para que inicie una sesión correcta o se registre-->
+    <h1>Please:</h1> <!-- Se muestra un mensaje para que inicie una sesión correcta o se registre-->
 
-    <a href="login.php">Login</a> <!-- Se muestra un enlace para iniciar sesión -->
+    <a href="login.php">Login</a> or <!-- Se muestra un enlace para iniciar sesión -->
     <a href="signup.php">Sign Up</a> <!-- Se muestra un enlace para registrarse -->
     <?php endif; ?>
     </body>
