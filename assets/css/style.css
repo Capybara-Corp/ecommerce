@@ -4,6 +4,41 @@ body {
     font-family: 'Playfair Display', serif;
     text-align: center;
 }
+h1 {
+    color: #131313;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: verdana;
+    font-size: 30px;
+    font-weight: 900;
+    text-shadow: 0.1em 0.1em white;
+}
+#todo{
+    margin-right: auto;
+    margin-left: auto;
+    width: 300px;
+    height: 150px;
+}
+#todo a {
+    padding: 10px;
+    color: #131313;
+    text-decoration: none;
+    font-family: verdana;
+    font-size: 30px;
+    font-weight: 900;
+    text-shadow: 0.1em 0.1em white;
+    display: inline;
+}
+p {
+    color: #131313;
+    text-decoration: none;
+    font-family: verdana;
+    font-size: 20px;
+    font-weight: 900;
+    text-shadow: 0.1em 0.1em white;
+    display: inline;
+}
+
 
 input[type="text"],
 input[type="password"] {
@@ -30,12 +65,13 @@ input[type="submit"] {
 
 input[type="submit"]:hover {
     background-color: purple;
-    transition: all 1.5s ease;
+    transition: 1 all ease;
 }
 
 /*Header*/
 
 header {
+    display: flex;
     border-bottom: 2px solid #eee;
     padding: 20px 0;
     margin-bottom: 10px;
@@ -44,6 +80,14 @@ header {
 }
 
 header a {
+    padding-left: 30px;
     text-decoration: none;
     color: #333;
+    font-size: 25px;
+}
+header #separator {
+    margin-top: 20px;
+    height: 5px;
+    width: 100%;
+    background-color: #272727;
 }
