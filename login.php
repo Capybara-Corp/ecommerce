@@ -3,7 +3,7 @@
 session_start();
 
 if (isset($_SESSION['user_id'])) { //Si ya hay una sesión iniciada
-    header('Location: /login'); //Se redirige al usuario a la página de inicio para evitar que se inicie sesión dos veces
+    header('Location: index.php'); //Se redirige al usuario a la página de inicio de sesión para que no pueda acceder a la página de inicio de sesión
 }
 
 require 'database.php';
@@ -14,7 +14,7 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
     $records->execute(); //Se ejecuta la conexión
     $results = $records->fetch(PDO::FETCH_ASSOC); //Se obtiene el resultado de la consulta
     $message = '';
-    if (count($results) > 0 && password_verify($_POST['password'], $results['password'])) { //Si el usuario existe y la contraseña es correcta
+    if (is_countable($results) > 0 && password_verify($_POST['password'], $results['password'])) { //Si el usuario existe y la contraseña es correcta
         session_start(); //Se inicia la sesión
         $_SESSION['user_id'] = $results['id']; //Se guarda el id del usuario en la sesión
         header("Location: index.php"); //Se redirecciona a la página principal

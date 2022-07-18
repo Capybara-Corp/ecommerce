@@ -30,7 +30,7 @@ input[type="submit"] {
 
 input[type="submit"]:hover {
     background-color: purple;
-    transition: 1 all ease;
+    transition: all 1.5s ease;
 }
 
 /*Header*/
