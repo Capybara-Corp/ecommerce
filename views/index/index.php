@@ -11,7 +11,7 @@
 </head>
 
 <body>
-  <?php require 'partials/header.php';?>
+  <?php require 'views/header.php';?>
 
   <?php if (!empty($user)): ?>
   <!-- Si el usuario existe -->
