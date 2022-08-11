@@ -2,17 +2,17 @@
 /*require_once 'vendor/autoload.php';
 require_once 'auth/Auth.php';*/
 
-class login_controller extends controller
+class login_controller extends controller //es para heredar de la clase controller
 {
     public function __construct()
     {
-        parent::__construct();
+        parent::__construct(); //llama al constructor de la clase padre
         $this->view->message        = "";
         $this->view->resultadoLogin = "";
     }
 
     //base+login
-    public function render()
+    public function render() //renderiza la vista
     {
         //$alumnos = $this->model->get();
         //$this->view->alumnos = "cargado";
@@ -50,13 +50,15 @@ class login_controller extends controller
         $this->view->render('index/index');
 
     }
-    public function signin()
+
+    public function signin() //funcion para registrar un usuario
     {
 
         //renderizar el formulario
         $this->view->render('login/signin');
 
     }
+
     public function sign()
     {
         /*recibir los datos*/
