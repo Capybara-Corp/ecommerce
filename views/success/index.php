@@ -13,11 +13,11 @@
     <div id="main">
         <h1 class="center success">
         <?php
-            echo $this->mensaje;
+            echo $this->message;
         ?>
         </h1>
     </div>
 
-    <?php require 'views/footer.php'; ?>
+    <?php require 'partials/footer.php'; ?>
 </body>
 </html>

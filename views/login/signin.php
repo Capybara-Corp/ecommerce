@@ -17,8 +17,8 @@
   <span>or <a href="signup.php">Sign Up</a></span>
 
   <?php if (!empty($message)): ?>
-  <!-- Si el mensaje no está vacío -->
-  <p><?=$message;?></p> <!-- Se muestra el mensaje -->
+  <!-- Si el message no está vacío -->
+  <p><?=$message;?></p> <!-- Se muestra el message -->
   <?php endif;?>
 
   <!-- Login Form, action es a dónde se van a enviar todos los datos, el metodo post

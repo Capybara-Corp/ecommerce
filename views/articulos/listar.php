@@ -50,7 +50,7 @@
     </div><!-- end row -->
   </div><!-- end container-->
   <?php //var_dump($this->articulos);;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;?>
-  <?php require 'views/footer.php';?>
+  <?php require 'partials/footer.php';?>
 
 
 

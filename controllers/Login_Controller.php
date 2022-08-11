@@ -2,12 +2,12 @@
 /*require_once 'vendor/autoload.php';
 require_once 'auth/Auth.php';*/
 
-class Login_Controller extends Controller
+class login_controller extends controller
 {
     public function __construct()
     {
         parent::__construct();
-        $this->view->mensaje        = "";
+        $this->view->message        = "";
         $this->view->resultadoLogin = "";
     }
 
@@ -15,7 +15,7 @@ class Login_Controller extends Controller
     public function render()
     {
         //$alumnos = $this->model->get();
-        $this->view->alumnos = "cargado";
+        //$this->view->alumnos = "cargado";
         $this->view->render('login/index');
     }
 
@@ -53,12 +53,13 @@ class Login_Controller extends Controller
     public function signin()
     {
 
-        //rendeizar el formulario
+        //renderizar el formulario
         $this->view->render('login/signin');
 
     }
     public function sign()
     {
+        /*recibir los datos*/
         try {
             if (!isset($_POST['email'])) {
                 throw new Exception();
@@ -72,13 +73,10 @@ class Login_Controller extends Controller
             //code...
         } catch (Exception $e) {
             //throw $th;
-            $this->view->mensaje = "error al ingresar";
+            $this->view->message = "error al ingresar";
         }
-        /*recibir los datos*/
 
-        //rendeizar el formulario
-
-        $this->view->render('login/sign');
+        $this->view->render('login/sign'); //renderizar el formulario
 
     }
 }

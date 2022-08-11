@@ -19,6 +19,6 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
         $_SESSION['user_id'] = $results['id']; //Se guarda el id del usuario en la sesión
         header("Location: index.php"); //Se redirecciona a la página principal
     } else { //Si el usuario no existe o la contraseña es incorrecta
-        $message = 'Lo sentimos, tu email o contraseña no son correctos.'; //Se muestra un mensaje de error
+        $message = 'Lo sentimos, tu email o contraseña no son correctos.'; //Se muestra un message de error
     }
 }

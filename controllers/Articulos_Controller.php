@@ -1,11 +1,11 @@
 <?php
 
-class Articulos_Controller extends Controller
+class articulos_controller extends controller
 {
     public function __construct()
     {
         parent::__construct();
-        $this->view->mensaje        = "";
+        $this->view->message        = "";
         $this->view->resultadoLogin = "";
     }
 

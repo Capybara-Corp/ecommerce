@@ -69,7 +69,7 @@
 
 
 
-  <?php require 'views/footer.php';?>
+  <?php require 'partials/footer.php';?>
 
   <script src="<?php echo constant('URL'); ?>/public/js/jquery-3.6.0.min.js"></script>
   <!-- importo el javascript-->
