@@ -12,7 +12,7 @@
 
     <div id="main"> <!-- Main content -->
         <h1 class="center success"> <!--- Success message -->
-            <?php echo $this->resultadoLogin; ?>
+            <?php echo $this->resultado_login; ?>
         <?php
             echo $this->message;
         ?>

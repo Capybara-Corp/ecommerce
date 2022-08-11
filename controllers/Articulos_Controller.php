@@ -6,7 +6,7 @@ class articulos_controller extends controller
     {
         parent::__construct();
         $this->view->message        = "";
-        $this->view->resultadoLogin = "";
+        $this->view->resultado_login = "";
     }
 
     //base+

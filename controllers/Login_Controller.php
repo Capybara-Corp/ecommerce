@@ -8,7 +8,7 @@ class login_controller extends controller //es para heredar de la clase controll
     {
         parent::__construct(); //llama al constructor de la clase padre
         $this->view->message        = "";
-        $this->view->resultadoLogin = "";
+        $this->view->resultado_login = "";
     }
 
     //base+login
@@ -36,7 +36,7 @@ class login_controller extends controller //es para heredar de la clase controll
             $_SESSION["rol"]          = "cliente";
             $this->view->render('login/ingresar');
         } else {
-            $this->view->resultadoLogin = "usuario o contraseña incorrectos";
+            $this->view->resultado_login = "usuario o contraseña incorrectos";
             $this->view->render('login/index');
         }
 
