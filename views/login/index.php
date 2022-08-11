@@ -11,7 +11,7 @@
 </head>
 
 <body>
-  <?php require 'views/header.php';?>
+  <?php require 'partials/header.php';?>
   <div class="container">
     <div class="row">
       <div class="col-sm">

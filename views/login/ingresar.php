@@ -11,7 +11,7 @@
 </head>
 <body>
 <input type="hidden" value="<?=$this->token;?>" id="token">
-    <?php require 'views/header4log.php';?>
+    <?php require 'partials/header4log.php';?>
     <div class="container">
     <div class="row">
         <div class="col-sm">

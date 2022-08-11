@@ -13,7 +13,7 @@
 
 <body>
 
-  <?php require 'views/header.php';?>
+  <?php require 'partials/header.php';?>
 
   <input type="hidden" value="<?php echo constant('URL'); ?>" id="url">
 

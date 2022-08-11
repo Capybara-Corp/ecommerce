@@ -12,7 +12,7 @@
 </head>
 
 <body>
-  <?php require 'views/header.php';?>
+  <?php require 'partials/header.php';?>
 
   <?php if (!empty($user)): ?>
   <!-- Si el usuario existe -->
