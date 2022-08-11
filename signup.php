@@ -1,5 +1,5 @@
 <?php 
-    require 'database.php';
+    require '/config/config.php';
     
     $message = ''; //Variable para almacenar el message de error.
 
