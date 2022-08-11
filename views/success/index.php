@@ -10,8 +10,9 @@
 
     <?php require 'partials/header.php'; ?>
 
-    <div id="main">
-        <h1 class="center success">
+    <div id="main"> <!-- Main content -->
+        <h1 class="center success"> <!--- Success message -->
+            <?php echo $this->resultadoLogin; ?>
         <?php
             echo $this->message;
         ?>
