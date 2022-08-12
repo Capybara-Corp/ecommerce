@@ -22,3 +22,4 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
         $message = 'Lo sentimos, tu email o contraseña no son correctos.'; //Se muestra un message de error
     }
 }
+?>
