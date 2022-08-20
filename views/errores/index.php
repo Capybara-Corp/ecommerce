@@ -13,7 +13,7 @@
 
 <body>
 
-  <?php require 'views/header.php';?>
+  <?php require 'partials/header.php.php';?>
 
   <input type="hidden" value="<?php echo constant('URL'); ?>" id="url">
 
@@ -22,7 +22,7 @@
     <h1>Pagina de error</h1>
     <h2><?=$this->message;?></h2>
 
-    <?php require 'views/footer.php';?>
+    <?php require 'partials/footer.php.php';?>
 
 
     <!-- importo el javascript-->

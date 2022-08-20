@@ -2,7 +2,7 @@
 
 require_once 'controllers/errores_controller.php';
 
-class App
+class app
 {
     public function __construct()
     {
@@ -35,7 +35,7 @@ class App
 
             $controller->load_model($url[0]);
 
-            // Se obtienen el número de param
+            // Se obtienen el número de parametros que se pasan por la url
             $nparam = sizeof($url);
             // si se llama a un método
             if ($nparam > 1) {
@@ -51,7 +51,7 @@ class App
                     $controller->{$url[1]}();
                 }
             } else {
-                // si se llama a un controlador, por defecto
+                // si se llama a un controlador, por defecto se carga el index
                 //echo "<b>ejecuta el metodo por defecto</b>";
                 //var_dump($controller);
                 $controller->render();

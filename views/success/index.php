@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <?php require 'views/header.php'; ?>
+    <?php require 'partials/header.php'; ?>
 
     <div id="main">
         <h1 class="center success">
@@ -18,6 +18,6 @@
         </h1>
     </div>
 
-    <?php require 'views/footer.php'; ?>
+    <?php require 'partials/footer.php'; ?>
 </body>
 </html>

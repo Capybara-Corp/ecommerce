@@ -12,7 +12,7 @@
 
 <body>
   <input type="hidden" value="<?php echo constant('URL'); ?>" id="url">
-  <?php require 'views/header.php';?>
+  <?php require 'partials/header.php.php';?>
 
   <div class="container">
     <div class="row">
@@ -69,7 +69,7 @@
 
 
 
-  <?php require 'views/footer.php';?>
+  <?php require 'partials/footer.php.php';?>
 
   <script src="<?php echo constant('URL'); ?>/public/js/jquery-3.6.0.min.js"></script>
   <!-- importo el javascript-->

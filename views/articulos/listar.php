@@ -14,7 +14,7 @@
 
 <body>
   <input type="hidden" value="<?php echo constant('URL'); ?>" id="url">
-  <?php require 'views/header.php';?>
+  <?php require 'partials/header.php.php';?>
   <div class="container">
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12">
@@ -50,7 +50,7 @@
     </div><!-- end row -->
   </div><!-- end container-->
   <?php //var_dump($this->articulos);;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;?>
-  <?php require 'views/footer.php';?>
+  <?php require 'partials/footer.php.php';?>
 
 
 
