@@ -12,15 +12,15 @@
 </head>
 
 <body>
-  <?php require 'views/header.php';?>
+  <?php require 'partials/header.php';?>
 
   <?php if (!empty($user)): ?>
   <!-- Si el usuario existe -->
-  <br>Welcome, <?=$user['email'];?></br> <!-- Se muestra el email del usuario junto a un mensaje de bienvenida-->
+  <br>Welcome, <?=$user['email'];?></br> <!-- Se muestra el email del usuario junto a un message de bienvenida-->
   <a href="logout.php">Log out</a> <!-- Se muestra un enlace para cerrar la sesión -->
   <?php else: ?>
   <!-- Si el usuario no existe -->
-  <h1>Please:</h1> <!-- Se muestra un mensaje para que inicie una sesión correcta o se registre-->
+  <h1>Please:</h1> <!-- Se muestra un message para que inicie una sesión correcta o se registre-->
 
   <a href="<?php echo constant('URL'); ?>login/signin">Login</a> <!-- Se muestra un enlace para iniciar sesión -->
   <p>or</p>

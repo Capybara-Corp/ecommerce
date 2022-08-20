@@ -20,7 +20,7 @@
   <div class="container">
 
     <h1>Pagina de error</h1>
-    <h2><?=$this->mensaje;?></h2>
+    <h2><?=$this->message;?></h2>
 
     <?php require 'views/footer.php';?>
 

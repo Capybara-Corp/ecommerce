@@ -1,12 +1,12 @@
 <?php
 
-class Model
+class model
 {
     public $db;
 
     public function __construct()
     {
-        //echo "<p>Modelo principal</p>";
-        $this->db = new Database();
+        //echo "<p>modelo principal</p>";
+        $this->db = new database();
     }
 }

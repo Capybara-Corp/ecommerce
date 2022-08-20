@@ -18,18 +18,18 @@ class Controller
     }
 
     //carga el modelo si existe
-    public function loadModel($model)
+    public function load_model($model)
     {
         //var_dump($this);
 
-        $url = 'models/' . ucfirst($model) . '_Model.php';
-        //$url = 'models/' . ucfirst($model) . '_Model.php';
+        $url = 'models/' . ucfirst($model) . '_model.php';
+        //$url = 'models/' . ucfirst($model) . '_model.php';
         //var_dump($url);
 
         if (file_exists($url)) {
             require $url;
 
-            $modelName   = ucfirst($model) . '_Model';
+            $modelName   = ucfirst($model) . '_model';
             $this->model = new $modelName();
         }
     }

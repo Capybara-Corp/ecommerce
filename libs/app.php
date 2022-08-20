@@ -1,6 +1,6 @@
 <?php
 
-require_once 'controllers/Errores_Controller.php';
+require_once 'controllers/errores_controller.php';
 
 class App
 {
@@ -11,29 +11,29 @@ class App
         $url = explode('/', $url);
 
         if (empty($url[0])) {
-            $archivoController = 'controllers/Index_Controller.php';
-            require $archivoController;
-            $controller = new Index_Controller();
-            $controller->loadModel('index');
+            $archivo_controller = 'controllers/index_controller.php';
+            require $archivo_controller;
+            $controller = new index_controller();
+            $controller->load_model('index');
             $controller->render();
             return false;
         } else {
-            $archivoController = 'controllers/' . ucfirst($url[0]) . '_Controller.php';
+            $archivo_controller = 'controllers/' . ucfirst($url[0]) . '_Controller.php';
         }
 
-        //var_dump($archivoController);
-        if (file_exists($archivoController)) {
+        //var_dump($archivo_controller);
+        if (file_exists($archivo_controller)) {
 
-            //var_dump($archivoController);
-            require $archivoController;
+            //var_dump($archivo_controller);
+            require $archivo_controller;
 
-            //var_dump($archivoController);
-            $controllerName = ucfirst($url[0]) . '_Controller';
-            //var_dump($controllerName);
+            //var_dump($archivo_controller);
+            $controller_name = ucfirst($url[0]) . '_Controller';
+            //var_dump($controller_name);
             //$controller = new $url[0]();
-            $controller = new $controllerName();
+            $controller = new $controller_name();
 
-            $controller->loadModel($url[0]);
+            $controller->load_model($url[0]);
 
             // Se obtienen el número de param
             $nparam = sizeof($url);
@@ -51,13 +51,13 @@ class App
                     $controller->{$url[1]}();
                 }
             } else {
-                // si se llama a un controlador, por defecct
+                // si se llama a un controlador, por defecto
                 //echo "<b>ejecuta el metodo por defecto</b>";
                 //var_dump($controller);
                 $controller->render();
             }
         } else {
-            $controller = new Errores_Controller();
+            $controller = new errores_controller();
         }
     }
 }

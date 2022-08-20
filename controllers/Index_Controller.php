@@ -1,11 +1,11 @@
 <?php
 
-class Index_Controller extends Controller
+class index_controller extends Controller
 {
     public function __construct()
     {
         parent::__construct();
-        //$this->view->mensaje = "Hay un error al cargar el recurso";
+        //$this->view->message = "Hay un error al cargar el recurso";
 
         //echo "<p>Controlador Index</p>";
     }

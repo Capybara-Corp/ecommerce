@@ -1,11 +1,9 @@
 <?php
 
-class Articulo
+class articulo //DTO
 {
     public $id;
-    //no va a ser usado
     public $nombre;
-    //no va a ser usado
     public $codigo;
     public $descripcion;
     public $precio;

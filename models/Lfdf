@@ -2,7 +2,7 @@
 
 include_once 'entidades/articulo.php';
 
-class Articulos_Model extends Model
+class Articulos_model extends model
 {
 
     public function __construct()
@@ -41,7 +41,7 @@ class Articulos_Model extends Model
         }
     }
 
-    public function verArticulo($id)
+    public function ver_articulo($id)
     {
         $articulo = null;
         try {

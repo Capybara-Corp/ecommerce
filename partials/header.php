@@ -1,7 +1,8 @@
 <header>
-<a href="/login">Home</a>
-    <a>About</a>
-    <a>Contact</a>
-    <a>Wallet</a>
-    <div id="separator"></div>
+    <a href="/login">INICIO</a> 
+	<a>NOSOTROS</a>
+	<a>PRODUCTOS</a>
+	<a>NOTICIAS</a>
+	<a>CARRITO</a>
+	<a>CONTACTO</a>
 </header>

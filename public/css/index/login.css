@@ -89,10 +89,3 @@ header a {
   color: #333;
   font-size: 25px;
 }
-
-header #separator {
-  margin-top: 20px;
-  height: 5px;
-  width: 100%;
-  background-color: #272727;
-}

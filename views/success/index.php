@@ -13,7 +13,7 @@
     <div id="main">
         <h1 class="center success">
         <?php
-            echo $this->mensaje;
+            echo $this->message;
         ?>
         </h1>
     </div>

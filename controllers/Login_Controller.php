@@ -2,24 +2,21 @@
 /*require_once 'vendor/autoload.php';
 require_once 'auth/Auth.php';*/
 
-class Login_Controller extends Controller
+class login_controller extends Controller
 {
     public function __construct()
     {
         parent::__construct();
-        $this->view->mensaje        = "";
+        $this->view->message        = "";
         $this->view->resultadoLogin = "";
     }
 
-    //base+login
     public function render()
     {
-        //$alumnos = $this->model->get();
-        $this->view->alumnos = "cargado";
         $this->view->render('login/index');
     }
 
-    public function ingresar()
+    /*public function ingresar()
     {
         $nombre     = $_POST['nombre'];
         $pass       = $_POST['pass'];
@@ -49,11 +46,12 @@ class Login_Controller extends Controller
         session_destroy();
         $this->view->render('index/index');
 
-    }
+    }*/
+
     public function signin()
     {
 
-        //rendeizar el formulario
+        //renderizar el formulario
         $this->view->render('login/signin');
 
     }
@@ -72,12 +70,11 @@ class Login_Controller extends Controller
             //code...
         } catch (Exception $e) {
             //throw $th;
-            $this->view->mensaje = "error al ingresar";
+            $this->view->message = "error al ingresar";
         }
         /*recibir los datos*/
 
-        //rendeizar el formulario
-
+        //renderizar el formulario
         $this->view->render('login/sign');
 
     }

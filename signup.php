@@ -1,7 +1,7 @@
 <?php 
     require 'database.php';
     
-    $message = ''; //Variable para almacenar el mensaje de error.
+    $message = ''; //Variable para almacenar el message de error.
 
 //En caso de que los campos no esten vacíos puede empezar a añadir los datos a la base
 if (!empty($_POST['email']) && !empty($_POST['password'])) {
@@ -33,8 +33,8 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
     
     <?php require 'partials/header.php' ?>
     
-    <?php if(!empty($message)): ?> <!-- Si el mensaje no está vacío -->
-        <p> <?= $message ?></p> <!-- Se muestra el mensaje -->
+    <?php if(!empty($message)): ?> <!-- Si el message no está vacío -->
+        <p> <?= $message ?></p> <!-- Se muestra el message -->
     <?php endif; ?>
     
     <h1>Sign Up</h1>

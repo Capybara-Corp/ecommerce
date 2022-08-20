@@ -2,7 +2,7 @@
 
 include_once 'entidades/articulo.php';
 
-class Login_Model extends Model
+class login_model extends model
 {
 
     public function __construct()
@@ -41,7 +41,7 @@ class Login_Model extends Model
         }
     }
 
-    public function verArticulo($id)
+    public function ver_articulo($id)
     {
         $articulo = null;
         try {
@@ -98,7 +98,7 @@ class Login_Model extends Model
 
         $resultado = false;
         $pdo       = $this->db->connect();
-        $mensaje   = "fallo el ingreso";
+        $message   = "fallo el ingreso";
         try {
 
             $query = $connection->prepare('SELECT id, email, password FROM users WHERE email = :email');
@@ -112,10 +112,10 @@ class Login_Model extends Model
                 $_SESSION['user_id'] = $results['id']; //Se guarda el id del usuario en la sesión
                 header("Location: index.php"); //Se redirecciona a la página principal
             } else { //Si el usuario no existe o la contraseña es incorrecta
-                $message = 'Lo sentimos, tu email o contraseña no son correctos.'; //Se muestra un mensaje de error
+                $message = 'Lo sentimos, tu email o contraseña no son correctos.'; //Se muestra un message de error
             }
 
-            return $mensaje;
+            return $message;
         } catch (PDOException $e) {
             return false;
         } finally {
