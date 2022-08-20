@@ -2,7 +2,7 @@
 /*require_once 'vendor/autoload.php';
 require_once 'auth/Auth.php';*/
 
-class login_controller extends Controller
+class login_controller extends controller
 {
     public function __construct()
     {

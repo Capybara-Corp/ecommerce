@@ -5,7 +5,7 @@
 /*manejo de ccookies */
 //var_dump(constant('URL'));
 
-class Controller
+class controller
 {
     public $model;
     public $view;

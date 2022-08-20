@@ -18,7 +18,7 @@ class app
             $controller->render();
             return false;
         } else {
-            $archivo_controller = 'controllers/' . ucfirst($url[0]) . '_Controller.php';
+            $archivo_controller = 'controllers/' . ucfirst($url[0]) . '_controller.php';
         }
 
         //var_dump($archivo_controller);
@@ -28,7 +28,7 @@ class app
             require $archivo_controller;
 
             //var_dump($archivo_controller);
-            $controller_name = ucfirst($url[0]) . '_Controller';
+            $controller_name = ucfirst($url[0]) . '_controller';
             //var_dump($controller_name);
             //$controller = new $url[0]();
             $controller = new $controller_name();

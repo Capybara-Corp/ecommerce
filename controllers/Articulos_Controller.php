@@ -1,6 +1,6 @@
 <?php
 
-class articulos_controller extends Controller
+class articulos_controller extends controller
 {
     public function __construct()
     {
