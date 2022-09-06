@@ -1,6 +1,6 @@
 <?php
 
-require_once 'controllers/Errores_Controller.php';
+require_once 'controllers/errores_controller.php';
 
 class App
 {
@@ -11,24 +11,24 @@ class App
         $url = explode('/', $url);
 
         if (empty($url[0])) {
-            $archivoController = 'controllers/Index_Controller.php';
-            require $archivoController;
-            $controller = new Index_Controller();
+            $archivocontroller = 'controllers/index_controller.php';
+            require $archivocontroller;
+            $controller = new index_controller();
             $controller->loadModel('index');
             $controller->render();
             return false;
         } else {
-            $archivoController = 'controllers/' . ucfirst($url[0]) . '_Controller.php';
+            $archivocontroller = 'controllers/' . ucfirst($url[0]) . '_controller.php';
         }
 
-        //var_dump($archivoController);
-        if (file_exists($archivoController)) {
+        //var_dump($archivocontroller);
+        if (file_exists($archivocontroller)) {
 
-            //var_dump($archivoController);
-            require $archivoController;
+            //var_dump($archivocontroller);
+            require $archivocontroller;
 
-            //var_dump($archivoController);
-            $controllerName = ucfirst($url[0]) . '_Controller';
+            //var_dump($archivocontroller);
+            $controllerName = ucfirst($url[0]) . '_controller';
             //var_dump($controllerName);
             //$controller = new $url[0]();
             $controller = new $controllerName();
@@ -57,7 +57,7 @@ class App
                 $controller->render();
             }
         } else {
-            $controller = new Errores_Controller();
+            $controller = new errores_controller();
         }
     }
 }

@@ -1,11 +1,17 @@
 <?php
 
+require_once 'traduccion/Translate.php';
+use \SimpleTranslation\Translate;
+
 //require_once 'config/config.php';
 
 /*manejo de ccookies */
 //var_dump(constant('URL'));
 
-class Controller
+$idioma = $_COOKIE['idioma'] ?? "es";
+Translate::init($idioma, "lang/" . $idioma . ".php");
+
+class controller
 {
     public $model;
     public $view;
@@ -29,7 +35,7 @@ class Controller
         if (file_exists($url)) {
             require $url;
 
-            $modelName   = ucfirst($model) . '_Model';
+            $modelName = ucfirst($model) . '_Model';
             $this->model = new $modelName();
         }
     }
