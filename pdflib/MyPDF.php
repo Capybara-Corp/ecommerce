@@ -44,8 +44,8 @@ class MyPDF extends FPDF
     }
     public function AcceptPageBreak()
     {
-        #procedimiento que ejecuta cuando se excede el
-        #contenido de una pagina
+        /*procedimiento que ejecuta cuando se excede el
+        contenido de una pagina*/
         $this->AddPage();
         $this->SetXY(10, 30);
     }
