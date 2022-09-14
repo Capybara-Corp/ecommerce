@@ -1,11 +1,11 @@
 <?php
 
-class articulos_controller extends controller
+class Articulos_Controller extends Controller
 {
     public function __construct()
     {
         parent::__construct();
-        $this->view->message        = "";
+        $this->view->message         = "";
         $this->view->resultado_login = "";
     }
 
@@ -33,6 +33,9 @@ class articulos_controller extends controller
 
     public function listar()
     {
+        /*
+        listo todos los articulos
+         */
         $this->view->lista = $this->model->listar();
         //$this->view->lista = ["articulo01", "articulo02"];
         $this->view->render('articulos/listar');
