@@ -49,7 +49,10 @@ function fetch_async_compra(id, cant) {
   data.set("id", id);
   data.set("cantidad", cant);
 
-  fetch("update_bd.php", {
+  let urlupdateCarrito = urlBase + "CargarArticulos/listar";
+  console.log("urlupdateCarrito" + urlupdateCarrito);
+
+  fetch(urlupdateCarrito, {
     method: "POST",
     body: data,
   })
