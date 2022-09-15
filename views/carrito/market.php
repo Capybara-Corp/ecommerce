@@ -8,9 +8,8 @@
   <title>market shop</title>
   <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/carrito/style_market.css">
   <script src="<?php echo constant('URL'); ?>public/js/carrito/script_shop_loaded.js"></script>
-  <!--
   <script src="<?php echo constant('URL'); ?>public/js/carrito/script_carrito_charger.js"></script>
--->
+
 </head>
 
 <body>
