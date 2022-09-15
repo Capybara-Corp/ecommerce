@@ -1,5 +1,6 @@
 <?php
 
+require_once 'models/Articulos_Model.php';
 class CargarArticulos_Controller extends Controller
 {
     public function __construct()
@@ -20,9 +21,9 @@ class CargarArticulos_Controller extends Controller
     public function listar()
     {
         //$alumnos = $this->model->get();
-        $model                 = new Articulos_Model();
-        $this->view->articulos = $model->listar();
-        $this->view->render('articulos/listar');
+        $model            = new Articulos_Model();
+        $this->view->data = $model->listar();
+        $this->view->render('cargararticulos/listar');
     }
 
 }

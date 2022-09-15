@@ -2,13 +2,10 @@
 
 class ArticuloDto
 {
-    public $id;
-    //no va a ser usado
+
+    public $id_producto;
     public $nombre;
-    //no va a ser usado
-    public $codigo;
-    public $descripcion;
     public $precio;
-    public $fecha;
-    public $url;
+    public $descrip;
+    public $cantidad;
 }

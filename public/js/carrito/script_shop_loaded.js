@@ -5,9 +5,10 @@ function load_shop() {
   /*
   hacer esa funcion
   */
-  let urlcargarmercado = urlBase + "load_market.php";
+  //let urlcargarmercado = urlBase + "load_market.php";
+  let urlcargarmercado = urlBase + "CargarArticulos/listar";
 
-  fetch("load_market.php")
+  fetch(urlcargarmercado)
     .then(function (response) {
       if (response.ok) {
         return response.text();
