@@ -1,6 +1,6 @@
 <?php
 
-class Articulo
+class ArticuloDto
 {
     public $id;
     //no va a ser usado

@@ -1,5 +1,6 @@
 let map_productos_carrito = new Map();
 let carrito;
+let urlBase;
 function carrito_charger(id, nombre, precio) {
   if (map_productos_carrito.has(id)) {
     //alert("Producto añadido al carrito");
@@ -72,4 +73,7 @@ function fetch_async_compra(id, cant) {
 
 document.addEventListener("DOMContentLoaded", function (event) {
   carrito = document.querySelector("#carrito_content");
+  //alert("script02");
+  let urlBase = document.getElementById("urlBase").value;
+  console.log(urlBase);
 });

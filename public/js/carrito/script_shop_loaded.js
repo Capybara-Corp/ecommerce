@@ -1,6 +1,11 @@
-
+let urlBase;
 function load_shop() {
   const market = document.querySelector(".celda_market");
+
+  /*
+  hacer esa funcion
+  */
+  let urlcargarmercado = urlBase + "load_market.php";
 
   fetch("load_market.php")
     .then(function (response) {
@@ -22,4 +27,7 @@ function load_shop() {
 document.addEventListener("DOMContentLoaded", function (event) {
   carrito = document.querySelector("#carrito_content");
   load_shop();
+  let urlBase = document.getElementById("urlBase").value;
+  console.log(urlBase);
+  //alert("cargo");
 });
