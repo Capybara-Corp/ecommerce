@@ -1,4 +1,4 @@
-let urlBase;
+let urlBase02;
 function load_shop() {
   const market = document.querySelector(".celda_market");
 
@@ -6,7 +6,8 @@ function load_shop() {
   hacer esa funcion
   */
   //let urlcargarmercado = urlBase + "load_market.php";
-  let urlcargarmercado = urlBase + "CargarArticulos/listar";
+  let urlcargarmercado = urlBase02 + "CargarArticulos/listar";
+  console.log("urlcargarmercado" + urlcargarmercado);
 
   fetch(urlcargarmercado)
     .then(function (response) {
@@ -27,8 +28,8 @@ function load_shop() {
 
 document.addEventListener("DOMContentLoaded", function (event) {
   carrito = document.querySelector("#carrito_content");
+  urlBase02 = document.getElementById("urlBase").value;
   load_shop();
-  let urlBase = document.getElementById("urlBase").value;
-  console.log(urlBase);
+  console.log(urlBase02);
   //alert("cargo");
 });

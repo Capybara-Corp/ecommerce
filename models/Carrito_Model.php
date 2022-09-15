@@ -1,7 +1,7 @@
 <?php
 
 #require_once 'entidades/alumno.php';
-require_once 'entidades/articulo.php';
+require_once 'entidades/ArticuloDto.php';
 
 class Carrito_Model extends Model
 {
@@ -22,7 +22,7 @@ class Carrito_Model extends Model
             $urlDefecto = constant('URL') . 'public/imagenes/articulos/imagenDefecto.svg';
             $query      = $this->db->connect()->query('SELECT id_productos, codigo,descripcion,precio,fecha FROM productos');
             while ($row = $query->fetch()) {
-                $item              = new Articulo();
+                $item              = new ArticuloDto();
                 $item->id          = $row['id_productos'];
                 $item->codigo      = $row['codigo'];
                 $item->descripcion = $row['descripcion'];
