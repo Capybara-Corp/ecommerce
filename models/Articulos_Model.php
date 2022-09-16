@@ -27,6 +27,7 @@ class Articulos_Model extends Model
             while ($row = $query->fetch()) {
                 $item              = new ArticuloDto();
                 $item->id_producto = $row['id_producto'];
+                $item->img = $row['imagenes'];
                 $item->nombre      = $row['nombre'];
                 $item->precio      = $row['precio'];
                 $item->descrip     = $row['descrip'];
