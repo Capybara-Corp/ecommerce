@@ -1,0 +1,146 @@
+@media all and (min-width: 768px){
+  .toggle-menu{
+    display: none;
+  }
+}
+
+body {
+  box-sizing: border-box;
+  margin: 0;
+  position: relative;
+  padding-bottom: 3em;
+  min-height: 100vh;
+  background-image: url(public/media/winery-factory.jpg);
+  background-size: 100vw 100vh;
+  background-attachment: fixed
+}
+
+a{
+  text-decoration: none;
+  color: white;
+}
+
+nav {
+  width: 100%;
+  height: 90px;
+}
+
+
+.toggle-menu{
+  position: absolute;
+  top: 1.5vh;
+  right: 2vw;
+  cursor: pointer;
+  filter:invert(1);
+  width: 40px;
+}
+
+.main-menu {
+  width: 100%;
+  height: 90px;
+  display: flex;
+  /*el display flex nos permite manipular la orientacion a gusto de los elementos hijos de un contenedor*/
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  /*alinea en horizontal*/
+  align-items: center;
+  /*alinea en vertical*/
+  margin: 0;
+  padding: 0;
+}
+
+.main-menu li {
+  float: left;
+  /*propiedad que permite a diferentes elementos posicionarse al lado del otro*/
+  margin: 0 3vw;
+  /*margin acepta 2 (arriba y abajo, derecha e izquierda) y 4 (arriba, derecha, abajo, izquierda)*/
+  list-style: none;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  /*propiedad que nos permite establecer el grosor de una fuente, va de 0 a 900 en centenas*/
+  font-size: 1.3vw;
+}
+
+.main-menu li:hover {
+  cursor: pointer;
+  transition: all 0.2s ease;
+  transform: scale(1.1);
+}
+
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#mid_container{
+  margin-top: 2vh;
+  margin-right: auto;
+  margin-left: auto;
+  width: 90vw;
+  height: 1600px;
+  background-color: white;
+}
+
+.title{
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 35px;
+}
+.paragraph{
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 25px;
+}
+
+#ourHistory h1{
+  padding-top: 10%;
+  padding-left: 10%;
+  font-weight: 900;
+}
+#ourHistory p{
+  width: 550px;
+  padding-left: 5%;
+}
+#ourHistory img{
+  float: right;
+  margin-right: 10%;
+  margin-top: -350px;
+}
+#ourHistory i{
+  margin-top: 80px;
+  margin-right: -400px;
+  font-size: 20px;
+  float: right;
+}
+
+#ourTeam{
+  margin-top: 300px;
+}
+
+#ourTeam img{
+  width: 550px;
+  height: 413px;
+  float: left;
+  margin-left: 10%;
+}
+#ourTeam h1{
+  float: right;
+  padding-right: 20%;
+  font-weight: 900;
+}
+#ourTeam p{
+  float: right;
+  width: 550px;
+  padding-right: 15%;
+  text-align: center;
+}
+#ourTeam i{
+  margin-top: 430px;
+  margin-left: -550px;
+  font-size: 20px;
+  float: left;
+}
