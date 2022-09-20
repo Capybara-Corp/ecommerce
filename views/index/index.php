@@ -20,8 +20,8 @@
 				<img src="public/media/menu.png">
 				</div>  <!-- Este div contiene la imagen del boton para abrir el menu -->
 				<ul class="main-menu" id="main-menu">
-				<li><a href="index.html">INICIO</a></li>
-				<li><a href="nosotros.html">NOSOTROS</a></li>
+				<li><a href="<?php echo $defaultUrl ?>">INICIO</a></li>
+				<li><a href="<?php echo $defaultUrl ?>nosotros">NOSOTROS</a></li>
 				<li>PRODUCTOS</li>
 				<li>NOTICIAS</li>
 				<li>CARRITO</li>

@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
   	<meta http-equiv="X-UA-Compatible" content="IE=edge">
   	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  	<link rel="stylesheet" href="nosotros.css">
+  	<link rel="stylesheet" href="public/css/index/nosotros.css">
   	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Roboto:wght@100;300;400&display=swap" rel="stylesheet">
@@ -15,11 +15,11 @@
 	<section id="container_big">  
 		<nav class="noselect">
 			<div id="toggle-menu" class="toggle-menu">
-			<img src="media/menu.png">
+			<img src="public/media/menu.png">
 			</div>
 			<ul class="main-menu">
-			<li><a href="index.html">INICIO</a></li>
-			<li><a href="nosotros.html">NOSOTROS</a></li>
+			<li><a href="<?php echo $defaultUrl ?>">INICIO</a></li>
+			<li><a href="<?php echo $defaultUrl ?>nosotros">NOSOTROS</a></li>
 			<li>PRODUCTOS</li>
 			<li>NOTICIAS</li>
 			<li>CARRITO</li>
@@ -38,12 +38,12 @@
 		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 		consequat.
 		</p>
-		<img src="media/ancient.jpg" id="firstLocal" class="noselect">
+		<img src="public/media/ancient.jpg" id="firstLocal" class="noselect">
 		<i class="paragraph noselect">Nuestro primer local, inaugurado en 1963</i>
 		</div>
 
 		<div id="ourTeam">
-		<img src="media/team.png" class="noselect">
+		<img src="public/media/team.png" class="noselect">
 		<i class="paragraph noselect">Nuestro equipo de trabajo</i>
 		<h1 class="title noselect">NUESTROS OBJETIVOS</h1>
 		<p class="noselect paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
