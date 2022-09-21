@@ -10,7 +10,7 @@ body {
   position: relative;
   padding-bottom: 3em;
   min-height: 100vh;
-  background-image: url(public/media/winery-factory.jpg);
+  background-image: url(../../media/winery-factory.jpg);
   background-size: 100vw 100vh;
   background-attachment: fixed
 }
