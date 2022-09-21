@@ -20,7 +20,7 @@
 			<ul class="main-menu" id="main-menu">
 			<li><a href="<?php echo $defaultUrl ?>index">INICIO</a></li>
 			<li><a href="<?php echo $defaultUrl ?>nosotros">NOSOTROS</a></li>
-			<li>PRODUCTOS</li>
+			<li><a href="<?php echo $defaultUrl ?>carrito/market">PRODUCTOS</a></li>
 			<li>NOTICIAS</li>
 			<li>CARRITO</li>
 			<li>CONTACTO</li>

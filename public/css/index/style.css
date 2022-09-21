@@ -349,17 +349,10 @@ img{
 /* Anuncio gigante fin-- */
 
 #bot_container {
-  display: grid;
-  grid-template-columns: repeat(4, 400px);
-  grid-template-rows: repeat(2, 450px);
-  grid-column-gap: 0.2vw; /* Establezco mi grilla, en este caso, 4 columnas y 2 filas */
+  width: 1620px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 10px;
-  width: 1620px;
   height: 800px;
-  justify-content: center;
-  margin-bottom: 250px;
 }
 
 .product {
@@ -385,15 +378,30 @@ img{
   font-size: 15px;
 }
 
+#bot_container a{
+  cursor: default;
+  display: grid;
+  grid-template-columns: repeat(4, 400px);
+  grid-template-rows: repeat(2, 450px);
+  grid-column-gap: 0.2vw; /* Establezco mi grilla, en este caso, 4 columnas y 2 filas */
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  margin-bottom: 1000px;
+  width: 1620px;
+  height: 800px;
+}
+
 .product .price {
   font-size: 20px;
 }
 
 .footer {
   position: absolute;
-  bottom: 0;
+  bottom: 0!important;
   padding: 1em 0;
   text-align: center;
+  height: 100px;
   width: 100%;
   background-color: #111111;
 }

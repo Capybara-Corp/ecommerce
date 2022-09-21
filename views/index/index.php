@@ -22,7 +22,7 @@
 				<ul class="main-menu" id="main-menu">
 				<li><a href="<?php echo $defaultUrl ?>">INICIO</a></li>
 				<li><a href="<?php echo $defaultUrl ?>nosotros">NOSOTROS</a></li>
-				<li>PRODUCTOS</li>
+				<li><a href="<?php echo $defaultUrl ?>carrito/market">PRODUCTOS</a></li>
 				<li>NOTICIAS</li>
 				<li>CARRITO</li>
 				<li>CONTACTO</li>
@@ -80,7 +80,7 @@
 	</section> <!-- Este section contiene la imagen grande con los quesos, y el botón de comprar -->
 
 	<section id="bot_container">
-
+	<a href="<?php echo $defaultUrl ?>carrito/market">
 		<div class="product">
 			<img src="public/media/bottles/bottle1.png">
 			<p>VINO PINDONGA</p>
@@ -128,6 +128,7 @@
 			<p>VINO PINDONGA</p>
 			<p class="price">$590</p>
 		</div>
+	</a>
 		
 
 	</section> <!-- Este section contiene los articulos de vino en la grilla -->
