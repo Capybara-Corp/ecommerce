@@ -17,8 +17,8 @@
 			<div id="toggle-menu" class="toggle-menu">
 			<img src="public/media/menu.png">
 			</div>
-			<ul class="main-menu">
-			<li><a href="<?php echo $defaultUrl ?>">INICIO</a></li>
+			<ul class="main-menu" id="main-menu">
+			<li><a href="<?php echo $defaultUrl ?>index">INICIO</a></li>
 			<li><a href="<?php echo $defaultUrl ?>nosotros">NOSOTROS</a></li>
 			<li>PRODUCTOS</li>
 			<li>NOTICIAS</li>
@@ -53,6 +53,8 @@
 		</p>
 		</div>
 	</section>
+
+	<script type="text/javascript" src="public/js/menu.js"></script>
 
 
 </body>
