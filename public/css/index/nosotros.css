@@ -114,7 +114,7 @@ img{
   margin-right: auto;
   margin-left: auto;
   width: 90vw;
-  height: 1600px;
+  height: 200vh;
   background-color: white;
 }
 
@@ -152,37 +152,43 @@ img{
 
 }
 #firstLocalI{
-  margin-top: 80px;
-  margin-right: -400px;
-  font-size: 20px;
+  position: relative;
+  margin-right: 15vw;
+  margin-top: 0vh;
+  font-size: 1vw;
   float: right;
+}
+
+#partners{
+  position: relative;
+  width: 30vw;
+  height: auto;
+  float: left;
+
+}
+#partnersI{
+  position: relative;
+  margin-left: 15vw;
+  margin-top: 0vh;
+  font-size: 1vw;
+  float: left;
 }
 
 #ourTeam{
-}
-
-#ourTeam img{
-  width: 550px;
-  height: 413px;
   float: left;
-  margin-left: 10%;
+  margin-top: 5vh;
 }
 #ourTeam h1{
   float: right;
-  padding-right: 20%;
+  padding-top: 2vh;
+  padding-right: 10vw;
   font-weight: 900;
 }
 #ourTeam p{
   float: right;
   width: 550px;
-  padding-right: 15%;
+  padding-right: 10vw;
   text-align: center;
-}
-#ourTeam i{
-  margin-top: 430px;
-  margin-left: -550px;
-  font-size: 20px;
-  float: left;
 }
 
 .footer {

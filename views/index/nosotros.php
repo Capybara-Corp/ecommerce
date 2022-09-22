@@ -42,9 +42,11 @@
 		<img src="public/media/ancient.jpg" id="firstLocal" class="noselect">
 		<i class="paragraph noselect" id="firstLocalI">Nuestro primer local, inaugurado en 1963</i>
 
+		
+		<img src="public/media/team.png" id="partners" class="noselect">
+		<i class="paragraph noselect" id="partnersI" >Nuestro equipo de trabajo</i>
+
 		<div id="ourTeam">
-		<img src="public/media/team.png" class="noselect">
-		<i class="paragraph noselect">Nuestro equipo de trabajo</i>
 		<h1 class="title noselect">NUESTROS OBJETIVOS</h1>
 		<p class="noselect paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
