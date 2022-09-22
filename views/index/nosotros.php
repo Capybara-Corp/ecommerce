@@ -38,9 +38,9 @@
 		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 		consequat.
 		</p>
-		<img src="public/media/ancient.jpg" id="firstLocal" class="noselect">
-		<i class="paragraph noselect">Nuestro primer local, inaugurado en 1963</i>
 		</div>
+		<img src="public/media/ancient.jpg" id="firstLocal" class="noselect">
+		<i class="paragraph noselect" id="firstLocalI">Nuestro primer local, inaugurado en 1963</i>
 
 		<div id="ourTeam">
 		<img src="public/media/team.png" class="noselect">
@@ -53,6 +53,11 @@
 		</p>
 		</div>
 	</section>
+
+	<footer class="footer">
+	<p>FOOTER</p>
+	<p>COPYRIGHT 2022</p>
+	</footer> <!-- Este es el footer -->
 
 	<script type="text/javascript" src="public/js/menu.js"></script>
 

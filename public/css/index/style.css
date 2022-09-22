@@ -353,6 +353,7 @@ img{
   margin-left: auto;
   margin-right: auto;
   height: 800px;
+  margin-bottom: 30vh;
 }
 
 .product {
@@ -427,6 +428,11 @@ img{
 
 @media all and (max-width: 768px) { /* Las famosas media query, alcanza con saber que cuando el ancho sea menor de 768 pixeles, se aplican los estilos de abajo */
   #bot_container {
+    width: 750px;
+    height: 1700px;
+  }
+  
+  #bot_container a{
     grid-template-columns: repeat(2, 300px);
     grid-template-rows: repeat(4, 250px); /* Ahora la grilla tiene 2 columnas y 4 filas, contrario a antes */
     grid-row-gap: 25vh;

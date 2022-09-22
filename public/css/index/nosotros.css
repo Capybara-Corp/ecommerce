@@ -120,11 +120,18 @@ img{
 
 .title{
   font-family: 'Noto Sans', sans-serif;
-  font-size: 35px;
+  font-size: 3vw;
 }
 .paragraph{
   font-family: 'Noto Sans', sans-serif;
-  font-size: 25px;
+  font-size: 2vw;
+}
+
+#ourHistory {
+  float: left;
+  padding-top: 5vh;
+  padding-left: 5vw;
+  width: 35vw;
 }
 
 #ourHistory h1{
@@ -133,15 +140,18 @@ img{
   font-weight: 900;
 }
 #ourHistory p{
-  width: 550px;
+  width: 100%;
   padding-left: 5%;
 }
-#ourHistory img{
+#firstLocal{
+  width: 30vw;
+  height: auto;
   float: right;
-  margin-right: 10%;
-  margin-top: -350px;
+  margin-right: 5vw;
+  margin-top: 20vh;
+
 }
-#ourHistory i{
+#firstLocalI{
   margin-top: 80px;
   margin-right: -400px;
   font-size: 20px;
@@ -149,7 +159,6 @@ img{
 }
 
 #ourTeam{
-  margin-top: 300px;
 }
 
 #ourTeam img{
@@ -174,4 +183,18 @@ img{
   margin-left: -550px;
   font-size: 20px;
   float: left;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0!important;
+  padding: 1em 0;
+  text-align: center;
+  height: 100px;
+  width: 100%;
+  background-color: #111111;
+}
+
+.footer p {
+  color: white;
 }
