@@ -430,6 +430,7 @@ img{
   #bot_container {
     width: 750px;
     height: 1700px;
+    margin-bottom: 50vh;
   }
   
   #bot_container a{
@@ -439,7 +440,6 @@ img{
     margin-top: 350px;
     width: 600px;
     height: 1650px;
-
   }
 
   #ad {

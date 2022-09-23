@@ -116,6 +116,7 @@ img{
   width: 90vw;
   height: 200vh;
   background-color: white;
+  word-break: break-all;
 }
 
 .title{
@@ -163,32 +164,33 @@ img{
   position: relative;
   width: 30vw;
   height: auto;
-  float: left;
-
+  top: 10vh;
+  right: 35vw;
 }
 #partnersI{
   position: relative;
-  margin-left: 15vw;
-  margin-top: 0vh;
+  margin-left: 10vw;
+  margin-top: 10vh;
   font-size: 1vw;
   float: left;
 }
 
 #ourTeam{
-  float: left;
-  margin-top: 5vh;
+  float: right;
+  margin-right: 5vw;
+  width: 45vw;
+  height: 50vh;
+  word-break: break-all; /* Para que las palabras no se salgan del contenedor */
 }
 #ourTeam h1{
-  float: right;
-  padding-top: 2vh;
-  padding-right: 10vw;
+  position: relative;
+  text-align: center;
   font-weight: 900;
 }
 #ourTeam p{
-  float: right;
-  width: 550px;
-  padding-right: 10vw;
-  text-align: center;
+  position: relative;
+  width: 100%;
+  text-align: right;
 }
 
 .footer {
@@ -203,4 +205,78 @@ img{
 
 .footer p {
   color: white;
+}
+
+@media all and (max-width: 768px) {
+  #mid_container {
+    height: 400vh;
+  }
+
+
+  #ourHistory {
+    float: none;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0;
+    width: 70vw;
+  }
+  #ourHistory h1 {
+    padding-left: 0;
+    font-size: 7vw;
+  }
+  #ourHistory p {
+    padding-left: 0;
+    font-size: 4vw;
+  }
+
+  #firstLocal {
+    width: 70vw;
+    float: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #firstLocalI {
+    font-size: 2vw;
+    float: left;
+    margin-left: 10vw;
+  }
+
+  #partners {
+    width: 70vw;
+    float: none;
+    display: block;
+    margin-top: 20vh;
+    margin-left: 50%;
+    margin-right: auto;
+  }
+
+  #partnersI {
+    font-size: 2vw;
+    float: left;
+    margin-left: 10vw;
+  }
+
+  #ourTeam {
+    float: none;
+    margin-top: 20vh;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0;
+    width: 70vw;
+  }
+  #ourTeam h1 {
+    padding-left: 0;
+    font-size: 6vw;
+  }
+  #ourTeam p {
+    padding-left: 0;
+    font-size: 4vw;
+    text-align: center;
+  }
+
+
 }
