@@ -74,7 +74,7 @@ img{
 }
 
 .main-menu li {
-  background: red; /* Le doy un color de fondo para que se vea correctamente */
+  background: rgba(0, 0, 0, 0.9); /* Le doy un color de fondo para que se vea correctamente */
   width: 100%;
   padding: 2.3em; /* Las unidades "em" sirven para delimitar según el ancho de la letra */
   text-align: center;
