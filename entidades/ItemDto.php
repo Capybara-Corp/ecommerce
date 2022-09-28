@@ -2,8 +2,8 @@
 {
     public $id;
     public $precio;
-    public $descripcion;
+    //public $descripcion;
     public $url;
-    public $cantidad;
-    public $codigo;
+    //public $cantidad;
+    //public $codigo;
 }
