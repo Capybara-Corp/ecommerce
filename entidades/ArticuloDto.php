@@ -7,5 +7,5 @@ class ArticuloDto
     public $nombre;
     public $precio;
     //public $descrip;
-    //public $cantidad;
+    public $cantidad;
 }

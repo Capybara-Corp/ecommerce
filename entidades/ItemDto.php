@@ -4,6 +4,6 @@
     public $precio;
     //public $descripcion;
     public $url;
-    //public $cantidad;
+    public $cantidad;
     //public $codigo;
 }

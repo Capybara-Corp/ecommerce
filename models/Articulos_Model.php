@@ -27,11 +27,11 @@ class Articulos_Model extends Model
             while ($row = $query->fetch()) {
                 $item              = new ArticuloDto();
                 $item->id_producto = $row['pid'];
-                // $item->img = $row['imagenes'];
+                $item->img = $row['img'];
                 $item->nombre      = $row['nombre'];
                 $item->precio      = $row['precio_venta'];
                 // $item->descrip     = $row['descrip'];
-                // $item->cantidad    = $row['cantidad'];
+                $item->cantidad    = $row['cantidad'];
                 //array_push($items, $item);
                 $items[] = $item;
 

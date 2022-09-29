@@ -19,7 +19,7 @@ class CargarArticulos_Controller extends Controller
         $this->view->data = $model->listar();
         $this->view->render('cargararticulos/listar');
     }
-    /* public function update()
+    public function update()
     {
         //$alumnos = $this->model->get();
         $id       = $_POST['id'];
@@ -34,7 +34,7 @@ class CargarArticulos_Controller extends Controller
         } else {
             echo "Compra realizada con exito.";
         }
-    } */
+    }
 
 
 }

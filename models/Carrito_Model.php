@@ -42,7 +42,7 @@ class Carrito_Model extends Model
             return [];
         }
     }
-    /*
+
     public function update($id, $cantidad)
     {
         //define un arreglo en php
@@ -82,5 +82,4 @@ class Carrito_Model extends Model
             $pdo = null;
         }
     }
-    */
 }
