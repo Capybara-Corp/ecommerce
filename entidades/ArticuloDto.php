@@ -3,7 +3,7 @@
 class ArticuloDto
 {
 
-    public $id_producto;
+    public $pid;
     public $nombre;
     public $precio;
     //public $descrip;

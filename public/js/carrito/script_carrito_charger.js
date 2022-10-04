@@ -1,15 +1,15 @@
 let map_productos_carrito = new Map();
 let carrito;
 let urlBase;
-function carrito_charger(id, nombre, precio) {
-  if (map_productos_carrito.has(id)) {
+function carrito_charger(pid, nombre, precio) {
+  if (map_productos_carrito.has(pid)) {
     //alert("Producto añadido al carrito");
-    cant = map_productos_carrito.get(id).cant + 1;
-    precio = map_productos_carrito.get(id).precio;
+    cant = map_productos_carrito.get(pid).cant + 1;
+    precio = map_productos_carrito.get(pid).precio;
   } else {
     cant = 1;
   }
-  map_productos_carrito.set(id, {
+  map_productos_carrito.set(pid, {
     nombre: nombre,
     precio: precio,
     cant: cant,
@@ -17,8 +17,8 @@ function carrito_charger(id, nombre, precio) {
   refreshCarrito();
 }
 
-function clearoneoneCarrito(id) {
-  map_productos_carrito.delete(String(id));
+function clearoneoneCarrito(pid) {
+  map_productos_carrito.delete(String(pid));
   refreshCarrito();
 }
 
@@ -44,13 +44,13 @@ function generar_compra() {
   }
 }
 
-function fetch_async_compra(id, cant) {
+function fetch_async_compra(pid, cant) {
   const data = new FormData();
-  data.set("pid", id);
+  data.set("pid", pid);
   data.set("cantidad", cant);
 
-  let urlupdateCarrito = urlBase + "CargarArticulos/listar";
-  console.log("urlupdateCarrito" + urlupdateCarrito);
+  let urlupdateCarrito = "/ecommerce/CargarArticulos/listar";
+  console.log("urlupdateCarrito " + urlupdateCarrito);
 
   fetch(urlupdateCarrito, {
     method: "POST",

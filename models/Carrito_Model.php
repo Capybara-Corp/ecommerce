@@ -23,7 +23,7 @@ class Carrito_Model extends Model
             $query      = $this->db->connect()->query('SELECT pid, precio_venta FROM PRODUCTOS');
             while ($row = $query->fetch()) {
                 $item              = new ArticuloDto();
-                $item->id          = $row['pid'];
+                $item->pid          = $row['pid'];
                 //$item->codigo      = $row['codigo'];
                 //$item->descripcion = $row['descripcion'];
                 $item->precio      = $row['precio_venta'];
@@ -43,7 +43,7 @@ class Carrito_Model extends Model
         }
     }
 
-    public function update($id, $cantidad)
+    public function update($pid, $cantidad)
     {
         //define un arreglo en php
         //$items = array();
@@ -57,7 +57,7 @@ class Carrito_Model extends Model
             $query    = $pdo->query('SELECT * FROM PRODUCTOS');
             $query->execute();
             while ($row = $query->fetch()) {
-                if (strcmp($row['pid'], $id) == 0) {
+                if (strcmp($row['pid'], $pid) == 0) {
                     $cantidad = $row['cantidad'];
                     $cantidad = $cantidad - $compra;
                 }
@@ -68,9 +68,9 @@ class Carrito_Model extends Model
                 echo "Stock Insuficiente";
                 # code...
             } else {
-                $query = $pdo->query('UPDATE PRODUCTOS SET cantidad=:cantidad WHERE id_producto=:id');
+                $query = $pdo->query('UPDATE PRODUCTOS SET cantidad=:cantidad WHERE pid=:pid');
                 $query->bindParam(':cantidad', $articulo->codigo);
-                $query->bindParam(':id', $id);
+                $query->bindParam(':pid', $pid);
                 $query->execute();
                 //$conn->prepare($sql)->execute([$cantidad, $id]);
                 echo "Compra realizada con exito.";

@@ -11,7 +11,7 @@ a{
     width: 100%;
     height: 90px;
     background-color: black;
-    z-index: 99;
+    z-index: 1;
   }
   
   img{
@@ -29,7 +29,7 @@ a{
   }
   
   .main-menu {
-    z-index: 99;
+    z-index: 1;
     width: 100%;
     height: 90px;
     display: flex;
@@ -90,9 +90,11 @@ a{
     /* Animaciones para cuando se le hace hover al menú */
   }
 
+.contenedor-index{
+  z-index: -1;
+}
 
 #contenedor_market {
-    z-index: -99;
     position: relative;
     display: grid;
     width: 90vw;
