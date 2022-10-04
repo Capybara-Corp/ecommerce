@@ -40,16 +40,18 @@ function refreshCarrito() {
 
 function generar_compra() {
   for (const [k, v] of map_productos_carrito.entries()) {
+    //alert('esto funciona');
     fetch_async_compra(k, v.cant);
   }
 }
 
 function fetch_async_compra(pid, cant) {
+  //alert('esto funciona');
   const data = new FormData();
   data.set("pid", pid);
   data.set("cantidad", cant);
 
-  let urlupdateCarrito = "/ecommerce/CargarArticulos/listar";
+  let urlupdateCarrito = "/ecommerce/models/Carrito_Model.php";
   console.log("urlupdateCarrito " + urlupdateCarrito);
 
   fetch(urlupdateCarrito, {
@@ -57,17 +59,21 @@ function fetch_async_compra(pid, cant) {
     body: data,
   })
     .then(function (response) {
+      //alert('esto funciona');
       if (response.ok) {
+        //alert('esto funciona');
         return response.text();
       } else {
         throw "Error";
       }
     })
     .then(function (texto) {
+      //alert('esto funciona');
       alert(texto);
       map_productos_carrito.clear();
       refreshCarrito();
       load_shop();
+      //alert('esto funciona');
     })
     .catch(function (err) {
       console.log(err);

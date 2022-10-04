@@ -64,10 +64,12 @@ class Carrito_Model extends Model
                 //array_push($items, $item);
             } //end while
 
+
             if ($cantidad < 0) {
                 echo "Stock Insuficiente";
                 # code...
             } else {
+                // PARA ACÁ YA NO ENTRA
                 $query = $pdo->query('UPDATE PRODUCTOS SET cantidad=:cantidad WHERE pid=:pid');
                 $query->bindParam(':cantidad', $articulo->codigo);
                 $query->bindParam(':pid', $pid);

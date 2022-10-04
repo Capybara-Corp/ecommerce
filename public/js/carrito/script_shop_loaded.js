@@ -6,8 +6,7 @@ function load_shop() {
   hacer esa funcion
   */
   //let urlcargarmercado = urlBase + "load_market.php";
-  let urlcargarmercado = urlBase02 + "CargarArticulos/listar";
-  console.log("urlcargarmercado" + urlcargarmercado);
+  let urlcargarmercado = "/ecommerce/CargarArticulos/listar";
 
   fetch(urlcargarmercado)
     .then(function (response) {

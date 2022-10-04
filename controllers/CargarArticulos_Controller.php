@@ -22,11 +22,11 @@ class CargarArticulos_Controller extends Controller
     public function update()
     {
         //$alumnos = $this->model->get();
-        $id       = $_POST['pid'];
+        $pid       = $_POST['pid'];
         $compra   = $_POST['cantidad'];
         $cantidad = 0;
         $model    = new Carrito_Model();
-        $cantidad = $model->update($id, $compra);
+        $cantidad = $model->update($pid, $compra);
         //$this->view->data = $model->listar();
         // $this->view->render('cargararticulos/update');
         if ($cantidad < 0) {
