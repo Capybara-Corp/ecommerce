@@ -22,7 +22,7 @@ class CargarArticulos_Controller extends Controller
     public function update()
     {
         //$alumnos = $this->model->get();
-        $id       = $_POST['id'];
+        $id       = $_POST['pid'];
         $compra   = $_POST['cantidad'];
         $cantidad = 0;
         $model    = new Carrito_Model();

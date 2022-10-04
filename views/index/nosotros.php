@@ -18,12 +18,12 @@
 			<img src="public/media/menu.png">
 			</div>
 			<ul class="main-menu" id="main-menu">
-			<li><a href="<?php echo $defaultUrl ?>index">INICIO</a></li>
-			<li><a href="<?php echo $defaultUrl ?>nosotros">NOSOTROS</a></li>
-			<li><a href="<?php echo $defaultUrl ?>carrito/market">PRODUCTOS</a></li>
-			<li>NOTICIAS</li>
-			<li>CARRITO</li>
-			<li>CONTACTO</li>
+			<li><a href="<?php echo constant('URL'); ?>">INICIO</a></li>
+        	<li><a href="<?php echo constant('URL'); ?>nosotros">NOSOTROS</a></li>
+        	<li><a href="<?php echo constant('URL'); ?>carrito/market">PRODUCTOS</a></li>
+        	<li>NOTICIAS</li>
+        	<li>CARRITO</li>
+        	<li>CONTACTO</li>
 				
 			<li>|&nbsp;&nbsp;&nbsp;LOGIN</li>
 			</ul>

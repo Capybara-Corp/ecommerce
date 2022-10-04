@@ -91,7 +91,7 @@
   </section> <!-- Este section contiene la imagen grande con los quesos, y el botón de comprar -->
 
   <section id="bot_container">
-    <a href="<?php echo $defaultUrl; ?>carrito/market">
+    <a href="<?php echo constant('URL'); ?>carrito/market">
       <div class="product">
         <img src="public/media/bottles/bottle1.png">
         <p>VINO PINDONGA</p>

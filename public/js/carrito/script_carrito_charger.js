@@ -46,7 +46,7 @@ function generar_compra() {
 
 function fetch_async_compra(id, cant) {
   const data = new FormData();
-  data.set("id", id);
+  data.set("pid", id);
   data.set("cantidad", cant);
 
   let urlupdateCarrito = urlBase + "CargarArticulos/listar";
