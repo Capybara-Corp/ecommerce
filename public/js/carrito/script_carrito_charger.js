@@ -47,14 +47,15 @@ function generar_compra() {
 
 function fetch_async_compra(pid, cant) {
   //alert('esto funciona');
+
   const data = new FormData();
   data.set("pid", pid);
   data.set("cantidad", cant);
 
   let urlupdateCarrito = "/ecommerce/models/Carrito_Model.php";
-  console.log("urlupdateCarrito " + urlupdateCarrito);
+  //console.log("urlupdateCarrito " + urlupdateCarrito);
 
-  fetch(urlupdateCarrito, {
+  fetch("/ecommerce/controllers/UpdateProductos_Controller.php", {
     method: "POST",
     body: data,
   })
