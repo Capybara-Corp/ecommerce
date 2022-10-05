@@ -3,9 +3,9 @@
 
   require 'connect.php';
 
-  if (isset($_SESSION['user_id'])) {
+  if (isset($_SESSION['uid'])) {
     $records = $conn->prepare('SELECT uid, correo, contraseña FROM USUARIOS WHERE uid = :id');
-    $records->bindParam(':id', $_SESSION['user_id']);
+    $records->bindParam(':id', $_SESSION['uid']);
     $records->execute();
     $results = $records->fetch(PDO::FETCH_ASSOC);
 
