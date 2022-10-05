@@ -1,179 +1,59 @@
+<?php 
+    include'../../config/config.php'; // * Para que funcione la constant URL
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login PDO example</title>
+    <title>Iniciar sesion</title>
+    <link rel="stylesheet" href="../../public/css/login/login.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Roboto:wght@100;300;400&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@200&family=Roboto+Condensed:wght@400;700&family=Roboto:wght@100;300;400&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/c89cf96150.js" crossorigin="anonymous"></script>
 </head>
 <body>
+
+    <nav class="noselect"> <!-- Es el menu superior -->
+			<div id="toggle-menu" class="toggle-menu">
+			<img src="../../public/media/menu.png" id="menupic">
+			</div>  <!-- Este div contiene la imagen del boton para abrir el menu -->
+			<ul class="main-menu" id="main-menu">
+			 <li><a href="<?php echo constant('URL'); ?>">INICIO</a></li>
+        	<li><a href="<?php echo constant('URL'); ?>nosotros">NOSOTROS</a></li>
+        	<li><a href="<?php echo constant('URL'); ?>carrito/market">PRODUCTOS</a></li>
+        	<li>NOTICIAS</li>
+        	<li>CARRITO</li>
+        	<li>CONTACTO</li>
+			
+			<li>|&nbsp;&nbsp;&nbsp;LOGIN</li>
+		</ul>
+	</nav> <!-- Aqui termina el menu -->
+
     <span id="message" class="noselect"></span>
     <img id="fondo" src="design/8247.jpg" alt="">
     <section id="login" class="noselect">
-        <h1>log in <br>system</h1>
+        <h1>Iniciar sesión</h1>
             <form action="login_verify.php" method="post" id="form_fetch">
                 <input onclick="clear_input_style(e,0)" class="inputs_form" name="user_correo" type="text" placeholder="CORREO">
                 <input onclick="clear_input_style(e,1)" class="inputs_form" name="user_pass" type="password" placeholder="CONTRASEÑA">
                 <button type="button" onclick="verify_data_state()">CONNECT &nbsp;&nbsp;<i class="fa-solid fa-circle-chevron-right"></i></button>
             </form>
-        <p>¿ no tienes usuario ?</p>
-        <p>¿ olvidaste tu pass ?</p>
+        <a href="signup.php">¿ no tienes usuario ?</a>
+        <a>¿ olvidaste tu pass ?</a>
     </section>
+
+    <script src="<?php echo constant('URL'); ?>public/js/menu.js"></script>
+
 </body>
 </html>
-
-<style>
-    html,body 
-    {
-        overflow:hidden;
-        margin:0;
-        padding:0;
-    }
-
-    #login 
-    {
-        width: auto;
-        height:auto;
-        display: flex;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        justify-content: center;
-        align-items: center;
-        align-content: center;
-        margin:30vh auto;
-    }
-
-    #login h1
-    {
-        color:white;
-        font-size:25px;
-        font-weight:900;
-        text-align:center;
-    }
-
-    #login form 
-    { 
-        width:auto;
-        padding:20px;
-        height: auto;
-        display: flex;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        justify-content: center;
-        align-items: center;
-        align-content: center;
-        background:rgba(35,36,60,255);
-        border-radius:6px;
-        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-        margin-bottom:25px;
-    }
-
-    #fondo
-    {
-        width:100%;
-        height:101vh;
-        position:absolute;
-        top:0;
-        left:0;
-        z-index: -1;
-        object-fit:cover;
-    }
-
-    #login p 
-    {
-        padding:0;
-        margin:0;
-        color: #62627d;
-        cursor:pointer;
-        margin-bottom:5px;
-    }
-
-    #login p:hover 
-    {
-        transition: all ease 1s;
-        color:white;
-        text-decoration:underline;
-    }
-
-    #login form input 
-    {
-        background:rgba(67,68,89,255);
-        height:30px;
-        border:none;
-        border-radius:6px;
-        width:250px;
-        padding-left:10px;
-        font-size: 11px;
-        color:white;
-        font-weight:600;
-        box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 24px;
-    }
-
-    #login form input:nth-child(1){margin-bottom:15px}
-
-    #login form input:nth-child(2){margin-bottom:50px}
-
-    #login form button
-    {
-        border:none;
-        height:30px;
-        width:120px;
-        font-size:9px;
-        border-radius:15px;
-        font-weight:700;
-        cursor:pointer;
-    }
-
-    #login form button:hover
-    {
-        transition: all ease 1s;
-        background:rgba(35,36,60,255);
-        color:white;
-        border:1px solid white;
-    }
-
-    #login form button:hover > i
-    {
-        transition: color ease 1s;
-        color:white;
-    }
-
-    button, input, h1, p, #message {font-family: 'Maven Pro', sans-serif}
-
-    .noselect 
-    {
-        -webkit-touch-callout: none; /* iOS Safari */
-        -webkit-user-select: none; /* Safari */
-        -khtml-user-select: none; /* Konqueror HTML */
-        -moz-user-select: none; /* Old versions of Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-        user-select: none; /* Non-prefixed version, currently*/
-    }
-
-    i{color:#23b0db}
-
-    .error_input
-    {
-        transition: all 1s ease;
-        border: 1px solid #960018!important;
-    }
-
-    #message
-    {
-        background:rgba(35,36,60,255);
-        border-radius:6px;
-        color:white;
-        position:fixed;
-        top: 5px; 
-        left: 5px;
-        padding:15px;
-        font-size:12px;
-    }
-</style>
 
 <script>
     /*creo listener que permita retirar clase que resalta error de en inputs*/

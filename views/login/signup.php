@@ -4,12 +4,14 @@
 
   $message = '';
 
-  if (!empty($_POST['user_correo']) && !empty($_POST['user_pass'])) {
-    $sql = "INSERT INTO USUARIOS (correo, contraseña) VALUES (:user_correo, :user_pass)";
+  if (!empty($_POST['user_correo']) && !empty($_POST['user_pass']) && !empty($_POST['user_name']) && !empty($_POST['user_number'])) {
+    $sql = "INSERT INTO USUARIOS (correo, contraseña, nombre, telefono) VALUES (:user_correo, :user_pass, :user_name, :user_number)";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':user_correo', $_POST['user_correo']);
     $user_pass = password_hash($_POST['user_pass'], PASSWORD_BCRYPT);
     $stmt->bindParam(':user_pass', $user_pass);
+    $stmt->bindParam(':user_name', $_POST['user_name']);
+    $stmt->bindParam(':user_number', $_POST['user_number']);
 
     if ($stmt->execute()) {
       $message = 'Successfully created new user';
@@ -39,6 +41,8 @@
       <input name="user_correo" type="text" placeholder="Enter your email">
       <input name="user_pass" type="password" placeholder="Enter your Password">
       <input name="confirm_password" type="password" placeholder="Confirm Password">
+      <input name="user_name" type="text" placeholder="Enter your name">
+      <input name="user_number" type="text" placeholder="Enter your phone number">
       <input type="submit" value="Submit">
     </form>
 

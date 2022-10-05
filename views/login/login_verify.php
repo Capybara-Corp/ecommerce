@@ -31,7 +31,14 @@
         }
 
         /*estimo resultado de consulta login*/
-        $consulta_login = ($log_validate == true)? "credenciales válidas" : "credenciales inválidas";
-        echo $consulta_login;
+        if ($log_validate == true){
+            header("Location: index.php");
+            exit();
+        } 
+        else {
+            $consulta_login = "credenciales inválidas";
+            echo "sos un perdedor";
+            echo $consulta_login;
+        }
     };
 ?>

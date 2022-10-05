@@ -1,0 +1,235 @@
+html,body 
+    {
+        overflow:hidden;
+        margin:0;
+        padding:0;
+    }
+    a{
+      text-decoration: none; /* Con esto le saco el underline y esas cosas que tienen los a */
+      color: white;
+    }
+
+nav {
+    width: 100%;
+    height: 90px;
+    background-color: black;
+    z-index: 1;
+  }
+  
+  #menupic{
+    max-width: 100%;
+  }
+  
+  .toggle-menu{
+    position: absolute;
+    top: 1.5vh;
+    right: 2vw;
+    cursor: pointer; /* Con esto hago que aparezca una manita en el mouse cuando se le pasa arriba */
+    filter:invert(1); /* Con esto invierto los colores */
+    width: 40px;
+    z-index: 1; /* Con esto hago que aparezca arriba del todo. El z-index nos permite organizar las capas */
+  }
+  
+  .main-menu {
+    z-index: 1;
+    width: 100%;
+    height: 90px;
+    display: flex;
+    /*el display flex nos permite manipular la orientacion a gusto de los elementos hijos de un contenedor*/
+    flex-direction: column; /* Con esto cada elemento del menú aparece abajo del otro */
+    flex-wrap: nowrap;
+    align-items: center;
+    /*alinea en vertical*/
+    margin: 0;
+    padding: 0;
+    transition: transform 0.3s; /* Esto hace que el menu se traslade a una velocidad determinada */
+    transform: translateY(-1000%); /* Esto sirve para que el menu aparezca por defecto arriba, tan arriba que ni se ve */
+  }
+  
+  .main-menu--show{
+    transform: translateY(0); /* Esto hace que el menú vaya para abajo, en otras palabras que aparezca */
+  }
+  
+  @media all and (min-width: 768px){
+    .main-menu {
+      flex-direction: row; /* Con esto el menú aparece "En un mismo renglón" */
+      transform: translateY(0); /* Con esto hago que el menú se vea si la pantalla supera los 768 pixeles de ancho */
+    }
+  
+    .toggle-menu{
+      display: none; /* El botón no se muestra si la pantalla supera los 768 pixeles de ancho */
+    }
+    .main-menu li {
+      background: none!important;
+      padding: 1em!important;
+      font-weight: 300!important;
+      font-size: 1.3vw!important;
+      /* Atributos que cambian. Lo más importante es que le sacamos el color de fondo */
+    }
+  }
+  
+  .main-menu li {
+    background: rgba(0, 0, 0, 0.9); /* Le doy un color de fondo para que se vea correctamente */
+    width: 100%;
+    padding: 2.3em; /* Las unidades "em" sirven para delimitar según el ancho de la letra */
+    text-align: center;
+    float: left;
+    /*propiedad que permite a diferentes elementos posicionarse al lado del otro*/
+    margin: 0 3vw;
+    /*margin acepta 2 (arriba y abajo, derecha e izquierda) y 4 (arriba, derecha, abajo, izquierda)*/
+    list-style: none;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+    /*propiedad que nos permite establecer el grosor de una fuente, va de 0 a 900 en centenas*/
+    font-size: 3vw;
+  }
+  
+  .main-menu li:hover {
+    cursor: pointer;
+    transition: all 0.2s ease;
+    transform: scale(1.1);
+    /* Animaciones para cuando se le hace hover al menú */
+  }
+
+  #login 
+    {
+        width: auto;
+        height:auto;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        margin:30vh auto;
+    }
+
+    #login h1
+    {
+        color:white;
+        font-size:25px;
+        font-weight:900;
+        text-align:center;
+    }
+
+    #login form 
+    { 
+        width:auto;
+        padding:20px;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        background:rgba(35,36,60,255);
+        border-radius:6px;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        margin-bottom:25px;
+    }
+
+    #fondo
+    {
+        width:100%;
+        height:101vh;
+        position:absolute;
+        top:0;
+        left:0;
+        z-index: -1;
+        object-fit:cover;
+    }
+
+    #login a
+    {
+        padding:0;
+        text-decoration: none;
+        font-size: 1.2vw;
+        margin:0;
+        color: #62627d;
+        cursor:pointer;
+        margin-bottom:5px;
+    }
+
+    #login a:hover 
+    {
+        transition: all ease 1s;
+        color:white;
+        text-decoration:underline;
+    }
+
+    #login form input 
+    {
+        background:rgba(67,68,89,255);
+        height:30px;
+        border:none;
+        border-radius:6px;
+        width:250px;
+        padding-left:10px;
+        font-size: 11px;
+        color:white;
+        font-weight:600;
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 24px;
+    }
+
+    #login form input:nth-child(1){margin-bottom:15px}
+
+    #login form input:nth-child(2){margin-bottom:50px}
+
+    #login form button
+    {
+        border:none;
+        height:30px;
+        width:120px;
+        font-size:9px;
+        border-radius:15px;
+        font-weight:700;
+        cursor:pointer;
+    }
+
+    #login form button:hover
+    {
+        transition: all ease 1s;
+        background:rgba(35,36,60,255);
+        color:white;
+        border:1px solid white;
+    }
+
+    #login form button:hover > i
+    {
+        transition: color ease 1s;
+        color:white;
+    }
+
+    button, input, h1, p, #message {font-family: 'Maven Pro', sans-serif}
+
+    .noselect 
+    {
+        -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+        -khtml-user-select: none; /* Konqueror HTML */
+        -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+        user-select: none; /* Non-prefixed version, currently*/
+    }
+
+    i{color:#23b0db}
+
+    .error_input
+    {
+        transition: all 1s ease;
+        border: 1px solid #960018!important;
+    }
+
+    #message
+    {
+        background:rgba(35,36,60,255);
+        border-radius:6px;
+        color:white;
+        position:fixed;
+        top: 15vh; 
+        left: 1vw;
+        padding:15px;
+        font-size:12px;
+    }
