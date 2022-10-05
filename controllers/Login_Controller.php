@@ -2,6 +2,11 @@
 /*require_once 'vendor/autoload.php';
 require_once 'auth/Auth.php';*/
 
+
+
+// Hacer el login
+
+
 class login_controller extends controller //es para heredar de la clase controller
 {
     public function __construct()
