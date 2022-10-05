@@ -1,5 +1,7 @@
 <?php
 
+require "../../config/config.php";
+
   session_start();
 
   if (isset($_SESSION['uid'])) {
@@ -31,8 +33,25 @@
     <meta charset="utf-8">
     <title>Login</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="../../public/css/login/login.css">
   </head>
   <body>
+
+  <nav class="noselect"> <!-- Es el menu superior -->
+				<div id="toggle-menu" class="toggle-menu">
+				<img src="../public/media/menu.png" id="menupic">
+				</div>  <!-- Este div contiene la imagen del boton para abrir el menu -->
+				<ul class="main-menu" id="main-menu">
+			    <li><a href="<?php echo constant('URL'); ?>">INICIO</a></li>
+        	<li><a href="<?php echo constant('URL'); ?>nosotros">NOSOTROS</a></li>
+        	<li><a href="<?php echo constant('URL'); ?>carrito/market">PRODUCTOS</a></li>
+        	<li>NOTICIAS</li>
+        	<li>CARRITO</li>
+        	<li>CONTACTO</li>
+			
+					<li>|&nbsp;&nbsp;&nbsp;LOGIN</li>
+				</ul>
+			</nav> <!-- Aqui termina el menu -->
 
     <?php if(!empty($message)): ?>
       <p> <?= $message ?></p>
@@ -46,5 +65,7 @@
       <input name="user_pass" type="password" placeholder="Enter your Password">
       <input type="submit" value="Submit">
     </form>
+
+    <script src="<?php echo constant('URL'); ?>public/js/menu.js"></script>
   </body>
 </html>
