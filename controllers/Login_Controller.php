@@ -27,7 +27,7 @@ class login_controller extends controller //es para heredar de la clase controll
     public function ingresar()
     {
         $nombre     = $_POST['nombre'];
-        $pass       = $_POST['pass'];
+        $pass       = $_POST['contraseña'];
         $exitoLogin = $this->model->ingresar($nombre, $pass);
         if ($exitoLogin) {
             $token = Auth::SignIn([
