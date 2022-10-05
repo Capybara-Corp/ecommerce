@@ -6,7 +6,7 @@ $cantidad          = 0;
 
 //hay que traer el objeto o funcion conexion por el mvc
 
-$host     = "localhost";
+/*$host     = "localhost";
 $username = "root";
 $password = "";
 $db_name  = "ECOMMERCE";
@@ -15,9 +15,17 @@ try
 {
 $conn = new PDO("mysql:host=$host;dbname=$db_name", $username, $password);
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {}
+} catch (PDOException $e) {}*/ // * Lets try to make this with a function.
 
-//import("../../libs/database.php");
+
+include '../libs/database.php';
+$pdo = new Database();
+$pdo -> connect();
+// ! This should work
+
+
+
+
 
 // acceder a funcion de una clase $this->connect();
 
@@ -27,24 +35,11 @@ $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
 
-//Trying to import the whole method
-
-
-/*include("/ECOMMERCE/controllers/UpdateProductos_Controller.php");
-$pdo = new Database();
-$pdo -> connect();*/
 
 
 
 
 
-
-
-
-
-
-
-$pdo = $conn;
 
 
 
