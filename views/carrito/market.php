@@ -39,8 +39,8 @@
       <div id="separator"></div>
 
       <span id="carrito_content">
-
       </span>
+      <i id="total">TOTAL: </i>
       <button id="efectivo" onclick="generar_compra();">REALIZAR COMPRA </button>
       <h1 id="o">O</h1>
       <button id="paypal"><img src="../public/media/paypal.png" alt=""></button>

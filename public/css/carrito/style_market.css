@@ -228,6 +228,12 @@ a{
     user-select: none;
 }
 
+.celda_carrito i {
+  color: white;
+  font-family: monospace;
+  font-size: 1.5vw;
+}
+
 .celda_carrito p {
     font-size: 0.7vw;
 }

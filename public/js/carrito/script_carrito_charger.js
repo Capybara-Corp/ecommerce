@@ -1,6 +1,9 @@
 let map_productos_carrito = new Map();
 let carrito;
 let urlBase;
+let sum = 0;
+let precioTotal = 0;
+let precioIndividual = [0,0,0,0,0,0];
 function carrito_charger(pid, nombre, precio) {
   if (map_productos_carrito.has(pid)) {
     //alert("Producto añadido al carrito");
@@ -23,7 +26,7 @@ function clearoneoneCarrito(pid) {
 }
 
 function refreshCarrito() {
-  carrito.innerHTML = "<br><br>";
+  carrito.innerHTML = "";
   for (const [k, v] of map_productos_carrito.entries()) {
     carrito.innerHTML +=
       "<p onclick='clearoneoneCarrito(" +
@@ -33,10 +36,23 @@ function refreshCarrito() {
       ". cantidad: " +
       v.cant +
       ". precio: " +
-      v.precio * v.cant +
+      (precioIndividual[k-1] = (v.precio * v.cant)); precioIndividual +
       "</p>";
+    
+      sum = 0
+      for (let i = 0; i < precioIndividual.length; i++) {
+        sum += precioIndividual[i];
+      }  
+
+      console.log('esto es sum '+sum);
+      precioTotal = sum;
+
+      console.log(precioIndividual);
+ 
   }
+  document.getElementById('total').innerHTML = precioTotal;
 }
+
 
 function generar_compra() {
   for (const [k, v] of map_productos_carrito.entries()) {
