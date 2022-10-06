@@ -132,34 +132,13 @@ a{
     display: grid;
     grid-template-columns: 60vw;
     grid-auto-rows: 15vw;
-    grid-gap: 5px;
+    grid-gap: 10vh;
     justify-content: center;
     height: 80vh;
     overflow-y: scroll;
 }
 
-button{
-  float: left;
-  border: none;
-  cursor: pointer;
-  margin-top: 22vh;
-  margin-left: -7vw;
-  width: 10vw;
-  height: 5vh;
-}
-
-button p{
-  font-family: monospace;
-  margin: 0;
-  font-size: 1.5vw!important;
-}
-
-button p:hover{
-  color: #ff4d00;
-}
-
 .celda_market section {
-    border: 0.1vh solid #B3B3B3;
     border-radius: 0.5vw;
     text-align: center;
     background-color: #F2F2F2;
@@ -208,29 +187,81 @@ button p:hover{
   right: 5%;
 }
 
+
+
+
+
+
 .nombre{
   width: 5em;
   font-size: 1.2vw;
   float: left;
   margin-left: 15vw;
-  margin-top: 10vh;
+  margin-top: 2vh;
+  font-weight: 900;
   text-transform: uppercase;
   font-family: monospace;
 }
+.marca{
+  font-size: 1vw;
+  float: left;
+  margin-top: 5vh;
+  margin-left: -12vw;
+  text-transform: uppercase;
+  font-family: monospace;
+}
+
 .stock{
   font-size: 0.8vw;
+  float: right;
+  margin-right: 1vw;
+  margin-top: 27vh;
+  font-family: monospace;
+}
+
+.descrip{
+  text-align: left;
+  width: 12em;
+  height: 2em!important;
   float: left;
   margin-left: -5vw;
-  margin-top: 18vh;
+  margin-top: 10vh;
+  font-size: 1vw;
+  font-weight: 900;
   font-family: monospace;
 }
 .precio{
   float: right;
-  margin-right: 2vw;
+  margin-right: -5vw;
   color: #4B4B4B;
   font-size: 1.2vw;
   font-family: monospace;
 }
+
+button{
+  float: left;
+  margin-left: -13vw;
+  margin-top: 24vh;
+  border: none;
+  cursor: pointer;
+  width: 8vw;
+  height: 5vh;
+}
+
+button p{
+  font-family: monospace;
+  margin: 0;
+  font-size: 1.5vw!important;
+}
+
+button p:hover{
+  color: #ff4d00;
+}
+
+
+
+
+
 
 
 

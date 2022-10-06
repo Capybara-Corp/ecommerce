@@ -45,9 +45,9 @@ function refreshCarrito() {
       k +
       ")'>" +
       v.nombre +
-      ". cantidad: " +
-      v.cant +
-      ". precio: " +
+      ", " +
+      v.cant + " unidades" +
+      ", $" +
       (precioIndividual[k-1] = (v.precio * v.cant)); precioIndividual +
       "</p>";
     

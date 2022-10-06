@@ -30,7 +30,8 @@ class Articulos_Model extends Model
                 $item->img = $row['img'];
                 $item->nombre      = $row['nombre'];
                 $item->precio      = $row['precio_venta'];
-                // $item->descrip     = $row['descrip'];
+                $item->descrip     = $row['descrip'];
+                $item->marca = $row['marca'];
                 $item->cantidad    = $row['cantidad'];
                 //array_push($items, $item);
                 $items[] = $item;
@@ -50,7 +51,7 @@ class Articulos_Model extends Model
     {
         $articulo = null;
         try {
-            $query = $this->db->connect()->prepare('SELECT pid, precio_venta FROM PRODUCTOS WHERE pid=:id');
+            $query = $this->db->connect()->prepare('SELECT pid, precio_venta, descrip, marca FROM PRODUCTOS WHERE pid=:id');
             $query->bindValue(':id', $id);
             //$query->execute(['nombre' => $nombre]);
             $query->execute();
@@ -58,8 +59,9 @@ class Articulos_Model extends Model
                 $articulo              = new Articulo();
                 $articulo->id          = $row['pid'];
                 //$articulo->codigo      = $row['codigo'];
-                //$articulo->descripcion = $row['descripcion'];
+                $articulo->descripcion = $row['descrip'];
                 $articulo->precio      = $row['precio_venta'];
+                $articulo->marca = $row['marca'];
                 //$articulo->fecha       = $row['fecha'];
             }
         } catch (PDOException $e) {
