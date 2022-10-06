@@ -28,7 +28,7 @@ function refreshCarrito() {
     carrito.innerHTML +=
       "<p onclick='clearoneoneCarrito(" +
       k +
-      ")'>producto: " +
+      ")'>" +
       v.nombre +
       ". cantidad: " +
       v.cant +

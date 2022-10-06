@@ -21,7 +21,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Welcome to you WebApp</title>
+    <title>Bienvenido</title>
   </head>
   <body>
 

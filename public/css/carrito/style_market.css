@@ -10,7 +10,6 @@ a{
   nav {
     width: 100%;
     height: 90px;
-    background-color: black;
     z-index: 1;
   }
   
@@ -23,7 +22,6 @@ a{
     top: 1.5vh;
     right: 2vw;
     cursor: pointer; /* Con esto hago que aparezca una manita en el mouse cuando se le pasa arriba */
-    filter:invert(1); /* Con esto invierto los colores */
     width: 40px;
     z-index: 1; /* Con esto hago que aparezca arriba del todo. El z-index nos permite organizar las capas */
   }
@@ -46,10 +44,12 @@ a{
   
   .main-menu--show{
     transform: translateY(0); /* Esto hace que el menú vaya para abajo, en otras palabras que aparezca */
+  
   }
   
   @media all and (min-width: 768px){
     .main-menu {
+      justify-content: space-between;
       flex-direction: row; /* Con esto el menú aparece "En un mismo renglón" */
       transform: translateY(0); /* Con esto hago que el menú se vea si la pantalla supera los 768 pixeles de ancho */
     }
@@ -58,11 +58,16 @@ a{
       display: none; /* El botón no se muestra si la pantalla supera los 768 pixeles de ancho */
     }
     .main-menu li {
+      width: 5vw!important;
       background: none!important;
       padding: 1em!important;
       font-weight: 300!important;
       font-size: 1.3vw!important;
+      color: black!important;
       /* Atributos que cambian. Lo más importante es que le sacamos el color de fondo */
+    }
+    a{
+      color: black;
     }
   }
   
@@ -90,6 +95,16 @@ a{
     /* Animaciones para cuando se le hace hover al menú */
   }
 
+
+
+
+
+
+
+
+
+
+
 .contenedor-index{
   z-index: -1;
 }
@@ -100,10 +115,10 @@ a{
     width: 90vw;
     height: 80vh;
     margin-left: 5vw;
-    margin-top: 10vh;
+    margin-top: 2vh;
     grid-template-columns: 80% 20%;
     grid-template-rows: 80vh;
-    background: #333;
+    background: #1A1A1A;
 }
 
 .celda_market {
@@ -139,37 +154,77 @@ a{
     position: relative;
 }
 
-.celda_carrito button {
+.celda_carrito #efectivo {
     position: absolute;
+    bottom: 20%;
     right: 0;
-    bottom: 0;
-    border: none;
-    color: #333;
-    background: white;
+    left: 0;
+    margin: auto;
+    border-radius: 10px;
+    color: white;
+    background-color: #ff4d00;
     font-family: monospace;
-    height: 30px;
-    width: 200px;
+    font-size: 1vw;
+    height: 8%;
+    width: 80%;
     cursor: pointer;
     font-weight: 600;
     border: 1px solid transparent;
 }
 
-.celda_carrito button:hover {
-    transition: all ease 2s;
-    border: 1px solid #333;
+#o{
+  color: white;
+  font-family: monospace;
+  font-size: 1.5vw;
+  position: absolute;
+  bottom: 11.5%;
+  right: 50%;
+  font-style: italic; 
+}
+
+.celda_carrito #paypal {
+  position: absolute;
+  bottom: 5%;
+  right: 0;
+  left: 0;
+  margin: auto;
+  border-radius: 10px;
+  background-color: #ffffff;
+  height: 8%;
+  width: 80%;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.celda_carrito #efectivo:hover, #paypal:hover {
+    transition: all ease 0.2s;
+    border: 1px solid #fff;
 }
 
 .celda_carrito {
     display: flex;
-    align-items: center;
     flex-direction: column;
 }
 
-.celda_carrito h1,
+.celda_carrito h1{
+  color: white;
+  font-family: monospace;
+  font-size: 1.5vw;
+  user-select: none;
+  margin-left: 12%;
+}
+
+#separator{
+  width: 90%;
+  height: 0.1vh;
+  background-color: white;
+  margin: 0 auto;
+}
+
 .celda_carrito p {
     color: white;
     font-family: monospace;
-    font-size: 1vw;
+    font-size: 1.5vw;
     user-select: none;
 }
 
@@ -182,12 +237,14 @@ a{
     flex-direction: column;
     flex-wrap: nowrap;
     align-items: center;
-    overflow-y: scroll;
-    height: 70vh;
+    overflow-y: auto;
+    height: 40vh;
     width: 100%;
 }
 
 #carrito_content p {
+  font-size: 1vw;
+  font-family: monospace;
     padding: 0 50px 0 50px;
 
 }
@@ -196,3 +253,25 @@ a{
     color: rgb(240, 76, 76);
 
 }
+
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #ff4d00 #ffffff;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 11px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #ffffff;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #ff4d00;
+    border-radius: 14px;
+    border: 3px outset #ffffff;
+  }

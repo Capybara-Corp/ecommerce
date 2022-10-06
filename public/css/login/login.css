@@ -4,7 +4,7 @@ html,body
         margin:0;
         padding:0;
     }
-    a{
+    li a{
       text-decoration: none; /* Con esto le saco el underline y esas cosas que tienen los a */
       color: white;
     }

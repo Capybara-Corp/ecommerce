@@ -23,12 +23,7 @@
 				</div>  <!-- Este div contiene la imagen del boton para abrir el menu -->
 				<ul class="main-menu" id="main-menu">
 			    <li><a href="<?php echo constant('URL'); ?>">INICIO</a></li>
-        	<li><a href="<?php echo constant('URL'); ?>nosotros">NOSOTROS</a></li>
-        	<li><a href="<?php echo constant('URL'); ?>carrito/market">PRODUCTOS</a></li>
-        	<li>NOTICIAS</li>
-        	<li>CARRITO</li>
-        	<li>CONTACTO</li>
-			
+        	
 					<li>|&nbsp;&nbsp;&nbsp;LOGIN</li>
 				</ul>
 			</nav> <!-- Aqui termina el menu -->
@@ -40,12 +35,15 @@
   <div id="contenedor_market">
     <section class="celda_market"></section>
     <section class="celda_carrito">
-      <h1>SU CARRITO DE COMPRA</h1>
+      <h1>RESUMEN</h1>
+      <div id="separator"></div>
 
       <span id="carrito_content">
 
       </span>
-      <button onclick="generar_compra();">REALIZAR COMPRA </button>
+      <button id="efectivo" onclick="generar_compra();">REALIZAR COMPRA </button>
+      <h1 id="o">O</h1>
+      <button id="paypal"><img src="../public/media/paypal.png" alt=""></button>
     </section>
   </div>
 
