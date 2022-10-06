@@ -96,7 +96,13 @@ a{
   }
 
 
-
+#title{
+  color: black;
+  font-family: monospace;
+  letter-spacing: 0.1vw;
+  font-size: 2vw;
+  margin-left: 12vw;
+}
 
 
 
@@ -124,31 +130,24 @@ a{
 .celda_market {
     background: #ffffff;
     display: grid;
-    grid-template-columns: 15vw 15vw 15vw;
+    grid-template-columns: 60vw;
     grid-auto-rows: 15vw;
     grid-gap: 5px;
     justify-content: center;
-    align-content: center;
     height: 80vh;
     overflow-y: scroll;
 }
 
 .celda_market section {
-    border: 1px solid #333;
+    border: 0.1vh solid #B3B3B3;
+    border-radius: 0.5vw;
     text-align: center;
-    font-family: monospace;
     cursor: pointer;
-    background-color: aliceblue;
+    background-color: #F2F2F2;
     background-size: cover;
     user-select: none;
 }
 
-.celda_market section p {
-    font-size: 0.7vw;
-    background: rgba(0, 0, 0, 1);
-    color: #fff;
-
-}
 
 .celda_carrito {
     position: relative;
@@ -171,6 +170,54 @@ a{
     font-weight: 600;
     border: 1px solid transparent;
 }
+
+#preciototal {
+  color: white;
+  font-family: monospace;
+  font-size: 1.3vw;
+  position: absolute;
+  bottom: 30%;
+  left: 5%;
+  font-style: italic; 
+}
+
+#total{
+  color: white;
+  font-family: monospace;
+  font-size: 1.3vw;
+  position: absolute;
+  bottom: 30%;
+  right: 5%;
+  font-style: italic;
+}
+
+.nombre{
+  width: 5em;
+  font-size: 1.2vw;
+  float: left;
+  margin-left: 15vw;
+  margin-top: 10vh;
+  text-transform: uppercase;
+  font-family: monospace;
+}
+.stock{
+  font-size: 0.8vw;
+  float: left;
+  margin-left: -5vw;
+  margin-top: 18vh;
+  font-family: monospace;
+}
+.precio{
+  float: right;
+  margin-right: 2vw;
+  color: #4B4B4B;
+  font-size: 1.2vw;
+  font-family: monospace;
+}
+
+
+
+
 
 #o{
   color: white;
@@ -214,11 +261,15 @@ a{
   margin-left: 12%;
 }
 
-#separator{
+.separator{
   width: 90%;
   height: 0.1vh;
   background-color: white;
   margin: 0 auto;
+}
+
+#separator2{
+  margin-top: 3vh;
 }
 
 .celda_carrito p {

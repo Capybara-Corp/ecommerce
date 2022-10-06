@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>market shop</title>
+  <title>Carrito</title>
   <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/carrito/style_market.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,15 +32,19 @@
       
 
   <input type="hidden" value="<?php echo constant('URL'); ?>" id="urlBase">
+  <h1 id="title">SU CARRITO</h1>
   <div id="contenedor_market">
+    
     <section class="celda_market"></section>
     <section class="celda_carrito">
       <h1>RESUMEN</h1>
-      <div id="separator"></div>
+      <div id="separator1" class="separator"></div>
 
       <span id="carrito_content">
       </span>
-      <i id="total">TOTAL: </i>
+      <div id="separator2" class="separator"></div>
+      <i ID="preciototal">PRECIO TOTAL: </i>
+      <i id="total">0</i>
       <button id="efectivo" onclick="generar_compra();">REALIZAR COMPRA </button>
       <h1 id="o">O</h1>
       <button id="paypal"><img src="../public/media/paypal.png" alt=""></button>

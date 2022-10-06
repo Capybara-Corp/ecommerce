@@ -18,11 +18,23 @@ function carrito_charger(pid, nombre, precio) {
     cant: cant,
   });
   refreshCarrito();
-}
-
+} 
+ 
 function clearoneoneCarrito(pid) {
   map_productos_carrito.delete(String(pid));
+  precioIndividual[pid-1]=0;
+  for (let i = 0; i < precioIndividual.length; i++) {
+    sum += precioIndividual[i];
+    if (precioIndividual[i-1]==0){
+      console.log('its me, '+precioIndividual[i-1]);
+      sum = 0;
+      precioTotal = sum;
+    }
+  }  
+  console.log('esto es sum '+sum);
+  console.log(precioIndividual);
   refreshCarrito();
+  precioTotal = sum;
 }
 
 function refreshCarrito() {
