@@ -62,7 +62,7 @@ function refreshCarrito() {
       console.log(precioIndividual);
  
   }
-  document.getElementById('total').innerHTML = precioTotal;
+  document.getElementById('total').innerHTML = "$"+precioTotal;
 }
 
 

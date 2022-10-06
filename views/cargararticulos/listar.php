@@ -6,7 +6,7 @@ foreach ($this->data as $row) {
     background-size: contain;
     background-repeat: no-repeat; 
     background-position: left; 
-    background-position-x: 5vw;' 
-    onclick='carrito_charger
-    (\"" . $row->id_producto . "\", \"" . $row->nombre . "\", \"" . $row->precio . "\");'><p class='nombre'>" . $row->nombre . "</p><p class='stock'>STOCK: " . $row->cantidad . "</p><p class='precio'>$ " . $row->precio . "</p></section>";
+    background-position-x: 5vw;'
+    ><p class='nombre'>" . $row->nombre . "</p><p class='stock'>STOCK: " . $row->cantidad . "</p><p class='precio'>$ " . $row->precio . "</p><button onclick='carrito_charger
+    (\"" . $row->id_producto . "\", \"" . $row->nombre . "\", \"" . $row->precio . "\")'> <p>AÑADIR</button></section>";
 }

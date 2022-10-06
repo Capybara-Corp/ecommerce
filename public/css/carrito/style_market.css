@@ -138,11 +138,30 @@ a{
     overflow-y: scroll;
 }
 
+button{
+  float: left;
+  border: none;
+  cursor: pointer;
+  margin-top: 22vh;
+  margin-left: -7vw;
+  width: 10vw;
+  height: 5vh;
+}
+
+button p{
+  font-family: monospace;
+  margin: 0;
+  font-size: 1.5vw!important;
+}
+
+button p:hover{
+  color: #ff4d00;
+}
+
 .celda_market section {
     border: 0.1vh solid #B3B3B3;
     border-radius: 0.5vw;
     text-align: center;
-    cursor: pointer;
     background-color: #F2F2F2;
     background-size: cover;
     user-select: none;
@@ -176,9 +195,8 @@ a{
   font-family: monospace;
   font-size: 1.3vw;
   position: absolute;
-  bottom: 30%;
+  bottom: 27%;
   left: 5%;
-  font-style: italic; 
 }
 
 #total{
@@ -186,9 +204,8 @@ a{
   font-family: monospace;
   font-size: 1.3vw;
   position: absolute;
-  bottom: 30%;
+  bottom: 27%;
   right: 5%;
-  font-style: italic;
 }
 
 .nombre{
@@ -308,8 +325,12 @@ a{
 
 #carrito_content p:hover {
     color: rgb(240, 76, 76);
-
 }
+
+#carrito_content p:hover:after{
+  content:" ELIMINAR";
+}
+
 
 /* ===== Scrollbar CSS ===== */
   /* Firefox */
