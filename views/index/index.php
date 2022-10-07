@@ -1,3 +1,24 @@
+<?php
+  session_start();
+
+  require 'views/login/connect.php';
+
+  if (isset($_SESSION['uid'])) {
+    $records = $conn->prepare('SELECT uid, correo, contraseña FROM USUARIOS WHERE uid = :id');
+    $records->bindParam(':id', $_SESSION['uid']);
+    $records->execute();
+    $results = $records->fetch(PDO::FETCH_ASSOC);
+
+    $user = null;
+
+    if (count($results) > 0) {
+      $user = $results;
+    }
+  }
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,6 +41,14 @@
 </head>
 
 <body>
+<?php if(!empty($user)): ?>
+      <br> Welcome. <?= $user['correo']; ?>
+      <br>You are Successfully Logged In
+      <a href="views/login/logout.php">
+        Logout
+      </a>
+      <?php endif; ?>
+
   <section id="container_big">
     <!-- Es todo el contenedor de arriba, es decir, el que tiene la imagen de los barriles de fondo -->
     <nav class="noselect">
@@ -31,11 +60,11 @@
         <li><a href="<?php echo constant('URL'); ?>">INICIO</a></li>
         <li><a href="<?php echo constant('URL'); ?>nosotros">NOSOTROS</a></li>
         <li><a href="<?php echo constant('URL'); ?>carrito/market">PRODUCTOS</a></li>
-        <li>NOTICIAS</li>
-        <li>CARRITO</li>
-        <li>CONTACTO</li>
+        <li><a href="">NOTICIAS</a></li>
+        <li><a href="">CARRITO</a></li>
+        <li><a href="">CONTACTO</a></li>
 
-        <li>|&nbsp;&nbsp;&nbsp;LOGIN</li>
+        <li><a href="<?php echo constant('URL'); ?>views/login/login.php">|&nbsp;&nbsp;&nbsp;LOGIN</a></li>
       </ul>
     </nav> <!-- Aqui termina el menu -->
 

@@ -3,7 +3,7 @@ let carrito;
 let urlBase;
 let sum = 0;
 let precioTotal = 0;
-let precioIndividual = [0,0,0,0,0,0];
+let precioIndividual = [0,0,0,0,0,0,0,0];
 function carrito_charger(pid, nombre, precio) {
   if (map_productos_carrito.has(pid)) {
     //alert("Producto añadido al carrito");
@@ -101,6 +101,10 @@ function fetch_async_compra(pid, cant) {
       alert(texto);
       map_productos_carrito.clear();
       refreshCarrito();
+      sum = 0;
+      precioTotal = sum;
+      console.log("i am your father "+precioTotal);
+      document.getElementById('total').innerHTML = "$"+precioTotal;
       load_shop();
       //alert('esto funciona');
     })

@@ -5,7 +5,7 @@ require "../../config/config.php";
   session_start();
 
   if (isset($_SESSION['uid'])) {
-    header('Location: index.php');
+    header('Location: ../../');
   }
   require 'connect.php';
 
@@ -19,7 +19,7 @@ require "../../config/config.php";
 
     if (is_countable($results) > 0 && password_verify($_POST['user_pass'], $results['contraseña'])) {
       $_SESSION['uid'] = $results['uid'];
-      header("Location: index.php");
+      header("Location: ../../../ecommerce");
     } else {
       $message = 'Sorry, those credentials do not match';
     }
@@ -45,11 +45,11 @@ require "../../config/config.php";
 			    <li><a href="<?php echo constant('URL'); ?>">INICIO</a></li>
         	<li><a href="<?php echo constant('URL'); ?>nosotros">NOSOTROS</a></li>
         	<li><a href="<?php echo constant('URL'); ?>carrito/market">PRODUCTOS</a></li>
-        	<li>NOTICIAS</li>
-        	<li>CARRITO</li>
-        	<li>CONTACTO</li>
+        	<li><a href="">NOTICIAS</a></li>
+          <li><a href="">CARRITO</a></li>
+          <li><a href="">CONTACTO</a></li>
 			
-					<li>|&nbsp;&nbsp;&nbsp;LOGIN</li>
+					<li><a href="<?php echo constant('URL'); ?>views/login/login.php">|&nbsp;&nbsp;&nbsp;LOGIN</a></li>
 				</ul>
 			</nav> <!-- Aqui termina el menu -->
 

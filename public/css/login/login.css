@@ -6,13 +6,12 @@ html,body
     }
     li a{
       text-decoration: none; /* Con esto le saco el underline y esas cosas que tienen los a */
-      color: white;
+      color: black;
     }
 
 nav {
     width: 100%;
     height: 90px;
-    background-color: black;
     z-index: 1;
   }
   
