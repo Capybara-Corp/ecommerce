@@ -4,7 +4,7 @@
   require 'views/login/connect.php';
 
   if (isset($_SESSION['uid'])) {
-    $records = $conn->prepare('SELECT uid, correo, contraseña FROM USUARIOS WHERE uid = :id');
+    $records = $conn->prepare('SELECT uid, nombre, correo, contraseña FROM USUARIOS WHERE uid = :id');
     $records->bindParam(':id', $_SESSION['uid']);
     $records->execute();
     $results = $records->fetch(PDO::FETCH_ASSOC);
@@ -64,7 +64,13 @@
         <li><a href="">CARRITO</a></li>
         <li><a href="">CONTACTO</a></li>
 
-        <li><a href="<?php echo constant('URL'); ?>views/login/login.php">|&nbsp;&nbsp;&nbsp;LOGIN</a></li>
+
+        <?php if(!empty($user)): ?>
+          <li><a href="<?php echo constant('URL'); ?>views/login/login.php">|&nbsp;&nbsp;&nbsp;CUENTA</a></li>
+    <?php else: ?>
+      <li><a href="<?php echo constant('URL'); ?>views/login/login.php">|&nbsp;&nbsp;&nbsp;LOGIN</a></li>
+    <?php endif; ?>
+
       </ul>
     </nav> <!-- Aqui termina el menu -->
 
