@@ -41,14 +41,6 @@
 </head>
 
 <body>
-<?php if(!empty($user)): ?>
-      <br> Welcome. <?= $user['correo']; ?>
-      <br>You are Successfully Logged In
-      <a href="views/login/logout.php">
-        Logout
-      </a>
-      <?php endif; ?>
-
   <section id="container_big">
     <!-- Es todo el contenedor de arriba, es decir, el que tiene la imagen de los barriles de fondo -->
     <nav class="noselect">
@@ -66,7 +58,7 @@
 
 
         <?php if(!empty($user)): ?>
-          <li><a href="<?php echo constant('URL'); ?>views/login/login.php">|&nbsp;&nbsp;&nbsp;CUENTA</a></li>
+          <li><a href="<?php echo constant('URL'); ?>views/login/perfil.php?uid=<?php echo ($_SESSION['uid']); ?>">|&nbsp;&nbsp;&nbsp;MI PERFIL</a></li>
     <?php else: ?>
       <li><a href="<?php echo constant('URL'); ?>views/login/login.php">|&nbsp;&nbsp;&nbsp;LOGIN</a></li>
     <?php endif; ?>
