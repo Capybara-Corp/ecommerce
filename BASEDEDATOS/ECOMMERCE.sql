@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 06-10-2022 a las 22:48:05
+-- Tiempo de generación: 07-10-2022 a las 19:34:28
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -58,12 +58,14 @@ CREATE TABLE `PRODUCTOS` (
 --
 
 INSERT INTO `PRODUCTOS` (`pid`, `nombre`, `precio_venta`, `precio_compra`, `marca`, `tipo`, `cantidad`, `img`, `descrip`) VALUES
-(1, 'Tinto', 200, 150, 'Westinghouse', 'Tinto', 14, 'public/media/bottles/bottle1.png', 'Vino tinto recien traido del himalaya'),
-(2, 'Blanco', 300, 200, 'De la viña', 'Blanco', 42, 'public/media/bottles/bottle2.png', 'Vino blanco para acompañar un asado con amigos'),
+(1, 'Tinto', 200, 150, 'Westinghouse', 'Tinto', 31, 'public/media/bottles/bottle1.png', 'Vino tinto recien traido del himalaya'),
+(2, 'Blanco', 300, 200, 'De la viña', 'Blanco', 31, 'public/media/bottles/bottle2.png', 'Vino blanco para acompañar un asado con amigos'),
 (3, 'Escoces', 500, 350, 'Santa rosana', 'Escoces', 32, 'public/media/bottles/bottle3.png', 'Vino escocés, traido directamente de Alemania'),
 (4, 'Rosado', 200, 100, 'Naturalvinos', 'Rosado', 63, 'public/media/bottles/bottle4.png', 'Vino rosado, color azul, perfecto para acompañar una sopa'),
 (5, 'Tannat', 300, 200, 'Los paisanos', 'Tannat', 78, 'public/media/bottles/bottle5.png', 'Tannat, directamente traido desde tannatlandia'),
-(6, 'Dulce', 350, 200, 'Las chauchas', 'Rosado dulce', 45, 'public/media/bottles/bottle6.png', 'Vino dulce elaborado con 3 kilos de miel por litro de vino');
+(6, 'Dulce', 350, 200, 'Las chauchas', 'Rosado dulce', 45, 'public/media/bottles/bottle6.png', 'Vino dulce elaborado con 3 kilos de miel por litro de vino'),
+(7, 'Mexicano', 250, 150, 'Mexicanito', 'Tinto', 38, 'public/media/bottles/bottle7.png', 'Vino mexicano recién traido de Cataluña.'),
+(8, 'Picante', 350, 300, 'Samsung', 'Picante', 56, 'public/media/bottles/bottle8.png', 'Vino picante, sabor picante. Ideal para aquellas tardes con amigos.');
 
 -- --------------------------------------------------------
 
@@ -208,7 +210,7 @@ ALTER TABLE `DETALLEVENTA`
 -- AUTO_INCREMENT de la tabla `PRODUCTOS`
 --
 ALTER TABLE `PRODUCTOS`
-  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `USUARIOS`
