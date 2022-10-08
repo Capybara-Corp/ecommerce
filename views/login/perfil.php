@@ -55,6 +55,7 @@ if(($_GET['uid'])==($_SESSION['uid'])): ?>
     </nav> <!-- Aqui termina el menu -->
 
     <section id="muro">
+    <div id="rosa">
       <br>
       <?php if($_SESSION['avatar'] != '') { ?>
         <img src="" class="profilepic">
@@ -68,7 +69,13 @@ if(($_GET['uid'])==($_SESSION['uid'])): ?>
       <a id="edit" href="editarperfil.php?uid=<?php echo ($_SESSION['uid']); ?>">
         Editar mi perfil
       </a>
-      <br>
+      </div>
+      <h1 id="historial">Ultimos vinos comprados</h1>
+    <h1 class="vino">Vino 1</h1>
+    <h1 class="vino">Vino 2</h1>
+    <h1 class="vino">Vino 3</h1>
+    <h1 class="vino">Vino 4</h1>
+    <h1 class="vino">Vino 5</h1>
       <a id="logout" href="logout.php">
         Cerrar sesión
       </a>
