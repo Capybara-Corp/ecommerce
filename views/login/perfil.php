@@ -13,7 +13,18 @@ if (isset($_SESSION['uid'])) {
     if (count($results) > 0) {
       $user = $results;
     }
+  $records = $conn->prepare('SELECT * FROM USUARIOS_Rangos WHERE rid = :id');
+  $records->bindParam(':id', $user['rango']);
+  $records->execute();
+  $results = $records->fetch(PDO::FETCH_ASSOC);
+
+  $rango = null;
+
+  if (count($results) > 0) {
+    $rango = $results;
   }
+}
+
 
 ?>
 
@@ -30,6 +41,8 @@ if (isset($_SESSION['uid'])) {
 
 <?php 
 if(($_GET['uid'])==($_SESSION['uid'])): ?>
+
+
 
 <nav class="noselect">
       <!-- Es el menu superior -->
@@ -62,7 +75,7 @@ if(($_GET['uid'])==($_SESSION['uid'])): ?>
         <?php } else { ?> 
         <img src="../../public/img/perfil/default.jpg" class="profilepic">
         <?php } ?>
-        <h1 id=profilename><?= $user['nombre']; ?></h1>
+        <h1 style="color:<?php echo $rango['color']; ?>" id=profilename><?= $user['nombre']; ?></h1>
       
       <br>
       <br>

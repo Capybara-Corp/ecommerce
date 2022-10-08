@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 08-10-2022 a las 22:45:30
+-- Tiempo de generación: 08-10-2022 a las 23:52:21
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -79,22 +79,23 @@ CREATE TABLE `USUARIOS` (
   `correo` varchar(60) NOT NULL,
   `contraseña` varchar(250) NOT NULL,
   `telefono` int(16) NOT NULL,
-  `avatar` varchar(50) DEFAULT NULL
+  `avatar` varchar(50) DEFAULT NULL,
+  `rango` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `USUARIOS`
 --
 
-INSERT INTO `USUARIOS` (`uid`, `nombre`, `correo`, `contraseña`, `telefono`, `avatar`) VALUES
-(1, 'Santiago', 'santiago@gmail.com', '123456', 43324235, ''),
-(2, 'Roberto', 'roberto@gmail.com', 'q1w2e3', 43322465, ''),
-(3, 'Raul', 'raul@mail.com', '246810', 43332424, ''),
-(4, 'Miguel', 'miguel@mail.com', 'tspass', 99242659, ''),
-(11, 'SoyUnaPrueba', 'prueba@gmail.com', '$2y$10$Ayehh6/Okbr8RRoa/byYputDjpmS5Sgf/8D1IYjzl.Bs5wQK884wK', 443343132, ''),
-(12, 'Lujambia', 'luli@gmail.com', '$2y$10$AzE18QwS0SXj3R3wYP2Ls.AiMhb3/oTs1r5Vi9OXYKygHBk6cywYS', 436436536, '../../public/img/perfil/12.jpg'),
-(14, 'La Jake', 'jacqueline@gmail.com', '$2y$10$cmE1q39TULiSm80dB9W5a.OYI/kGMjATDavT/zK/hJQUWgUIVZ6t2', 43543534, ''),
-(15, 'Santiago12', 'elsantoposada@gmail.com', '$2y$10$I4ylmmX20Fp5dkGP8l2zQuOw/OE0BToPs4tqw09UX4qaFdbenA8ly', 12345678, '../../public/img/perfil/15.jpg');
+INSERT INTO `USUARIOS` (`uid`, `nombre`, `correo`, `contraseña`, `telefono`, `avatar`, `rango`) VALUES
+(1, 'Santiago', 'santiago@gmail.com', '123456', 43324235, '', 2),
+(2, 'Roberto', 'roberto@gmail.com', 'q1w2e3', 43322465, '', 2),
+(3, 'Raul', 'raul@mail.com', '246810', 43332424, '', 2),
+(4, 'Miguel', 'miguel@mail.com', 'tspass', 99242659, '', 2),
+(11, 'SoyUnaPrueba', 'prueba@gmail.com', '$2y$10$Ayehh6/Okbr8RRoa/byYputDjpmS5Sgf/8D1IYjzl.Bs5wQK884wK', 443343132, '', 2),
+(12, 'Lujambia', 'luli@gmail.com', '$2y$10$AzE18QwS0SXj3R3wYP2Ls.AiMhb3/oTs1r5Vi9OXYKygHBk6cywYS', 436436536, '../../public/img/perfil/12.jpg', 2),
+(14, 'La Jake', 'jacqueline@gmail.com', '$2y$10$cmE1q39TULiSm80dB9W5a.OYI/kGMjATDavT/zK/hJQUWgUIVZ6t2', 43543534, '', 2),
+(15, 'Santiago12', 'elsantoposada@gmail.com', '$2y$10$I4ylmmX20Fp5dkGP8l2zQuOw/OE0BToPs4tqw09UX4qaFdbenA8ly', 12345678, '../../public/img/perfil/15.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -118,6 +119,26 @@ INSERT INTO `USUARIOS_Direcciones` (`duid`, `uid`, `direccion`) VALUES
 (3, 2, 'Calle 17'),
 (4, 3, 'Ruta 20'),
 (5, 4, 'Las naranjas');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `USUARIOS_Rangos`
+--
+
+CREATE TABLE `USUARIOS_Rangos` (
+  `rid` int(2) NOT NULL,
+  `nombre` varchar(16) NOT NULL,
+  `color` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `USUARIOS_Rangos`
+--
+
+INSERT INTO `USUARIOS_Rangos` (`rid`, `nombre`, `color`) VALUES
+(1, 'Admin', '#000'),
+(2, 'Usuario', '#FFF');
 
 -- --------------------------------------------------------
 
@@ -188,6 +209,12 @@ ALTER TABLE `USUARIOS_Direcciones`
   ADD KEY `uid` (`uid`);
 
 --
+-- Indices de la tabla `USUARIOS_Rangos`
+--
+ALTER TABLE `USUARIOS_Rangos`
+  ADD PRIMARY KEY (`rid`);
+
+--
 -- Indices de la tabla `USUARIOS_Tarjetas`
 --
 ALTER TABLE `USUARIOS_Tarjetas`
@@ -228,6 +255,12 @@ ALTER TABLE `USUARIOS`
 --
 ALTER TABLE `USUARIOS_Direcciones`
   MODIFY `duid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT de la tabla `USUARIOS_Rangos`
+--
+ALTER TABLE `USUARIOS_Rangos`
+  MODIFY `rid` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `USUARIOS_Tarjetas`

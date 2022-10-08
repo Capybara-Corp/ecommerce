@@ -83,6 +83,9 @@ if(($_GET['uid'])==($_SESSION['uid'])): ?>
     $destino1 = "../../public/img/perfil/".$name;
     move_uploaded_file($ruta1, $destino1);
     }
+    else{
+        $destino1 = $user['avatar'];
+    }
 
 
     $sql = "UPDATE USUARIOS SET nombre = :nombre, contraseña = :contrasena, avatar = '".$destino1."' WHERE uid = '".$_SESSION['uid']."'";
