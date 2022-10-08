@@ -70,7 +70,22 @@ if(($_GET['uid'])==($_SESSION['uid'])): ?>
     else {
         $nombre = $user['nombre'];
     }
-    $sql = "UPDATE USUARIOS SET nombre = :nombre, contraseña = :contrasena WHERE uid = '".$_SESSION['uid']."'";
+
+    $tips = 'jpg';
+    $type = array('image/jpeg' => 'jpg');
+    $id = $user['uid'];
+
+    $nombrefoto1=$_FILES['avatar']['name'];
+    $ruta1=$_FILES['avatar']['tmp_name'];
+    $name = $id.'.'.$tips;
+    if(is_uploaded_file($ruta1))
+    {
+    $destino1 = "../../public/img/perfil/".$name;
+    move_uploaded_file($ruta1, $destino1);
+    }
+
+
+    $sql = "UPDATE USUARIOS SET nombre = :nombre, contraseña = :contrasena, avatar = '".$destino1."' WHERE uid = '".$_SESSION['uid']."'";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':nombre', $nombre);
     $stmt->bindParam(':contrasena', $contrasena);

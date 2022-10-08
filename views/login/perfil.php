@@ -57,8 +57,8 @@ if(($_GET['uid'])==($_SESSION['uid'])): ?>
     <section id="muro">
     <div id="rosa">
       <br>
-      <?php if($_SESSION['avatar'] != '') { ?>
-        <img src="" class="profilepic">
+      <?php if($user['avatar'] != '') { ?>
+        <img src="<?php echo $user['avatar']; ?>" class="profilepic">
         <?php } else { ?> 
         <img src="../../public/img/perfil/default.jpg" class="profilepic">
         <?php } ?>
