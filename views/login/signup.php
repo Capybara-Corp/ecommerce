@@ -5,6 +5,7 @@
   $message = '';
 
   if (!empty($_POST['user_correo']) && !empty($_POST['user_pass']) && !empty($_POST['user_name']) && !empty($_POST['user_number'])) {
+    try{
     $sql = "INSERT INTO USUARIOS (correo, contraseña, nombre, telefono) VALUES (:user_correo, :user_pass, :user_name, :user_number)";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':user_correo', $_POST['user_correo']);
@@ -18,6 +19,10 @@
     } else {
       $message = 'Sorry there must have been an issue creating your account';
     }
+  }
+  catch(Exception $e){
+    echo "Correo electrónico en uso";
+  }
   }
 ?>
 <!DOCTYPE html>

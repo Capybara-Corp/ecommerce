@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 07-10-2022 a las 19:34:28
+-- Tiempo de generación: 08-10-2022 a las 22:45:30
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -78,19 +78,23 @@ CREATE TABLE `USUARIOS` (
   `nombre` varchar(40) NOT NULL,
   `correo` varchar(60) NOT NULL,
   `contraseña` varchar(250) NOT NULL,
-  `telefono` int(16) NOT NULL
+  `telefono` int(16) NOT NULL,
+  `avatar` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `USUARIOS`
 --
 
-INSERT INTO `USUARIOS` (`uid`, `nombre`, `correo`, `contraseña`, `telefono`) VALUES
-(1, 'Santiago', 'santiago@gmail.com', '123456', 43324235),
-(2, 'Roberto', 'roberto@gmail.com', 'q1w2e3', 43322465),
-(3, 'Raul', 'raul@mail.com', '246810', 43332424),
-(4, 'Miguel', 'miguel@mail.com', 'tspass', 99242659),
-(10, 'santiago', 'santiago', '$2y$10$H4c7QvHPmhQkUDMQH5Os5uZ8RbPLNnqMDM3TNYODGwq3FeRuOJheS', 434343434);
+INSERT INTO `USUARIOS` (`uid`, `nombre`, `correo`, `contraseña`, `telefono`, `avatar`) VALUES
+(1, 'Santiago', 'santiago@gmail.com', '123456', 43324235, ''),
+(2, 'Roberto', 'roberto@gmail.com', 'q1w2e3', 43322465, ''),
+(3, 'Raul', 'raul@mail.com', '246810', 43332424, ''),
+(4, 'Miguel', 'miguel@mail.com', 'tspass', 99242659, ''),
+(11, 'SoyUnaPrueba', 'prueba@gmail.com', '$2y$10$Ayehh6/Okbr8RRoa/byYputDjpmS5Sgf/8D1IYjzl.Bs5wQK884wK', 443343132, ''),
+(12, 'Lujambia', 'luli@gmail.com', '$2y$10$AzE18QwS0SXj3R3wYP2Ls.AiMhb3/oTs1r5Vi9OXYKygHBk6cywYS', 436436536, '../../public/img/perfil/12.jpg'),
+(14, 'La Jake', 'jacqueline@gmail.com', '$2y$10$cmE1q39TULiSm80dB9W5a.OYI/kGMjATDavT/zK/hJQUWgUIVZ6t2', 43543534, ''),
+(15, 'Santiago12', 'elsantoposada@gmail.com', '$2y$10$I4ylmmX20Fp5dkGP8l2zQuOw/OE0BToPs4tqw09UX4qaFdbenA8ly', 12345678, '../../public/img/perfil/15.jpg');
 
 -- --------------------------------------------------------
 
@@ -173,7 +177,8 @@ ALTER TABLE `PRODUCTOS`
 -- Indices de la tabla `USUARIOS`
 --
 ALTER TABLE `USUARIOS`
-  ADD PRIMARY KEY (`uid`);
+  ADD PRIMARY KEY (`uid`),
+  ADD UNIQUE KEY `correo` (`correo`);
 
 --
 -- Indices de la tabla `USUARIOS_Direcciones`
@@ -216,7 +221,7 @@ ALTER TABLE `PRODUCTOS`
 -- AUTO_INCREMENT de la tabla `USUARIOS`
 --
 ALTER TABLE `USUARIOS`
-  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de la tabla `USUARIOS_Direcciones`
