@@ -4,7 +4,7 @@
   require 'views/login/connect.php';
 
   if (isset($_SESSION['uid'])) {
-    $records = $conn->prepare('SELECT uid, nombre, correo, contraseña FROM USUARIOS WHERE uid = :id');
+    $records = $conn->prepare('SELECT * FROM USUARIOS WHERE uid = :id');
     $records->bindParam(':id', $_SESSION['uid']);
     $records->execute();
     $results = $records->fetch(PDO::FETCH_ASSOC);
@@ -43,29 +43,7 @@
 <body>
   <section id="container_big">
     <!-- Es todo el contenedor de arriba, es decir, el que tiene la imagen de los barriles de fondo -->
-    <nav class="noselect">
-      <!-- Es el menu superior -->
-      <div id="toggle-menu" class="toggle-menu">
-        <img src="public/media/menu.png">
-      </div> <!-- Este div contiene la imagen del boton para abrir el menu -->
-      <ul class="main-menu" id="main-menu">
-        <li><a href="<?php echo constant('URL'); ?>">INICIO</a></li>
-        <li><a href="<?php echo constant('URL'); ?>nosotros">NOSOTROS</a></li>
-        <li><a href="<?php echo constant('URL'); ?>carrito/market">PRODUCTOS</a></li>
-        <li><a href="">NOTICIAS</a></li>
-        <li><a href="">CARRITO</a></li>
-        <li><a href="">CONTACTO</a></li>
-
-
-        <?php if(!empty($user)): ?>
-          <li><a href="<?php echo constant('URL'); ?>views/login/perfil.php?uid=<?php echo ($_SESSION['uid']); ?>">|&nbsp;&nbsp;&nbsp;MI PERFIL</a></li>
-    <?php else: ?>
-      <li><a href="<?php echo constant('URL'); ?>views/login/login.php">|&nbsp;&nbsp;&nbsp;LOGIN</a></li>
-    <?php endif; ?>
-
-      </ul>
-    </nav> <!-- Aqui termina el menu -->
-
+    <?php include "header.php"; ?>
     <img class="noselect" id="banner_portada" src="public/media/winery-factory.jpg">
     <div class="container_big_div noselect">
       <p id="welcome">Vinos de la mejor calidad</p>

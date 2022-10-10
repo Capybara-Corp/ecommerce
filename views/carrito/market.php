@@ -1,3 +1,22 @@
+<?php
+  session_start();
+
+  require 'views/login/connect.php';
+
+  if (isset($_SESSION['uid'])) {
+    $records = $conn->prepare('SELECT * FROM USUARIOS WHERE uid = :id');
+    $records->bindParam(':id', $_SESSION['uid']);
+    $records->execute();
+    $results = $records->fetch(PDO::FETCH_ASSOC);
+
+    $user = null;
+
+    if (count($results) > 0) {
+      $user = $results;
+    }
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,16 +36,7 @@
 </head>
 
 <body>
-<nav class="noselect"> <!-- Es el menu superior -->
-				<div id="toggle-menu" class="toggle-menu">
-				<img src="../public/media/menu.png">
-				</div>  <!-- Este div contiene la imagen del boton para abrir el menu -->
-				<ul class="main-menu" id="main-menu">
-			    <li><a href="<?php echo constant('URL'); ?>">INICIO</a></li>
-        	
-					<li>|&nbsp;&nbsp;&nbsp;LOGIN</li>
-				</ul>
-			</nav> <!-- Aqui termina el menu -->
+  <?php include "header.php"; ?>
 
 
       

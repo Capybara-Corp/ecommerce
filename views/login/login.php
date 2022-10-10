@@ -10,7 +10,7 @@ require "../../config/config.php";
   require 'connect.php';
 
   if (!empty($_POST['user_correo']) && !empty($_POST['user_pass'])) {
-    $records = $conn->prepare('SELECT uid, correo, contraseña FROM USUARIOS WHERE correo=:user_correo');
+    $records = $conn->prepare('SELECT * FROM USUARIOS WHERE correo=:user_correo');
     $records->bindParam(':user_correo', $_POST['user_correo']);
     $records->execute();
     $results = $records->fetch(PDO::FETCH_ASSOC);
@@ -19,6 +19,7 @@ require "../../config/config.php";
 
     if (is_countable($results) > 0 && password_verify($_POST['user_pass'], $results['contraseña'])) {
       $_SESSION['uid'] = $results['uid'];
+      $_SESSION['rango'] = $results['rango'];
       header("Location: ../../../ecommerce");
     } else {
       $message = 'Sorry, those credentials do not match';
@@ -37,21 +38,7 @@ require "../../config/config.php";
   </head>
   <body>
 
-  <nav class="noselect"> <!-- Es el menu superior -->
-				<div id="toggle-menu" class="toggle-menu">
-				<img src="../public/media/menu.png" id="menupic">
-				</div>  <!-- Este div contiene la imagen del boton para abrir el menu -->
-				<ul class="main-menu" id="main-menu">
-			    <li><a href="<?php echo constant('URL'); ?>">INICIO</a></li>
-        	<li><a href="<?php echo constant('URL'); ?>nosotros">NOSOTROS</a></li>
-        	<li><a href="<?php echo constant('URL'); ?>carrito/market">PRODUCTOS</a></li>
-        	<li><a href="">NOTICIAS</a></li>
-          <li><a href="">CARRITO</a></li>
-          <li><a href="">CONTACTO</a></li>
-			
-					<li><a href="<?php echo constant('URL'); ?>views/login/login.php">|&nbsp;&nbsp;&nbsp;LOGIN</a></li>
-				</ul>
-			</nav> <!-- Aqui termina el menu -->
+  <?php include "../index/header.php" ?>
 
     <?php if(!empty($message)): ?>
       <p> <?= $message ?></p>

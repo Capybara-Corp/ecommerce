@@ -70,6 +70,14 @@ if(($_GET['uid'])==($_SESSION['uid'])): ?>
     <section id="muro">
     <div id="rosa">
       <br>
+
+
+
+      <?php if ($rango['rid'] == '1') { ?><a href="panel">Panel</a><?php } ?>
+
+
+
+
       <?php if($user['avatar'] != '') { ?>
         <img src="<?php echo $user['avatar']; ?>" class="profilepic">
         <?php } else { ?> 

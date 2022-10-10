@@ -1,3 +1,22 @@
+<?php
+  session_start();
+
+  require 'views/login/connect.php';
+
+  if (isset($_SESSION['uid'])) {
+    $records = $conn->prepare('SELECT * FROM USUARIOS WHERE uid = :id');
+    $records->bindParam(':id', $_SESSION['uid']);
+    $records->execute();
+    $results = $records->fetch(PDO::FETCH_ASSOC);
+
+    $user = null;
+
+    if (count($results) > 0) {
+      $user = $results;
+    }
+  }
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,21 +32,7 @@
 </head>
 <body>
 	<section id="container_big">  
-		<nav class="noselect">
-			<div id="toggle-menu" class="toggle-menu">
-			<img src="public/media/menu.png">
-			</div>
-			<ul class="main-menu" id="main-menu">
-			<li><a href="<?php echo constant('URL'); ?>">INICIO</a></li>
-        	<li><a href="<?php echo constant('URL'); ?>nosotros">NOSOTROS</a></li>
-        	<li><a href="<?php echo constant('URL'); ?>carrito/market">PRODUCTOS</a></li>
-        	<li>NOTICIAS</li>
-        	<li>CARRITO</li>
-        	<li>CONTACTO</li>
-				
-			<li>|&nbsp;&nbsp;&nbsp;LOGIN</li>
-			</ul>
-		</nav>
+	<?php include "header.php"; ?>
 	</section>
 
 	<section id="mid_container">
