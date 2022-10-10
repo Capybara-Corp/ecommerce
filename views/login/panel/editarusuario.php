@@ -56,6 +56,20 @@ else {
 
       <?php 
       if(isset($_GET['borrar'])) {
+      $records = $conn->prepare('SELECT * FROM USUARIOS WHERE uid = :id');
+      $records->bindParam(':id', $_GET['borrar']);
+      $records->execute();
+      $results = $records->fetch(PDO::FETCH_ASSOC);
+
+    $usuario = null;
+
+    if (count($results) > 0) {
+      $usuario = $results;
+    }
+
+    unlink("../".$usuario['avatar']."");
+
+
         $borrar = $conn->prepare('DELETE FROM USUARIOS WHERE uid = :id');
     $borrar->bindParam(':id', $_GET['borrar']);
     $borrar->execute();
