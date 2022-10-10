@@ -95,12 +95,24 @@ else {
   $data = $conn->query("SELECT * FROM USUARIOS")->fetchAll();
 
   foreach ($data as $row)
-  { ?>
+  { 
+    $records = $conn->prepare('SELECT * FROM USUARIOS_Rangos WHERE rid = :id');
+      $records->bindParam(':id', $row['rango']);
+      $records->execute();
+      $results = $records->fetch(PDO::FETCH_ASSOC);
+
+    $ran = null;
+
+    if (count($results) > 0) {
+      $ran = $results;
+    }
+    
+    ?>
     <tr>
       <td><?php echo $row['uid']; ?></td>
       <td><?php echo $row['nombre']; ?></td>
       <td><img src="../<?php echo $row['avatar']; ?>" width="50px" height="50px"></td>
-      <td><?php echo $row['rango']; ?></td>
+      <td><?php echo $ran['nombre']; ?></td>
       <td><a href="editarperfil.php?uid=<?php echo $row['uid']; ?>">Editar</a> | <a href="editarusuario.php?borrar=<?php echo $row['uid']; ?>" onclick="return Confirmar (this.form)">Borrar</a></td>
     </tr>
 
