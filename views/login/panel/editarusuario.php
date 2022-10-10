@@ -47,6 +47,7 @@ else {
 </head>
 <body>
   <table width="200" border="1">
+    <thead>
     <tr>
       <td>ID</td>
       <td>Usuario</td>
@@ -54,14 +55,14 @@ else {
       <td>Rango</td>
       <td>Opciones</td>
     </tr>
-  </table>
+</thead>
+<tbody>
 
   <?php 
   $data = $conn->query("SELECT * FROM USUARIOS")->fetchAll();
 
   foreach ($data as $row)
   { ?>
-    <table width="200" border="1">
     <tr>
       <td><?php echo $row['uid']; ?></td>
       <td><?php echo $row['nombre']; ?></td>
@@ -72,6 +73,8 @@ else {
 
    <?php }
   ?>
+  </tbody>
+  </table>
 
 </body>
 </html>
