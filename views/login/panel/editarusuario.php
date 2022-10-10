@@ -43,9 +43,28 @@ else {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Editar Usuarios</title>
+    <script language="Javascript" type="text/javascript">
+      function Confirmar(frm) {
+        var borrar = confirm("¿Seguro que desea eliminar este usuario?");
+        return borrar;
+      }
+
+    </script>
 </head>
 <body>
+
+      <?php 
+      if(isset($_GET['borrar'])) {
+        $borrar = $conn->prepare('DELETE FROM USUARIOS WHERE uid = :id');
+    $borrar->bindParam(':id', $_GET['borrar']);
+    $borrar->execute();
+      }
+      
+      ?>
+
+
+
   <table width="200" border="1">
     <thead>
     <tr>
@@ -68,7 +87,7 @@ else {
       <td><?php echo $row['nombre']; ?></td>
       <td><img src="../<?php echo $row['avatar']; ?>" width="50px" height="50px"></td>
       <td><?php echo $row['rango']; ?></td>
-      <td><a href="editarperfil.php?uid=<?php echo $row['uid']; ?>">Editar</a> | Borrar</td>
+      <td><a href="editarperfil.php?uid=<?php echo $row['uid']; ?>">Editar</a> | <a href="editarusuario.php?borrar=<?php echo $row['uid']; ?>" onclick="return Confirmar (this.form)">Borrar</a></td>
     </tr>
 
    <?php }
