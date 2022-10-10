@@ -44,6 +44,7 @@ else {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Usuarios</title>
+    <link rel="stylesheet" href="../../../public/css/login/panel.css">
     <script language="Javascript" type="text/javascript">
       function Confirmar(frm) {
         var borrar = confirm("¿Seguro que desea eliminar este usuario?");
@@ -53,6 +54,8 @@ else {
     </script>
 </head>
 <body>
+<?php include "navegacion.php" ?>
+
 
       <?php 
       if(isset($_GET['borrar'])) {
