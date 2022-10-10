@@ -6,7 +6,7 @@
 
   if (!empty($_POST['user_correo']) && !empty($_POST['user_pass']) && !empty($_POST['user_name']) && !empty($_POST['user_number'])) {
     try{
-    $sql = "INSERT INTO USUARIOS (correo, contraseña, nombre, telefono, rango) VALUES (:user_correo, :user_pass, :user_name, :user_number, '2')";
+    $sql = "INSERT INTO USUARIOS (correo, contraseña, nombre, telefono, rango, avatar) VALUES (:user_correo, :user_pass, :user_name, :user_number, '2', '../../public/img/perfil/default.jpg')";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':user_correo', $_POST['user_correo']);
     $user_pass = password_hash($_POST['user_pass'], PASSWORD_BCRYPT);

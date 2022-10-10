@@ -34,8 +34,8 @@ else {
     die();
 }
 
-
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -43,19 +43,33 @@ else {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panel Admin</title>
-    <link rel="stylesheet" href="../../../public/css/login/panel.css">
+    <title>Document</title>
 </head>
 <body>
+  <table width="200" border="1">
+    <tr>
+      <td>ID</td>
+      <td>Usuario</td>
+      <td>Avatar</td>
+      <td>Rango</td>
+    </tr>
+  </table>
 
-<h1>Lord <?php echo $user['nombre'] ?>, bienvenido al panel admin</h1>
-<div>
-    <ul>
-        <li><a href="editarusuario.php">Editar usuario</a></li>
-        <li><a href="<?php echo constant('URL'); ?>views/login/perfil.php?uid=<?php echo ($_SESSION['uid']); ?>">Regresar a mi perfil</a></li>
-    </ul>
-</div>
+  <?php 
+  $data = $conn->query("SELECT * FROM USUARIOS")->fetchAll();
 
+  foreach ($data as $row)
+  { ?>
+    <table width="200" border="1">
+    <tr>
+      <td><?php echo $row['uid']; ?></td>
+      <td><?php echo $row['nombre']; ?></td>
+      <td><img src="../<?php echo $row['avatar']; ?>" width="50px" height="50px"></td>
+      <td><?php echo $row['rango']; ?></td>
+    </tr>
+
+   <?php }
+  ?>
 
 </body>
 </html>

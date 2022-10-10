@@ -70,26 +70,20 @@ if(($_GET['uid'])==($_SESSION['uid'])): ?>
     <section id="muro">
     <div id="rosa">
       <br>
-
-
-
-      <?php if ($rango['rid'] == '1') { ?><a href="panel">Panel</a><?php } ?>
-
-
-
-
-      <?php if($user['avatar'] != '') { ?>
         <img src="<?php echo $user['avatar']; ?>" class="profilepic">
-        <?php } else { ?> 
-        <img src="../../public/img/perfil/default.jpg" class="profilepic">
-        <?php } ?>
-        <h1 style="color:<?php echo $rango['color']; ?>" id=profilename><?= $user['nombre']; ?></h1>
+        
+        <h1 style="color:<?php echo $rango['color']; ?>" id=profilename><?= $user['nombre']; ?><?php if ($rango['rid'] == '1') { ?><p style="margin-top: -7vh; color: white!important; font-size: 1vw!important;">(admin)</p><?php } ?> </h1>
       
       <br>
       <br>
       <a id="edit" href="editarperfil.php?uid=<?php echo ($_SESSION['uid']); ?>">
         Editar mi perfil
       </a>
+          <br>
+          
+      <?php if ($rango['rid'] == '1') { ?><a href="panel" id="panelAdmin">Panel Admin</a><?php } ?>
+
+
       </div>
       <h1 id="historial">Ultimos vinos comprados</h1>
     <h1 class="vino">Vino 1</h1>

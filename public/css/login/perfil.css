@@ -147,6 +147,14 @@ nav {
   text-decoration: none;
 }
 
+#panelAdmin {
+  color: black;
+  grid-column: 1;
+  font-family: monospace;
+  font-size: 1.5vw;
+  text-decoration: none;
+}
+
 #logout {
   grid-row: 1;
   color: #DF173F;
