@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 08-10-2022 a las 23:52:21
+-- Tiempo de generación: 10-10-2022 a las 21:17:17
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -58,7 +58,7 @@ CREATE TABLE `PRODUCTOS` (
 --
 
 INSERT INTO `PRODUCTOS` (`pid`, `nombre`, `precio_venta`, `precio_compra`, `marca`, `tipo`, `cantidad`, `img`, `descrip`) VALUES
-(1, 'Tinto', 200, 150, 'Westinghouse', 'Tinto', 31, 'public/media/bottles/bottle1.png', 'Vino tinto recien traido del himalaya'),
+(1, 'Tinto', 200, 150, 'Westinghouse', 'Tinto', 28, 'public/media/bottles/bottle1.png', 'Vino tinto recien traido del himalaya'),
 (2, 'Blanco', 300, 200, 'De la viña', 'Blanco', 31, 'public/media/bottles/bottle2.png', 'Vino blanco para acompañar un asado con amigos'),
 (3, 'Escoces', 500, 350, 'Santa rosana', 'Escoces', 32, 'public/media/bottles/bottle3.png', 'Vino escocés, traido directamente de Alemania'),
 (4, 'Rosado', 200, 100, 'Naturalvinos', 'Rosado', 63, 'public/media/bottles/bottle4.png', 'Vino rosado, color azul, perfecto para acompañar una sopa'),
@@ -88,14 +88,10 @@ CREATE TABLE `USUARIOS` (
 --
 
 INSERT INTO `USUARIOS` (`uid`, `nombre`, `correo`, `contraseña`, `telefono`, `avatar`, `rango`) VALUES
-(1, 'Santiago', 'santiago@gmail.com', '123456', 43324235, '', 2),
-(2, 'Roberto', 'roberto@gmail.com', 'q1w2e3', 43322465, '', 2),
-(3, 'Raul', 'raul@mail.com', '246810', 43332424, '', 2),
-(4, 'Miguel', 'miguel@mail.com', 'tspass', 99242659, '', 2),
-(11, 'SoyUnaPrueba', 'prueba@gmail.com', '$2y$10$Ayehh6/Okbr8RRoa/byYputDjpmS5Sgf/8D1IYjzl.Bs5wQK884wK', 443343132, '', 2),
 (12, 'Lujambia', 'luli@gmail.com', '$2y$10$AzE18QwS0SXj3R3wYP2Ls.AiMhb3/oTs1r5Vi9OXYKygHBk6cywYS', 436436536, '../../public/img/perfil/12.jpg', 2),
-(14, 'La Jake', 'jacqueline@gmail.com', '$2y$10$cmE1q39TULiSm80dB9W5a.OYI/kGMjATDavT/zK/hJQUWgUIVZ6t2', 43543534, '', 2),
-(15, 'Santiago12', 'elsantoposada@gmail.com', '$2y$10$I4ylmmX20Fp5dkGP8l2zQuOw/OE0BToPs4tqw09UX4qaFdbenA8ly', 12345678, '../../public/img/perfil/15.jpg', 1);
+(15, 'Santiago Romero', 'elsantoposada@gmail.com', '$2y$10$10DO8zpNXpeNFn/h.lc3/eqNDNbIYvy8gSKj6XRsXvSEYCSmf35oG', 12345678, '../../public/img/perfil/15.jpg', 1),
+(20, 'Paz', 'elamor@gmail.com', '$2y$10$fVa13QOokk5tOWCi5Z8pcuYCflkD3deYp9bqHRsnKkjOB6M3as/CC', 1212121212, '../../public/img/perfil/20.jpg', 2),
+(21, 'Soy de prueba', 'prueba@gmail.com', '$2y$10$Ybpc.5pRvAcjif9DeckhDuV2i9TwuzI17.Fz0kxCrQNJ1GGmaQoo.', 434343434, '../../public/img/perfil/default.jpg', 2);
 
 -- --------------------------------------------------------
 
@@ -108,17 +104,6 @@ CREATE TABLE `USUARIOS_Direcciones` (
   `uid` int(11) DEFAULT NULL,
   `direccion` varchar(80) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `USUARIOS_Direcciones`
---
-
-INSERT INTO `USUARIOS_Direcciones` (`duid`, `uid`, `direccion`) VALUES
-(1, 1, 'Calle 13'),
-(2, 1, 'Calle 21'),
-(3, 2, 'Calle 17'),
-(4, 3, 'Ruta 20'),
-(5, 4, 'Las naranjas');
 
 -- --------------------------------------------------------
 
@@ -151,17 +136,6 @@ CREATE TABLE `USUARIOS_Tarjetas` (
   `uid` int(11) DEFAULT NULL,
   `tarjeta` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `USUARIOS_Tarjetas`
---
-
-INSERT INTO `USUARIOS_Tarjetas` (`tuid`, `uid`, `tarjeta`) VALUES
-(1, 1, '1231421'),
-(2, 1, '54545454'),
-(3, 2, '5123414'),
-(4, 3, '34213424'),
-(5, 4, '3242424');
 
 -- --------------------------------------------------------
 
@@ -248,7 +222,7 @@ ALTER TABLE `PRODUCTOS`
 -- AUTO_INCREMENT de la tabla `USUARIOS`
 --
 ALTER TABLE `USUARIOS`
-  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de la tabla `USUARIOS_Direcciones`

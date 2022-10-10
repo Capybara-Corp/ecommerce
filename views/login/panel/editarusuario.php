@@ -52,6 +52,7 @@ else {
       <td>Usuario</td>
       <td>Avatar</td>
       <td>Rango</td>
+      <td>Opciones</td>
     </tr>
   </table>
 
@@ -66,6 +67,7 @@ else {
       <td><?php echo $row['nombre']; ?></td>
       <td><img src="../<?php echo $row['avatar']; ?>" width="50px" height="50px"></td>
       <td><?php echo $row['rango']; ?></td>
+      <td><a href="editarperfil.php?uid=<?php echo $row['uid']; ?>">Editar</a> | Borrar</td>
     </tr>
 
    <?php }
