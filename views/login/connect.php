@@ -15,5 +15,5 @@
         //$err = $e->getMessage();
         //echo "<script>console.error('DB connect failed.');</script>";
     }
-
+    // * Conecto a la base de datos
 ?>

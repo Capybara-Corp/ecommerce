@@ -34,6 +34,7 @@ else {
     die();
 }
 
+// * Verifica si estamos logeados y si ademas somos admin
 
 ?>
 
@@ -48,9 +49,9 @@ else {
 </head>
 <body>
 
-<h1>Lord <?php echo $user['nombre'] ?>, bienvenido al panel admin</h1>
+<h1>Lord <?php echo $user['nombre'] ?>, bienvenido al panel admin</h1> <!-- Nos dan la bienvenida al panel -->
 <div>
-    <?php include "navegacion.php" ?>
+    <?php include "navegacion.php" ?> 
 </div>
 
 

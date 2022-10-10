@@ -6,4 +6,7 @@
   session_destroy();
 
   header('Location: ../../');
+
+  // * Simplemente destruye la sesión
+
 ?>

@@ -15,6 +15,7 @@
       $user = $results;
     }
   }
+
 ?>
 
 <!DOCTYPE html>
@@ -36,6 +37,11 @@
 
       <a href="login.php">Login</a> or
       <a href="signup.php">SignUp</a>
+
+
+      //! Tecnicamente esta pagina nunca se muestra
+
+
     <?php endif; ?>
   </body>
 </html>

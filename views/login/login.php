@@ -9,7 +9,7 @@ require "../../config/config.php";
   }
   require 'connect.php';
 
-  if (!empty($_POST['user_correo']) && !empty($_POST['user_pass'])) {
+  if (!empty($_POST['user_correo']) && !empty($_POST['user_pass'])) { // Si recibe algo...
     $records = $conn->prepare('SELECT * FROM USUARIOS WHERE correo=:user_correo');
     $records->bindParam(':user_correo', $_POST['user_correo']);
     $records->execute();
@@ -20,9 +20,9 @@ require "../../config/config.php";
     if (is_countable($results) > 0 && password_verify($_POST['user_pass'], $results['contraseña'])) {
       $_SESSION['uid'] = $results['uid'];
       $_SESSION['rango'] = $results['rango'];
-      header("Location: ../../../ecommerce");
+      header("Location: ../../../ecommerce"); //Verifica que todo coincida
     } else {
-      $message = 'Sorry, those credentials do not match';
+      $message = 'Nombre o contraseña incorrectos'; // Sino, aparece esto
     }
   }
 

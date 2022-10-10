@@ -11,7 +11,7 @@ if (isset($_SESSION['uid'])) {
     $user = null;
 
     if (count($results) > 0) {
-      $user = $results;
+      $user = $results; 
     }
   $records = $conn->prepare('SELECT * FROM USUARIOS_Rangos WHERE rid = :id');
   $records->bindParam(':id', $user['rango']);
@@ -21,15 +21,15 @@ if (isset($_SESSION['uid'])) {
   $rango = null;
 
   if (count($results) > 0) {
-    $rango = $results;
+    $rango = $results; //Me saca el rango del usuario iniciado
   }
 
   if ($rango['rid'] != '1') {
-    header("Location: ../login.php");
+    header("Location: ../login.php"); //Si rango no es 1, y en consecuencia no es admin, entonces lo saca, ya que este sitio es unicamente para administradores
   }
 }
 else {
-    header("Location: ../../../");
+    header("Location: ../../../"); //Si no está logeado tambien lo saca
     echo "Acceso denegado";
     die();
 }
@@ -49,7 +49,7 @@ else {
     <?php include "navegacion.php" ?>
     <?php 
 
-    if(isset($_GET['uid'])):
+    if(isset($_GET['uid'])): //Si hay un "uid" en la URL...
       $records = $conn->prepare('SELECT * FROM USUARIOS WHERE uid = :id');
       $records->bindParam(':id', $_GET['uid']);
       $records->execute();
@@ -58,7 +58,7 @@ else {
     $usuario = null;
 
     if (count($results) > 0) {
-      $usuario = $results;
+      $usuario = $results; //Guardamos en "$usuario" los datos del usuario a editar
     }
 
     $records = $conn->prepare('SELECT * FROM USUARIOS_Rangos WHERE rid = :id');
@@ -69,7 +69,7 @@ else {
     $ran = null;
 
     if (count($results) > 0) {
-      $ran = $results;
+      $ran = $results; //Guardamos el rango del usuario a editar
     }
 
 ?>
@@ -98,7 +98,7 @@ else {
         <?php 
         $data = $conn->query("SELECT * FROM USUARIOS_Rangos")->fetchAll();
 
-            foreach ($data as $row)
+            foreach ($data as $row) // Por cada rango me muestra una opcion, notese que muestra el nombre pero almacena el valor del id del rango.
             { ?>
                 <option value="<?php echo $row['rid']; ?>"><?php echo $row['nombre']; ?></option>
             <?php } ?>
@@ -130,21 +130,21 @@ else {
     </form>
 
     <?php 
-    if(isset($_POST['editar'])) {
-    if($_POST['contrasena'] != '') { 
-        $contrasena = password_hash($_POST['contrasena'], PASSWORD_BCRYPT); 
+    if(isset($_POST['editar'])) { //Si hay algo en POST, y presionamos en "editar"...
+    if($_POST['contrasena'] != '') { // Si hay algo en el POST de contraseña...
+        $contrasena = password_hash($_POST['contrasena'], PASSWORD_BCRYPT); // Lo guardamos
     }
     else {
-        $contrasena = $usuario['contraseña'];
+        $contrasena = $usuario['contraseña']; // Sino, simplemente dejamos la contraseña anterior
     }
     if($_POST['nombre'] != '') { 
-        $nombre = $_POST['nombre'];
+        $nombre = $_POST['nombre']; //Lo mismo acá
     }
     else {
         $nombre = $usuario['nombre'];
     }
 
-    $rank = $_POST['rango'];
+    $rank = $_POST['rango']; //Guardamos en "$rank" el rango que recibió por POST
 
     $tips = 'jpg';
     $type = array('image/jpeg' => 'jpg');
@@ -157,10 +157,10 @@ else {
     {
     $destino1 = "../../public/img/perfil/".$name;
     $destino2 = "../../../public/img/perfil/".$name;
-    move_uploaded_file($ruta1, $destino2);
+    move_uploaded_file($ruta1, $destino2);    // Todo esto es para guardar la imagen tanto en la BD, como en el directorio local
     }
     else{
-        $destino1 = $usuario['avatar'];
+        $destino1 = $usuario['avatar']; // Lo mismo, si no se subio nada, se deja la imagen anterior
     }
 
 
@@ -168,7 +168,7 @@ else {
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':nombre', $nombre);
     $stmt->bindParam(':contrasena', $contrasena);
-    $stmt->bindParam(':rank', $rank);
+    $stmt->bindParam(':rank', $rank); // Hago mi update
 
     if ($stmt->execute()) {
       $message = 'Datos actualizados con exito';

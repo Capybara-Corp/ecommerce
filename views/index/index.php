@@ -12,7 +12,7 @@
     $user = null;
 
     if (count($results) > 0) {
-      $user = $results;
+      $user = $results; // Me carga en "$user" los datos de mi usuario de mi sesión
     }
   }
 ?>

@@ -15,6 +15,8 @@ if (isset($_SESSION['uid'])) {
     }
   }
 
+// * Verifico que haya una sesion iniciada
+
 ?>
 
 
@@ -29,7 +31,7 @@ if (isset($_SESSION['uid'])) {
 <body>
 
 <?php 
-if(($_GET['uid'])==($_SESSION['uid'])): ?>
+if(($_GET['uid'])==($_SESSION['uid'])): ?> // * Si el ID de la URL, es el mismo de la sesion...
 
     <a href="<?php echo constant('URL'); ?>views/login/perfil.php?uid=<?php echo ($_SESSION['uid']); ?>">Regresar a mi perfil</a>
     
@@ -55,6 +57,8 @@ if(($_GET['uid'])==($_SESSION['uid'])): ?>
         <input type="submit" name="editar" id="button" value="Editar" />
     </p>
     </form>
+
+    <!-- Se me desbloquea todo este formulario -->
 
     <?php 
     if(isset($_POST['editar'])) {
@@ -88,6 +92,11 @@ if(($_GET['uid'])==($_SESSION['uid'])): ?>
     }
 
 
+    /* Practicamente es igual que el "editar usuario" de administradores, solo que aqui, no se puede 
+    modificar el rango (por obvias razones) y solo podemos modificar el usuario de la sesión iniciada
+    */
+
+
     $sql = "UPDATE USUARIOS SET nombre = :nombre, contraseña = :contrasena, avatar = '".$destino1."' WHERE uid = '".$_SESSION['uid']."'";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':nombre', $nombre);
@@ -102,12 +111,20 @@ if(($_GET['uid'])==($_SESSION['uid'])): ?>
 
 
     }
+
+ //* Y hago el update
+
     ?>
 
     
     
     <?php else: ?>
-    <?php header('Location: logout.php'); ?>
+    <?php header('Location: logout.php'); ?> 
+    
+    /* ! Importante, si el ID de la sesión iniciada no coincide con el ID que recibimos por GET,
+    nada de esto aparece, ya que sino, cualquiera podria modificar el perfil del que se le antoje
+    simplemente poniendo el ID del usuario en la URL.
+    */
     <?php endif; ?>
 
 </body>

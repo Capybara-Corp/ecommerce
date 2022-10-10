@@ -14,14 +14,19 @@
     $stmt->bindParam(':user_name', $_POST['user_name']);
     $stmt->bindParam(':user_number', $_POST['user_number']);
 
+      /*
+      Basicamente, agarra lo que recibe por post, y lo mete en usuarios, cifrando la contraseña
+      */
+
+
     if ($stmt->execute()) {
-      $message = 'Successfully created new user';
+      $message = 'Usuario creado con éxito';
     } else {
-      $message = 'Sorry there must have been an issue creating your account';
+      $message = 'Ha ocurrido un error';
     }
   }
   catch(Exception $e){
-    echo "Correo electrónico en uso";
+    echo "Correo electrónico en uso"; // Se fija que el correo electronico no esté en uso
   }
   }
 ?>

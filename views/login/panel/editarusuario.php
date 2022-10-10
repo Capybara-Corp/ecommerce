@@ -34,6 +34,9 @@ else {
     die();
 }
 
+// * Lo mismo, verifica si estamos logeados y si además somos admin.
+
+
 ?>
 
 
@@ -47,7 +50,7 @@ else {
     <link rel="stylesheet" href="../../../public/css/login/panel.css">
     <script language="Javascript" type="text/javascript">
       function Confirmar(frm) {
-        var borrar = confirm("¿Seguro que desea eliminar este usuario?");
+        var borrar = confirm("¿Seguro que desea eliminar este usuario?"); // Javascript me pregunta si quiero eliminar el usuario, esto es por si le damos a eliminar sin querer.
         return borrar;
       }
 
@@ -58,7 +61,7 @@ else {
 
 
       <?php 
-      if(isset($_GET['borrar'])) {
+      if(isset($_GET['borrar'])) { // Si hay algo en la URL de borrar usuario
       $records = $conn->prepare('SELECT * FROM USUARIOS WHERE uid = :id');
       $records->bindParam(':id', $_GET['borrar']);
       $records->execute();
@@ -67,13 +70,13 @@ else {
     $usuario = null;
 
     if (count($results) > 0) {
-      $usuario = $results;
+      $usuario = $results; // Guardamos los datos del usuario de la URL
     }
 
-    unlink("../".$usuario['avatar']."");
+    unlink("../".$usuario['avatar'].""); //Borramos el archivo de la foto de perfil del disco duro
 
 
-        $borrar = $conn->prepare('DELETE FROM USUARIOS WHERE uid = :id');
+        $borrar = $conn->prepare('DELETE FROM USUARIOS WHERE uid = :id'); //Borramos el usuario de la BD
     $borrar->bindParam(':id', $_GET['borrar']);
     $borrar->execute();
       }
@@ -107,7 +110,7 @@ else {
     $ran = null;
 
     if (count($results) > 0) {
-      $ran = $results;
+      $ran = $results; //Guarda el rango de todos los usuarios en cuestion
     }
     
     ?>

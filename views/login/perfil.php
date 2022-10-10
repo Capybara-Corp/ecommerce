@@ -25,6 +25,8 @@ if (isset($_SESSION['uid'])) {
   }
 }
 
+//! Con todo esto, lo que hace es sacar el usuario de la sesión y el rango de ese mismo usuario
+
 
 ?>
 
@@ -42,30 +44,9 @@ if (isset($_SESSION['uid'])) {
 <?php 
 if(($_GET['uid'])==($_SESSION['uid'])): ?>
 
+<!-- Igual que antes, si coincide la sesión con el GET -->
 
-
-<nav class="noselect">
-      <!-- Es el menu superior -->
-      <div id="toggle-menu" class="toggle-menu">
-      <img src="../../public/media/menu.png" id="menupic">
-      </div> <!-- Este div contiene la imagen del boton para abrir el menu -->
-      <ul class="main-menu" id="main-menu">
-        <li><a href="<?php echo constant('URL'); ?>">INICIO</a></li>
-        <li><a href="<?php echo constant('URL'); ?>nosotros">NOSOTROS</a></li>
-        <li><a href="<?php echo constant('URL'); ?>carrito/market">PRODUCTOS</a></li>
-        <li><a href="">NOTICIAS</a></li>
-        <li><a href="">CARRITO</a></li>
-        <li><a href="">CONTACTO</a></li>
-
-
-        <?php if(!empty($user)): ?>
-          <li><a href="<?php echo constant('URL'); ?>views/login/perfil.php?uid=<?php echo ($_SESSION['uid']); ?>">|&nbsp;&nbsp;&nbsp;MI CUENTA</a></li>
-    <?php else: ?>
-      <li><a href="<?php echo constant('URL'); ?>views/login/login.php">|&nbsp;&nbsp;&nbsp;LOGIN</a></li>
-    <?php endif; ?>
-
-      </ul>
-    </nav> <!-- Aqui termina el menu -->
+<?php include "../index/header.php" ?>
 
     <section id="muro">
     <div id="rosa">
