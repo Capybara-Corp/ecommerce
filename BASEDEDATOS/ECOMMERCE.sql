@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 10-10-2022 a las 21:17:17
+-- Tiempo de generación: 11-10-2022 a las 22:49:39
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -58,14 +58,20 @@ CREATE TABLE `PRODUCTOS` (
 --
 
 INSERT INTO `PRODUCTOS` (`pid`, `nombre`, `precio_venta`, `precio_compra`, `marca`, `tipo`, `cantidad`, `img`, `descrip`) VALUES
-(1, 'Tinto', 200, 150, 'Westinghouse', 'Tinto', 28, 'public/media/bottles/bottle1.png', 'Vino tinto recien traido del himalaya'),
-(2, 'Blanco', 300, 200, 'De la viña', 'Blanco', 31, 'public/media/bottles/bottle2.png', 'Vino blanco para acompañar un asado con amigos'),
-(3, 'Escoces', 500, 350, 'Santa rosana', 'Escoces', 32, 'public/media/bottles/bottle3.png', 'Vino escocés, traido directamente de Alemania'),
-(4, 'Rosado', 200, 100, 'Naturalvinos', 'Rosado', 63, 'public/media/bottles/bottle4.png', 'Vino rosado, color azul, perfecto para acompañar una sopa'),
-(5, 'Tannat', 300, 200, 'Los paisanos', 'Tannat', 78, 'public/media/bottles/bottle5.png', 'Tannat, directamente traido desde tannatlandia'),
-(6, 'Dulce', 350, 200, 'Las chauchas', 'Rosado dulce', 45, 'public/media/bottles/bottle6.png', 'Vino dulce elaborado con 3 kilos de miel por litro de vino'),
-(7, 'Mexicano', 250, 150, 'Mexicanito', 'Tinto', 38, 'public/media/bottles/bottle7.png', 'Vino mexicano recién traido de Cataluña.'),
-(8, 'Picante', 350, 300, 'Samsung', 'Picante', 56, 'public/media/bottles/bottle8.png', 'Vino picante, sabor picante. Ideal para aquellas tardes con amigos.');
+(1, 'Tinto', 200, 150, 'Westinghouse', 'Tinto', 31, 'public/media/bottles/bottle1.png', 'Vino tinto recien traido del himalaya'),
+(2, 'Blanco', 300, 200, 'De la viña', 'Blanco', 125, 'public/media/bottles/bottle2.png', 'Vino blanco para acompañar un asado con amigos'),
+(3, 'Escoces', 500, 350, 'Santa rosana', 'Escoces', 21, 'public/media/bottles/bottle3.png', 'Vino escocés, traido directamente de Alemania'),
+(4, 'Rosado', 200, 100, 'Naturalvinos', 'Rosado', 56, 'public/media/bottles/bottle4.png', 'Vino rosado, color azul, perfecto para acompañar una sopa'),
+(5, 'Tannat', 300, 200, 'Los paisanos', 'Tannat', 72, 'public/media/bottles/bottle5.png', 'Tannat, directamente traido desde tannatlandia'),
+(6, 'Dulce', 350, 200, 'Las chauchas', 'Rosado dulce', 41, 'public/media/bottles/bottle6.png', 'Vino dulce elaborado con 3 kilos de miel por litro de vino'),
+(7, 'Mexicano', 250, 150, 'Mexicanito', 'Tinto', 34, 'public/media/bottles/bottle7.png', 'Vino mexicano recién traido de Cataluña.'),
+(8, 'Picante', 350, 300, 'Samsung', 'Picante', 52, 'public/media/bottles/bottle8.png', 'Vino picante, sabor picante. Ideal para aquellas tardes con amigos.'),
+(9, 'Vino 9', 350, 277, 'Vinoman', 'Rosado', 32, '', 'Un vino para toda la familia'),
+(10, 'Vino 10', 300, 250, 'Vinoiss', 'Rosado', 37, '', 'Un vino magico'),
+(13, 'Vinitou', 350, 250, 'Tenshinhan', 'Clarette', 24, '', 'Un vino magico'),
+(14, 'Vinoprueba', 324, 245, 'Vinoman', 'Rosado', 24, '', 'Un vino para toda la familia'),
+(15, 'Pruebita', 350, 277, 'Vinoman', 'Rosado', 24, '', 'Un vino para toda la familia'),
+(16, 'Pruebass', 350, 250, 'Tenshinhan', 'Clarette', 40, '', 'DOSIJFOISDFJOISDJFOS');
 
 -- --------------------------------------------------------
 
@@ -88,10 +94,9 @@ CREATE TABLE `USUARIOS` (
 --
 
 INSERT INTO `USUARIOS` (`uid`, `nombre`, `correo`, `contraseña`, `telefono`, `avatar`, `rango`) VALUES
-(12, 'Lujambia', 'luli@gmail.com', '$2y$10$AzE18QwS0SXj3R3wYP2Ls.AiMhb3/oTs1r5Vi9OXYKygHBk6cywYS', 436436536, '../../public/img/perfil/12.jpg', 2),
-(15, 'Santiago Romero', 'elsantoposada@gmail.com', '$2y$10$10DO8zpNXpeNFn/h.lc3/eqNDNbIYvy8gSKj6XRsXvSEYCSmf35oG', 12345678, '../../public/img/perfil/15.jpg', 1),
-(20, 'Paz', 'elamor@gmail.com', '$2y$10$fVa13QOokk5tOWCi5Z8pcuYCflkD3deYp9bqHRsnKkjOB6M3as/CC', 1212121212, '../../public/img/perfil/20.jpg', 2),
-(21, 'Soy de prueba', 'prueba@gmail.com', '$2y$10$Ybpc.5pRvAcjif9DeckhDuV2i9TwuzI17.Fz0kxCrQNJ1GGmaQoo.', 434343434, '../../public/img/perfil/default.jpg', 2);
+(12, 'Lujambia12', 'luli@gmail.com', '$2y$10$AzE18QwS0SXj3R3wYP2Ls.AiMhb3/oTs1r5Vi9OXYKygHBk6cywYS', 436436536, 'public/img/perfil/12.jpg', 2),
+(15, 'Santiago Romero', 'elsantoposada@gmail.com', '$2y$10$Ybpc.5pRvAcjif9DeckhDuV2i9TwuzI17.Fz0kxCrQNJ1GGmaQoo.', 12345678, 'public/img/perfil/15.jpg', 1),
+(20, 'Paz', 'elamor@gmail.com', '$2y$10$fVa13QOokk5tOWCi5Z8pcuYCflkD3deYp9bqHRsnKkjOB6M3as/CC', 1212121212, 'public/img/perfil/20.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -216,13 +221,13 @@ ALTER TABLE `DETALLEVENTA`
 -- AUTO_INCREMENT de la tabla `PRODUCTOS`
 --
 ALTER TABLE `PRODUCTOS`
-  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `USUARIOS`
 --
 ALTER TABLE `USUARIOS`
-  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT de la tabla `USUARIOS_Direcciones`
