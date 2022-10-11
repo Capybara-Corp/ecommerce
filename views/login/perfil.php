@@ -24,6 +24,9 @@ if (isset($_SESSION['uid'])) {
     $rango = $results;
   }
 }
+else{
+  Header('Location: login');
+}
 
 //! Con todo esto, lo que hace es sacar el usuario de la sesión y el rango de ese mismo usuario
 
@@ -77,7 +80,7 @@ if(($_GET['uid'])==($_SESSION['uid'])): ?>
       </a>
         </section>
       <?php else: ?>
-    <h1>SESION INICIADAAAA</h1>
+    <?php Header('Location: login'); ?>
     <?php endif; ?>
 
     <script src="<?php echo constant('URL'); ?>public/js/menu.js"></script>

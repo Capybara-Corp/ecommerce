@@ -1,7 +1,7 @@
 <?php 
 session_start();
-require '../connect.php';
-require "../../../config/config.php";
+require 'libs/connect.php';
+require "config/config.php";
 if (isset($_SESSION['uid'])) {
     $records = $conn->prepare('SELECT * FROM USUARIOS WHERE uid = :id');
     $records->bindParam(':id', $_SESSION['uid']);
@@ -25,11 +25,11 @@ if (isset($_SESSION['uid'])) {
   }
 
   if ($rango['rid'] != '1') {
-    header("Location: ../login.php");
+    header("Location: ../ecommerce");
   }
 }
 else {
-    header("Location: ../../../");
+    header("Location: ../ecommerce");
     echo "Acceso denegado";
     die();
 }
@@ -47,7 +47,8 @@ else {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Usuarios</title>
-    <link rel="stylesheet" href="../../../public/css/login/panel.css">
+    <link rel="stylesheet" href="public/css/login/panel.css">
+
     <script language="Javascript" type="text/javascript">
       function Confirmar(frm) {
         var borrar = confirm("¿Seguro que desea eliminar este usuario?"); // Javascript me pregunta si quiero eliminar el usuario, esto es por si le damos a eliminar sin querer.
@@ -57,7 +58,7 @@ else {
     </script>
 </head>
 <body>
-<?php include "navegacion.php" ?>
+<?php include "views/login/panel/navegacion.php" ?>
 
 
       <?php 
@@ -73,7 +74,7 @@ else {
       $usuario = $results; // Guardamos los datos del usuario de la URL
     }
 
-    unlink("../".$usuario['avatar'].""); //Borramos el archivo de la foto de perfil del disco duro
+    unlink("".$usuario['avatar'].""); //Borramos el archivo de la foto de perfil del disco duro
 
 
         $borrar = $conn->prepare('DELETE FROM USUARIOS WHERE uid = :id'); //Borramos el usuario de la BD
@@ -117,9 +118,9 @@ else {
     <tr>
       <td><?php echo $row['uid']; ?></td>
       <td><?php echo $row['nombre']; ?></td>
-      <td><img src="../<?php echo $row['avatar']; ?>" width="50px" height="50px"></td>
+      <td><img src="<?php echo $row['avatar']; ?>" width="50px" height="50px"></td>
       <td><?php echo $ran['nombre']; ?></td>
-      <td><a href="editarperfil.php?uid=<?php echo $row['uid']; ?>">Editar</a> | <a href="editarusuario.php?borrar=<?php echo $row['uid']; ?>" onclick="return Confirmar (this.form)">Borrar</a></td>
+      <td><a href="editarperfil?uid=<?php echo $row['uid']; ?>">Editar</a> | <a href="editarusuario?borrar=<?php echo $row['uid']; ?>" onclick="return Confirmar (this.form)">Borrar</a></td>
     </tr>
 
    <?php }
