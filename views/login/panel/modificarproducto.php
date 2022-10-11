@@ -102,7 +102,7 @@ else {
     </p>
     <p>
     Descripcion:
-        <input type="text" name="descripcion" id="textfield2" value="<?php echo $producto['descrip']; ?>" />
+        <input style="width: 300px;" type="text" name="descripcion" id="textfield2" value="<?php echo $producto['descrip']; ?>" />
     </p>
     <p>
         <input type="submit" name="editar" id="button" value="Editar" />
@@ -169,7 +169,7 @@ else {
     else {
         $descripcion = $producto['descrip'];
     }
-
+    try{
     $sql = "UPDATE PRODUCTOS SET nombre = :nombre, precio_venta = :precio_venta, precio_compra = :precio_compra, marca = :marca, tipo = :tipo, cantidad = :cantidad, img = '".$destino1."', descrip = :descripcion WHERE pid = '".$_GET['pid']."'";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':nombre', $nombre);
@@ -186,6 +186,10 @@ else {
       $message = 'No se han podido actualizar los datos';
     }
     echo "$message";
+    }
+    catch(Exception $e){
+        echo "Error"; 
+    }
 
 
     }

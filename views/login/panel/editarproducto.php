@@ -59,6 +59,7 @@ else {
 </head>
 <body>
 <?php include "views/login/panel/navegacion.php" ?>
+<a href="">Crear un nuevo producto</a>
 
 
       <?php 
