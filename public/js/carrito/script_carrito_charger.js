@@ -101,9 +101,13 @@ function fetch_async_compra(pid, cant) {
       alert(texto);
       map_productos_carrito.clear();
       refreshCarrito();
+      for (let i = 0; i < precioIndividual.length; i++) {
+      precioIndividual[i] = 0;
+      }
       sum = 0;
       precioTotal = sum;
       console.log("i am your father "+precioTotal);
+      console.log("precio individual "+precioIndividual);
       document.getElementById('total').innerHTML = "$"+precioTotal;
       load_shop();
       //alert('esto funciona');
