@@ -4,7 +4,7 @@
   session_start();
 
   if (isset($_SESSION['uid'])) {
-    header('Location: ../');
+    header('Location: ../ecommerce');
   }
   require 'libs/connect.php';
 

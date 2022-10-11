@@ -14,6 +14,9 @@ if (isset($_SESSION['uid'])) {
       $user = $results;
     }
   }
+  else{
+    Header('Location: login');
+  }
 
 // * Verifico que haya una sesion iniciada
 

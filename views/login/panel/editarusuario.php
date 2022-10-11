@@ -47,7 +47,7 @@ else {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Usuarios</title>
-    <link rel="stylesheet" href="public/css/login/panel.css">
+    <link rel="stylesheet" href="../public/css/login/panel.css">
 
     <script language="Javascript" type="text/javascript">
       function Confirmar(frm) {
@@ -118,7 +118,7 @@ else {
     <tr>
       <td><?php echo $row['uid']; ?></td>
       <td><?php echo $row['nombre']; ?></td>
-      <td><img src="<?php echo $row['avatar']; ?>" width="50px" height="50px"></td>
+      <td><img src="../<?php echo $row['avatar']; ?>" width="50px" height="50px"></td>
       <td><?php echo $ran['nombre']; ?></td>
       <td><a href="editarperfil?uid=<?php echo $row['uid']; ?>">Editar</a> | <a href="editarusuario?borrar=<?php echo $row['uid']; ?>" onclick="return Confirmar (this.form)">Borrar</a></td>
     </tr>
