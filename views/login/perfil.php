@@ -57,7 +57,7 @@ if(($_GET['uid'])==($_SESSION['uid'])): ?>
       
       <br>
       <br>
-      <a id="edit" href="editarperfil.php?uid=<?php echo ($_SESSION['uid']); ?>">
+      <a id="edit" href="editar?uid=<?php echo ($_SESSION['uid']); ?>">
         Editar mi perfil
       </a>
           <br>
@@ -72,7 +72,7 @@ if(($_GET['uid'])==($_SESSION['uid'])): ?>
     <h1 class="vino">Vino 3</h1>
     <h1 class="vino">Vino 4</h1>
     <h1 class="vino">Vino 5</h1>
-      <a id="logout" href="logout.php">
+      <a id="logout" href="logout">
         Cerrar sesión
       </a>
         </section>

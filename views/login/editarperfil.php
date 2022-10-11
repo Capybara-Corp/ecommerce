@@ -31,9 +31,9 @@ if (isset($_SESSION['uid'])) {
 <body>
 
 <?php 
-if(($_GET['uid'])==($_SESSION['uid'])): ?> // * Si el ID de la URL, es el mismo de la sesion...
+if(($_GET['uid'])==($_SESSION['uid'])): ?> <!-- Si el ID de la URL, es el mismo de la sesion... -->
 
-    <a href="<?php echo constant('URL'); ?>views/login/perfil.php?uid=<?php echo ($_SESSION['uid']); ?>">Regresar a mi perfil</a>
+    <a href="<?php echo constant('URL'); ?>perfil?uid=<?php echo ($_SESSION['uid']); ?>">Regresar a mi perfil</a>
     
     
     <form action="" method="post" enctype="multipart/form-data" name="form1" id="form1">
@@ -84,7 +84,7 @@ if(($_GET['uid'])==($_SESSION['uid'])): ?> // * Si el ID de la URL, es el mismo 
     $name = $id.'.'.$tips;
     if(is_uploaded_file($ruta1))
     {
-    $destino1 = "../../public/img/perfil/".$name;
+    $destino1 = "public/img/perfil/".$name;
     move_uploaded_file($ruta1, $destino1);
     }
     else{
@@ -121,10 +121,10 @@ if(($_GET['uid'])==($_SESSION['uid'])): ?> // * Si el ID de la URL, es el mismo 
     <?php else: ?>
     <?php header('Location: logout.php'); ?> 
     
-    /* ! Importante, si el ID de la sesión iniciada no coincide con el ID que recibimos por GET,
+    <!-- ! Importante, si el ID de la sesión iniciada no coincide con el ID que recibimos por GET,
     nada de esto aparece, ya que sino, cualquiera podria modificar el perfil del que se le antoje
     simplemente poniendo el ID del usuario en la URL.
-    */
+    */ -->
     <?php endif; ?>
 
 </body>
