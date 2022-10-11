@@ -6,7 +6,7 @@
   if (isset($_SESSION['uid'])) {
     header('Location: ../');
   }
-  require 'connect.php';
+  require 'libs/connect.php';
 
   if (!empty($_POST['user_correo']) && !empty($_POST['user_pass'])) { // Si recibe algo...
     $records = $conn->prepare('SELECT * FROM USUARIOS WHERE correo=:user_correo');
@@ -46,7 +46,7 @@
     <h1>Login</h1>
     <span>or <a href="<?php echo constant('URL'); ?>signup">SignUp</a></span>
 
-    <form action="login.php" method="POST">
+    <form action="login" method="POST">
       <input name="user_correo" type="text" placeholder="Enter your email">
       <input name="user_pass" type="password" placeholder="Enter your Password">
       <input type="submit" value="Submit">

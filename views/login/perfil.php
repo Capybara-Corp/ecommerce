@@ -1,7 +1,7 @@
 <?php 
 session_start();
-require 'connect.php';
-require "../../config/config.php";
+require 'libs/connect.php';
+require "config/config.php";
 if (isset($_SESSION['uid'])) {
     $records = $conn->prepare('SELECT * FROM USUARIOS WHERE uid = :id');
     $records->bindParam(':id', $_SESSION['uid']);
@@ -37,7 +37,7 @@ if (isset($_SESSION['uid'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil de: <?= $user['nombre']; ?></title>
-    <link rel="stylesheet" href="../../public/css/login/perfil.css">
+    <link rel="stylesheet" href="public/css/login/perfil.css">
 </head>
 <body>
 
@@ -46,7 +46,7 @@ if(($_GET['uid'])==($_SESSION['uid'])): ?>
 
 <!-- Igual que antes, si coincide la sesión con el GET -->
 
-<?php include "../index/header.php" ?>
+<?php include "views/index/header.php" ?>
 
     <section id="muro">
     <div id="rosa">
@@ -77,7 +77,7 @@ if(($_GET['uid'])==($_SESSION['uid'])): ?>
       </a>
         </section>
       <?php else: ?>
-    <?php header('Location: logout.php'); ?>
+    <h1>SESION INICIADAAAA</h1>
     <?php endif; ?>
 
     <script src="<?php echo constant('URL'); ?>public/js/menu.js"></script>

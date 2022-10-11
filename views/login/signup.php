@@ -1,6 +1,6 @@
 <?php
 
-  require 'connect.php';
+  require 'libs/connect.php';
 
   $message = '';
 
@@ -47,7 +47,7 @@
     <h1>SignUp</h1>
     <span>or <a href="<?php echo constant('URL'); ?>login">Login</a></span>
 
-    <form action="signup.php" method="POST">
+    <form action="signup" method="POST">
       <input name="user_correo" type="text" placeholder="Enter your email">
       <input name="user_pass" type="password" placeholder="Enter your Password">
       <input name="confirm_password" type="password" placeholder="Confirm Password">

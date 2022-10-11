@@ -1,7 +1,7 @@
 <?php 
 session_start();
-require 'connect.php';
-require "../../config/config.php";
+require 'libs/connect.php';
+require "config/config.php";
 if (isset($_SESSION['uid'])) {
     $records = $conn->prepare('SELECT * FROM USUARIOS WHERE uid = :id');
     $records->bindParam(':id', $_SESSION['uid']);

@@ -13,7 +13,7 @@
 
 
         <?php if(!empty($user)): ?>
-          <li><a href="<?php echo constant('URL'); ?>views/login/perfil.php?uid=<?php echo ($_SESSION['uid']); ?>">|&nbsp;&nbsp;&nbsp;MI PERFIL</a></li>
+          <li><a href="<?php echo constant('URL'); ?>perfil?uid=<?php echo ($_SESSION['uid']); ?>">|&nbsp;&nbsp;&nbsp;MI PERFIL</a></li>
     <?php else: ?>
       <li><a href="<?php echo constant('URL'); ?>login">|&nbsp;&nbsp;&nbsp;LOGIN</a></li>
     <?php endif; ?>
