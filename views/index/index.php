@@ -38,6 +38,7 @@
   <!-- Cosas para que la pagina funcione -->
 
   <title>Pagina</title> <!-- Es el titulo que aparece en la pestaña -->
+  
 </head>
 
 <body>
@@ -96,56 +97,32 @@
   </section> <!-- Este section contiene la imagen grande con los quesos, y el botón de comprar -->
 
   <section id="bot_container">
-    <a href="<?php echo constant('URL'); ?>carrito/market">
-      <div class="product">
-        <img src="public/media/bottles/bottle1.png">
-        <p>VINO PINDONGA</p>
-        <p class="price">$590</p>
-      </div>
-      <!-- Cada div es básicamente el mismo, tiene una imagen, el nombre y el precio. Lo mejor sería sacarlo de una database pero por ahora está así -->
 
-      <div class="product">
-        <img src="public/media/bottles/bottle2.png">
-        <p>VINO PINDONGA</p>
-        <p class="price">$590</p>
-      </div>
-
-      <div class="product">
-        <img src="public/media/bottles/bottle3.png">
-        <p>VINO PINDONGA</p>
-        <p class="price">$590</p>
-      </div>
-
-      <div class="product">
-        <img src="public/media/bottles/bottle4.png">
-        <p>VINO PINDONGA</p>
-        <p class="price">$590</p>
-      </div>
-
-      <div class="product">
-        <img src="public/media/bottles/bottle5.png">
-        <p>VINO PINDONGA</p>
-        <p class="price">$590</p>
-      </div>
-
-      <div class="product">
-        <img src="public/media/bottles/bottle6.png">
-        <p>VINO PINDONGA</p>
-        <p class="price">$590</p>
-      </div>
-
-      <div class="product">
-        <img src="public/media/bottles/bottle7.png">
-        <p>VINO PINDONGA</p>
-        <p class="price">$590</p>
-      </div>
-
-      <div class="product">
-        <img src="public/media/bottles/bottle8.png">
-        <p>VINO PINDONGA</p>
-        <p class="price">$590</p>
-      </div>
-    </a>
+    <?php 
+    $data = $conn->query("SELECT * FROM PRODUCTOS")->fetchAll();
+    $i = 0;
+    foreach ($data as $row)
+    {
+        echo "<div class=\"product\">
+        <a href=\"carrito/market\">
+        <button onclick='carrito_charger
+    (\"" . $row['pid'] . "\", \"" . $row['nombre'] . "\", \"" . $row['precio_venta'] . "\")'>
+        <img src=" . $row['img'] . ">
+        <p>" . $row['nombre'] . "</p>
+        <p class=\"price\">$" . $row['precio_venta'] . "</p>
+        </button>
+        </a>
+      </div>";
+      $i++;
+      if ($i == 8){
+        break;
+      }
+    }
+    ?>
+      
+      
+      
+   
 
 
   </section> <!-- Este section contiene los articulos de vino en la grilla -->
@@ -153,7 +130,8 @@
   <?php include "footer.php"; ?>
 
   <script type="text/javascript" src="public/js/menu.js"></script> <!-- Aqui importamos el script del menú -->
-
+  <script src="<?php echo constant('URL'); ?>public/js/carrito/script_shop_loaded.js"></script>
+  <script src="<?php echo constant('URL'); ?>public/js/carrito/script_carrito_charger.js"></script>
 
 </body>
 

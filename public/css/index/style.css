@@ -354,6 +354,24 @@ img{
   margin-right: auto;
   height: 800px;
   margin-bottom: 30vh;
+  display: grid;
+  grid-template-columns: repeat(4, 400px);
+  grid-template-rows: repeat(2, 450px);
+  grid-column-gap: 0.2vw; /* Establezco mi grilla, en este caso, 4 columnas y 2 filas */
+}
+
+#bot_container div{
+  cursor: pointer;
+  display: grid;
+}
+
+#bot_container button{
+  border: none;
+}
+
+#bot_container a{
+  display: grid;
+  cursor: pointer;
 }
 
 .product {
@@ -369,6 +387,9 @@ img{
 .product img {
   width: 150px;
   height: 350px;
+  text-align: center;
+  align-self: center;
+  justify-self: center;
 }
 
 .product p {
@@ -379,23 +400,13 @@ img{
   font-size: 15px;
 }
 
-#bot_container a{
-  cursor: default;
-  display: grid;
-  grid-template-columns: repeat(4, 400px);
-  grid-template-rows: repeat(2, 450px);
-  grid-column-gap: 0.2vw; /* Establezco mi grilla, en este caso, 4 columnas y 2 filas */
-  margin-left: auto;
-  margin-right: auto;
-  justify-content: center;
-  margin-bottom: 1000px;
-  width: 1620px;
-  height: 800px;
-}
-
 .product .price {
   font-size: 20px;
 }
+
+
+
+
 
 .footer {
   position: absolute;
