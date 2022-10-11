@@ -56,5 +56,7 @@
       <input type="submit" value="Submit">
     </form>
 
+    <?php include "views/index/footer.php"; ?>
+
   </body>
 </html>

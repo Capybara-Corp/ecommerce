@@ -150,10 +150,7 @@
 
   </section> <!-- Este section contiene los articulos de vino en la grilla -->
 
-  <footer class="footer">
-    <p>FOOTER</p>
-    <p>COPYRIGHT 2022</p>
-  </footer> <!-- Este es el footer -->
+  <?php include "footer.php"; ?>
 
   <script type="text/javascript" src="public/js/menu.js"></script> <!-- Aqui importamos el script del menú -->
 

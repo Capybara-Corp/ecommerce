@@ -52,6 +52,8 @@
       <input type="submit" value="Submit">
     </form>
 
+    <?php include "views/index/footer.php"; ?>
+
     <script src="<?php echo constant('URL'); ?>public/js/menu.js"></script>
   </body>
 </html>

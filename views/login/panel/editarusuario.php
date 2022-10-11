@@ -128,5 +128,7 @@ else {
   </tbody>
   </table>
 
+  <?php include "views/index/footer.php"; ?>
+
 </body>
 </html>

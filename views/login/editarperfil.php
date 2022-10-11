@@ -130,5 +130,7 @@ if(($_GET['uid'])==($_SESSION['uid'])): ?> <!-- Si el ID de la URL, es el mismo 
     */ -->
     <?php endif; ?>
 
+    <?php include "views/index/footer.php"; ?>
+
 </body>
 </html>

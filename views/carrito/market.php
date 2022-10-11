@@ -61,6 +61,8 @@
     </section>
   </div>
 
+  <?php include "views/index/footer.php"; ?>
+
   <script src="<?php echo constant('URL'); ?>public/js/menu.js"></script>
 
 </body>

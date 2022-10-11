@@ -177,5 +177,7 @@ if (!empty($_POST['nombre']) && !empty($_POST['precio_venta']) && !empty($_POST[
   </tbody>
   </table>
 
+  <?php include "views/index/footer.php"; ?>
+
 </body>
 </html>

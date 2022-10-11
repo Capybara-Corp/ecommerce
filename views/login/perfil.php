@@ -83,6 +83,8 @@ if(($_GET['uid'])==($_SESSION['uid'])): ?>
     <?php Header('Location: login'); ?>
     <?php endif; ?>
 
+    <?php include "views/index/footer.php"; ?>
+
     <script src="<?php echo constant('URL'); ?>public/js/menu.js"></script>
 
 </body>

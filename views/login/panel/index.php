@@ -54,6 +54,7 @@ else {
     <?php include "views/login/panel/navegacion.php" ?> 
 </div>
 
+<?php include "views/index/footer.php"; ?>
 
 </body>
 </html>
