@@ -1,12 +1,12 @@
 <?php
 
 #require_once 'entidades/alumno.php';
-require_once 'entidades/ArticuloDto.php';
+/* require_once 'entidades/ArticuloDto.php'; */
 
 class Carrito_Model extends Model
 {
 
-    public function __construct()
+    /*public function __construct()
     {
 
         parent::__construct();
@@ -42,9 +42,9 @@ class Carrito_Model extends Model
         } catch (PDOException $e) {
             return [];
         }
-    }
+    }*/
 
-    public function update($pid, $cantidad)
+    /*public function update($pid, $cantidad)
     {
         //define un arreglo en php
         //$items = array();
@@ -84,5 +84,5 @@ class Carrito_Model extends Model
         } finally {
             $pdo = null;
         }
-    }
+    }*/
 }

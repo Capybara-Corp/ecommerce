@@ -1,6 +1,6 @@
 <?php
 
-class Login_Controller extends controller
+class Signup_Controller extends controller
 {
     public function __construct()
     {
@@ -12,6 +12,6 @@ class Login_Controller extends controller
 
     public function render()
     {
-        $this->view->render('login/login');
+        $this->view->render('login/signup');
     }
 }

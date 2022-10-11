@@ -45,7 +45,7 @@
     <?php endif; ?>
 
     <h1>SignUp</h1>
-    <span>or <a href="login.php">Login</a></span>
+    <span>or <a href="<?php echo constant('URL'); ?>login">Login</a></span>
 
     <form action="signup.php" method="POST">
       <input name="user_correo" type="text" placeholder="Enter your email">

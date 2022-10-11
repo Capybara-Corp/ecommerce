@@ -1,11 +1,10 @@
 <?php
 
-require "../../config/config.php";
 
   session_start();
 
   if (isset($_SESSION['uid'])) {
-    header('Location: ../../');
+    header('Location: ../');
   }
   require 'connect.php';
 
@@ -20,7 +19,7 @@ require "../../config/config.php";
     if (is_countable($results) > 0 && password_verify($_POST['user_pass'], $results['contraseña'])) {
       $_SESSION['uid'] = $results['uid'];
       $_SESSION['rango'] = $results['rango'];
-      header("Location: ../../../ecommerce"); //Verifica que todo coincida
+      header("Location: ../ecommerce"); //Verifica que todo coincida
     } else {
       $message = 'Nombre o contraseña incorrectos'; // Sino, aparece esto
     }
@@ -34,18 +33,18 @@ require "../../config/config.php";
     <meta charset="utf-8">
     <title>Login</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link rel="stylesheet" href="../../public/css/login/login.css">
+    <link rel="stylesheet" href="public/css/login/login.css">
   </head>
   <body>
 
-  <?php include "../index/header.php" ?>
+  <?php include "views/index/header.php" ?>
 
     <?php if(!empty($message)): ?>
       <p> <?= $message ?></p>
     <?php endif; ?>
 
     <h1>Login</h1>
-    <span>or <a href="signup.php">SignUp</a></span>
+    <span>or <a href="<?php echo constant('URL'); ?>signup">SignUp</a></span>
 
     <form action="login.php" method="POST">
       <input name="user_correo" type="text" placeholder="Enter your email">
