@@ -4,29 +4,36 @@ $id_producto       = $_POST["pid"];
 $cantidad_producto = $_POST["cantidad"];
 $cantidad          = 0;
 
-//hay que traer el objeto o funcion conexion por el mvc
 
-$host     = "localhost";
-$username = "root";
-$password = "";
-$db_name  = "ECOMMERCE";
+include '../libs/connect.php';
+session_start();
+require "../config/config.php";
+if (isset($_SESSION['uid'])) {
+    $records = $conn->prepare('SELECT * FROM USUARIOS WHERE uid = :id');
+    $records->bindParam(':id', $_SESSION['uid']);
+    $records->execute();
+    $results = $records->fetch(PDO::FETCH_ASSOC);
 
-try
-{
-$conn = new PDO("mysql:host=$host;dbname=$db_name", $username, $password);
-$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {} // * Lets try to make this with a function.
+    $user = null;
 
-/*
-include '../libs/database.php';
-$pdo = new Database();
-$pdo -> connect();
+    if (count($results) > 0) {
+      $user = $results;
+    }
+  $records = $conn->prepare('SELECT * FROM USUARIOS_Rangos WHERE rid = :id');
+  $records->bindParam(':id', $user['rango']);
+  $records->execute();
+  $results = $records->fetch(PDO::FETCH_ASSOC);
 
-*/
+  $rango = null;
 
-
-
-// acceder a funcion de una clase $this->connect();
+  if (count($results) > 0) {
+    $rango = $results;
+  }
+}
+else{
+  echo "Debes iniciar sesión para proceder";
+  die();
+}
 
 
 
