@@ -22,5 +22,13 @@ class Panel_Controller extends controller
     {
         $this->view->render('login/panel/editarperfil');
     }
+    public function producto()
+    {
+        $this->view->render('login/panel/editarproducto');
+    }
+    public function editarproducto()
+    {
+        $this->view->render('login/panel/modificarproducto');
+    }
 
 }
