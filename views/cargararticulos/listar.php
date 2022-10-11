@@ -1,7 +1,9 @@
 <?php
 $defaultUrl = constant('URL');
+$var = 1;
 
 foreach ($this->data as $row) {
+    $var += 1;
     echo "<section style='background-image: url(../$row->img); 
     background-size: contain;
     background-repeat: no-repeat; 
@@ -10,3 +12,4 @@ foreach ($this->data as $row) {
     ><p class='nombre'>" . $row->nombre . "</p><p class='stock'>STOCK: " . $row->cantidad . "</p><p class='precio'>$" . $row->precio . "</p><p class='descrip'>" . $row->descrip . "</p><p class='marca'>" . $row->marca . "</p><button onclick='carrito_charger
     (\"" . $row->id_producto . "\", \"" . $row->nombre . "\", \"" . $row->precio . "\")'> <p>AÑADIR</button></section>";
 }
+echo "<p id=\"totalProductos\" style=\"display: none;\">$var</p>";

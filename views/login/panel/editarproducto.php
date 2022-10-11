@@ -34,6 +34,43 @@ else {
     die();
 }
 
+
+
+
+// ! CREAR PRODUCTO
+
+if (!empty($_POST['nombre']) && !empty($_POST['precio_venta']) && !empty($_POST['precio_compra']) && !empty($_POST['marca']) && !empty($_POST['tipo']) && !empty($_POST['cantidad']) && !empty($_POST['descrip'])) {
+    try{
+    $sql = "INSERT INTO PRODUCTOS (nombre, precio_venta, precio_compra, marca, tipo, cantidad, img, descrip) VALUES (:nombre, :precio_venta, :precio_compra, :marca, :tipo, :cantidad, '', :descrip)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':nombre', $_POST['nombre']);
+    $stmt->bindParam(':precio_venta', $_POST['precio_venta']);
+    $stmt->bindParam(':precio_compra', $_POST['precio_compra']);
+    $stmt->bindParam(':marca', $_POST['marca']);
+    $stmt->bindParam(':tipo', $_POST['tipo']);
+    $stmt->bindParam(':cantidad', $_POST['cantidad']);
+    $stmt->bindParam(':descrip', $_POST['descrip']);
+
+    if ($stmt->execute()) {
+      $message = 'Producto creado con éxito';
+    } else {
+      $message = 'Ha ocurrido un error ejecutando la consulta';
+    }
+  }
+  catch(Exception $e){
+    echo "Ha ocurrido un error";
+  }
+  }
+
+
+
+
+
+
+
+
+
+
 // * Lo mismo, verifica si estamos logeados y si además somos admin.
 
 
@@ -59,7 +96,17 @@ else {
 </head>
 <body>
 <?php include "views/login/panel/navegacion.php" ?>
-<a href="">Crear un nuevo producto</a>
+<p>Crear producto</p>
+<form action="producto" method="POST">
+      <input name="nombre" type="text" placeholder="Nombre">
+      <input name="precio_venta" type="text" placeholder="Precio de venta">
+      <input name="precio_compra" type="text" placeholder="Precio de compra">
+      <input name="marca" type="text" placeholder="Marca">
+      <input name="tipo" type="text" placeholder="Tipo">
+      <input name="cantidad" type="text" placeholder="Cantidad">
+      <input name="descrip" type="text" placeholder="Descripcion">
+      <input type="submit" value="Agregar">
+    </form>
 
 
       <?php 
@@ -76,6 +123,7 @@ else {
     }
 
 
+    unlink("".$producto['img']."");
         $borrar = $conn->prepare('DELETE FROM PRODUCTOS WHERE pid = :id'); //Borramos el producto de la BD
     $borrar->bindParam(':id', $_GET['borrar']);
     $borrar->execute();

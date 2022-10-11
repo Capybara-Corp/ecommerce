@@ -3,8 +3,21 @@ let carrito;
 let urlBase;
 let sum = 0;
 let precioTotal = 0;
-let precioIndividual = [0,0,0,0,0,0,0,0];
+let precioIndividual = [];
+
+window.onload = function() {
+let tot = document.getElementById("totalProductos");
+let totalProductos = tot.textContent;
+parseInt(totalProductos);
+for(i=1; i<=totalProductos; i++){
+  precioIndividual[i-1] = 0;
+  }
+}
+
+
+
 function carrito_charger(pid, nombre, precio) {
+  precioIndividual = Array.from(precioIndividual, item => typeof item === 'undefined' ? 0 : item);
   if (map_productos_carrito.has(pid)) {
     //alert("Producto añadido al carrito");
     cant = map_productos_carrito.get(pid).cant + 1;
@@ -58,6 +71,7 @@ function refreshCarrito() {
 
       console.log('esto es sum '+sum);
       precioTotal = sum;
+
 
       console.log(precioIndividual);
  
