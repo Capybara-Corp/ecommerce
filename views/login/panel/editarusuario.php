@@ -25,11 +25,11 @@ if (isset($_SESSION['uid'])) {
   }
 
   if ($rango['rid'] != '1') {
-    header("Location: ../ecommerce");
+    header("Location: ../login");
   }
 }
 else {
-    header("Location: ../ecommerce");
+    header("Location: ../login");
     echo "Acceso denegado";
     die();
 }
@@ -120,7 +120,7 @@ else {
       <td><?php echo $row['nombre']; ?></td>
       <td><img src="../<?php echo $row['avatar']; ?>" width="50px" height="50px"></td>
       <td><?php echo $ran['nombre']; ?></td>
-      <td><a href="editarperfil?uid=<?php echo $row['uid']; ?>">Editar</a> | <a href="editarusuario?borrar=<?php echo $row['uid']; ?>" onclick="return Confirmar (this.form)">Borrar</a></td>
+      <td><a href="editarperfil?uid=<?php echo $row['uid']; ?>">Editar</a> | <a href="editar?borrar=<?php echo $row['uid']; ?>" onclick="return Confirmar (this.form)">Borrar</a></td>
     </tr>
 
    <?php }

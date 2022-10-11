@@ -1,7 +1,7 @@
 <?php 
 session_start();
-require '../connect.php';
-require "../../../config/config.php";
+require 'libs/connect.php';
+require "config/config.php";
 if (isset($_SESSION['uid'])) {
     $records = $conn->prepare('SELECT * FROM USUARIOS WHERE uid = :id');
     $records->bindParam(':id', $_SESSION['uid']);
@@ -25,11 +25,11 @@ if (isset($_SESSION['uid'])) {
   }
 
   if ($rango['rid'] != '1') {
-    header("Location: ../login.php"); //Si rango no es 1, y en consecuencia no es admin, entonces lo saca, ya que este sitio es unicamente para administradores
+    header("Location: ../login"); //Si rango no es 1, y en consecuencia no es admin, entonces lo saca, ya que este sitio es unicamente para administradores
   }
 }
 else {
-    header("Location: ../../../"); //Si no está logeado tambien lo saca
+    header("Location: ../login"); //Si no está logeado tambien lo saca
     echo "Acceso denegado";
     die();
 }
@@ -43,7 +43,7 @@ else {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../../../public/css/login/panel.css">
+    <link rel="stylesheet" href="../public/css/login/panel.css">
 </head>
 <body>
     <?php include "navegacion.php" ?>
@@ -155,8 +155,8 @@ else {
     $name = $id.'.'.$tips;
     if(is_uploaded_file($ruta1))
     {
-    $destino1 = "../../public/img/perfil/".$name;
-    $destino2 = "../../../public/img/perfil/".$name;
+    $destino1 = "public/img/perfil/".$name;
+    $destino2 = "public/img/perfil/".$name;
     move_uploaded_file($ruta1, $destino2);    // Todo esto es para guardar la imagen tanto en la BD, como en el directorio local
     }
     else{

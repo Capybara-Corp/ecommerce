@@ -18,5 +18,9 @@ class Panel_Controller extends controller
     {
         $this->view->render('login/panel/editarusuario');
     }
+    public function editarperfil()
+    {
+        $this->view->render('login/panel/editarperfil');
+    }
 
 }
