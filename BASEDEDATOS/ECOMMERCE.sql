@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 11-10-2022 a las 22:49:39
+-- Tiempo de generación: 12-10-2022 a las 19:01:10
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -66,7 +66,7 @@ INSERT INTO `PRODUCTOS` (`pid`, `nombre`, `precio_venta`, `precio_compra`, `marc
 (6, 'Dulce', 350, 200, 'Las chauchas', 'Rosado dulce', 41, 'public/media/bottles/bottle6.png', 'Vino dulce elaborado con 3 kilos de miel por litro de vino'),
 (7, 'Mexicano', 250, 150, 'Mexicanito', 'Tinto', 34, 'public/media/bottles/bottle7.png', 'Vino mexicano recién traido de Cataluña.'),
 (8, 'Picante', 350, 300, 'Samsung', 'Picante', 52, 'public/media/bottles/bottle8.png', 'Vino picante, sabor picante. Ideal para aquellas tardes con amigos.'),
-(9, 'Vino 9', 350, 277, 'Vinoman', 'Rosado', 32, '', 'Un vino para toda la familia'),
+(9, 'Vino 9', 350, 277, 'Vinoman', 'Rosado', 32, 'public/media/bottles/bottle9.png', 'Un vino para toda la familia'),
 (10, 'Vino 10', 300, 250, 'Vinoiss', 'Rosado', 37, '', 'Un vino magico'),
 (13, 'Vinitou', 350, 250, 'Tenshinhan', 'Clarette', 24, '', 'Un vino magico'),
 (14, 'Vinoprueba', 324, 245, 'Vinoman', 'Rosado', 24, '', 'Un vino para toda la familia'),
@@ -96,7 +96,8 @@ CREATE TABLE `USUARIOS` (
 INSERT INTO `USUARIOS` (`uid`, `nombre`, `correo`, `contraseña`, `telefono`, `avatar`, `rango`) VALUES
 (12, 'Lujambia12', 'luli@gmail.com', '$2y$10$AzE18QwS0SXj3R3wYP2Ls.AiMhb3/oTs1r5Vi9OXYKygHBk6cywYS', 436436536, 'public/img/perfil/12.jpg', 2),
 (15, 'Santiago Romero', 'elsantoposada@gmail.com', '$2y$10$Ybpc.5pRvAcjif9DeckhDuV2i9TwuzI17.Fz0kxCrQNJ1GGmaQoo.', 12345678, 'public/img/perfil/15.jpg', 1),
-(20, 'Paz', 'elamor@gmail.com', '$2y$10$fVa13QOokk5tOWCi5Z8pcuYCflkD3deYp9bqHRsnKkjOB6M3as/CC', 1212121212, 'public/img/perfil/20.jpg', 1);
+(20, 'Paz', 'elamor@gmail.com', '$2y$10$fVa13QOokk5tOWCi5Z8pcuYCflkD3deYp9bqHRsnKkjOB6M3as/CC', 1212121212, 'public/img/perfil/20.jpg', 1),
+(30, 'Prueba', 'prueba@gmail.com', '$2y$10$7VCR6BsaiXawTfsZ2fuwfeNlRHPPNz3cSTu5sLvRSwVx9.eS8yCIO', 43342323, 'public/img/perfil/default.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -227,7 +228,7 @@ ALTER TABLE `PRODUCTOS`
 -- AUTO_INCREMENT de la tabla `USUARIOS`
 --
 ALTER TABLE `USUARIOS`
-  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT de la tabla `USUARIOS_Direcciones`
