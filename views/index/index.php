@@ -1,24 +1,20 @@
 <?php
 
-session_start();
+//require 'libs/connect.php';
 
-require 'libs/connect.php';
+/*if (isset($_SESSION['uid'])) {
+$records = $conn->prepare('SELECT * FROM USUARIOS WHERE uid = :id');
+$records->bindParam(':id', $_SESSION['uid']);
+$records->execute();
+$results = $records->fetch(PDO::FETCH_ASSOC);
 
-if (isset($_SESSION['uid'])) {
-    $records = $conn->prepare('SELECT * FROM USUARIOS WHERE uid = :id');
-    $records->bindParam(':id', $_SESSION['uid']);
-    $records->execute();
-    $results = $records->fetch(PDO::FETCH_ASSOC);
+$user = null;
 
-    $user = null;
-
-    if (count($results) > 0) {
-        $user = $results; // Me carga en "$user" los datos de mi usuario de mi sesión
-    }
+if (count($results) > 0) {
+$user = $results; // Me carga en "$user" los datos de mi usuario de mi sesión
 }
-?>
-
-
+}*/
+;?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -48,7 +44,7 @@ if (isset($_SESSION['uid'])) {
     <?php include "header.php";?>
     <img class="noselect" id="banner_portada" src="public/media/winery-factory.jpg">
     <div class="container_big_div noselect">
-      <p id="welcome">Vinos de la mejor calidad</p>
+      <p id="welcome">Vinos de la mejor calidad <?=$this->user->nombre;?></p>
       <img src="public/media/separator.png" id="separator">
       <p id="message">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque neque nulla, ornare vel
         pulvinar sed, tempor ut turpis. Phasellus nec suscipit ipsum. Praesent a molestie ipsum, non gravida mauris.

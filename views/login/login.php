@@ -1,7 +1,5 @@
 <?php
 
-session_start();
-
 if (isset($_SESSION['uid'])) {
     header('Location: ../ecommerce');
 }
@@ -53,25 +51,25 @@ if (!empty($_POST['user_correo']) && !empty($_POST['user_pass'])) { // Si recibe
   <?php endif;?>
 
   <div class="login-box">
-  <h1>Iniciar sesión</h1>
+    <h1>Iniciar sesión</h1>
 
-  <form action="login" method="POST">
-    <label for="user_correo">Correo</label>
-    <input name="user_correo" type="text" placeholder="Ingrese su correo">
+    <form action="login" method="POST">
+      <label for="user_correo">Correo</label>
+      <input name="user_correo" type="text" placeholder="Ingrese su correo">
 
-    <label for="user_pass">Contraseña</label>
-    <input name="user_pass" type="password" placeholder="Ingrese su contraseña">
+      <label for="user_pass">Contraseña</label>
+      <input name="user_pass" type="password" placeholder="Ingrese su contraseña">
 
 
-    <input type="submit" value="Iniciar sesión">
+      <input type="submit" value="Iniciar sesión">
 
-    <a href="<?php echo constant('URL'); ?>signup">¿No tienes una cuenta?</a>
-  </form>
+      <a href="<?php echo constant('URL'); ?>signup">¿No tienes una cuenta?</a>
+    </form>
   </div>
 
 
 
-  
+
 
 
   <?php include "views/index/footer.php";?>
