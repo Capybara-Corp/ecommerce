@@ -1,9 +1,9 @@
 <?php
-  session_start();
+session_start();
 
-  require 'libs/connect.php';
+require 'libs/connect.php';
 
-  if (isset($_SESSION['uid'])) {
+if (isset($_SESSION['uid'])) {
     $records = $conn->prepare('SELECT * FROM USUARIOS WHERE uid = :id');
     $records->bindParam(':id', $_SESSION['uid']);
     $records->execute();
@@ -12,9 +12,9 @@
     $user = null;
 
     if (count($results) > 0) {
-      $user = $results;
+        $user = $results;
     }
-  }
+}
 ?>
 
 <!DOCTYPE html>
@@ -27,24 +27,34 @@
   <title>Carrito</title>
   <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/carrito/style_market.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Roboto:wght@100;300;400&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@200&family=Roboto+Condensed:wght@400;700&family=Roboto:wght@100;300;400&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Roboto:wght@100;300;400&display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@200&family=Roboto+Condensed:wght@400;700&family=Roboto:wght@100;300;400&display=swap"
+    rel="stylesheet">
+  <script>
+  let precioIndividual = [];
+  </script>
+
+
   <script src="<?php echo constant('URL'); ?>public/js/carrito/script_shop_loaded.js"></script>
   <script src="<?php echo constant('URL'); ?>public/js/carrito/script_carrito_charger.js"></script>
 
 </head>
 
 <body>
-  <?php include "header.php"; ?> <!--Importo mi header -->
+  <?php include "header.php";?>
+  <!--Importo mi header -->
 
 
-      
+
 
   <input type="hidden" value="<?php echo constant('URL'); ?>" id="urlBase">
   <h1 id="title">SU CARRITO</h1>
   <div id="contenedor_market">
-    
+
     <section class="celda_market"></section>
     <section class="celda_carrito">
       <h1>RESUMEN</h1>
@@ -61,7 +71,7 @@
     </section>
   </div>
 
-  <?php include "views/index/footer.php"; ?>
+  <?php include "views/index/footer.php";?>
 
   <script src="<?php echo constant('URL'); ?>public/js/menu.js"></script>
 

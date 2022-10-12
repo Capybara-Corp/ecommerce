@@ -3,21 +3,11 @@ let carrito;
 let urlBase;
 let sum = 0;
 let precioTotal = 0;
-let precioIndividual = [];
-
-window.onload = function() {
-let tot = document.getElementById("totalProductos");
-let totalProductos = tot.textContent;
-parseInt(totalProductos);
-for(i=1; i<=totalProductos; i++){
-  precioIndividual[i-1] = 0;
-  }
-}
-
-
 
 function carrito_charger(pid, nombre, precio) {
-  precioIndividual = Array.from(precioIndividual, item => typeof item === 'undefined' ? 0 : item);
+  precioIndividual = Array.from(precioIndividual, (item) =>
+    typeof item === "undefined" ? 0 : item
+  );
   if (map_productos_carrito.has(pid)) {
     //alert("Producto añadido al carrito");
     cant = map_productos_carrito.get(pid).cant + 1;
@@ -31,20 +21,20 @@ function carrito_charger(pid, nombre, precio) {
     cant: cant,
   });
   refreshCarrito();
-} 
- 
+}
+
 function clearoneoneCarrito(pid) {
   map_productos_carrito.delete(String(pid));
-  precioIndividual[pid-1]=0;
+  precioIndividual[pid - 1] = 0;
   for (let i = 0; i < precioIndividual.length; i++) {
     sum += precioIndividual[i];
-    if (precioIndividual[i-1]==0){
-      console.log('its me, '+precioIndividual[i-1]);
+    if (precioIndividual[i - 1] == 0) {
+      console.log("its me, " + precioIndividual[i - 1]);
       sum = 0;
       precioTotal = sum;
     }
-  }  
-  console.log('esto es sum '+sum);
+  }
+  console.log("esto es sum " + sum);
   console.log(precioIndividual);
   refreshCarrito();
   precioTotal = sum;
@@ -59,26 +49,24 @@ function refreshCarrito() {
       ")'>" +
       v.nombre +
       ", " +
-      v.cant + " unidades" +
+      v.cant +
+      " unidades" +
       ", $" +
-      (precioIndividual[k-1] = (v.precio * v.cant)); precioIndividual +
-      "</p>";
-    
-      sum = 0
-      for (let i = 0; i < precioIndividual.length; i++) {
-        sum += precioIndividual[i];
-      }  
+      (precioIndividual[k - 1] = v.precio * v.cant);
+    precioIndividual + "</p>";
 
-      console.log('esto es sum '+sum);
-      precioTotal = sum;
+    sum = 0;
+    for (let i = 0; i < precioIndividual.length; i++) {
+      sum += precioIndividual[i];
+    }
 
+    console.log("esto es sum " + sum);
+    precioTotal = sum;
 
-      console.log(precioIndividual);
- 
+    console.log(precioIndividual);
   }
-  document.getElementById('total').innerHTML = "$"+precioTotal;
+  document.getElementById("total").innerHTML = "$" + precioTotal;
 }
-
 
 function generar_compra() {
   for (const [k, v] of map_productos_carrito.entries()) {
@@ -116,13 +104,13 @@ function fetch_async_compra(pid, cant) {
       map_productos_carrito.clear();
       refreshCarrito();
       for (let i = 0; i < precioIndividual.length; i++) {
-      precioIndividual[i] = 0;
+        precioIndividual[i] = 0;
       }
       sum = 0;
       precioTotal = sum;
-      console.log("i am your father "+precioTotal);
-      console.log("precio individual "+precioIndividual);
-      document.getElementById('total').innerHTML = "$"+precioTotal;
+      console.log("i am your father " + precioTotal);
+      console.log("precio individual " + precioIndividual);
+      document.getElementById("total").innerHTML = "$" + precioTotal;
       load_shop();
       //alert('esto funciona');
     })

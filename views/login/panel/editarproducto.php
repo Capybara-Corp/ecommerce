@@ -79,37 +79,40 @@ if (!empty($_POST['nombre']) && !empty($_POST['precio_venta']) && !empty($_POST[
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar Productos</title>
-    <link rel="stylesheet" href="../public/css/login/panel.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editar Productos</title>
+  <link rel="stylesheet" href="../public/css/login/panel.css">
 
-    <script language="Javascript" type="text/javascript">
-      function Confirmar(frm) {
-        var borrar = confirm("¿Seguro que desea eliminar este producto?"); // Javascript me pregunta si quiero eliminar el usuario, esto es por si le damos a eliminar sin querer.
-        return borrar;
-      }
-
-    </script>
+  <script language="Javascript" type="text/javascript">
+  function Confirmar(frm) {
+    var borrar = confirm(
+      "¿Seguro que desea eliminar este producto?"
+      ); // Javascript me pregunta si quiero eliminar el usuario, esto es por si le damos a eliminar sin querer.
+    return borrar;
+  }
+  </script>
 </head>
+
 <body>
-<?php include "views/login/panel/navegacion.php" ?>
-<p>Crear producto</p>
-<form action="producto" method="POST">
-      <input name="nombre" type="text" placeholder="Nombre">
-      <input name="precio_venta" type="text" placeholder="Precio de venta">
-      <input name="precio_compra" type="text" placeholder="Precio de compra">
-      <input name="marca" type="text" placeholder="Marca">
-      <input name="tipo" type="text" placeholder="Tipo">
-      <input name="cantidad" type="text" placeholder="Cantidad">
-      <input name="descrip" type="text" placeholder="Descripcion">
-      <input type="submit" value="Agregar">
-    </form>
+  <?php include "views/login/panel/navegacion.php" ?>
+  <p>Crear producto</p>
+  <form action="producto" method="POST">
+    <input name="nombre" type="text" placeholder="Nombre">
+    <input name="precio_venta" type="text" placeholder="Precio de venta">
+    <input name="precio_compra" type="text" placeholder="Precio de compra">
+    <input name="marca" type="text" placeholder="Marca">
+    <input name="tipo" type="text" placeholder="Tipo">
+    <input name="cantidad" type="text" placeholder="Cantidad">
+    <input name="descrip" type="text" placeholder="Descripcion">
+    <input type="submit" value="Agregar">
+  </form>
 
 
-      <?php 
+  <?php 
       if(isset($_GET['borrar'])) { // Si hay algo en la URL de borrar usuario
       $records = $conn->prepare('SELECT * FROM PRODUCTOS WHERE pid = :id');
       $records->bindParam(':id', $_GET['borrar']);
@@ -136,48 +139,50 @@ if (!empty($_POST['nombre']) && !empty($_POST['precio_venta']) && !empty($_POST[
 
   <table width="200" border="1">
     <thead>
-    <tr>
-      <td>ID</td>
-      <td>Nombre</td>
-      <td>Precio Venta</td>
-      <td>Precio Compra</td>
-      <td>Marca</td>
-      <td>Tipo</td>
-      <td>Cantidad</td>
-      <td>Imagen</td>
-      <td>Descripcion</td>
-      <td>Opciones</td>
-    </tr>
-</thead>
-<tbody>
+      <tr>
+        <td>ID</td>
+        <td>Nombre</td>
+        <td>Precio Venta</td>
+        <td>Precio Compra</td>
+        <td>Marca</td>
+        <td>Tipo</td>
+        <td>Cantidad</td>
+        <td>Imagen</td>
+        <td>Descripcion</td>
+        <td>Opciones</td>
+      </tr>
+    </thead>
+    <tbody>
 
-  <?php 
+      <?php 
   $data = $conn->query("SELECT * FROM PRODUCTOS")->fetchAll();
 
   foreach ($data as $row)
   { 
     
     ?>
-    <tr>
-      <td><?php echo $row['pid']; ?></td>
-      <td><?php echo $row['nombre']; ?></td>
-      <td><?php echo $row['precio_venta']; ?></td>
-      <td><?php echo $row['precio_compra']; ?></td>
-      <td><?php echo $row['marca']; ?></td>
-      <td><?php echo $row['tipo']; ?></td>
-      <td><?php echo $row['cantidad']; ?></td>
-      <td><img src="../<?php echo $row['img']; ?>" width="50px" height="auto"></td>
-      <td><?php echo $row['descrip']; ?></td>
+      <tr>
+        <td><?php echo $row['pid']; ?></td>
+        <td><?php echo $row['nombre']; ?></td>
+        <td><?php echo $row['precio_venta']; ?></td>
+        <td><?php echo $row['precio_compra']; ?></td>
+        <td><?php echo $row['marca']; ?></td>
+        <td><?php echo $row['tipo']; ?></td>
+        <td><?php echo $row['cantidad']; ?></td>
+        <td><img src="../<?php echo $row['img']; ?>" width="50px" height="auto"></td>
+        <td><?php echo $row['descrip']; ?></td>
 
-      <td><a href="editarproducto?pid=<?php echo $row['pid']; ?>">Editar</a> | <a href="producto?borrar=<?php echo $row['pid']; ?>" onclick="return Confirmar (this.form)">Borrar</a></td>
-    </tr>
+        <td><a href="editarproducto?pid=<?php echo $row['pid']; ?>">Editar</a> | <a
+            href="producto?borrar=<?php echo $row['pid']; ?>" onclick="return Confirmar (this.form)">Borrar</a></td>
+      </tr>
 
-   <?php }
+      <?php }
   ?>
-  </tbody>
+    </tbody>
   </table>
 
   <?php include "views/index/footer.php"; ?>
 
 </body>
+
 </html>

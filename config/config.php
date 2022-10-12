@@ -1,12 +1,28 @@
 <?php
 
 //define('URL', 'http://localhost/mvc/');
-define('URL', 'http://' . $_SERVER['HTTP_HOST'] . '/ecommerce/');
+if (!defined('URL')) {
+    define('URL', 'http://' . $_SERVER['HTTP_HOST'] . '/ecommerce/');
+}
 
 //conexion a la base de datos
-define('HOST', 'localhost');
-define('PORT', '3307');
-define('DB', 'ECOMMERCE');
-define('USER', 'root');
-define('PASSWORD', "");
-define('CHARSET', 'utf8mb4');
+if (!defined('HOST')) {
+    define('HOST', 'localhost');
+}
+if (!defined('PORT')) {
+    define('PORT', '3307');
+}
+if (!defined('DB')) {
+    define('DB', 'ECOMMERCE');
+}
+if (!defined('USER')) {
+    define('USER', 'root');
+}
+if (!defined('PASSWORD')) {
+    define('PASSWORD', "");
+}
+
+if (!defined('CHARSET')) {
+    define('CHARSET', 'utf8mb4');
+
+}

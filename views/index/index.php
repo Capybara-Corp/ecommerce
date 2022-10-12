@@ -1,9 +1,10 @@
 <?php
-  session_start();
 
-  require 'libs/connect.php';
+session_start();
 
-  if (isset($_SESSION['uid'])) {
+require 'libs/connect.php';
+
+if (isset($_SESSION['uid'])) {
     $records = $conn->prepare('SELECT * FROM USUARIOS WHERE uid = :id');
     $records->bindParam(':id', $_SESSION['uid']);
     $records->execute();
@@ -12,9 +13,9 @@
     $user = null;
 
     if (count($results) > 0) {
-      $user = $results; // Me carga en "$user" los datos de mi usuario de mi sesión
+        $user = $results; // Me carga en "$user" los datos de mi usuario de mi sesión
     }
-  }
+}
 ?>
 
 
@@ -38,13 +39,13 @@
   <!-- Cosas para que la pagina funcione -->
 
   <title>Pagina</title> <!-- Es el titulo que aparece en la pestaña -->
-  
+
 </head>
 
 <body>
   <section id="container_big">
     <!-- Es todo el contenedor de arriba, es decir, el que tiene la imagen de los barriles de fondo -->
-    <?php include "header.php"; ?>
+    <?php include "header.php";?>
     <img class="noselect" id="banner_portada" src="public/media/winery-factory.jpg">
     <div class="container_big_div noselect">
       <p id="welcome">Vinos de la mejor calidad</p>
@@ -98,12 +99,12 @@
 
   <section id="bot_container">
 
-    <?php 
-    $data = $conn->query("SELECT * FROM PRODUCTOS")->fetchAll();
-    $i = 0;
-    foreach ($data as $row)
-    {
-        echo "<div class=\"product\">
+    <?php
+
+$data = $conn->query("SELECT * FROM PRODUCTOS")->fetchAll();
+$i    = 0;
+foreach ($data as $row) {
+    echo "<div class=\"product\">
         <a href=\"carrito/market\">
         <button onclick='carrito_charger
     (\"" . $row['pid'] . "\", \"" . $row['nombre'] . "\", \"" . $row['precio_venta'] . "\")'>
@@ -113,21 +114,21 @@
         </button>
         </a>
       </div>";
-      $i++;
-      if ($i == 8){
+    $i++;
+    if ($i == 8) {
         break;
-      }
     }
-    ?>
-      
-      
-      
-   
+}
+?>
+
+
+
+
 
 
   </section> <!-- Este section contiene los articulos de vino en la grilla -->
 
-  <?php include "footer.php"; ?>
+  <?php include "footer.php";?>
 
   <script type="text/javascript" src="public/js/menu.js"></script> <!-- Aqui importamos el script del menú -->
   <script src="<?php echo constant('URL'); ?>public/js/carrito/script_shop_loaded.js"></script>
