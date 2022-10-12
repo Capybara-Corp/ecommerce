@@ -31,12 +31,20 @@ if (!empty($_POST['user_correo']) && !empty($_POST['user_pass'])) { // Si recibe
 
 <head>
   <meta charset="utf-8">
-  <title>Login</title>
-  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <title>Iniciar sesión</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Roboto:wght@100;300;400&display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@200&family=Roboto+Condensed:wght@400;700&family=Roboto:wght@100;300;400&display=swap"
+    rel="stylesheet">
+  <!-- Cosas para que la pagina funcione -->
   <link rel="stylesheet" href="public/css/login/login.css">
 </head>
 
-<body>
+<body class="noselect">
 
   <?php include "views/index/header.php";?>
 
@@ -44,14 +52,27 @@ if (!empty($_POST['user_correo']) && !empty($_POST['user_pass'])) { // Si recibe
   <p> <?=$message;?></p>
   <?php endif;?>
 
-  <h1>Login</h1>
-  <span>or <a href="<?php echo constant('URL'); ?>signup">SignUp</a></span>
+  <div class="login-box">
+  <h1>Iniciar sesión</h1>
 
   <form action="login" method="POST">
-    <input name="user_correo" type="text" placeholder="Enter your email">
-    <input name="user_pass" type="password" placeholder="Enter your Password">
-    <input type="submit" value="Submit">
+    <label for="user_correo">Correo</label>
+    <input name="user_correo" type="text" placeholder="Ingrese su correo">
+
+    <label for="user_pass">Contraseña</label>
+    <input name="user_pass" type="password" placeholder="Ingrese su contraseña">
+
+
+    <input type="submit" value="Iniciar sesión">
+
+    <a href="<?php echo constant('URL'); ?>signup">¿No tienes una cuenta?</a>
   </form>
+  </div>
+
+
+
+  
+
 
   <?php include "views/index/footer.php";?>
 

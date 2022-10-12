@@ -366,6 +366,7 @@ img{
 }
 
 #bot_container button{
+  cursor: pointer;
   border: none;
 }
 
