@@ -1,6 +1,4 @@
 <?php
-
-//define('URL', 'http://localhost/mvc/');
 if (!defined('URL')) {
     define('URL', 'http://' . $_SERVER['HTTP_HOST'] . '/ecommerce/');
 }

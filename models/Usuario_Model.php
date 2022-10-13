@@ -1,7 +1,5 @@
 <?php
 
-#require_once 'entidades/alumno.php';
-require_once 'entidades/ArticuloDto.php';
 require_once 'entidades/UsuarioDto.php';
 
 class Usuario_Model extends Model
@@ -33,53 +31,72 @@ class Usuario_Model extends Model
             }
 
             return $user;
-            //:descripcion, :precio, :fecha
-            //$resultado = $query->execute();
-
-            /*if ($filasAf == 0) {
-            $resultado = false;
-            }*/
-            //$str = "valor";
-            //$resultado = $query->fetch(); // return (PDOStatement) or false on failure
-            //$query->close();
-            //$user = null;
 
         } catch (PDOException $e) {
             return false;
         } finally {
             $pdo = null;
         }
-    } //end eliminar
+    }
+    
+    
+    public function articulosindex()
+    {
+        $pdo          = $this->db->connect();
+        $items     = [];
 
-    /*
-public function search($search)
-{
-$articulo = null;
-$pdo      = $this->db->connect();
+        try {
+            $query = $pdo->prepare('SELECT * FROM PRODUCTOS');
+            $resultado = $query->execute();
+            while ($resultado = $query->fetch()) {
+                $items[] = $resultado;
+            }
+            return $items;
 
-try {
-$query = $pdo->prepare('SELECT codigo, descripcion FROM productos WHERE descripcion LIKE :textostr');
-// $query = '%' . $search . '%';
-$term = "%$search%";
+        } catch (PDOException $e) {
+            return false;
+        } finally {
+            $pdo = null;
+        }
+    }
 
-//$query
-//$query->bindParam(':textostr', '%' . $search . '%');
-$query->bindParam(':textostr', $term, PDO::PARAM_STR);
-//$query->execute(['nombre' => $nombre]);
-$query->execute();
-while ($row = $query->fetch()) {
-$articulo              = new Articulo();
-$articulo->codigo      = $row['codigo'];
-$articulo->descripcion = $row['descripcion'];
 
-}
-} catch (PDOException $e) {
-var_dump($e);
-} finally {
-$pdo = null;
-}
-return $articulo;
-} //end ver
- */
 
+        /*
+        $pdo = $this->db->connect();
+
+        $articulos = new ArticuloDto();
+        $articulos->pid = "";
+        $articulos->nombre = "";
+        $articulos->precio_venta = "";
+        $articulos->precio_compra = "";
+        $articulos->marca = "";
+        $articulos->tipo = "";
+        $articulos->cantidad = "";
+        $articulos->img = "";
+        $articulos->descrip = "";
+
+        try {
+            $query = $pdo->prepare('SELECT * FROM PRODUCTOS');
+            $resultado = $query->execute();
+            $resultado = $query->fetchAll(PDO::FETCH_ASSOC);
+                $articulos         = new ArticuloDto();
+                $articulos->pid = $resultado["pid"];
+                $articulos->nombre = $resultado["nombre"];
+                $articulos->precio_venta = $resultado["precio_venta"];
+                $articulos->precio_compra = $resultado["precio_compra"];
+                $articulos->marca = $resultado["marca"];
+                $articulos->tipo = $resultado["tipo"];
+                $articulos->cantidad = $resultado["cantidad"];
+                $articulos->img = $resultado["img"];
+                $articulos->descrip = $resultado["descrip"];
+
+            return $articulos;
+
+        } catch (PDOException $e) {
+            return false;
+        } finally {
+            $pdo = null;
+        }*/
+    
 }

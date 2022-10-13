@@ -44,7 +44,7 @@ $user = $results; // Me carga en "$user" los datos de mi usuario de mi sesión
     <?php include "header.php";?>
     <img class="noselect" id="banner_portada" src="public/media/winery-factory.jpg">
     <div class="container_big_div noselect">
-      <p id="welcome">Vinos de la mejor calidad <?=$this->user->nombre;?></p>
+      <p id="welcome">Vinos de la mejor calidad</p>
       <img src="public/media/separator.png" id="separator">
       <p id="message">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque neque nulla, ornare vel
         pulvinar sed, tempor ut turpis. Phasellus nec suscipit ipsum. Praesent a molestie ipsum, non gravida mauris.
@@ -97,27 +97,27 @@ $user = $results; // Me carga en "$user" los datos de mi usuario de mi sesión
 
     <?php
 
-$data = $conn->query("SELECT * FROM PRODUCTOS")->fetchAll();
 $i    = 0;
-foreach ($data as $row) {
-    echo "<div class=\"product\">
+
+foreach ($this->items as $item) {
+  echo "<div class=\"product\">
         <a href=\"carrito/market\">
         <button onclick='carrito_charger
-    (\"" . $row['pid'] . "\", \"" . $row['nombre'] . "\", \"" . $row['precio_venta'] . "\")'>
-        <img src=" . $row['img'] . ">
-        <p>" . $row['nombre'] . "</p>
-        <p class=\"price\">$" . $row['precio_venta'] . "</p>
+    (\"" . $item['pid'] . "\", \"" . $item['nombre'] . "\", \"" . $item['precio_venta'] . "\")'>
+        <img src=" . $item['img'] . ">
+        <p>" . $item['nombre'] . "</p>
+        <p class=\"price\">$" . $item['precio_venta'] . "</p>
         </button>
         </a>
       </div>";
-    $i++;
-    if ($i == 8) {
-        break;
-    }
+  $i++;
+  if ($i == 8) {
+      break;
+  }
 }
+
+
 ?>
-
-
 
 
 
