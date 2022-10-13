@@ -14,24 +14,28 @@
     $stmt->bindParam(':user_pass', $user_pass);
     $stmt->bindParam(':user_name', $_POST['user_name']);
     $stmt->bindParam(':user_number', $_POST['user_number']);
-
-      /*
-      Basicamente, agarra lo que recibe por post, y lo mete en usuarios, cifrando la contraseña
-      */
-
-
     if ($stmt->execute()) {
-      $message = 'Usuario creado con éxito';
+      
+      $records = $conn->prepare('SELECT * FROM USUARIOS WHERE correo=:user_correo');
+      $records->bindParam(':user_correo', $_POST['user_correo']);
+      $records->execute();
+      $results = $records->fetch(PDO::FETCH_ASSOC);
+
+        if (is_countable($results) > 0) {
+        $_SESSION['uid']   = $results['uid'];
+        $_SESSION['rango'] = $results['rango'];
+        header("Location: ../ecommerce"); 
+      }
     } else {
       $message = 'Ha ocurrido un error';
     }
   }
   catch(Exception $e){
-    echo "Ha ocurrido un error"; 
+    $message = "Ha ocurrido un error"; 
   }
   }
   else{
-    echo "Las contraseñas no coinciden";
+    $message = "Las contraseñas no coinciden";
   }}
 ?>
 <!DOCTYPE html>
@@ -54,14 +58,16 @@
 
   <?php include "views/index/header.php";?>
 
-    <?php if(!empty($message)): ?>
-      <p> <?= $message ?></p>
-    <?php endif; ?>
 
     <div class="register-box">
     <h1>Registrarse</h1>
 
     <form action="signup" method="POST">
+
+    <?php if(!empty($message)): ?>
+      <p id="mensaje"> <?= $message ?></p>
+    <?php endif; ?>
+
       <label for="user_correo">Correo</label>
       <input name="user_correo" type="text" placeholder="Ingrese su correo">
 

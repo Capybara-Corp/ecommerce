@@ -130,6 +130,13 @@ html,body
   padding: 70px 30px;
 }
 
+#mensaje{
+    margin: 0;
+  padding: 0 0 20px;
+  text-align: center;
+  font-size: 16px;
+}
+
 .register-box h1{
   margin: 0;
   padding: 0 0 20px;
