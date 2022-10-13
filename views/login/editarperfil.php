@@ -29,7 +29,7 @@ if (isset($_SESSION['uid'])) {
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Editar mi perfil</title>
 </head>
 
 <body>
@@ -118,7 +118,7 @@ if (isset($_POST['editar'])) {
 
 
   <?php else: ?>
-  <?php header('Location: logout.php');?>
+  <?php header('Location: ../ecommerce');?>
 
   <!-- ! Importante, si el ID de la sesión iniciada no coincide con el ID que recibimos por GET,
     nada de esto aparece, ya que sino, cualquiera podria modificar el perfil del que se le antoje
