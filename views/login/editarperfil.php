@@ -30,6 +30,14 @@ if (isset($_SESSION['uid'])) {
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Editar mi perfil</title>
+  <script language="Javascript" type="text/javascript">
+  function Confirmar(frm) {
+    var borrar = confirm(
+      "¿Seguro que desea eliminar su usuario?"
+    );
+    return borrar;
+  }
+  </script>
 </head>
 
 <body>
@@ -52,6 +60,10 @@ if (($_GET['uid']) == ($_SESSION['uid'])): ?>
       Contraseña:
       <input type="text" name="contrasena" id="textfield" />
     </p>
+    <p>
+      Teléfono:
+      <input type="text" name="telefono" id="textfield" />
+    </p>
     <p>Avatar</p>
     <p><img src="<?php echo $user['avatar']; ?>" height="100" width="100" />
     </p>
@@ -61,6 +73,10 @@ if (($_GET['uid']) == ($_SESSION['uid'])): ?>
     </p>
     <p>
       <input type="submit" name="editar" id="button" value="Editar" />
+    </p>
+
+    <p>
+      <input type="submit" name="eliminar" onclick="return Confirmar (this.form)" value="Eliminar mi usuario" />
     </p>
   </form>
 
@@ -79,6 +95,11 @@ if (isset($_POST['editar'])) {
     } else {
         $nombre = $user['nombre'];
     }
+    if ($_POST['telefono'] != '') {
+      $telefono = $_POST['telefono'];
+  } else {
+      $telefono = $user['telefono'];
+  }
 
     $tips = 'jpg';
     $type = ['image/jpeg' => 'jpg'];
@@ -98,10 +119,12 @@ if (isset($_POST['editar'])) {
     modificar el rango (por obvias razones) y solo podemos modificar el usuario de la sesión iniciada
      */
 
-    $sql  = "UPDATE USUARIOS SET nombre = :nombre, contraseña = :contrasena, avatar = '" . $destino1 . "' WHERE uid = '" . $_SESSION['uid'] . "'";
+    try{
+    $sql  = "UPDATE USUARIOS SET nombre = :nombre, contraseña = :contrasena, telefono = :telefono, avatar = '" . $destino1 . "' WHERE uid = '" . $_SESSION['uid'] . "'";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':nombre', $nombre);
     $stmt->bindParam(':contrasena', $contrasena);
+    $stmt->bindParam(':telefono', $telefono);
 
     if ($stmt->execute()) {
         $message = 'Datos actualizados con exito';
@@ -109,9 +132,31 @@ if (isset($_POST['editar'])) {
         $message = 'No se han podido actualizar los datos';
     }
     echo "$message";
+  }
+  catch(Exception $e){
+    $message = "Ha ocurrido un error"; 
+    echo "$message";
+  }
 
 }
-; //* Y hago el update
+
+if (isset($_POST['eliminar'])) {
+  try{
+    if($user['avatar'] != "public/img/perfil/default.jpg"){
+      unlink("" . $user['avatar'] . ""); //Borramos el archivo de la foto de perfil del disco duro
+      }
+    $borrar = $conn->prepare('DELETE FROM USUARIOS WHERE uid = :id'); //Borramos el usuario de la BD
+    $borrar->bindParam(':id', $_SESSION['uid']);
+    $borrar->execute();
+    header('Location: logout');
+  }
+  catch(Exception $e){
+    $message = "Ha ocurrido un error"; 
+    echo "$message";
+  }
+}
+
+; 
 
 ?>
 

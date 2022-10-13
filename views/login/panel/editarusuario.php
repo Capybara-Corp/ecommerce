@@ -119,8 +119,9 @@ if (isset($_GET['borrar'])) { // Si hay algo en la URL de borrar usuario
         $usuario = $results; // Guardamos los datos del usuario de la URL
     }
 
+    if($usuario['avatar'] != 'public/img/perfil/default.jpg'){
     unlink("" . $usuario['avatar'] . ""); //Borramos el archivo de la foto de perfil del disco duro
-
+    }
     $borrar = $conn->prepare('DELETE FROM USUARIOS WHERE uid = :id'); //Borramos el usuario de la BD
     $borrar->bindParam(':id', $_GET['borrar']);
     $borrar->execute();

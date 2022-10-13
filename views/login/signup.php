@@ -9,12 +9,14 @@
     try{
     $sql = "INSERT INTO USUARIOS (correo, contraseña, nombre, telefono, rango, avatar) VALUES (:user_correo, :user_pass, :user_name, :user_number, '2', 'public/img/perfil/default.jpg')";
     $stmt = $conn->prepare($sql);
-    $stmt->bindParam(':user_correo', $_POST['user_correo']);
-    $user_pass = password_hash($_POST['user_pass'], PASSWORD_BCRYPT);
-    $stmt->bindParam(':user_pass', $user_pass);
-    $stmt->bindParam(':user_name', $_POST['user_name']);
-    $stmt->bindParam(':user_number', $_POST['user_number']);
-    if ($stmt->execute()) {
+
+    if(filter_var($_POST['user_correo'], FILTER_VALIDATE_EMAIL)){
+      $stmt->bindParam(':user_correo', $_POST['user_correo']);
+      $user_pass = password_hash($_POST['user_pass'], PASSWORD_BCRYPT);
+      $stmt->bindParam(':user_pass', $user_pass);
+      $stmt->bindParam(':user_name', $_POST['user_name']);
+      $stmt->bindParam(':user_number', $_POST['user_number']);
+      if ($stmt->execute()) {
       
       $records = $conn->prepare('SELECT * FROM USUARIOS WHERE correo=:user_correo');
       $records->bindParam(':user_correo', $_POST['user_correo']);
@@ -29,6 +31,12 @@
     } else {
       $message = 'Ha ocurrido un error';
     }
+    }
+    else{
+      $message = "Correo inválido";
+    }
+
+    
   }
   catch(Exception $e){
     $message = "Ha ocurrido un error"; 
