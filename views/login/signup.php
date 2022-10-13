@@ -33,28 +33,51 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <title>SignUp</title>
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <meta charset="utf-8">
+  <title>Registrarse</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Roboto:wght@100;300;400&display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@200&family=Roboto+Condensed:wght@400;700&family=Roboto:wght@100;300;400&display=swap"
+    rel="stylesheet">
+  <!-- Cosas para que la pagina funcione -->
+  <link rel="stylesheet" href="public/css/login/signup.css">
   </head>
-  <body>
+  <body class="noselect">
 
+  <?php include "views/index/header.php";?>
 
     <?php if(!empty($message)): ?>
       <p> <?= $message ?></p>
     <?php endif; ?>
 
-    <h1>SignUp</h1>
-    <span>or <a href="<?php echo constant('URL'); ?>login">Login</a></span>
+    <div class="register-box">
+    <h1>Registrarse</h1>
 
     <form action="signup" method="POST">
-      <input name="user_correo" type="text" placeholder="Enter your email">
-      <input name="user_pass" type="password" placeholder="Enter your Password">
-      <input name="confirm_password" type="password" placeholder="Confirm Password">
+      <label for="user_correo">Correo</label>
+      <input name="user_correo" type="text" placeholder="Ingrese su correo">
+
+      <label for="user_pass">Contraseña</label>
+      <input name="user_pass" type="password" placeholder="Ingrese su contraseña">
+
+      <label for="user_pass">Confirme su contraseña</label>
+      <input name="confirm_password" type="password" placeholder="Ingrese su contraseña">
+
+      <label for="user_name">Ingrese su nombre</label>
       <input name="user_name" type="text" placeholder="Enter your name">
+
+      <label for="user_number">Ingrese su número de teléfono</label>
       <input name="user_number" type="text" placeholder="Enter your phone number">
-      <input type="submit" value="Submit">
+
+      <input type="submit" value="Registrarse">
+
+      <a href="<?php echo constant('URL'); ?>login">Ya tienes una cuenta?</a>
     </form>
+    </div>
 
     <?php include "views/index/footer.php"; ?>
 
