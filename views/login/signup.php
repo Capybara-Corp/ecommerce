@@ -5,6 +5,7 @@
   $message = '';
 
   if (!empty($_POST['user_correo']) && !empty($_POST['user_pass']) && !empty($_POST['user_name']) && !empty($_POST['user_number'])) {
+    if (($_POST['user_pass']) == ($_POST['confirm_password'])){
     try{
     $sql = "INSERT INTO USUARIOS (correo, contraseña, nombre, telefono, rango, avatar) VALUES (:user_correo, :user_pass, :user_name, :user_number, '2', 'public/img/perfil/default.jpg')";
     $stmt = $conn->prepare($sql);
@@ -26,9 +27,12 @@
     }
   }
   catch(Exception $e){
-    echo "Correo electrónico en uso"; // Se fija que el correo electronico no esté en uso
+    echo "Ha ocurrido un error"; 
   }
   }
+  else{
+    echo "Las contraseñas no coinciden";
+  }}
 ?>
 <!DOCTYPE html>
 <html>
@@ -64,7 +68,7 @@
       <label for="user_pass">Contraseña</label>
       <input name="user_pass" type="password" placeholder="Ingrese su contraseña">
 
-      <label for="user_pass">Confirme su contraseña</label>
+      <label for="confirm_password">Confirme su contraseña</label>
       <input name="confirm_password" type="password" placeholder="Ingrese su contraseña">
 
       <label for="user_name">Ingrese su nombre</label>
