@@ -8,6 +8,17 @@ function conteo_manual() {
     precioIndividual[i - 1] = 0;
   }
 }
+
+function recibirget(){
+  let num1 = document.getElementById('get1');
+  let num2 = document.getElementById('get2');
+  let num3 = document.getElementById('get3');
+  let get1 = num1.innerHTML;
+  let get2 = num2.innerHTML;
+  let get3 = num3.innerHTML;
+  return get1, get2, get3;
+}
+
 function load_shop() {
   const market = document.querySelector(".celda_market");
 
@@ -30,6 +41,13 @@ function load_shop() {
 
       //cargo sistema de conteo
       conteo_manual();
+
+
+      recibirget();
+      carrito_charger(get1.innerHTML, get2.innerHTML, get3.innerHTML);
+
+
+
     })
     .catch(function (err) {
       console.log(err);

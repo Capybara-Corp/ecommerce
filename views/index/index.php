@@ -101,9 +101,7 @@ $i    = 0;
 
 foreach ($this->items as $item) {
   echo "<div class=\"product\">
-        <a href=\"carrito/market\">
-        <button onclick='carrito_charger
-    (\"" . $item['pid'] . "\", \"" . $item['nombre'] . "\", \"" . $item['precio_venta'] . "\")'>
+        <a href=\"carrito/market?pid=" . $item['pid'] . "\">
         <img src=" . $item['img'] . ">
         <p>" . $item['nombre'] . "</p>
         <p class=\"price\">$" . $item['precio_venta'] . "</p>

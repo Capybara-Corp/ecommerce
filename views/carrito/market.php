@@ -46,6 +46,7 @@ if (isset($_SESSION['uid'])) {
 
 <body>
   <?php include "header.php";?>
+
   <!--Importo mi header -->
 
 
@@ -71,9 +72,23 @@ if (isset($_SESSION['uid'])) {
     </section>
   </div>
 
+  <?php if (isset($_GET['pid'])) {
+    $records = $conn->prepare('SELECT * FROM PRODUCTOS WHERE pid=:pid');
+    $records->bindParam(':pid', $_GET['pid']);
+    $records->execute();
+    $results = $records->fetch(PDO::FETCH_ASSOC);
+
+    echo "<h1 id=\"get1\" style=\"display: none;\">" . $results['pid'] . "</h1>";
+    echo "<h1 id=\"get2\" style=\"display: none;\">" . $results['nombre'] . "</h1>";
+    echo "<h1 id=\"get3\" style=\"display: none;\">" . $results['precio_venta'] . "</h1>";
+    
+    }
+  ?>
+
   <?php include "views/index/footer.php";?>
 
   <script src="<?php echo constant('URL'); ?>public/js/menu.js"></script>
+
 
 </body>
 

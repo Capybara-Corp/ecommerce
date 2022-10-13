@@ -112,6 +112,7 @@ function fetch_async_compra(pid, cant) {
       console.log("precio individual " + precioIndividual);
       document.getElementById("total").innerHTML = "$" + precioTotal;
       load_shop();
+      window.location.href = "market";
       //alert('esto funciona');
     })
     .catch(function (err) {
@@ -125,3 +126,4 @@ document.addEventListener("DOMContentLoaded", function (event) {
   let urlBase = document.getElementById("urlBase").value;
   console.log(urlBase);
 });
+
