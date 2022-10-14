@@ -14,6 +14,34 @@ if (isset($_SESSION['uid'])) {
     if (count($results) > 0) {
         $user = $results;
     }
+
+
+    
+
+    $records = $conn->prepare('SELECT * FROM USUARIOS_Direcciones WHERE uid = :id');
+    $records->bindParam(':id', $_SESSION['uid']);
+    $records->execute();
+    $results = $records->fetch(PDO::FETCH_ASSOC);
+
+    $userdir = null;
+
+    if (count($results) > 0) {
+        $userdir = $results;
+    }
+
+
+
+    $records = $conn->prepare('SELECT * FROM USUARIOS_Tarjetas WHERE uid = :id');
+    $records->bindParam(':id', $_SESSION['uid']);
+    $records->execute();
+    $results = $records->fetch(PDO::FETCH_ASSOC);
+
+    $usertarjeta = null;
+
+    if (count($results) > 0) {
+        $usertarjeta = $results;
+    }
+
 } else {
     Header('Location: login');
 }
@@ -64,6 +92,14 @@ if (($_GET['uid']) == ($_SESSION['uid'])): ?>
       Teléfono:
       <input type="text" name="telefono" id="textfield" />
     </p>
+    <p>
+      Tarjeta:
+      <input type="text" name="tarjeta" id="textfield" />
+    </p>
+    <p>
+      Direccion:
+      <input type="text" name="direccion" id="textfield" />
+    </p>
     <p>Avatar</p>
     <p><img src="<?php echo $user['avatar']; ?>" height="100" width="100" />
     </p>
@@ -100,6 +136,16 @@ if (isset($_POST['editar'])) {
   } else {
       $telefono = $user['telefono'];
   }
+  if ($_POST['tarjeta'] != '') {
+    $tarjeta = $_POST['tarjeta'];
+} else {
+    $tarjeta = $user['tarjeta'];
+}
+if ($_POST['direccion'] != '') {
+  $direccion = $_POST['direccion'];
+} else {
+  $direccion = $user['direccion'];
+}
 
     $tips = 'jpg';
     $type = ['image/jpeg' => 'jpg'];

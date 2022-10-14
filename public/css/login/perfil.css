@@ -131,6 +131,10 @@ nav {
   height: 15vw;
 }
 
+.hidden{
+  display: none;
+}
+
 #profilename {
   grid-column: 1;
   color: white;

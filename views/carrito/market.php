@@ -53,12 +53,12 @@ if (isset($_SESSION['uid'])) {
 
 
   <input type="hidden" value="<?php echo constant('URL'); ?>" id="urlBase">
-  <h1 id="title">SU CARRITO</h1>
+  <h1 id="title">TIENDA</h1>
   <div id="contenedor_market">
 
     <section class="celda_market"></section>
     <section class="celda_carrito">
-      <h1>RESUMEN</h1>
+      <h1>CARRITO</h1>
       <div id="separator1" class="separator"></div>
 
       <span id="carrito_content">

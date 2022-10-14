@@ -33,6 +33,36 @@ $records = $conn->prepare('SELECT * FROM USUARIOS WHERE uid = :id');
     if (count($results) > 0) {
         $rango = $results;
     }
+
+
+    $records = $conn->prepare('SELECT * FROM USUARIOS_Direcciones WHERE uid = :id');
+    $records->bindParam(':id', $_SESSION['uid']);
+    $records->execute();
+    $results = $records->fetch(PDO::FETCH_ASSOC);
+
+    $userdir = null;
+
+    if (count($results) > 0) {
+        $userdir = $results;
+    }
+
+
+
+    $records = $conn->prepare('SELECT * FROM USUARIOS_Tarjetas WHERE uid = :id');
+    $records->bindParam(':id', $_SESSION['uid']);
+    $records->execute();
+    $results = $records->fetch(PDO::FETCH_ASSOC);
+
+    $usertarjeta = null;
+
+    if (count($results) > 0) {
+        $usertarjeta = $results;
+    }
+
+
+
+
+
 ; //! Con todo esto, lo que hace es sacar el usuario de la sesión y el rango de ese mismo usuario
 
 ?>
@@ -46,6 +76,12 @@ $records = $conn->prepare('SELECT * FROM USUARIOS WHERE uid = :id');
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Perfil de: <?=$perfil['nombre'];?></title>
   <link rel="stylesheet" href="public/css/login/perfil.css">
+  <script>
+    function mostrar() {
+  var tarjeta = document.getElementById("tarjeta");
+  tarjeta.classList.toggle("hidden");
+}
+  </script>
 </head>
 
 <body>
@@ -72,7 +108,14 @@ if (isset($_GET['uid'])): ?>
       </a>
       <br>
       <?php if ($rango['rid'] == '1') {?><a href="panel" id="panelAdmin">Panel Admin</a><?php }?>
+
+
+      <?php if ($usertarjeta['uid'] == ($_SESSION['uid'])) { ?><p class="hidden" id="tarjeta"><?php echo $usertarjeta['tarjeta'] ?></p><?php }?>
+      <button onclick="mostrar()">Mostrar tarjeta</button>
+
+      <?php if ($userdir['uid'] == ($_SESSION['uid'])) { ?><p><?php echo $userdir['direccion'] ?></p><?php }?>
       <?php } ?>
+
 
     </div>
     <h1 id="historial">Ultimos vinos comprados</h1>
