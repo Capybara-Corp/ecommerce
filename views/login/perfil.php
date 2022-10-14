@@ -10,7 +10,14 @@ if (isset($_SESSION['uid'])) {
     $results = $records->fetch(PDO::FETCH_ASSOC);
 
     $user = null;
+
+    if (count($results) > 0) {
+      $user = $results;
+  }
 } 
+
+$userdir = [];
+$usertarjeta = [];
 
 $records = $conn->prepare('SELECT * FROM USUARIOS WHERE uid = :id');
     $records->bindParam(':id', $_GET['uid']);
@@ -35,29 +42,23 @@ $records = $conn->prepare('SELECT * FROM USUARIOS WHERE uid = :id');
     }
 
 
-    $records = $conn->prepare('SELECT * FROM USUARIOS_Direcciones WHERE uid = :id');
-    $records->bindParam(':id', $_SESSION['uid']);
-    $records->execute();
-    $results = $records->fetch(PDO::FETCH_ASSOC);
-
-    $userdir = null;
-
-    if (count($results) > 0) {
-        $userdir = $results;
-    }
 
 
 
     $records = $conn->prepare('SELECT * FROM USUARIOS_Tarjetas WHERE uid = :id');
     $records->bindParam(':id', $_SESSION['uid']);
     $records->execute();
-    $results = $records->fetch(PDO::FETCH_ASSOC);
 
-    $usertarjeta = null;
 
-    if (count($results) > 0) {
-        $usertarjeta = $results;
+    if (is_countable($results) > 0) {
+      while ($results = $records->fetch(PDO::FETCH_ASSOC)) {
+        $usertarjeta[] = $results;
+      }
     }
+    else{
+      $usertarjeta[] = '';
+    }
+  
 
 
 
@@ -78,8 +79,8 @@ $records = $conn->prepare('SELECT * FROM USUARIOS WHERE uid = :id');
   <link rel="stylesheet" href="public/css/login/perfil.css">
   <script>
     function mostrar() {
-  var tarjeta = document.getElementById("tarjeta");
-  tarjeta.classList.toggle("hidden");
+      const tarjetas = document.querySelectorAll('.tarjeta');
+      tarjetas.forEach(x => x.classList.toggle('hidden'));
 }
   </script>
 </head>
@@ -103,18 +104,36 @@ if (isset($_GET['uid'])): ?>
       <br>
       <br>
       <?php if (($_GET['uid']) == ($_SESSION['uid'])) { ?>
+
+        
       <a id="edit" href="editar?uid=<?php echo ($_SESSION['uid']); ?>">
         Editar mi perfil
       </a>
       <br>
       <?php if ($rango['rid'] == '1') {?><a href="panel" id="panelAdmin">Panel Admin</a><?php }?>
-
-
-      <?php if ($usertarjeta['uid'] == ($_SESSION['uid'])) { ?><p class="hidden" id="tarjeta"><?php echo $usertarjeta['tarjeta'] ?></p><?php }?>
-      <button onclick="mostrar()">Mostrar tarjeta</button>
-
-      <?php if ($userdir['uid'] == ($_SESSION['uid'])) { ?><p><?php echo $userdir['direccion'] ?></p><?php }?>
+      
+      
+      <button onclick="mostrar()">Mostrar tarjetas</button>
       <?php } ?>
+
+      <?php 
+
+        foreach($usertarjeta as $utar){
+        echo "<p class=\"tarjeta hidden\">" . $utar['tarjeta'] . "</p>";
+    }
+    ?>
+
+      
+      <?php 
+
+
+
+         ?>
+        <p><?php echo $userdir['direccion'] ?></p><?php ?>
+      <?php  ?>
+      
+      
+
 
 
     </div>
