@@ -15,33 +15,6 @@ if (isset($_SESSION['uid'])) {
         $user = $results;
     }
 
-
-    
-
-    $records = $conn->prepare('SELECT * FROM USUARIOS_Direcciones WHERE uid = :id');
-    $records->bindParam(':id', $_SESSION['uid']);
-    $records->execute();
-    $results = $records->fetch(PDO::FETCH_ASSOC);
-
-    $userdir = null;
-
-    if (count($results) > 0) {
-        $userdir = $results;
-    }
-
-
-
-    $records = $conn->prepare('SELECT * FROM USUARIOS_Tarjetas WHERE uid = :id');
-    $records->bindParam(':id', $_SESSION['uid']);
-    $records->execute();
-    $results = $records->fetch(PDO::FETCH_ASSOC);
-
-    $usertarjeta = null;
-
-    if (count($results) > 0) {
-        $usertarjeta = $results;
-    }
-
 } else {
     Header('Location: login');
 }
@@ -121,6 +94,7 @@ if (($_GET['uid']) == ($_SESSION['uid'])): ?>
   <?php
 
 if (isset($_POST['editar'])) {
+  
     if ($_POST['contrasena'] != '') {
         $contrasena = password_hash($_POST['contrasena'], PASSWORD_BCRYPT);
     } else {
@@ -139,12 +113,12 @@ if (isset($_POST['editar'])) {
   if ($_POST['tarjeta'] != '') {
     $tarjeta = $_POST['tarjeta'];
 } else {
-    $tarjeta = $user['tarjeta'];
+    $tarjeta = '';
 }
 if ($_POST['direccion'] != '') {
   $direccion = $_POST['direccion'];
 } else {
-  $direccion = $user['direccion'];
+  $direccion = '';
 }
 
     $tips = 'jpg';
@@ -183,6 +157,44 @@ if ($_POST['direccion'] != '') {
     $message = "Ha ocurrido un error"; 
     echo "$message";
   }
+
+  if($tarjeta != ''){
+  try{
+    $sql  = "INSERT INTO USUARIOS_Tarjetas (uid, tarjeta) VALUES (:id, :tarjeta)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':id', $_SESSION['uid']);
+    $stmt->bindParam(':tarjeta', $tarjeta);
+
+    if ($stmt->execute()) {
+        $message = 'Datos actualizados con exito';
+    } else {
+        $message = 'No se han podido actualizar los datos';
+    }
+  }
+  catch(Exception $e){
+    $message = "Ha ocurrido un error"; 
+    echo "$message";
+  }
+
+  if($direccion != ''){
+    try{
+      $sql  = "INSERT INTO USUARIOS_Direcciones (uid, direccion) VALUES (:id, :direccion)";
+      $stmt = $conn->prepare($sql);
+      $stmt->bindParam(':id', $_SESSION['uid']);
+      $stmt->bindParam(':direccion', $direccion);
+  
+      if ($stmt->execute()) {
+          $message = 'Datos actualizados con exito';
+      } else {
+          $message = 'No se han podido actualizar los datos';
+      }
+    }
+    catch(Exception $e){
+      $message = "Ha ocurrido un error"; 
+      echo "$message";
+    }
+  }
+}
 
 }
 
