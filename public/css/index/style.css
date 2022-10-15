@@ -382,7 +382,16 @@ img{
   justify-self: center;
   width: 250px;
   background: rgb(255,255,255);
+  transition: all 0.2s ease;
   background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(227,227,227,1) 95%, rgba(210,210,210,1) 100%);
+}
+
+.product:hover{
+  box-shadow: -1px 6px 8px 1px rgba(117,117,117,0.59);
+-webkit-box-shadow: -1px 6px 8px 1px rgba(117,117,117,0.59);
+-moz-box-shadow: -1px 6px 8px 1px rgba(117,117,117,0.59);
+  transition: all 0.2s ease;
+  transform: scale(1.05);
 }
 
 .product img {
