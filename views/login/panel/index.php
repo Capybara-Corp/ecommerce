@@ -1,5 +1,5 @@
 <?php 
-session_start();
+
 require 'libs/connect.php';
 require "config/config.php";
 if (isset($_SESSION['uid'])) {
@@ -46,8 +46,11 @@ else {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel Admin</title>
     <link rel="stylesheet" href="public/css/login/panel.css">
+    <link rel="stylesheet" href="public/css/index/header.css">
 </head>
 <body>
+
+<?php include "views/index/header.php";?>
 
 <h1>Lord <?php echo $user['nombre'] ?>, bienvenido al panel admin</h1> <!-- Nos dan la bienvenida al panel -->
 <div>

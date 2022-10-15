@@ -1,0 +1,35 @@
+body {
+    box-sizing: border-box;
+    margin: 0;
+    position: relative;
+    padding-bottom: 3em;
+    min-height: 120vh;
+}
+
+#title{
+    font-family: monospace;
+    text-align: center;
+}
+
+#editar{
+    margin: 0 auto;
+    width: 40vw;
+    height: 70vh;
+    background: red;
+}
+
+
+
+.footer {
+    position: absolute;
+    bottom: 0!important;
+    padding: 1em 0;
+    text-align: center;
+    height: 100px;
+    width: 100%;
+    background-color: #111111;
+  }
+  
+  .footer p {
+    color: white;
+  }

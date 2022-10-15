@@ -1,6 +1,5 @@
 <?php
 
-session_start();
 require 'libs/connect.php';
 require "config/config.php";
 if (isset($_SESSION['uid'])) {
@@ -39,6 +38,8 @@ if (isset($_SESSION['uid'])) {
     return borrar;
   }
   </script>
+  <link rel="stylesheet" href="public/css/login/editarperfil.css">
+  <link rel="stylesheet" href="public/css/index/headerblack.css">
 </head>
 
 <body>
@@ -48,9 +49,12 @@ if (isset($_SESSION['uid'])) {
 if (($_GET['uid']) == ($_SESSION['uid'])): ?>
   <!-- Si el ID de la URL, es el mismo de la sesion... -->
 
-  <a href="<?php echo constant('URL'); ?>perfil?uid=<?php echo ($_SESSION['uid']); ?>">Regresar a mi perfil</a>
+  <?php include "views/index/header.php";?>
 
 
+  <h1 id="title">EDITOR DE PERFIL</h1>
+
+  <div id="editar">
   <form action="" method="post" enctype="multipart/form-data" name="form1" id="form1">
     <p>
       <label for="textfield2"></label>
@@ -88,6 +92,7 @@ if (($_GET['uid']) == ($_SESSION['uid'])): ?>
       <input type="submit" name="eliminar" onclick="return Confirmar (this.form)" value="Eliminar mi usuario" />
     </p>
   </form>
+</div>
 
   <!-- Se me desbloquea todo este formulario -->
 

@@ -61,6 +61,7 @@
     rel="stylesheet">
   <!-- Cosas para que la pagina funcione -->
   <link rel="stylesheet" href="public/css/login/signup.css">
+  <link rel="stylesheet" href="public/css/index/header.css">
   </head>
   <body class="noselect">
 

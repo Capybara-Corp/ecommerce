@@ -1,6 +1,5 @@
 <?php
 
-session_start();
 require 'libs/connect.php';
 require "config/config.php";
 if (isset($_SESSION['uid'])) {
@@ -83,6 +82,7 @@ $records = $conn->prepare('SELECT * FROM USUARIOS WHERE uid = :id');
       tarjetas.forEach(x => x.classList.toggle('hidden'));
 }
   </script>
+  <link rel="stylesheet" href="public/css/index/headerblack.css">
 </head>
 
 <body>
