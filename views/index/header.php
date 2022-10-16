@@ -6,7 +6,7 @@
   <ul class="main-menu" id="main-menu">
     <li><a href="<?php echo constant('URL'); ?>">INICIO</a></li>
     <li><a href="<?php echo constant('URL'); ?>nosotros">NOSOTROS</a></li>
-    <li><a href="<?php echo constant('URL'); ?>carrito/market">CARRITO</a></li>
+    <li><a href="<?php echo constant('URL'); ?>carrito/market">TIENDA</a></li>
     <li><a href="">NOTICIAS</a></li>
     <li><a href="">PRODUCTOS</a></li>
     <li><a href="">CONTACTO</a></li>

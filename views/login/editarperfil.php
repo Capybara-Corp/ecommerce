@@ -52,32 +52,16 @@ if (($_GET['uid']) == ($_SESSION['uid'])): ?>
   <?php include "views/index/header.php";?>
 
 
-  <h1 id="title">EDITOR DE PERFIL</h1>
+  <h1 id="title">EDITAR PERFIL</h1>
 
   <div id="editar">
+
+  
+  
+
+  <div id="profilepic">
   <form action="" method="post" enctype="multipart/form-data" name="form1" id="form1">
-    <p>
-      <label for="textfield2"></label>
-      Usuario:
-      <input type="text" name="nombre" id="textfield2" value="<?php echo $user['nombre']; ?>" />
-    </p>
-    <p>
-      Contraseña:
-      <input type="text" name="contrasena" id="textfield" />
-    </p>
-    <p>
-      Teléfono:
-      <input type="text" name="telefono" id="textfield" />
-    </p>
-    <p>
-      Tarjeta:
-      <input type="text" name="tarjeta" id="textfield" />
-    </p>
-    <p>
-      Direccion:
-      <input type="text" name="direccion" id="textfield" />
-    </p>
-    <p>Avatar</p>
+  <p>Imagen de perfil</p>
     <p><img src="<?php echo $user['avatar']; ?>" height="100" width="100" />
     </p>
     <p>
@@ -85,20 +69,56 @@ if (($_GET['uid']) == ($_SESSION['uid'])): ?>
       <input type="file" name="avatar" id="fileField" />
     </p>
     <p>
-      <input type="submit" name="editar" id="button" value="Editar" />
+      <input type="submit" name="editarfoto" id="button" value="Editar foto" />
     </p>
+</form>
+</div>
 
+
+<div id="campos">
+
+
+<form action="" method="post" enctype="multipart/form-data" name="form2" id="form2">
     <p>
-      <input type="submit" name="eliminar" onclick="return Confirmar (this.form)" value="Eliminar mi usuario" />
+      <label for="textfield2" class="campo">
+      Nombre:</label>
+      
+      <input type="text" name="nombre" id="textfield2" value="<?php echo $user['nombre']; ?>" />
     </p>
-  </form>
+    <p>
+    <label for="textfield2" class="campo">
+      Contraseña:</label>
+      <input type="text" name="contrasena" id="textfield" />
+    </p>
+    <p>
+    <label for="textfield2" class="campo">
+      Teléfono:</label>
+      <input type="text" name="telefono" id="textfield" />
+    </p>
+    <p>
+    <label for="textfield2" class="campo">
+      Tarjeta:</label>
+      <input type="text" name="tarjeta" id="textfield" />
+    </p>
+    <p>
+    <label for="textfield2" class="campo">
+      Direccion:</label>
+      <input type="text" name="direccion" id="textfield" />
+    </p>
+      <input type="submit" name="editar" id="buttoneditar" value="Editar datos" />
+      
+      <input type="submit" name="eliminar" id="buttoneliminar" onclick="return Confirmar (this.form)" value="Eliminar mi usuario" /></li>
+ 
+    </form>
+</div>
+
 </div>
 
   <!-- Se me desbloquea todo este formulario -->
 
   <?php
 
-if (isset($_POST['editar'])) {
+if (isset($_POST['editar']) || (isset($_POST['editarfoto']))) {
   
     if ($_POST['contrasena'] != '') {
         $contrasena = password_hash($_POST['contrasena'], PASSWORD_BCRYPT);
@@ -156,11 +176,11 @@ if ($_POST['direccion'] != '') {
     } else {
         $message = 'No se han podido actualizar los datos';
     }
-    echo "$message";
+    echo "<p class=\"message\">$message<p>";
   }
   catch(Exception $e){
     $message = "Ha ocurrido un error"; 
-    echo "$message";
+    echo "<p class=\"message\">$message<p>";
   }
 
   if($tarjeta != ''){
@@ -178,7 +198,7 @@ if ($_POST['direccion'] != '') {
   }
   catch(Exception $e){
     $message = "Ha ocurrido un error"; 
-    echo "$message";
+    echo "<p class=\"message\">$message<p>";
   }
 
   if($direccion != ''){
@@ -196,7 +216,7 @@ if ($_POST['direccion'] != '') {
     }
     catch(Exception $e){
       $message = "Ha ocurrido un error"; 
-      echo "$message";
+      echo "<p class=\"message\">$message<p>";
     }
   }
 }
@@ -215,7 +235,7 @@ if (isset($_POST['eliminar'])) {
   }
   catch(Exception $e){
     $message = "Ha ocurrido un error"; 
-    echo "$message";
+    echo "<p class=\"message\">$message<p>";
   }
 }
 

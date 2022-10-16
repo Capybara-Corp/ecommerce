@@ -3,20 +3,92 @@ body {
     margin: 0;
     position: relative;
     padding-bottom: 3em;
-    min-height: 120vh;
+    min-height: 150vh;
 }
 
 #title{
     font-family: monospace;
+    font-weight: 300;
     text-align: center;
+    font-size: 1.8vw;
 }
 
+
 #editar{
+    position: relative;
+    display: grid;
+    grid-template-columns: 40% 60%;
+    column-gap: 5vw;
     margin: 0 auto;
-    width: 40vw;
-    height: 70vh;
-    background: red;
+    width: 60vw;
+    height: 80vh;
 }
+
+
+#profilepic{
+    display: grid;
+    grid-column: 1;
+}
+
+#campos{
+    display: grid;
+    grid-column: 2;
+}
+
+.campo{
+    font-family: monospace;
+    font-size: 1vw;
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+input[type="text"]{
+    height: 3vh;
+    width: 80%;
+    font-size: 1vw;
+}
+
+
+#campos input[type="submit"]{
+    font-size: 1vw;
+    border: none;
+    display: block;
+}
+
+#buttoneditar{
+    background: #CC390A;
+    margin: 3% 20%;
+    margin-bottom: 25vh;
+    color: white;
+    height: 4vh;
+    width: 40%;
+}
+
+#buttoneliminar{
+    background: black;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: white;
+    height: 4vh;
+    width: 20%;
+}
+
+#campos input[type="submit"]:hover{
+    border: 0.15vw solid #641C05;
+}
+
+
+.message{
+    float: right;
+    font-family: monospace;
+    margin-right: 20vw;
+    margin-top: -30vh;
+    font-size: 1vw;
+}
+
+
 
 
 
