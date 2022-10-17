@@ -144,13 +144,6 @@ if (isset($_GET['uid'])): ?>
     <h1 class="vino">Vino 4</h1>
     <h1 class="vino">Vino 5</h1>
 
-    <?php if (($_GET['uid']) == ($_SESSION['uid'])) { ?>
-
-    <a id="logout" href="logout">
-      Cerrar sesión
-    </a>
-
-    <?php } ?>
     
   </section>
   <?php else: ?>

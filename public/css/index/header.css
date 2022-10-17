@@ -81,5 +81,62 @@ nav {
     transform: scale(1.1);
     /* Animaciones para cuando se le hace hover al menú */
   }
+
+
+
+/* Dropdown Button */
+.dropbtn {
+  all: unset;
+  cursor: pointer;
+}
+
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  margin-right: 5vw;
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+
+  transition: transform 0.3s; /* Esto hace que el menu se traslade a una velocidad determinada */
+  transform: translateY(-200%);
+  position: absolute;
+  top: 7vh;
+  left: 2vw;
+  background-color: #C33A0E;
+  min-width: 7vw;
+  z-index: 1;
+  
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  padding: 1vw 1.4vw;
+  min-width: 7vw;
+  height: 3vh;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: 300!important;
+  font-size: 1vw!important;
+  font-family: 'Roboto', sans-serif;
+  
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #AB330C;
+}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {
+  display:block;
+  transform: translateY(0);
+}
   
   /* CSS MENU - fin*/

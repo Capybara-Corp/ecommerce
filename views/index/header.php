@@ -13,11 +13,32 @@
 
 
     <?php if (isset($_SESSION['uid'])): ?>
-    <li><a href="<?php echo constant('URL'); ?>perfil?uid=<?php echo ($_SESSION['uid']); ?>">|&nbsp;&nbsp;&nbsp;MI
-        PERFIL</a></li>
+
+
+
+  <div class="dropdown">
+
+  <li id="miperfil"><button onclick="mostrarmenu()" class="dropbtn">|&nbsp;&nbsp;&nbsp;MI PERFIL</button></li>
+
+    <div id="myDropdown" class="dropdown-content">
+
+      <a href="<?php echo constant('URL'); ?>perfil?uid=<?php echo ($_SESSION['uid']); ?>">MI PERFIL</a>
+      <a id="edit" href="editar?uid=<?php echo ($_SESSION['uid']); ?>">EDITAR MI PERFIL</a>
+      <a id="logout" href="logout">CERRAR SESIÓN</a>
+    </div>
+    
+  </div>
+    
+
+
+
+
     <?php else: ?>
+
     <li><a href="<?php echo constant('URL'); ?>login">|&nbsp;&nbsp;&nbsp;LOGIN</a></li>
     <?php endif;?>
 
   </ul>
 </nav> <!-- Aqui termina el menu -->
+
+<script src="<?php echo constant('URL'); ?>public/js/perfil.js"></script>
