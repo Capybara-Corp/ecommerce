@@ -1,0 +1,282 @@
+@media all and (min-width: 768px){
+  .toggle-menu{
+    display: none;
+  }
+}
+
+body {
+  box-sizing: border-box;
+  margin: 0;
+  position: relative;
+  padding-bottom: 3em;
+  min-height: 100vh;
+  background-image: url(../../media/winery-factory.jpg);
+  background-size: 100vw 100vh;
+  background-attachment: fixed
+}
+
+a{
+  text-decoration: none; /* Con esto le saco el underline y esas cosas que tienen los a */
+  color: white;
+}
+
+nav {
+  width: 100%;
+  height: 90px;
+}
+
+img{
+  max-width: 100%;
+}
+
+.toggle-menu{
+  position: absolute;
+  top: 1.5vh;
+  right: 2vw;
+  cursor: pointer; /* Con esto hago que aparezca una manita en el mouse cuando se le pasa arriba */
+  filter:invert(1); /* Con esto invierto los colores */
+  width: 40px;
+  z-index: 1; /* Con esto hago que aparezca arriba del todo. El z-index nos permite organizar las capas */
+}
+
+.main-menu {
+  width: 100%;
+  height: 90px;
+  display: flex;
+  /*el display flex nos permite manipular la orientacion a gusto de los elementos hijos de un contenedor*/
+  flex-direction: column; /* Con esto cada elemento del menú aparece abajo del otro */
+  flex-wrap: nowrap;
+  align-items: center;
+  /*alinea en vertical*/
+  margin: 0;
+  padding: 0;
+  transition: transform 0.3s; /* Esto hace que el menu se traslade a una velocidad determinada */
+  transform: translateY(-1500%); /* Esto sirve para que el menu aparezca por defecto arriba, tan arriba que ni se ve */
+}
+
+.main-menu--show{
+  transform: translateY(0); /* Esto hace que el menú vaya para abajo, en otras palabras que aparezca */
+}
+
+@media all and (min-width: 768px){
+  .main-menu {
+    flex-direction: row; /* Con esto el menú aparece "En un mismo renglón" */
+    transform: translateY(0); /* Con esto hago que el menú se vea si la pantalla supera los 768 pixeles de ancho */
+  }
+
+  .toggle-menu{
+    display: none; /* El botón no se muestra si la pantalla supera los 768 pixeles de ancho */
+  }
+  .main-menu li {
+    background: none!important;
+    padding: 1em!important;
+    font-weight: 300!important;
+    font-size: 1.3vw!important;
+    /* Atributos que cambian. Lo más importante es que le sacamos el color de fondo */
+  }
+}
+
+.main-menu li {
+  background: rgba(0, 0, 0, 0.9); /* Le doy un color de fondo para que se vea correctamente */
+  width: 100%;
+  padding: 2.3em; /* Las unidades "em" sirven para delimitar según el ancho de la letra */
+  text-align: center;
+  float: left;
+  /*propiedad que permite a diferentes elementos posicionarse al lado del otro*/
+  margin: 0 3vw;
+  /*margin acepta 2 (arriba y abajo, derecha e izquierda) y 4 (arriba, derecha, abajo, izquierda)*/
+  list-style: none;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900;
+  /*propiedad que nos permite establecer el grosor de una fuente, va de 0 a 900 en centenas*/
+  font-size: 3vw;
+}
+
+.main-menu li:hover {
+  cursor: pointer;
+  transition: all 0.2s ease;
+  transform: scale(1.1);
+  /* Animaciones para cuando se le hace hover al menú */
+}
+
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#mid_container{
+  margin-top: 2vh;
+  margin-right: auto;
+  margin-left: auto;
+  width: 90vw;
+  height: 200vh;
+  background-color: white;
+  word-break: break-all;
+}
+
+.title{
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 3vw;
+}
+.paragraph{
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 2vw;
+}
+
+#ourHistory {
+  float: left;
+  padding-top: 5vh;
+  padding-left: 5vw;
+  width: 35vw;
+}
+
+#ourHistory h1{
+  padding-top: 10%;
+  padding-left: 10%;
+  font-weight: 900;
+}
+#ourHistory p{
+  width: 100%;
+  padding-left: 5%;
+}
+#firstLocal{
+  width: 30vw;
+  height: auto;
+  float: right;
+  margin-right: 5vw;
+  margin-top: 20vh;
+
+}
+#firstLocalI{
+  position: relative;
+  margin-right: 15vw;
+  margin-top: 0vh;
+  font-size: 1vw;
+  float: right;
+}
+
+#partners{
+  position: relative;
+  width: 30vw;
+  height: auto;
+  top: 10vh;
+  right: 35vw;
+}
+#partnersI{
+  position: relative;
+  margin-left: 10vw;
+  margin-top: 10vh;
+  font-size: 1vw;
+  float: left;
+}
+
+#ourTeam{
+  float: right;
+  margin-right: 5vw;
+  width: 45vw;
+  height: 50vh;
+  word-break: break-all; /* Para que las palabras no se salgan del contenedor */
+}
+#ourTeam h1{
+  position: relative;
+  text-align: center;
+  font-weight: 900;
+}
+#ourTeam p{
+  position: relative;
+  width: 100%;
+  text-align: right;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0!important;
+  padding: 1em 0;
+  text-align: center;
+  height: 100px;
+  width: 100%;
+  background-color: #111111;
+}
+
+.footer p {
+  color: white;
+}
+
+@media all and (max-width: 768px) {
+  #mid_container {
+    height: 600vh;
+  }
+
+
+  #ourHistory {
+    float: none;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0;
+    width: 70vw;
+  }
+  #ourHistory h1 {
+    padding-left: 0;
+    font-size: 7vw;
+  }
+  #ourHistory p {
+    padding-left: 0;
+    font-size: 4vw;
+  }
+
+  #firstLocal {
+    width: 70vw;
+    float: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #firstLocalI {
+    font-size: 2vw;
+    float: left;
+    margin-left: 10vw;
+  }
+
+  #partners {
+    width: 70vw;
+    float: none;
+    display: block;
+    margin-top: 20vh;
+    margin-left: 50%;
+    margin-right: auto;
+  }
+
+  #partnersI {
+    font-size: 2vw;
+    float: left;
+    margin-left: 10vw;
+  }
+
+  #ourTeam {
+    float: none;
+    margin-top: 20vh;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0;
+    width: 70vw;
+  }
+  #ourTeam h1 {
+    padding-left: 0;
+    font-size: 6vw;
+  }
+  #ourTeam p {
+    padding-left: 0;
+    font-size: 4vw;
+    text-align: center;
+  }
+
+
+}

@@ -1,0 +1,404 @@
+body {
+  box-sizing: border-box;
+  margin: 0;
+  position: relative;
+  padding-bottom: 3em;
+  min-height: 150vh;
+}
+
+a{
+    text-decoration: none; /* Con esto le saco el underline y esas cosas que tienen los a */
+    color: white;
+  }
+  
+  nav {
+    width: 100%;
+    height: 90px;
+    z-index: 1;
+  }
+  
+  img{
+    max-width: 100%;
+  }
+  
+  .toggle-menu{
+    position: absolute;
+    top: 1.5vh;
+    right: 2vw;
+    cursor: pointer; /* Con esto hago que aparezca una manita en el mouse cuando se le pasa arriba */
+    width: 40px;
+    z-index: 1; /* Con esto hago que aparezca arriba del todo. El z-index nos permite organizar las capas */
+  }
+  
+  .main-menu {
+    z-index: 1;
+    width: 100%;
+    height: 90px;
+    display: flex;
+    /*el display flex nos permite manipular la orientacion a gusto de los elementos hijos de un contenedor*/
+    flex-direction: column; /* Con esto cada elemento del menú aparece abajo del otro */
+    flex-wrap: nowrap;
+    align-items: center;
+    /*alinea en vertical*/
+    margin: 0;
+    padding: 0;
+    transition: transform 0.3s; /* Esto hace que el menu se traslade a una velocidad determinada */
+    transform: translateY(-1000%); /* Esto sirve para que el menu aparezca por defecto arriba, tan arriba que ni se ve */
+  }
+  
+  .main-menu--show{
+    transform: translateY(0); /* Esto hace que el menú vaya para abajo, en otras palabras que aparezca */
+  
+  }
+  
+  @media all and (min-width: 768px){
+    .main-menu {
+      justify-content: space-between;
+      flex-direction: row; /* Con esto el menú aparece "En un mismo renglón" */
+      transform: translateY(0); /* Con esto hago que el menú se vea si la pantalla supera los 768 pixeles de ancho */
+    }
+  
+    .toggle-menu{
+      display: none; /* El botón no se muestra si la pantalla supera los 768 pixeles de ancho */
+    }
+    .main-menu li {
+      width: 5vw!important;
+      background: none!important;
+      padding: 1em!important;
+      font-weight: 300!important;
+      font-size: 1.3vw!important;
+      color: black!important;
+      /* Atributos que cambian. Lo más importante es que le sacamos el color de fondo */
+    }
+    a{
+      color: black;
+    }
+  }
+  
+  .main-menu li {
+    background: rgba(0, 0, 0, 0.9); /* Le doy un color de fondo para que se vea correctamente */
+    width: 100%;
+    padding: 2.3em; /* Las unidades "em" sirven para delimitar según el ancho de la letra */
+    text-align: center;
+    float: left;
+    /*propiedad que permite a diferentes elementos posicionarse al lado del otro*/
+    margin: 0 3vw;
+    /*margin acepta 2 (arriba y abajo, derecha e izquierda) y 4 (arriba, derecha, abajo, izquierda)*/
+    list-style: none;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+    /*propiedad que nos permite establecer el grosor de una fuente, va de 0 a 900 en centenas*/
+    font-size: 3vw;
+  }
+  
+  .main-menu li:hover {
+    cursor: pointer;
+    transition: all 0.2s ease;
+    transform: scale(1.1);
+    /* Animaciones para cuando se le hace hover al menú */
+  }
+
+
+#title{
+  color: black;
+  font-family: monospace;
+  letter-spacing: 0.1vw;
+  font-size: 2vw;
+  margin-left: 12vw;
+}
+
+
+
+
+
+
+
+
+.contenedor-index{
+  z-index: -1;
+}
+
+#contenedor_market {
+    position: relative;
+    display: grid;
+    width: 90vw;
+    height: 80vh;
+    margin-left: 5vw;
+    margin-top: 2vh;
+    grid-template-columns: 80% 20%;
+    grid-template-rows: 80vh;
+    background: #1A1A1A;
+}
+
+.celda_market {
+    background: #ffffff;
+    display: grid;
+    grid-template-columns: 60vw;
+    grid-auto-rows: 15vw;
+    grid-gap: 10vh;
+    justify-content: center;
+    height: 80vh;
+    overflow-y: scroll;
+}
+
+.celda_market section {
+    border-radius: 0.5vw;
+    text-align: center;
+    background-color: #F2F2F2;
+    background-size: cover;
+    user-select: none;
+}
+
+
+.celda_carrito {
+    position: relative;
+}
+
+.celda_carrito #efectivo {
+    position: absolute;
+    bottom: 20%;
+    right: 0;
+    left: 0;
+    margin: auto;
+    border-radius: 10px;
+    color: white;
+    background-color: #ff4d00;
+    font-family: monospace;
+    font-size: 1vw;
+    height: 8%;
+    width: 80%;
+    cursor: pointer;
+    font-weight: 600;
+    border: 1px solid transparent;
+}
+
+#preciototal {
+  color: white;
+  font-family: monospace;
+  font-size: 1.3vw;
+  position: absolute;
+  bottom: 27%;
+  left: 5%;
+}
+
+#total{
+  color: white;
+  font-family: monospace;
+  font-size: 1.3vw;
+  position: absolute;
+  bottom: 27%;
+  right: 5%;
+}
+
+
+
+
+
+
+.nombre{
+  width: 5em;
+  font-size: 1.2vw;
+  float: left;
+  margin-left: 15vw;
+  margin-top: 2vh;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-family: monospace;
+}
+.marca{
+  font-size: 1vw;
+  float: left;
+  margin-top: 5vh;
+  margin-left: -12vw;
+  text-transform: uppercase;
+  font-family: monospace;
+}
+
+.stock{
+  font-size: 0.8vw;
+  float: right;
+  margin-right: 1vw;
+  margin-top: 27vh;
+  font-family: monospace;
+}
+
+.descrip{
+  text-align: left;
+  width: 12em;
+  height: 2em!important;
+  float: left;
+  margin-left: -5vw;
+  margin-top: 10vh;
+  font-size: 1vw;
+  font-weight: 900;
+  font-family: monospace;
+}
+.precio{
+  float: right;
+  margin-right: -5vw;
+  color: #4B4B4B;
+  font-size: 1.2vw;
+  font-family: monospace;
+}
+
+button{
+  float: left;
+  margin-left: -13vw;
+  margin-top: 24vh;
+  border: none;
+  cursor: pointer;
+  width: 8vw;
+  height: 5vh;
+}
+
+button p{
+  font-family: monospace;
+  margin: 0;
+  font-size: 1.5vw!important;
+}
+
+button p:hover{
+  color: #ff4d00;
+}
+
+
+
+
+
+
+
+
+
+
+#o{
+  color: white;
+  font-family: monospace;
+  font-size: 1.5vw;
+  position: absolute;
+  bottom: 11.5%;
+  right: 50%;
+  font-style: italic; 
+}
+
+.celda_carrito #paypal {
+  position: absolute;
+  bottom: 5%;
+  right: 0;
+  left: 0;
+  margin: auto;
+  border-radius: 10px;
+  background-color: #ffffff;
+  height: 8%;
+  width: 80%;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.celda_carrito #efectivo:hover, #paypal:hover {
+    transition: all ease 0.2s;
+    border: 1px solid #fff;
+}
+
+.celda_carrito {
+    display: flex;
+    flex-direction: column;
+}
+
+.celda_carrito h1{
+  color: white;
+  font-family: monospace;
+  font-size: 1.5vw;
+  user-select: none;
+  margin-left: 12%;
+}
+
+.separator{
+  width: 90%;
+  height: 0.1vh;
+  background-color: white;
+  margin: 0 auto;
+}
+
+#separator2{
+  margin-top: 3vh;
+}
+
+.celda_carrito p {
+    color: white;
+    font-family: monospace;
+    font-size: 1.5vw;
+    user-select: none;
+}
+
+.celda_carrito i {
+  color: white;
+  font-family: monospace;
+  font-size: 1.5vw;
+}
+
+.celda_carrito p {
+    font-size: 0.7vw;
+}
+
+#carrito_content {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    overflow-y: auto;
+    height: 40vh;
+    width: 100%;
+}
+
+#carrito_content p {
+  font-size: 1vw;
+  font-family: monospace;
+    padding: 0 50px 0 50px;
+
+}
+
+#carrito_content p:hover {
+    color: rgb(240, 76, 76);
+}
+
+#carrito_content p:hover:after{
+  content:" ELIMINAR";
+}
+
+.footer {
+  position: absolute;
+  bottom: 0!important;
+  padding: 1em 0;
+  text-align: center;
+  height: 100px;
+  width: 100%;
+  background-color: #111111;
+}
+
+.footer p {
+  color: white;
+}
+
+
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #ff4d00 #ffffff;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 11px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #ffffff;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #ff4d00;
+    border-radius: 14px;
+    border: 3px outset #ffffff;
+  }

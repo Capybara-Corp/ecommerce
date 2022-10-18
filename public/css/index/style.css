@@ -1,0 +1,555 @@
+body {
+  box-sizing: border-box;
+  margin: 0;
+  position: relative;
+  padding-bottom: 3em;
+  min-height: 100vh;
+}
+
+#container_big {
+  width: 100%;
+  height: 100vh;
+  background-size: 100% 120%;
+}
+
+a{
+  text-decoration: none; /* Con esto le saco el underline y esas cosas que tienen los a */
+  color: white;
+}
+
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* Todo esto es una clase para que no se pueda seleccionar los elementos */
+}
+
+#banner_portada {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  /* object fit nos permite manipular como se redimensiona y orienta una imagen en etiqueta img*/
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  /*nos permite manipular la posicion del eje z (profundidad) de un elemento. cuanto mas negativo mas profundo (atras)*/
+}
+
+/* Todo el primer div */
+
+.container_big_div {
+  width: 700px;
+  position: absolute;
+  right: 10vw;
+  top: 17vw;
+  height: auto;
+  text-align: center;
+  z-index: -1;
+}
+
+#welcome {
+  font-family: 'Roboto', sans-serif; /* Font family sirve para especificar qué fuente queremos usar */
+  color: white;
+  font-size: 2vw;
+  font-weight: 900;
+  margin-bottom: 0;
+  text-transform: uppercase; /* Esto sirve para que el texto esté en mayúsculas */
+}
+
+#separator {
+  width: 85%;
+  height: auto;
+}
+
+#message {
+  font-family: 'Roboto', sans-serif;
+  color: white;
+  font-size: 1vw;
+  font-weight: 400;
+  text-transform: lowercase; /* Para que el texto esté en minúsculas */
+}
+
+/* Primer div --fin */
+
+/* Top 3 div */
+
+#top3 {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+  width: 600px;
+  height: 100px;
+  justify-content: center;
+}
+
+#top3_text {
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  color: black;
+  font-size: 30px;
+}
+
+#separator_black {
+  position: relative;
+  top: -4vh;
+  left: 1vw;
+  filter:invert(1);
+  width: 550px;
+  height: 100px;
+}
+
+#mid_container {
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  width: 990px;
+  height: auto;
+}
+#pics{
+  height: 1000px;
+}
+
+#bottles {
+  width: 990px;
+  height: auto;
+}
+#chorrete{
+  position: relative;
+  top: -600px;
+  z-index: -1;
+  width: 100%;
+  height: 40%;
+}
+
+#bgwine {
+  position: absolute;
+  z-index: -2;
+  margin-top: -1000px;
+  width: 100%;
+  height: 1000px;
+}
+
+#shop {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 70px;
+  border: 0.2vw solid black;
+  border-radius: 10px;
+  width: 300px;
+  height: 70px;
+  cursor: pointer;
+  transition: .3s ease-in-out all;
+}
+#shop p {
+  text-align: center;
+  margin-top: 17px;
+  font-family: 'Noto Sans', sans-serif;
+  color: black;
+  font-size: 25px;
+  font-weight: 900;
+}
+
+#shop:hover {
+  background: #C51575;
+}
+
+#shop:hover p{
+  color: white;
+}
+
+/* Top 3 div fin-- */
+
+/* Anuncio gigante */
+
+#search {
+  margin-top: 40px;
+  width: 100%;
+  height: 300px;
+  justify-content: center;
+  background-image: url("../../media/vineyard.png"); /* Cargo una imagen de fondo para el div */
+  background-repeat: repeat; /* Hago que el fondo se repita si sobra espacio */
+  background-position: 25% top; /* Posiciono el fondo */
+}
+
+#formulario {
+  padding-top: 100px;
+  text-align: center;
+}
+
+#eslogan {
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  color: white;
+  font-size: 30px;
+  font-weight: 900;
+  margin-top: -40px;
+}
+
+#buscador {
+  font-size: 20px;
+  height: 30px;
+  width: 25vw;
+}
+
+#boton {
+  margin-left: -5px;
+  font-size: 20px;
+  height: 36px;
+}
+
+
+#ad_section {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 1700px;
+  height: 900px;
+
+}
+
+#ad {
+  margin-left: auto;
+  margin-right: auto;
+  width: 1600px;
+  margin-top: 75px;
+  height: 700px;
+  background-image: url("../../media/bottle_promo.jpg");
+}
+
+#buy {
+  margin-top: 20px;
+  width: 370px;
+  height: 100px;
+}
+
+#buy p {
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  color: black;
+  font-size: 30px;
+}
+
+#abuy {
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  margin-top: -20px;
+  width: 270px;
+  height: 50px;
+  background: white;
+  cursor: pointer;
+  transition: .3s ease-in-out all;
+}
+
+#abuy:hover {
+  background: #0E9CFF;
+}
+
+#abuy:hover a{
+  color: white;
+}
+
+#abuy a {
+  position: relative;
+  top: 8px;
+  left: 75px;
+  font-family: 'Noto Sans', sans-serif;
+  color: #1D31FF;
+  text-decoration: none;
+  font-size: 25px;
+  font-weight: 900;
+}
+
+/* Anuncio gigante fin-- */
+
+#bot_container {
+  width: 1620px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 800px;
+  margin-bottom: 30vh;
+  display: grid;
+  grid-template-columns: repeat(4, 400px);
+  grid-template-rows: repeat(2, 450px);
+  grid-column-gap: 0.2vw; /* Establezco mi grilla, en este caso, 4 columnas y 2 filas */
+}
+
+#bot_container div{
+  cursor: pointer;
+  display: grid;
+}
+
+#bot_container button{
+  cursor: pointer;
+  border: none;
+}
+
+#bot_container a{
+  display: grid;
+  cursor: pointer;
+}
+
+.product {
+  cursor: pointer;
+  text-align: center;
+  align-self: center;
+  justify-self: center;
+  width: 250px;
+  background: rgb(255,255,255);
+  transition: all 0.2s ease;
+  background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(227,227,227,1) 95%, rgba(210,210,210,1) 100%);
+}
+
+.product:hover{
+  box-shadow: -1px 6px 8px 1px rgba(117,117,117,0.59);
+-webkit-box-shadow: -1px 6px 8px 1px rgba(117,117,117,0.59);
+-moz-box-shadow: -1px 6px 8px 1px rgba(117,117,117,0.59);
+  transition: all 0.2s ease;
+  transform: scale(1.05);
+}
+
+.product img {
+  width: 150px;
+  height: 350px;
+  text-align: center;
+  align-self: center;
+  justify-self: center;
+}
+
+.product p {
+  padding-top: 20px;
+  margin-top: -30px;
+  font-family: 'Roboto', sans-serif;
+  color: #292929;
+  font-size: 15px;
+}
+
+.product .price {
+  font-size: 20px;
+}
+
+
+
+
+
+.footer {
+  position: absolute;
+  bottom: 0!important;
+  padding: 1em 0;
+  text-align: center;
+  height: 100px;
+  width: 100%;
+  background-color: #111111;
+}
+
+.footer p {
+  color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media all and (max-width: 768px) { /* Las famosas media query, alcanza con saber que cuando el ancho sea menor de 768 pixeles, se aplican los estilos de abajo */
+  #bot_container {
+    width: 750px;
+    height: 1700px;
+    margin-bottom: 50vh;
+  }
+  
+  #bot_container a{
+    grid-template-columns: repeat(2, 300px);
+    grid-template-rows: repeat(4, 250px); /* Ahora la grilla tiene 2 columnas y 4 filas, contrario a antes */
+    grid-row-gap: 25vh;
+    margin-top: 350px;
+    width: 600px;
+    height: 1650px;
+  }
+
+  #ad {
+    width: 600px;
+    margin-top: 75px;
+    height: 400px;
+    background-position: -700px 400px;
+
+  }
+
+  #ad_section {
+    margin-left: auto;
+    margin-right: auto;
+    width: 600px;
+    height: 400px;
+  }
+  .header {
+    grid-template-columns: repeat(6, 80px);
+  }
+  .opt {
+    font-size: 7px;
+  }
+
+  nav ul{
+    flex-direction: column;
+  }
+
+  nav ul li{
+    float: right;
+  }
+
+  #user {
+    margin-top: 5px;
+    width: 15px;
+    height: 15px;
+  }
+
+  #top3 {
+    width: 400px;
+    height: 80px;
+  }
+
+  #top3_text {
+    font-size: 20px;
+  }
+
+  #separator_black {
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
+    height: 70px;
+  }
+
+  .bottle {
+    width: 150px;
+    height: 400px;
+  }
+
+
+  #mid_container {
+    width: 450px;
+  }
+
+  #pics{
+    height: 500px;
+  }
+
+  #bottles {
+    width: 990px;
+    height: auto;
+  }
+  #chorrete{
+    position: relative;
+    top: -350px;
+    z-index: -1;
+    width: 100%;
+    height: 40%;
+  }
+
+  #bgwine {
+    position: absolute;
+    z-index: -2;
+    margin-top: -600px;
+    width: 100%;
+    height: 600px;
+  }
+
+  #shop {
+    margin-top: 20px;
+    width: 200px;
+    height: 50px;
+  }
+
+  #shop_now {
+    margin-top: 12px;
+    font-size: 20px;
+  }
+
+  #shop p {
+  font-size: 15px;
+}
+
+  #search {
+    height: 150px;
+  }
+
+  #formulario {
+    padding-top: 60px;
+  }
+
+  #eslogan {
+    font-size: 20px;
+    margin-top: -30px;
+  }
+
+  #buscador {
+    font-size: 15px;
+    height: 20px;
+  }
+
+  #boton {
+    margin-left: -5px;
+    font-size: 15px;
+    height: 26px;
+  }
+
+  #buy {
+    margin-left: 45px;
+    margin-top: 50px;
+    width: 370px;
+    height: 100px;
+  }
+
+  #buy_text {
+    font-size: 20px;
+  }
+
+  #abuy {
+    margin-top: 5px;
+    width: 160px;
+    height: 35px;
+  }
+
+  #abuy_text {
+    top: 4px;
+    left: 35px;
+    font-size: 20px;
+  }
+
+
+  .container_big_div {
+    margin-top: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
+  }
+
+  #welcome {
+    margin-bottom: 40px;
+    font-size: 25px;
+    font-weight: 900;
+  }
+
+  #separator {
+    width: 400px;
+    height: 70px;
+  }
+
+  #message {
+    font-size: 13px;
+  }
+
+}
+

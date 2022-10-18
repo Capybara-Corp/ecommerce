@@ -1,0 +1,126 @@
+body {
+  box-sizing: border-box;
+  margin: 0;
+  position: relative;
+  padding-bottom: 3em;
+  min-height: 150vh;
+}
+
+
+#rosa {
+  position: relative;
+  background-color: #DF173F;
+  padding-left: 2vw;
+  grid-column: 1;
+  width: 20vw;
+  min-height: 80vh;
+  height: auto;
+}
+
+#muro {
+  display: grid;
+  grid-template-columns: 20vw 40vw 10vw;
+  grid-template-rows: 25% 15% 15% 15% 15% 15%;
+  column-gap: 5vw;
+  width: 80vw;
+  height: 80vh;
+  margin: 0 auto;
+}
+
+.profilepic {
+  position: absolute;
+  top: 5vh;
+  padding-left: 7%;
+  grid-column: 1;
+  width: 15vw;
+  height: 15vw;
+}
+
+
+#profilename {
+  grid-column: 1;
+  color: white;
+  font-family: monospace;
+  font-size: 1.5vw;
+  position: absolute;
+  top: 37vh;
+  max-width: 12em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#editprofile {
+  color: white;
+  border: none!important;
+  grid-column: 1;
+  font-family: monospace;
+  font-size: 1.2vw;
+  text-decoration: none;
+  position: absolute;
+  top: 45vh;
+}
+
+#panelAdmin {
+  color: black;
+  grid-column: 1;
+  font-family: monospace;
+  font-size: 1.2vw;
+  text-decoration: none;
+  position: absolute;
+  top: 50vh;
+}
+
+#soyadmin{
+  color: white;
+  font-family: monospace;
+  font-size: 1vw;
+  position: absolute;
+  top: 35vh;
+}
+
+#logout {
+  grid-row: 1;
+  color: #DF173F;
+  grid-column: 3;
+  margin-top: 5%;
+  height: 1em;
+  font-family: monospace;
+  font-size: 1.2vw;
+  text-decoration: none;
+}
+
+#historial {
+  grid-row: 1;
+  grid-column: 2;
+  color: #DF173F;
+  font-family: arial;
+  font-size: 2vw;
+}
+
+.vino {
+  grid-column: 2;
+  color: #DF173F;
+  font-family: monospace;
+  font-size: 1.5vw;
+}
+
+#direcciones{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 12vh;
+  width: 100%;
+  display: grid;
+  grid-template-rows: 2vh 2vh 2vh;
+  row-gap: 1vh;
+  
+}
+
+.direccion{
+  display: grid;
+  padding-left: 1em;
+  color: white;
+  font-family: monospace;
+  font-size: 1vw;
+}
