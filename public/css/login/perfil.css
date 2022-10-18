@@ -38,10 +38,10 @@ body {
   grid-column: 1;
   color: white;
   font-family: monospace;
-  font-size: 2vw;
+  font-size: 1.5vw;
   position: absolute;
   top: 36vh;
-  max-width: 8em;
+  max-width: 12em;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -52,7 +52,7 @@ body {
   border: none!important;
   grid-column: 1;
   font-family: monospace;
-  font-size: 1.5vw;
+  font-size: 1.2vw;
   text-decoration: none;
   position: absolute;
   top: 45vh;
@@ -62,7 +62,7 @@ body {
   color: black;
   grid-column: 1;
   font-family: monospace;
-  font-size: 1.5vw;
+  font-size: 1.2vw;
   text-decoration: none;
   position: absolute;
   top: 50vh;
@@ -73,7 +73,7 @@ body {
   font-family: monospace;
   font-size: 1vw;
   position: absolute;
-  top: 35vh;
+  top: 34vh;
 }
 
 #logout {
