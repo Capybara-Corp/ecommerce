@@ -22,7 +22,7 @@
 
     <div id="myDropdown" class="dropdown-content">
 
-      <a href="<?php echo constant('URL'); ?>perfil?uid=<?php echo ($_SESSION['uid']); ?>">MI PERFIL</a>
+      <a id="miperfil" href="<?php echo constant('URL'); ?>perfil?uid=<?php echo ($_SESSION['uid']); ?>">MI PERFIL</a>
       <a id="edit" href="editar?uid=<?php echo ($_SESSION['uid']); ?>">EDITAR MI PERFIL</a>
       <a id="logout" href="logout">CERRAR SESIÓN</a>
     </div>

@@ -106,6 +106,7 @@ nav {
   transition: transform 0.3s; /* Esto hace que el menu se traslade a una velocidad determinada */
   transform: translateY(-200%);
   position: absolute;
+  
   top: 7vh;
   right: 0;
   background-color: rgba(0, 0, 0, 1);
@@ -116,13 +117,14 @@ nav {
 /* Links inside the dropdown */
 .dropdown-content a {
   padding: 1vw 1.4vw;
-  min-width: 7vw;
+  width: 6vw;
   height: 3vh;
-  text-decoration: none;
+  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
+  text-decoration: none;
   font-weight: 300!important;
   font-size: 1vw!important;
   font-family: 'Roboto', sans-serif;
@@ -131,7 +133,8 @@ nav {
 
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {
-  background-color: rgba(0, 0, 0, 1);
+  transition: all 0.2s ease;
+  transform: scale(1.05);
 }
 
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
@@ -146,5 +149,14 @@ nav {
   -ms-transition: background-color 200ms linear;
   transition: background-color 200ms linear;
 }
+
+#logout{
+  border-top: 0.2vh solid white;
+}
+
+#edit{
+  border-top: 0.2vh solid white;
+}
+
   
   /* CSS MENU - fin*/
