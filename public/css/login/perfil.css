@@ -146,9 +146,12 @@ nav {
   color: white;
   font-family: monospace;
   font-size: 2vw;
-  height: 0.3em;
   position: absolute;
-  top: 35vh;
+  top: 36vh;
+  max-width: 8em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 #editprofile {
@@ -168,6 +171,16 @@ nav {
   font-family: monospace;
   font-size: 1.5vw;
   text-decoration: none;
+  position: absolute;
+  top: 50vh;
+}
+
+#soyadmin{
+  color: white;
+  font-family: monospace;
+  font-size: 1vw;
+  position: absolute;
+  top: 35vh;
 }
 
 #logout {

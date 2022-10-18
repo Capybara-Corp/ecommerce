@@ -90,9 +90,11 @@ if (isset($_GET['uid'])): ?>
       <br>
       <img src="<?php echo $perfil['avatar']; ?>" class="profilepic">
 
-      <h1 style="color:<?php echo $rango['color']; ?>" id=profilename>
-        <?=$perfil['nombre'];?><?php if ($perfil['rango'] == '1') {?>
-          <p style="margin-top: -7vh; color: white!important; font-size: 1vw!important;">(admin)</p><?php }?>
+      <?php if ($perfil['rango'] == '1') {?>
+          <p id="soyadmin">(admin)</p><?php }?>
+          
+          <h1 style="color:<?php echo $rango['color']; ?>" id=profilename>
+        <?=$perfil['nombre'];?>
         </h1>
       <br>
       <br>
