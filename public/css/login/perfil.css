@@ -184,10 +184,23 @@ nav {
   font-size: 1.5vw;
 }
 
-.direccion{
-  color: white;
+#direcciones{
   position: absolute;
   bottom: 0;
+  left: 0;
+  height: 12vh;
+  width: 100%;
+  display: grid;
+  grid-template-rows: 2vh 2vh 2vh;
+  row-gap: 1vh;
+  
+}
+
+.direccion{
+  display: grid;
+  padding-left: 1em;
+  color: white;
   font-family: monospace;
   font-size: 1vw;
 }
+

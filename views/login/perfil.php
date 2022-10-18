@@ -105,12 +105,20 @@ if (isset($_GET['uid'])): ?>
       <br>
       <?php if ($rango['rid'] == '1') {?><a href="panel" id="panelAdmin">Panel Admin</a><?php }?>
       
-      <?php 
 
+      <div id="direcciones">
+      <?php 
+      $i    = 0;
         foreach($userdireccion as $udir){
         echo "<p class=\"direccion\">" . $udir['direccion'] . "</p>";
+        $i++;
+        if ($i == 3) {
+            break;
+        }
+
     }
     ?>
+    </div>
       
       <?php } ?>
 
