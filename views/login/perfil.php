@@ -99,7 +99,7 @@ if (isset($_GET['uid'])): ?>
       <?php if (($_GET['uid']) == ($_SESSION['uid'])) { ?>
 
         
-      <a id="edit" href="editar?uid=<?php echo ($_SESSION['uid']); ?>">
+      <a id="editprofile" href="editar?uid=<?php echo ($_SESSION['uid']); ?>">
         Editar mi perfil
       </a>
       <br>

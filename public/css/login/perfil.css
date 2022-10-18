@@ -105,6 +105,12 @@ nav {
   /* Animaciones para cuando se le hace hover al menú */
 }
 
+
+
+
+
+
+
 #rosa {
   position: relative;
   background-color: #DF173F;
@@ -126,6 +132,8 @@ nav {
 }
 
 .profilepic {
+  position: absolute;
+  top: 5vh;
   padding-left: 7%;
   grid-column: 1;
   width: 15vw;
@@ -139,15 +147,19 @@ nav {
   font-family: monospace;
   font-size: 2vw;
   height: 0.3em;
+  position: absolute;
+  top: 35vh;
 }
 
-#edit {
+#editprofile {
   color: white;
   border: none!important;
   grid-column: 1;
   font-family: monospace;
   font-size: 1.5vw;
   text-decoration: none;
+  position: absolute;
+  top: 45vh;
 }
 
 #panelAdmin {
