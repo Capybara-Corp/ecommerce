@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 12-10-2022 a las 19:01:10
+-- Tiempo de generación: 18-10-2022 a las 18:24:50
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -58,12 +58,12 @@ CREATE TABLE `PRODUCTOS` (
 --
 
 INSERT INTO `PRODUCTOS` (`pid`, `nombre`, `precio_venta`, `precio_compra`, `marca`, `tipo`, `cantidad`, `img`, `descrip`) VALUES
-(1, 'Tinto', 200, 150, 'Westinghouse', 'Tinto', 31, 'public/media/bottles/bottle1.png', 'Vino tinto recien traido del himalaya'),
-(2, 'Blanco', 300, 200, 'De la viña', 'Blanco', 125, 'public/media/bottles/bottle2.png', 'Vino blanco para acompañar un asado con amigos'),
-(3, 'Escoces', 500, 350, 'Santa rosana', 'Escoces', 21, 'public/media/bottles/bottle3.png', 'Vino escocés, traido directamente de Alemania'),
-(4, 'Rosado', 200, 100, 'Naturalvinos', 'Rosado', 56, 'public/media/bottles/bottle4.png', 'Vino rosado, color azul, perfecto para acompañar una sopa'),
+(1, 'Tinto', 200, 150, 'Westinghouse', 'Tinto', 24, 'public/media/bottles/bottle1.png', 'Vino tinto recien traido del himalaya'),
+(2, 'Blanco', 300, 200, 'De la viña', 'Blanco', 109, 'public/media/bottles/bottle2.png', 'Vino blanco para acompañar un asado con amigos'),
+(3, 'Escoces', 500, 350, 'Santa rosana', 'Escoces', 18, 'public/media/bottles/bottle3.png', 'Vino escocés, traido directamente de Alemania'),
+(4, 'Rosado', 200, 100, 'Naturalvinos', 'Rosado', 53, 'public/media/bottles/bottle4.png', 'Vino rosado, color azul, perfecto para acompañar una sopa'),
 (5, 'Tannat', 300, 200, 'Los paisanos', 'Tannat', 72, 'public/media/bottles/bottle5.png', 'Tannat, directamente traido desde tannatlandia'),
-(6, 'Dulce', 350, 200, 'Las chauchas', 'Rosado dulce', 41, 'public/media/bottles/bottle6.png', 'Vino dulce elaborado con 3 kilos de miel por litro de vino'),
+(6, 'Dulce', 350, 200, 'Las chauchas', 'Rosado dulce', 40, 'public/media/bottles/bottle6.png', 'Vino dulce elaborado con 3 kilos de miel por litro de vino'),
 (7, 'Mexicano', 250, 150, 'Mexicanito', 'Tinto', 34, 'public/media/bottles/bottle7.png', 'Vino mexicano recién traido de Cataluña.'),
 (8, 'Picante', 350, 300, 'Samsung', 'Picante', 52, 'public/media/bottles/bottle8.png', 'Vino picante, sabor picante. Ideal para aquellas tardes con amigos.'),
 (9, 'Vino 9', 350, 277, 'Vinoman', 'Rosado', 32, 'public/media/bottles/bottle9.png', 'Un vino para toda la familia'),
@@ -97,7 +97,10 @@ INSERT INTO `USUARIOS` (`uid`, `nombre`, `correo`, `contraseña`, `telefono`, `a
 (12, 'Lujambia12', 'luli@gmail.com', '$2y$10$AzE18QwS0SXj3R3wYP2Ls.AiMhb3/oTs1r5Vi9OXYKygHBk6cywYS', 436436536, 'public/img/perfil/12.jpg', 2),
 (15, 'Santiago Romero', 'elsantoposada@gmail.com', '$2y$10$Ybpc.5pRvAcjif9DeckhDuV2i9TwuzI17.Fz0kxCrQNJ1GGmaQoo.', 12345678, 'public/img/perfil/15.jpg', 1),
 (20, 'Paz', 'elamor@gmail.com', '$2y$10$fVa13QOokk5tOWCi5Z8pcuYCflkD3deYp9bqHRsnKkjOB6M3as/CC', 1212121212, 'public/img/perfil/20.jpg', 1),
-(30, 'Prueba', 'prueba@gmail.com', '$2y$10$7VCR6BsaiXawTfsZ2fuwfeNlRHPPNz3cSTu5sLvRSwVx9.eS8yCIO', 43342323, 'public/img/perfil/default.jpg', 1);
+(30, 'Prueba', 'prueba@gmail.com', '$2y$10$7VCR6BsaiXawTfsZ2fuwfeNlRHPPNz3cSTu5sLvRSwVx9.eS8yCIO', 43342323, 'public/img/perfil/default.jpg', 1),
+(37, 'JorgeGamer', 'jorgegamer@gmail.com', '$2y$10$4Ef6NiCOYL/qolyBIGzbn.IiMgvF6BRCMikDuFalyG6JrsfGtXutO', 12345678, 'public/img/perfil/default.jpg', 2),
+(38, 'SantiagoXD', 'santiago@mail.com', '$2y$10$kL3q/wCpT3d0jo4edbeoLOpde.AqzMYaecUWUGBiFc6BO/CZ4zsBy', 434343434, 'public/img/perfil/default.jpg', 2),
+(40, 'SoyUnCorreoXDXD', 'correo@mail.com', '$2y$10$9wKcXtNCAjkfLcaSIfyHxuKEdPpKW6kXLNvKyaSAGq2KpDGYZZEa.', 34343434, 'public/img/perfil/default.jpg', 2);
 
 -- --------------------------------------------------------
 
@@ -107,9 +110,20 @@ INSERT INTO `USUARIOS` (`uid`, `nombre`, `correo`, `contraseña`, `telefono`, `a
 
 CREATE TABLE `USUARIOS_Direcciones` (
   `duid` int(11) NOT NULL,
-  `uid` int(11) DEFAULT NULL,
+  `uid` int(11) NOT NULL,
   `direccion` varchar(80) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `USUARIOS_Direcciones`
+--
+
+INSERT INTO `USUARIOS_Direcciones` (`duid`, `uid`, `direccion`) VALUES
+(1, 12, 'Eduardo Montanar 355'),
+(6, 12, 'Ricardo Montaner 333'),
+(7, 12, 'Los tanjarinos 334'),
+(8, 12, 'Direccion Pedro'),
+(9, 15, 'Una direccion');
 
 -- --------------------------------------------------------
 
@@ -139,9 +153,18 @@ INSERT INTO `USUARIOS_Rangos` (`rid`, `nombre`, `color`) VALUES
 
 CREATE TABLE `USUARIOS_Tarjetas` (
   `tuid` int(11) NOT NULL,
-  `uid` int(11) DEFAULT NULL,
-  `tarjeta` varchar(30) DEFAULT NULL
+  `uid` int(11) NOT NULL,
+  `tarjeta` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `USUARIOS_Tarjetas`
+--
+
+INSERT INTO `USUARIOS_Tarjetas` (`tuid`, `uid`, `tarjeta`) VALUES
+(1, 12, '44334343434'),
+(6, 12, '22222222222'),
+(11, 15, '12345678');
 
 -- --------------------------------------------------------
 
@@ -228,13 +251,13 @@ ALTER TABLE `PRODUCTOS`
 -- AUTO_INCREMENT de la tabla `USUARIOS`
 --
 ALTER TABLE `USUARIOS`
-  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT de la tabla `USUARIOS_Direcciones`
 --
 ALTER TABLE `USUARIOS_Direcciones`
-  MODIFY `duid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `duid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `USUARIOS_Rangos`
@@ -246,7 +269,7 @@ ALTER TABLE `USUARIOS_Rangos`
 -- AUTO_INCREMENT de la tabla `USUARIOS_Tarjetas`
 --
 ALTER TABLE `USUARIOS_Tarjetas`
-  MODIFY `tuid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `tuid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `VENTAS`
