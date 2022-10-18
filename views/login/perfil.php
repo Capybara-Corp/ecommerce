@@ -83,6 +83,7 @@ $records = $conn->prepare('SELECT * FROM USUARIOS WHERE uid = :id');
   <?php
 
 if (isset($_GET['uid'])): ?>
+
 <?php include "views/index/header.php";?>
 
 <section id="muro">
