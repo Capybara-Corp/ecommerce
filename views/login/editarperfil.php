@@ -200,6 +200,7 @@ if ($_POST['direccion'] != '') {
     $message = "Ha ocurrido un error"; 
     echo "<p class=\"message\">$message<p>";
   }
+  }
 
   if($direccion != ''){
     try{
@@ -219,7 +220,7 @@ if ($_POST['direccion'] != '') {
       echo "<p class=\"message\">$message<p>";
     }
   }
-}
+
 
 }
 
