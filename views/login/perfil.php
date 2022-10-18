@@ -76,6 +76,7 @@ $records = $conn->prepare('SELECT * FROM USUARIOS WHERE uid = :id');
   <title>Perfil de: <?=$perfil['nombre'];?></title>
   <link rel="stylesheet" href="public/css/login/perfil.css">
   <link rel="stylesheet" href="public/css/index/headerblack.css">
+  <link rel="stylesheet" href="public/css/index/footer.css">
 </head>
 
 <body>

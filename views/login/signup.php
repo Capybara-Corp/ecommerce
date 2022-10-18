@@ -62,8 +62,9 @@
   <!-- Cosas para que la pagina funcione -->
   <link rel="stylesheet" href="public/css/login/signup.css">
   <link rel="stylesheet" href="public/css/index/header.css">
+  <link rel="stylesheet" href="public/css/index/footer.css">
   </head>
-  <body class="noselect">
+  <body>
 
   <?php include "views/index/header.php";?>
 
@@ -74,7 +75,7 @@
     <form action="signup" method="POST">
 
     <?php if(!empty($message)): ?>
-      <p id="mensaje"> <?= $message ?></p>
+      <p id="mensaje"><?= $message ?></p>
     <?php endif; ?>
 
       <label for="user_correo">Correo</label>
