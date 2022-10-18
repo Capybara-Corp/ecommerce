@@ -16,7 +16,6 @@ if (isset($_SESSION['uid'])) {
 } 
 
 $userdir = [];
-$usertarjeta = [];
 
 $records = $conn->prepare('SELECT * FROM USUARIOS WHERE uid = :id');
     $records->bindParam(':id', $_GET['uid']);
@@ -44,18 +43,18 @@ $records = $conn->prepare('SELECT * FROM USUARIOS WHERE uid = :id');
 
 
 
-    $records = $conn->prepare('SELECT * FROM USUARIOS_Tarjetas WHERE uid = :id');
+    $records = $conn->prepare('SELECT * FROM USUARIOS_Direcciones WHERE uid = :id');
     $records->bindParam(':id', $_SESSION['uid']);
     $records->execute();
 
 
     if (is_countable($results) > 0) {
       while ($results = $records->fetch(PDO::FETCH_ASSOC)) {
-        $usertarjeta[] = $results;
+        $userdireccion[] = $results;
       }
     }
     else{
-      $usertarjeta[] = '';
+      $userdireccion[] = '';
     }
   
 
@@ -76,12 +75,6 @@ $records = $conn->prepare('SELECT * FROM USUARIOS WHERE uid = :id');
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Perfil de: <?=$perfil['nombre'];?></title>
   <link rel="stylesheet" href="public/css/login/perfil.css">
-  <script>
-    function mostrar() {
-      const tarjetas = document.querySelectorAll('.tarjeta');
-      tarjetas.forEach(x => x.classList.toggle('hidden'));
-}
-  </script>
   <link rel="stylesheet" href="public/css/index/headerblack.css">
 </head>
 
@@ -112,30 +105,18 @@ if (isset($_GET['uid'])): ?>
       <br>
       <?php if ($rango['rid'] == '1') {?><a href="panel" id="panelAdmin">Panel Admin</a><?php }?>
       
-      
-      <button onclick="mostrar()">Mostrar tarjetas</button>
-      <?php } ?>
-
       <?php 
 
-        foreach($usertarjeta as $utar){
-        echo "<p class=\"tarjeta hidden\">" . $utar['tarjeta'] . "</p>";
+        foreach($userdireccion as $udir){
+        echo "<p class=\"direccion\">" . $udir['direccion'] . "</p>";
     }
     ?>
+      
+      <?php } ?>
 
       
-      <?php 
 
-
-
-         ?>
-        <p><?php echo $userdir['direccion'] ?></p><?php ?>
-      <?php  ?>
       
-      
-
-
-
     </div>
     <h1 id="historial">Ultimos vinos comprados</h1>
     <h1 class="vino">Vino 1</h1>

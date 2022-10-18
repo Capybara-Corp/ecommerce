@@ -106,6 +106,7 @@ nav {
 }
 
 #rosa {
+  position: relative;
   background-color: #DF173F;
   padding-left: 2vw;
   grid-column: 1;
@@ -131,9 +132,6 @@ nav {
   height: 15vw;
 }
 
-.hidden{
-  display: none;
-}
 
 #profilename {
   grid-column: 1;
@@ -145,6 +143,7 @@ nav {
 
 #edit {
   color: white;
+  border: none!important;
   grid-column: 1;
   font-family: monospace;
   font-size: 1.5vw;
@@ -183,4 +182,12 @@ nav {
   color: #DF173F;
   font-family: monospace;
   font-size: 1.5vw;
+}
+
+.direccion{
+  color: white;
+  position: absolute;
+  bottom: 0;
+  font-family: monospace;
+  font-size: 1vw;
 }

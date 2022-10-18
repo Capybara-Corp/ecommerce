@@ -1,6 +1,5 @@
 <?php
 
-session_start();
 require 'libs/connect.php';
 require "config/config.php";
 if (isset($_SESSION['uid'])) {
