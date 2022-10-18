@@ -1,6 +1,6 @@
 nav {
     width: 100%;
-    height: 90px;
+    height: 7vh;
   }
   nav a{
     color: white;
@@ -23,7 +23,7 @@ nav {
   
   .main-menu {
     width: 100%;
-    height: 90px;
+    height: 7vh;
     display: flex;
     /*el display flex nos permite manipular la orientacion a gusto de los elementos hijos de un contenedor*/
     flex-direction: column; /* Con esto cada elemento del menú aparece abajo del otro */
@@ -34,6 +34,9 @@ nav {
     padding: 0;
     transition: transform 0.3s; /* Esto hace que el menu se traslade a una velocidad determinada */
     transform: translateY(-1500%); /* Esto sirve para que el menu aparezca por defecto arriba, tan arriba que ni se ve */
+    -webkit-transition: background-color 200ms linear;
+  -ms-transition: background-color 200ms linear;
+  transition: background-color 200ms linear;
   }
   
   .main-menu--show{
@@ -94,7 +97,6 @@ nav {
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
   margin-right: 5vw;
-  position: relative;
   display: inline-block;
 }
 
@@ -105,11 +107,10 @@ nav {
   transform: translateY(-200%);
   position: absolute;
   top: 7vh;
-  left: 2vw;
-  background-color: #C33A0E;
-  min-width: 7vw;
-  z-index: 1;
-  
+  right: 0;
+  background-color: rgba(0, 0, 0, 1);
+  min-width: 14vw;
+  z-index: -1;
 }
 
 /* Links inside the dropdown */
@@ -130,13 +131,20 @@ nav {
 
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {
-  background-color: #AB330C;
+  background-color: rgba(0, 0, 0, 1);
 }
 
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {
   display:block;
   transform: translateY(0);
+}
+
+.menu-negro{
+  background-color: rgba(0, 0, 0, 1);
+  -webkit-transition: background-color 200ms linear;
+  -ms-transition: background-color 200ms linear;
+  transition: background-color 200ms linear;
 }
   
   /* CSS MENU - fin*/
