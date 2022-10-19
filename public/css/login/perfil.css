@@ -9,12 +9,16 @@ body {
 
 #rosa {
   position: relative;
+  position: flex;
   background-color: #DF173F;
   padding-left: 2vw;
   grid-column: 1;
   width: 20vw;
   min-height: 80vh;
   height: auto;
+  flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
 #muro {
@@ -28,8 +32,6 @@ body {
 }
 
 .profilepic {
-  position: absolute;
-  top: 5vh;
   padding-left: 7%;
   grid-column: 1;
   width: 15vw;
@@ -40,10 +42,9 @@ body {
 #profilename {
   grid-column: 1;
   color: white;
+  margin: 0;
   font-family: monospace;
   font-size: 1.5vw;
-  position: absolute;
-  top: 37vh;
   max-width: 12em;
   white-space: nowrap;
   overflow: hidden;
@@ -57,8 +58,6 @@ body {
   font-family: monospace;
   font-size: 1.2vw;
   text-decoration: none;
-  position: absolute;
-  top: 45vh;
 }
 
 #panelAdmin {
@@ -67,16 +66,13 @@ body {
   font-family: monospace;
   font-size: 1.2vw;
   text-decoration: none;
-  position: absolute;
-  top: 50vh;
 }
 
 #soyadmin{
   color: white;
   font-family: monospace;
   font-size: 1vw;
-  position: absolute;
-  top: 35vh;
+  margin: 0;
 }
 
 #logout {

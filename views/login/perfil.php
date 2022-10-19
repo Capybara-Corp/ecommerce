@@ -98,8 +98,6 @@ if (isset($_GET['uid'])): ?>
           <h1 style="color:<?php echo $rango['color']; ?>" id=profilename>
         <?=$perfil['nombre'];?>
         </h1>
-      <br>
-      <br>
       <?php if (($_GET['uid']) == ($_SESSION['uid'])) { ?>
 
         
@@ -109,7 +107,7 @@ if (isset($_GET['uid'])): ?>
       <br>
       <?php if ($rango['rid'] == '1') {?><a href="panel" id="panelAdmin">Panel Admin</a><?php }?>
       
-
+      <?php if(isset($userdireccion)){ ?>
       <div id="direcciones">
       <?php 
       $i    = 0;
@@ -124,7 +122,7 @@ if (isset($_GET['uid'])): ?>
     ?>
     </div>
       
-      <?php } ?>
+      <?php }} ?>
 
       
 
