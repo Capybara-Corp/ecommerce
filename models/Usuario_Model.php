@@ -93,5 +93,77 @@ class Usuario_Model extends Model
         
         }   
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public function signup($correo, $contraseña, $nombre, $numero, $confirmpassword)
+    {
+
+        $pdo          = $this->db->connect();
+
+        $message = '';
+
+        if (!empty($correo) && !empty($contraseña) && !empty($nombre) && !empty($numero) && !empty($confirmpassword)) {
+            if (($contraseña) == ($confirmpassword)){
+            
+            
+            try{
+            $query = $pdo->prepare("INSERT INTO USUARIOS (correo, contraseña, nombre, telefono, rango, avatar) VALUES (:user_correo, :user_pass, :user_name, :user_number, '2', 'public/img/perfil/default.jpg')");
+            
+
+            if(filter_var($correo, FILTER_VALIDATE_EMAIL)){
+            $query->bindParam(':user_correo', $correo);
+            $user_pass = password_hash($contraseña, PASSWORD_BCRYPT);
+            $query->bindParam(':user_pass', $user_pass);
+            $query->bindParam(':user_name', $nombre);
+            $query->bindParam(':user_number', $numero);
+
+            if ($query->execute()) {
+            $records = $pdo->prepare('SELECT * FROM USUARIOS WHERE correo=:user_correo');
+            $records->bindParam(':user_correo', $correo);
+            $records->execute();
+            $results = $records->fetch(PDO::FETCH_ASSOC);
+
+                if (is_countable($results) > 0) {
+                $_SESSION['uid']   = $results['uid'];
+                $_SESSION['rango'] = $results['rango'];
+                header("Location: ../ecommerce"); 
+            }
+            } else {
+            $message = 'Ha ocurrido un error';
+            }
+            }
+            else{
+            $message = "Correo inválido";
+            }
+
+            
+        }
+        catch(Exception $e){
+            $message = "Ha ocurrido un error"; 
+        }
+        finally {
+            $pdo = null;
+        }
+        }
+        else{
+            $message = "Las contraseñas no coinciden";
+        }}
+
+        return $message;
+
+    }
+
+
 }
     
