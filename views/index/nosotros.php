@@ -1,6 +1,6 @@
 <?php
 
-  require 'libs/connect.php';
+  /*require 'libs/connect.php';
 
   if (isset($_SESSION['uid'])) {
     $records = $conn->prepare('SELECT * FROM USUARIOS WHERE uid = :id');
@@ -13,7 +13,7 @@
     if (count($results) > 0) {
       $user = $results;
     }
-  }
+  }*/
 ?>
 
 <!DOCTYPE html>
