@@ -98,15 +98,12 @@ if (isset($_GET['uid'])): ?>
           <h1 style="color:<?php echo $rango['color']; ?>" id=profilename>
         <?=$perfil['nombre'];?>
         </h1>
-      <br>
-      <br>
       <?php if (($_GET['uid']) == ($_SESSION['uid'])) { ?>
 
         
       <a id="editprofile" href="editar?uid=<?php echo ($_SESSION['uid']); ?>">
         Editar mi perfil
       </a>
-      <br>
       <?php if ($rango['rid'] == '1') {?><a href="panel" id="panelAdmin">Panel Admin</a><?php }?>
       
       <?php if(isset($userdireccion)){ ?>
