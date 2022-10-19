@@ -1,6 +1,6 @@
 <?php
 
-require 'libs/connect.php';
+/*require 'libs/connect.php';
 
 if (isset($_SESSION['uid'])) {
     $records = $conn->prepare('SELECT * FROM USUARIOS WHERE uid = :id');
@@ -13,7 +13,7 @@ if (isset($_SESSION['uid'])) {
     if (count($results) > 0) {
         $user = $results;
     }
-}
+}*/
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +23,7 @@ if (isset($_SESSION['uid'])) {
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Carrito</title>
+  <title>Tienda</title>
   <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/carrito/style_market.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

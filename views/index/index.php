@@ -35,7 +35,7 @@ $user = $results; // Me carga en "$user" los datos de mi usuario de mi sesión
     rel="stylesheet">
   <!-- Cosas para que la pagina funcione -->
 
-  <title>Pagina</title> <!-- Es el titulo que aparece en la pestaña -->
+  <title>Charruas Boutique</title> <!-- Es el titulo que aparece en la pestaña -->
 
 </head>
 

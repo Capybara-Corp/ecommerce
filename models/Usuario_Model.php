@@ -61,42 +61,37 @@ class Usuario_Model extends Model
     }
 
 
+    
 
-        /*
-        $pdo = $this->db->connect();
+    public function login($correo, $contraseña)
+    {
+        $pdo          = $this->db->connect();
 
-        $articulos = new ArticuloDto();
-        $articulos->pid = "";
-        $articulos->nombre = "";
-        $articulos->precio_venta = "";
-        $articulos->precio_compra = "";
-        $articulos->marca = "";
-        $articulos->tipo = "";
-        $articulos->cantidad = "";
-        $articulos->img = "";
-        $articulos->descrip = "";
-
+        if (!empty($correo) && !empty($contraseña)) {
         try {
-            $query = $pdo->prepare('SELECT * FROM PRODUCTOS');
+            $query = $pdo->prepare('SELECT * FROM USUARIOS WHERE correo = :user_correo');
+            $query->bindParam(':user_correo', $correo);
             $resultado = $query->execute();
-            $resultado = $query->fetchAll(PDO::FETCH_ASSOC);
-                $articulos         = new ArticuloDto();
-                $articulos->pid = $resultado["pid"];
-                $articulos->nombre = $resultado["nombre"];
-                $articulos->precio_venta = $resultado["precio_venta"];
-                $articulos->precio_compra = $resultado["precio_compra"];
-                $articulos->marca = $resultado["marca"];
-                $articulos->tipo = $resultado["tipo"];
-                $articulos->cantidad = $resultado["cantidad"];
-                $articulos->img = $resultado["img"];
-                $articulos->descrip = $resultado["descrip"];
+            $resultado = $query->fetch(PDO::FETCH_ASSOC);
 
-            return $articulos;
+            $message = '';
+
+            if (is_countable($resultado) > 0 && password_verify($contraseña, $resultado['contraseña'])) {
+                $_SESSION['uid']   = $resultado['uid'];
+                $_SESSION['rango'] = $resultado['rango'];
+                header("Location: ../ecommerce"); //Verifica que todo coincida
+            } else {
+                $message = 'Nombre o contraseña incorrectos'; // Sino, aparece esto
+            }
+
 
         } catch (PDOException $e) {
             return false;
         } finally {
             $pdo = null;
-        }*/
-    
+        }
+        
+        }   
+    }
 }
+    
