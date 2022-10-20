@@ -88,6 +88,41 @@ input[type="text"]{
     font-size: 1vw;
 }
 
+#profilepic p{
+    font-family: monospace;
+    text-align: center;
+    font-size: 1vw;
+    display: block;
+}
+
+#profilepic img{
+    width: 15vw;
+    height: 15vw;
+}
+
+#profilepic input[type="submit"]{
+    width: 12vw;
+    height: 3vh;
+    background: #CC390A;
+    color: white;
+    font-size: 1vw;
+    border: none;
+}
+#profilepic #fileField{
+    width: 12vw;
+    height: 3vh;
+    font-size: 0.8vw;
+    color: black;
+    border: none;
+}
+
+
+
+#profilepic input[type="submit"]:hover{
+    border: 0.15vw solid #641C05;
+}
+
+
 
 
 

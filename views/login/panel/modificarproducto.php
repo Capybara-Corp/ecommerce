@@ -24,7 +24,7 @@ if (isset($_SESSION['uid'])) {
     $rango = $results; //Me saca el rango del usuario iniciado
   }
 
-  if ($rango['rid'] != '1') {
+  if ($rango['rid'] == '2') {
     header("Location: ../login"); //Si rango no es 1, y en consecuencia no es admin, entonces lo saca, ya que este sitio es unicamente para administradores
   }
 }

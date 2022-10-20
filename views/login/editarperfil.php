@@ -62,7 +62,7 @@ if (($_GET['uid']) == ($_SESSION['uid'])): ?>
   <div id="profilepic">
   <form action="" method="post" enctype="multipart/form-data" name="form1" id="form1">
   <p>Imagen de perfil</p>
-    <p><img src="<?php echo $user['avatar']; ?>" height="100" width="100" />
+    <p><img src="<?php echo $user['avatar']; ?>" />
     </p>
     <p>
       <label for="fileField"></label>
