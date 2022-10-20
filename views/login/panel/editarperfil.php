@@ -44,11 +44,13 @@ if (isset($_SESSION['uid'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="../public/css/login/panel.css">
+  <link rel="stylesheet" href="../public/css/login/editarperfiladmin.css">
 </head>
 
 <body>
   <?php include "navegacion.php";?>
   <?php
+
 
 if (isset($_GET['uid'])): //Si hay un "uid" en la URL...
     $records = $conn->prepare('SELECT * FROM USUARIOS WHERE uid = :id');
@@ -75,52 +77,18 @@ if (isset($_GET['uid'])): //Si hay un "uid" en la URL...
 
     ?>
 
+<h1 id="title">EDITAR PERFIL</h1>
+
+<div id="editar">
+
+<div id="profilepic">
 
 
 
 
   <form action="" method="post" enctype="multipart/form-data" name="form1" id="form1">
-    <p>
-      <label for="textfield2"></label>
-      Usuario:
-      <input type="text" name="nombre" id="textfield2" value="<?php echo $usuario['nombre']; ?>" />
-    </p>
-    <p>
-      Contraseña:
-      <input type="text" name="contrasena" id="textfield" />
-    </p>
-    <p>
-
-
-      Rango:
-      <label for="select"></label>
-      <select name="rango" id="select">
-
-        <?php
-
-    $data = $conn->query("SELECT * FROM USUARIOS_Rangos")->fetchAll();
-
-    foreach ($data as $row) // Por cada rango me muestra una opcion, notese que muestra el nombre pero almacena el valor del id del rango.
-{?>
-        <option value="<?php echo $row['rid']; ?>"><?php echo $row['nombre']; ?></option>
-        <?php }?>
-
-
-      </select>
-
-
-
-
-
-    </p>
-
-
-
-
-
-
-    <p>Avatar</p>
-    <p><img src="../<?php echo $usuario['avatar']; ?>" height="100" width="100" />
+  <p>Avatar</p>
+    <p><img src="../<?php echo $usuario['avatar']; ?>" />
     </p>
     <p>
       <label for="fileField"></label>
@@ -130,6 +98,64 @@ if (isset($_GET['uid'])): //Si hay un "uid" en la URL...
       <input type="submit" name="editar" id="button" value="Editar" />
     </p>
   </form>
+</div>
+
+
+<div id="campos">
+
+<form action="" method="post" enctype="multipart/form-data" name="form2" id="form2">
+    <p>
+      <label for="textfield2" class="campo">
+      Nombre:</label>
+      
+      <input type="text" name="nombre" id="textfield2" value="<?php echo $usuario['nombre']; ?>" />
+    </p>
+    <p>
+    <label for="textfield2" class="campo">
+      Contraseña:</label>
+      <input type="text" name="contrasena" id="textfield" />
+    </p>
+    <p>
+
+      <label for="select" class="campo">Rango:</label><br>
+      <select name="rango" id="select">
+        <?php
+
+    $data = $conn->query("SELECT * FROM USUARIOS_Rangos")->fetchAll();
+
+    foreach ($data as $row) // Por cada rango me muestra una opcion, notese que muestra el nombre pero almacena el valor del id del rango.
+{?>
+        <option value="<?php echo $row['rid']; ?>"><?php echo $row['nombre']; ?></option>
+        <?php }?>
+
+      </select>
+    </p>
+    <p>
+    <label for="textfield2" class="campo">
+      Teléfono:</label>
+      <input type="text" name="telefono" id="textfield" />
+    </p>
+    <p>
+    <label for="textfield2" class="campo">
+      Tarjeta:</label>
+      <input type="text" name="tarjeta" id="textfield" />
+    </p>
+    <p>
+    <label for="textfield2" class="campo">
+      Direccion:</label>
+      <input type="text" name="direccion" id="textfield" />
+    </p>
+      <input type="submit" name="editar" id="buttoneditar" value="Editar datos" />
+      
+      <input type="submit" name="eliminar" id="buttoneliminar" onclick="return Confirmar (this.form)" value="Eliminar mi usuario" /></li>
+ 
+    </form>
+</div>
+
+</div>
+
+
+
 
   <?php
 
@@ -153,6 +179,9 @@ if (isset($_GET['uid'])): //Si hay un "uid" en la URL...
 
         $nombrefoto1 = $_FILES['avatar']['name'];
         $ruta1       = $_FILES['avatar']['tmp_name'];
+
+        echo $ruta1;
+
         $name        = $id . '.' . $tips;
         if (is_uploaded_file($ruta1)) {
             $destino1 = "public/img/perfil/" . $name;

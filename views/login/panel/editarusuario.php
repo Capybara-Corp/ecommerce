@@ -94,7 +94,15 @@ if (!empty($_POST['nombre']) && !empty($_POST['correo']) && !empty($_POST['contr
 
         <?php
 
-$data = $conn->query("SELECT * FROM USUARIOS_Rangos")->fetchAll();
+if($user['rango'] == '1'){
+$data = $conn->query("SELECT * FROM USUARIOS_Rangos WHERE rid = '2'")->fetchAll();
+}
+else if($user['rango'] == '3'){
+  $data = $conn->query("SELECT * FROM USUARIOS_Rangos WHERE rid <= '2'")->fetchAll();
+}
+else if($user['rango'] == '4'){
+  $data = $conn->query("SELECT * FROM USUARIOS_Rangos")->fetchAll();
+}
 
 foreach ($data as $row) // Por cada rango me muestra una opcion, notese que muestra el nombre pero almacena el valor del id del rango.
 {?>
@@ -145,7 +153,15 @@ if (isset($_GET['borrar'])) { // Si hay algo en la URL de borrar usuario
 
       <?php
 
-$data = $conn->query("SELECT * FROM USUARIOS")->fetchAll();
+if($user['rango'] == '1'){
+$data = $conn->query("SELECT * FROM USUARIOS WHERE rango = '2'")->fetchAll();
+}
+else if($user['rango'] == '3'){
+  $data = $conn->query("SELECT * FROM USUARIOS WHERE rango <= '2'")->fetchAll();
+}
+else if($user['rango'] == '4'){
+  $data = $conn->query("SELECT * FROM USUARIOS")->fetchAll();
+}
 
 foreach ($data as $row) {
     $records = $conn->prepare('SELECT * FROM USUARIOS_Rangos WHERE rid = :id');
