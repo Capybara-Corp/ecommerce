@@ -37,7 +37,7 @@ if (isset($_SESSION['uid'])) {
 
 if (!empty($_POST['nombre']) && !empty($_POST['correo']) && !empty($_POST['contrasena']) && !empty($_POST['telefono']) && !empty($_POST['rango'])) {
     try {
-        $sql  = "INSERT INTO USUARIOS (nombre, correo, contraseña, telefono, avatar, rango) VALUES (:nombre, :correo, :contrasena, :telefono, 'public/img/perfil/default.jpg', :rango)";
+        $sql  = "INSERT INTO USUARIOS (nombre, correo, contrasena, telefono, avatar, rango) VALUES (:nombre, :correo, :contrasena, :telefono, 'public/img/perfil/default.jpg', :rango)";
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(':nombre', $_POST['nombre']);
         $stmt->bindParam(':correo', $_POST['correo']);

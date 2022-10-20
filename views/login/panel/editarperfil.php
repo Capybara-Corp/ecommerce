@@ -163,7 +163,7 @@ if (isset($_GET['uid'])): //Si hay un "uid" en la URL...
         if ($_POST['contrasena'] != '') { // Si hay algo en el POST de contraseña...
             $contrasena = password_hash($_POST['contrasena'], PASSWORD_BCRYPT); // Lo guardamos
         } else {
-            $contrasena = $usuario['contraseña']; // Sino, simplemente dejamos la contraseña anterior
+            $contrasena = $usuario['contrasena']; // Sino, simplemente dejamos la contraseña anterior
         }
         if ($_POST['nombre'] != '') {
             $nombre = $_POST['nombre']; //Lo mismo acá
@@ -201,7 +201,7 @@ if (isset($_GET['uid'])): //Si hay un "uid" en la URL...
 
 
         try{
-        $sql  = "UPDATE USUARIOS SET nombre = :nombre, contraseña = :contrasena, rango = :rango, avatar = :avatar, telefono = :telefono WHERE uid = '" . $_GET['uid'] . "'";
+        $sql  = "UPDATE USUARIOS SET nombre = :nombre, contrasena = :contrasena, rango = :rango, avatar = :avatar, telefono = :telefono WHERE uid = '" . $_GET['uid'] . "'";
 
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(':nombre', $nombre);

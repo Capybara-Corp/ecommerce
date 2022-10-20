@@ -6,7 +6,7 @@ class UsuarioDto
     public $uid;
     public $nombre;
     public $correo;
-    public $contraseña;
+    public $contrasena;
     public $telefono;
     public $avatar;
     public $rango;

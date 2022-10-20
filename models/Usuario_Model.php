@@ -63,11 +63,11 @@ class Usuario_Model extends Model
 
     
 
-    public function login($correo, $contraseña)
+    public function login($correo, $contrasena)
     {
         $pdo          = $this->db->connect();
 
-        if (!empty($correo) && !empty($contraseña)) {
+        if (!empty($correo) && !empty($contrasena)) {
         try {
             $query = $pdo->prepare('SELECT * FROM USUARIOS WHERE correo = :user_correo');
             $query->bindParam(':user_correo', $correo);
@@ -76,12 +76,12 @@ class Usuario_Model extends Model
 
             $message = '';
 
-            if (is_countable($resultado) > 0 && password_verify($contraseña, $resultado['contraseña'])) {
+            if (is_countable($resultado) > 0 && password_verify($contrasena, $resultado['contrasena'])) {
                 $_SESSION['uid']   = $resultado['uid'];
                 $_SESSION['rango'] = $resultado['rango'];
                 header("Location: ../ecommerce"); //Verifica que todo coincida
             } else {
-                $message = 'Nombre o contraseña incorrectos'; // Sino, aparece esto
+                $message = 'Nombre o contrasena incorrectos'; // Sino, aparece esto
             }
 
 
@@ -106,24 +106,24 @@ class Usuario_Model extends Model
 
 
 
-    public function signup($correo, $contraseña, $nombre, $numero, $confirmpassword)
+    public function signup($correo, $contrasena, $nombre, $numero, $confirmpassword)
     {
 
         $pdo          = $this->db->connect();
 
         $message = '';
 
-        if (!empty($correo) && !empty($contraseña) && !empty($nombre) && !empty($numero) && !empty($confirmpassword)) {
-            if (($contraseña) == ($confirmpassword)){
+        if (!empty($correo) && !empty($contrasena) && !empty($nombre) && !empty($numero) && !empty($confirmpassword)) {
+            if (($contrasena) == ($confirmpassword)){
             
             
             try{
-            $query = $pdo->prepare("INSERT INTO USUARIOS (correo, contraseña, nombre, telefono, rango, avatar) VALUES (:user_correo, :user_pass, :user_name, :user_number, '2', 'public/img/perfil/default.jpg')");
+            $query = $pdo->prepare("INSERT INTO USUARIOS (correo, contrasena, nombre, telefono, rango, avatar) VALUES (:user_correo, :user_pass, :user_name, :user_number, '2', 'public/img/perfil/default.jpg')");
             
 
             if(filter_var($correo, FILTER_VALIDATE_EMAIL)){
             $query->bindParam(':user_correo', $correo);
-            $user_pass = password_hash($contraseña, PASSWORD_BCRYPT);
+            $user_pass = password_hash($contrasena, PASSWORD_BCRYPT);
             $query->bindParam(':user_pass', $user_pass);
             $query->bindParam(':user_name', $nombre);
             $query->bindParam(':user_number', $numero);
