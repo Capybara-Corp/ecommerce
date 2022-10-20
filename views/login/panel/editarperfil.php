@@ -2,6 +2,7 @@
 
 require 'libs/connect.php';
 require "config/config.php";
+
 if (isset($_SESSION['uid'])) {
     $records = $conn->prepare('SELECT * FROM USUARIOS WHERE uid = :id');
     $records->bindParam(':id', $_SESSION['uid']);
@@ -42,7 +43,7 @@ if (isset($_SESSION['uid'])) {
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Editar perfil</title>
   <link rel="stylesheet" href="../public/css/login/panel.css">
   <link rel="stylesheet" href="../public/css/login/editarperfiladmin.css">
 </head>
@@ -95,7 +96,7 @@ if (isset($_GET['uid'])): //Si hay un "uid" en la URL...
       <input type="file" name="avatar" id="fileField" />
     </p>
     <p>
-      <input type="submit" name="editar" id="button" value="Editar" />
+      <input type="submit" name="editarfoto" id="button" value="Editar" />
     </p>
   </form>
 </div>
@@ -147,7 +148,6 @@ if (isset($_GET['uid'])): //Si hay un "uid" en la URL...
     </p>
       <input type="submit" name="editar" id="buttoneditar" value="Editar datos" />
       
-      <input type="submit" name="eliminar" id="buttoneliminar" onclick="return Confirmar (this.form)" value="Eliminar mi usuario" /></li>
  
     </form>
 </div>
@@ -159,7 +159,7 @@ if (isset($_GET['uid'])): //Si hay un "uid" en la URL...
 
   <?php
 
-    if (isset($_POST['editar'])) { //Si hay algo en POST, y presionamos en "editar"...
+    if (isset($_POST['editar']) || (isset($_POST['editarfoto']))) { //Si hay algo en POST, y presionamos en "editar"...
         if ($_POST['contrasena'] != '') { // Si hay algo en el POST de contraseña...
             $contrasena = password_hash($_POST['contrasena'], PASSWORD_BCRYPT); // Lo guardamos
         } else {
@@ -170,8 +170,17 @@ if (isset($_GET['uid'])): //Si hay un "uid" en la URL...
         } else {
             $nombre = $usuario['nombre'];
         }
-
-        $rank = $_POST['rango']; //Guardamos en "$rank" el rango que recibió por POST
+        if ($_POST['telefono'] != '') {
+          $telefono = $_POST['telefono'];
+      } else {
+          $telefono = $usuario['telefono'];
+      }
+        if ($_POST['rango'] != '') {
+          $rank = $_POST['rango']; //Guardamos en "$rank" el rango que recibió por POST
+      } else {
+          $rank = $usuario['rango'];
+      }
+        
 
         $tips = 'jpg';
         $type = ['image/jpeg' => 'jpg'];
@@ -180,29 +189,37 @@ if (isset($_GET['uid'])): //Si hay un "uid" en la URL...
         $nombrefoto1 = $_FILES['avatar']['name'];
         $ruta1       = $_FILES['avatar']['tmp_name'];
 
-        echo $ruta1;
 
         $name        = $id . '.' . $tips;
         if (is_uploaded_file($ruta1)) {
             $destino1 = "public/img/perfil/" . $name;
-            $destino2 = "public/img/perfil/" . $name;
-            move_uploaded_file($ruta1, $destino2); // Todo esto es para guardar la imagen tanto en la BD, como en el directorio local
+            
+            move_uploaded_file($ruta1, $destino1);
         } else {
-            $destino1 = $usuario['avatar']; // Lo mismo, si no se subio nada, se deja la imagen anterior
+            $destino1 = $usuario['avatar'];
         }
 
-        $sql  = "UPDATE USUARIOS SET nombre = :nombre, contraseña = :contrasena, rango = :rank, avatar = '" . $destino1 . "' WHERE uid = '" . $_GET['uid'] . "'";
+
+        try{
+        $sql  = "UPDATE USUARIOS SET nombre = :nombre, contraseña = :contrasena, rango = :rango, avatar = :avatar, telefono = :telefono WHERE uid = '" . $_GET['uid'] . "'";
+
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(':nombre', $nombre);
         $stmt->bindParam(':contrasena', $contrasena);
-        $stmt->bindParam(':rank', $rank); // Hago mi update
+        $stmt->bindParam(':telefono', $telefono);
+        $stmt->bindParam(':rango', $rank);
+        $stmt->bindParam(':avatar', $destino1);
 
         if ($stmt->execute()) {
             $message = 'Datos actualizados con exito';
         } else {
             $message = 'No se han podido actualizar los datos';
         }
-        echo "$message";
+        echo "<p class=\"message\">$message<p>";
+    }
+    catch(Exception $e){
+      echo $e;
+    }
 
     }
     ?>

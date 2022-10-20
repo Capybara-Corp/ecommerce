@@ -9,6 +9,7 @@ try
     $conn = new PDO("mysql:host=$host;dbname=$db_name", $username, $password);
     // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    
     //echo "<script>console.log('DB connect succesfull');</script>";
 } catch (PDOException $e) {
     //$err = $e->getMessage();

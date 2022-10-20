@@ -152,6 +152,8 @@ if ($_POST['direccion'] != '') {
 
     $nombrefoto1 = $_FILES['avatar']['name'];
     $ruta1       = $_FILES['avatar']['tmp_name'];
+
+
     $name        = $id . '.' . $tips;
     if (is_uploaded_file($ruta1)) {
         $destino1 = "public/img/perfil/" . $name;
