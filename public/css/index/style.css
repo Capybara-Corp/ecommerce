@@ -4,6 +4,7 @@ body {
   position: relative;
   padding-bottom: 3em;
   min-height: 100vh;
+  max-width: 100vw;
 }
 
 #container_big {
@@ -96,7 +97,7 @@ a{
   position: relative;
   top: -4vh;
   left: 1vw;
-  filter:invert(1);
+  filter: invert(1);
   width: 550px;
   height: 100px;
 }
@@ -421,190 +422,106 @@ a{
 
 
 @media all and (max-width: 768px) { /* Las famosas media query, alcanza con saber que cuando el ancho sea menor de 768 pixeles, se aplican los estilos de abajo */
-  #bot_container {
-    width: 750px;
-    height: 1700px;
-    margin-bottom: 50vh;
-  }
-  
-  #bot_container a{
-    grid-template-columns: repeat(2, 300px);
-    grid-template-rows: repeat(4, 250px); /* Ahora la grilla tiene 2 columnas y 4 filas, contrario a antes */
-    grid-row-gap: 25vh;
-    margin-top: 350px;
-    width: 600px;
-    height: 1650px;
-  }
 
-  #ad {
-    width: 600px;
-    margin-top: 75px;
-    height: 400px;
-    background-position: -700px 400px;
+.container_big_div{
+  width: 60%;
+  height: 50vh;
+  position: static;
+  margin: 25% auto;
+  height: auto;
+  text-align: center;
+  z-index: -1;
+}
 
-  }
+#welcome {
+  font-family: 'Roboto', sans-serif; /* Font family sirve para especificar qué fuente queremos usar */
+  color: white;
+  font-size: 6vw;
+  font-weight: 900;
+  margin-bottom: 0;
+  text-transform: uppercase; /* Esto sirve para que el texto esté en mayúsculas */
+}
 
-  #ad_section {
-    margin-left: auto;
-    margin-right: auto;
-    width: 600px;
-    height: 400px;
-  }
-  .header {
-    grid-template-columns: repeat(6, 80px);
-  }
-  .opt {
-    font-size: 7px;
-  }
+#message {
+  font-family: 'Roboto', sans-serif;
+  color: white;
+  height: 50vh;
+  font-size: 4vw;
+  font-weight: 400;
+  text-transform: lowercase; /* Para que el texto esté en minúsculas */
+}
 
-  nav ul{
-    flex-direction: column;
-  }
-
-  nav ul li{
-    float: right;
-  }
-
-  #user {
-    margin-top: 5px;
-    width: 15px;
-    height: 15px;
-  }
-
-  #top3 {
-    width: 400px;
-    height: 80px;
-  }
-
-  #top3_text {
-    font-size: 20px;
-  }
-
-  #separator_black {
-    margin-left: auto;
-    margin-right: auto;
-    width: 400px;
-    height: 70px;
-  }
-
-  .bottle {
-    width: 150px;
-    height: 400px;
-  }
-
-
-  #mid_container {
-    width: 450px;
+#mid_container{
+  width: 330px;
   }
 
   #pics{
     height: 500px;
   }
+  
 
-  #bottles {
-    width: 990px;
+  #top3 {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    width: 300px;
+    height: 50px;
+    justify-content: center;
+  }
+  
+  #top3_text {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    color: black;
+    font-size: 20px;
+  }
+  
+  #separator_black {
+    position: relative;
+    top: -4vh;
+    left: 1vw;
+    filter: invert(1);
+    width: 330px;
+    height: 60px;
+  }
+  
+  #bottles{
+    width: 330px;
     height: auto;
   }
   #chorrete{
     position: relative;
-    top: -350px;
+    top: -250px;
     z-index: -1;
-    width: 100%;
-    height: 40%;
+    width: 80%;
+    height: 30%;
   }
+  
 
-  #bgwine {
-    position: absolute;
-    z-index: -2;
-    margin-top: -600px;
-    width: 100%;
-    height: 600px;
-  }
+  #bot_container {
+    margin-top: 20vh;
+    width: 180px;
+    height: 450px;
+    grid-template-columns: repeat(2, 60px);
+    grid-template-rows: repeat(4, 80px);
+    grid-column-gap: 80px; /* Establezco mi grilla, en este caso, 4 columnas y 2 filas */
+    grid-row-gap: 200px;
+    margin-bottom: 150vh;
 
-  #shop {
-    margin-top: 20px;
-    width: 200px;
-    height: 50px;
-  }
-
-  #shop_now {
-    margin-top: 12px;
-    font-size: 20px;
-  }
-
-  #shop p {
-  font-size: 15px;
 }
-
-  #search {
+  .product{
+    width: 100px;
+    height: auto;
+  }
+  .product img {
+    width: 100px;
     height: 150px;
   }
-
-  #formulario {
-    padding-top: 60px;
+  #bot_container a{
+    margin: 0 auto;
   }
-
-  #eslogan {
-    font-size: 20px;
-    margin-top: -30px;
-  }
-
-  #buscador {
-    font-size: 15px;
-    height: 20px;
-  }
-
-  #boton {
-    margin-left: -5px;
-    font-size: 15px;
-    height: 26px;
-  }
-
-  #buy {
-    margin-left: 45px;
-    margin-top: 50px;
-    width: 370px;
-    height: 100px;
-  }
-
-  #buy_text {
-    font-size: 20px;
-  }
-
-  #abuy {
-    margin-top: 5px;
-    width: 160px;
-    height: 35px;
-  }
-
-  #abuy_text {
-    top: 4px;
-    left: 35px;
-    font-size: 20px;
-  }
-
-
-  .container_big_div {
-    margin-top: 200px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 400px;
-  }
-
-  #welcome {
-    margin-bottom: 40px;
-    font-size: 25px;
-    font-weight: 900;
-  }
-
-  #separator {
-    width: 400px;
-    height: 70px;
-  }
-
-  #message {
-    font-size: 13px;
+  #bot_container button{
+    margin: 0 auto;
   }
 
 }
-
