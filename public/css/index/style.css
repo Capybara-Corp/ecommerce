@@ -41,7 +41,7 @@ a{
 /* Todo el primer div */
 
 .container_big_div {
-  width: 700px;
+  width: 40%;
   position: absolute;
   right: 10vw;
   top: 17vw;
@@ -206,7 +206,7 @@ a{
   position: relative;
   margin-left: auto;
   margin-right: auto;
-  width: 1700px;
+  width: 90vw;
   height: 900px;
 
 }
@@ -214,10 +214,11 @@ a{
 #ad {
   margin-left: auto;
   margin-right: auto;
-  width: 1600px;
+  width: 90vw;
   margin-top: 75px;
   height: 700px;
   background-image: url("../../media/bottle_promo.jpg");
+  background-size: cover;
 }
 
 #buy {
@@ -329,10 +330,64 @@ a{
 }
 
 .product .price {
-  font-size: 20px;
+  font-size: 20px
 }
 
+@media all and (max-width: 1620px) {
+  #bot_container {
+    width: 1366px;
+    grid-template-columns: repeat(4, 200px);
+    grid-template-rows: repeat(2, 250px);
+    grid-column-gap: 10vw; /* Establezco mi grilla, en este caso, 4 columnas y 2 filas */
+    grid-row-gap: 20vh;
 
+}
+  .product{
+    width: 200px;
+  }
+  .product img {
+    width: 100px;
+    height: 250px;
+  }
+}
+
+@media all and (max-width: 1366px) {
+  #mid_container{
+  width: 660px;
+  }
+  
+  #bottles{
+    width: 660px;
+    height: auto;
+  }
+  #chorrete{
+    position: relative;
+    top: -550px;
+    z-index: -1;
+    width: 80%;
+    height: 30%;
+  }
+  
+
+  #bot_container {
+    margin-top: 20vh;
+    width: 420px;
+    height: auto;
+    grid-template-columns: repeat(2, 100px);
+    grid-template-rows: repeat(4, 150px);
+    grid-column-gap: 200px; /* Establezco mi grilla, en este caso, 4 columnas y 2 filas */
+    grid-row-gap: 200px;
+    margin-bottom: 50vh;
+
+}
+  .product{
+    width: 200px;
+  }
+  .product img {
+    width: 100px;
+    height: 250px;
+  }
+}
 
 
 
