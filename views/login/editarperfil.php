@@ -88,7 +88,7 @@ if (($_GET['uid']) == ($_SESSION['uid'])): ?>
     <p>
     <label for="textfield2" class="campo">
       Contraseña:</label>
-      <input type="text" name="contrasena" id="textfield" />
+      <input type="password" name="contrasena" id="textfield" />
     </p>
     <p>
     <label for="textfield2" class="campo">

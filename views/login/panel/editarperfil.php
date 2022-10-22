@@ -114,7 +114,7 @@ if (isset($_GET['uid'])): //Si hay un "uid" en la URL...
     <p>
     <label for="textfield2" class="campo">
       Contraseña:</label>
-      <input type="text" name="contrasena" id="textfield" />
+      <input type="password" name="contrasena" id="textfield" />
     </p>
     <p>
 
