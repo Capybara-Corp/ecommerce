@@ -62,7 +62,7 @@ if (($_GET['uid']) == ($_SESSION['uid'])): ?>
   <div id="profilepic">
   <form action="" method="post" enctype="multipart/form-data" name="form1" id="form1">
   <p>Imagen de perfil</p>
-    <p><img src="<?php echo $user['avatar']; ?>" height="100" width="100" />
+    <p><img src="<?php echo $user['avatar']; ?>" />
     </p>
     <p>
       <label for="fileField"></label>
@@ -123,7 +123,7 @@ if (isset($_POST['editar']) || (isset($_POST['editarfoto']))) {
     if ($_POST['contrasena'] != '') {
         $contrasena = password_hash($_POST['contrasena'], PASSWORD_BCRYPT);
     } else {
-        $contrasena = $user['contraseña'];
+        $contrasena = $user['contrasena'];
     }
     if ($_POST['nombre'] != '') {
         $nombre = $_POST['nombre'];
@@ -152,6 +152,8 @@ if ($_POST['direccion'] != '') {
 
     $nombrefoto1 = $_FILES['avatar']['name'];
     $ruta1       = $_FILES['avatar']['tmp_name'];
+
+
     $name        = $id . '.' . $tips;
     if (is_uploaded_file($ruta1)) {
         $destino1 = "public/img/perfil/" . $name;
@@ -165,7 +167,7 @@ if ($_POST['direccion'] != '') {
      */
 
     try{
-    $sql  = "UPDATE USUARIOS SET nombre = :nombre, contraseña = :contrasena, telefono = :telefono, avatar = '" . $destino1 . "' WHERE uid = '" . $_SESSION['uid'] . "'";
+    $sql  = "UPDATE USUARIOS SET nombre = :nombre, contrasena = :contrasena, telefono = :telefono, avatar = '" . $destino1 . "' WHERE uid = '" . $_SESSION['uid'] . "'";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':nombre', $nombre);
     $stmt->bindParam(':contrasena', $contrasena);

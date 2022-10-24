@@ -56,6 +56,14 @@ input[type="text"]{
     display: block;
 }
 
+#select{
+    font-size: 1vw;
+    border: 0.1vw solid black;
+    display: block;
+}
+
+
+
 #buttoneditar{
     background: #CC390A;
     margin: 3% 20%;

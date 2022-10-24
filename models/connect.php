@@ -5,7 +5,7 @@ Class Connect{
     private $host = "localhost";
     private $username = "root";
     private $password = "";
-    private $db_name = "ecommerce";
+    private $db_name = "ECOMMERCE";
     
     
     public function __construct() { // * Conecto a la base de datos

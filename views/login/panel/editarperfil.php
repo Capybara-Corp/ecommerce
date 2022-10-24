@@ -2,6 +2,7 @@
 
 require 'libs/connect.php';
 require "config/config.php";
+
 if (isset($_SESSION['uid'])) {
     $records = $conn->prepare('SELECT * FROM USUARIOS WHERE uid = :id');
     $records->bindParam(':id', $_SESSION['uid']);
@@ -24,7 +25,7 @@ if (isset($_SESSION['uid'])) {
         $rango = $results; //Me saca el rango del usuario iniciado
     }
 
-    if ($rango['rid'] != '1') {
+    if ($rango['rid'] == '2') {
         header("Location: ../login"); //Si rango no es 1, y en consecuencia no es admin, entonces lo saca, ya que este sitio es unicamente para administradores
     }
 } else {
@@ -42,13 +43,15 @@ if (isset($_SESSION['uid'])) {
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Editar perfil</title>
   <link rel="stylesheet" href="../public/css/login/panel.css">
+  <link rel="stylesheet" href="../public/css/login/editarperfiladmin.css">
 </head>
 
 <body>
   <?php include "navegacion.php";?>
   <?php
+
 
 if (isset($_GET['uid'])): //Si hay un "uid" en la URL...
     $records = $conn->prepare('SELECT * FROM USUARIOS WHERE uid = :id');
@@ -75,27 +78,48 @@ if (isset($_GET['uid'])): //Si hay un "uid" en la URL...
 
     ?>
 
+<h1 id="title">EDITAR PERFIL</h1>
+
+<div id="editar">
+
+<div id="profilepic">
 
 
 
 
   <form action="" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <p>Avatar</p>
+    <p><img src="../<?php echo $usuario['avatar']; ?>" />
+    </p>
     <p>
-      <label for="textfield2"></label>
-      Usuario:
+      <label for="fileField"></label>
+      <input type="file" name="avatar" id="fileField" />
+    </p>
+    <p>
+      <input type="submit" name="editarfoto" id="button" value="Editar" />
+    </p>
+  </form>
+</div>
+
+
+<div id="campos">
+
+<form action="" method="post" enctype="multipart/form-data" name="form2" id="form2">
+    <p>
+      <label for="textfield2" class="campo">
+      Nombre:</label>
+      
       <input type="text" name="nombre" id="textfield2" value="<?php echo $usuario['nombre']; ?>" />
     </p>
     <p>
-      Contraseña:
+    <label for="textfield2" class="campo">
+      Contraseña:</label>
       <input type="text" name="contrasena" id="textfield" />
     </p>
     <p>
 
-
-      Rango:
-      <label for="select"></label>
+      <label for="select" class="campo">Rango:</label><br>
       <select name="rango" id="select">
-
         <?php
 
     $data = $conn->query("SELECT * FROM USUARIOS_Rangos")->fetchAll();
@@ -105,47 +129,58 @@ if (isset($_GET['uid'])): //Si hay un "uid" en la URL...
         <option value="<?php echo $row['rid']; ?>"><?php echo $row['nombre']; ?></option>
         <?php }?>
 
-
       </select>
-
-
-
-
-
-    </p>
-
-
-
-
-
-
-    <p>Avatar</p>
-    <p><img src="../<?php echo $usuario['avatar']; ?>" height="100" width="100" />
     </p>
     <p>
-      <label for="fileField"></label>
-      <input type="file" name="avatar" id="fileField" />
+    <label for="textfield2" class="campo">
+      Teléfono:</label>
+      <input type="text" name="telefono" id="textfield" />
     </p>
     <p>
-      <input type="submit" name="editar" id="button" value="Editar" />
+    <label for="textfield2" class="campo">
+      Tarjeta:</label>
+      <input type="text" name="tarjeta" id="textfield" />
     </p>
-  </form>
+    <p>
+    <label for="textfield2" class="campo">
+      Direccion:</label>
+      <input type="text" name="direccion" id="textfield" />
+    </p>
+      <input type="submit" name="editar" id="buttoneditar" value="Editar datos" />
+      
+ 
+    </form>
+</div>
+
+</div>
+
+
+
 
   <?php
 
-    if (isset($_POST['editar'])) { //Si hay algo en POST, y presionamos en "editar"...
+    if (isset($_POST['editar']) || (isset($_POST['editarfoto']))) { //Si hay algo en POST, y presionamos en "editar"...
         if ($_POST['contrasena'] != '') { // Si hay algo en el POST de contraseña...
             $contrasena = password_hash($_POST['contrasena'], PASSWORD_BCRYPT); // Lo guardamos
         } else {
-            $contrasena = $usuario['contraseña']; // Sino, simplemente dejamos la contraseña anterior
+            $contrasena = $usuario['contrasena']; // Sino, simplemente dejamos la contraseña anterior
         }
         if ($_POST['nombre'] != '') {
             $nombre = $_POST['nombre']; //Lo mismo acá
         } else {
             $nombre = $usuario['nombre'];
         }
-
-        $rank = $_POST['rango']; //Guardamos en "$rank" el rango que recibió por POST
+        if ($_POST['telefono'] != '') {
+          $telefono = $_POST['telefono'];
+      } else {
+          $telefono = $usuario['telefono'];
+      }
+        if ($_POST['rango'] != '') {
+          $rank = $_POST['rango']; //Guardamos en "$rank" el rango que recibió por POST
+      } else {
+          $rank = $usuario['rango'];
+      }
+        
 
         $tips = 'jpg';
         $type = ['image/jpeg' => 'jpg'];
@@ -153,27 +188,38 @@ if (isset($_GET['uid'])): //Si hay un "uid" en la URL...
 
         $nombrefoto1 = $_FILES['avatar']['name'];
         $ruta1       = $_FILES['avatar']['tmp_name'];
+
+
         $name        = $id . '.' . $tips;
         if (is_uploaded_file($ruta1)) {
             $destino1 = "public/img/perfil/" . $name;
-            $destino2 = "public/img/perfil/" . $name;
-            move_uploaded_file($ruta1, $destino2); // Todo esto es para guardar la imagen tanto en la BD, como en el directorio local
+            
+            move_uploaded_file($ruta1, $destino1);
         } else {
-            $destino1 = $usuario['avatar']; // Lo mismo, si no se subio nada, se deja la imagen anterior
+            $destino1 = $usuario['avatar'];
         }
 
-        $sql  = "UPDATE USUARIOS SET nombre = :nombre, contraseña = :contrasena, rango = :rank, avatar = '" . $destino1 . "' WHERE uid = '" . $_GET['uid'] . "'";
+
+        try{
+        $sql  = "UPDATE USUARIOS SET nombre = :nombre, contrasena = :contrasena, rango = :rango, avatar = :avatar, telefono = :telefono WHERE uid = '" . $_GET['uid'] . "'";
+
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(':nombre', $nombre);
         $stmt->bindParam(':contrasena', $contrasena);
-        $stmt->bindParam(':rank', $rank); // Hago mi update
+        $stmt->bindParam(':telefono', $telefono);
+        $stmt->bindParam(':rango', $rank);
+        $stmt->bindParam(':avatar', $destino1);
 
         if ($stmt->execute()) {
             $message = 'Datos actualizados con exito';
         } else {
             $message = 'No se han podido actualizar los datos';
         }
-        echo "$message";
+        echo "<p class=\"message\">$message<p>";
+    }
+    catch(Exception $e){
+      echo $e;
+    }
 
     }
     ?>

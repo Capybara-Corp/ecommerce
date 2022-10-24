@@ -23,7 +23,7 @@ if (isset($_SESSION['uid'])) {
     $rango = $results;
   }
 
-  if ($rango['rid'] != '1') {
+  if ($rango['rid'] == '2') {
     header("Location: ../login");
   }
 }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 18-10-2022 a las 18:24:50
+-- Tiempo de generación: 21-10-2022 a las 01:34:27
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -83,8 +83,8 @@ CREATE TABLE `USUARIOS` (
   `uid` int(11) NOT NULL,
   `nombre` varchar(40) NOT NULL,
   `correo` varchar(60) NOT NULL,
-  `contraseña` varchar(250) NOT NULL,
-  `telefono` int(16) NOT NULL,
+  `contrasena` varchar(250) NOT NULL,
+  `telefono` int(32) NOT NULL,
   `avatar` varchar(50) DEFAULT NULL,
   `rango` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -93,14 +93,17 @@ CREATE TABLE `USUARIOS` (
 -- Volcado de datos para la tabla `USUARIOS`
 --
 
-INSERT INTO `USUARIOS` (`uid`, `nombre`, `correo`, `contraseña`, `telefono`, `avatar`, `rango`) VALUES
-(12, 'Lujambia12', 'luli@gmail.com', '$2y$10$AzE18QwS0SXj3R3wYP2Ls.AiMhb3/oTs1r5Vi9OXYKygHBk6cywYS', 436436536, 'public/img/perfil/12.jpg', 2),
-(15, 'Santiago Romero', 'elsantoposada@gmail.com', '$2y$10$Ybpc.5pRvAcjif9DeckhDuV2i9TwuzI17.Fz0kxCrQNJ1GGmaQoo.', 12345678, 'public/img/perfil/15.jpg', 1),
+INSERT INTO `USUARIOS` (`uid`, `nombre`, `correo`, `contrasena`, `telefono`, `avatar`, `rango`) VALUES
+(12, 'Lujambia', 'luli@gmail.com', '$2y$10$AzE18QwS0SXj3R3wYP2Ls.AiMhb3/oTs1r5Vi9OXYKygHBk6cywYS', 436436536, 'public/img/perfil/12.jpg', 1),
+(15, 'Santiago Romero', 'elsantoposada@gmail.com', '$2y$10$Ybpc.5pRvAcjif9DeckhDuV2i9TwuzI17.Fz0kxCrQNJ1GGmaQoo.', 12345678, 'public/img/perfil/15.jpg', 4),
 (20, 'Paz', 'elamor@gmail.com', '$2y$10$fVa13QOokk5tOWCi5Z8pcuYCflkD3deYp9bqHRsnKkjOB6M3as/CC', 1212121212, 'public/img/perfil/20.jpg', 1),
 (30, 'Prueba', 'prueba@gmail.com', '$2y$10$7VCR6BsaiXawTfsZ2fuwfeNlRHPPNz3cSTu5sLvRSwVx9.eS8yCIO', 43342323, 'public/img/perfil/default.jpg', 1),
 (37, 'JorgeGamer', 'jorgegamer@gmail.com', '$2y$10$4Ef6NiCOYL/qolyBIGzbn.IiMgvF6BRCMikDuFalyG6JrsfGtXutO', 12345678, 'public/img/perfil/default.jpg', 2),
 (38, 'SantiagoXD', 'santiago@mail.com', '$2y$10$kL3q/wCpT3d0jo4edbeoLOpde.AqzMYaecUWUGBiFc6BO/CZ4zsBy', 434343434, 'public/img/perfil/default.jpg', 2),
-(40, 'SoyUnCorreoXDXD', 'correo@mail.com', '$2y$10$9wKcXtNCAjkfLcaSIfyHxuKEdPpKW6kXLNvKyaSAGq2KpDGYZZEa.', 34343434, 'public/img/perfil/default.jpg', 2);
+(40, 'SoyUnCorreoXDXD', 'correo@mail.com', '$2y$10$9wKcXtNCAjkfLcaSIfyHxuKEdPpKW6kXLNvKyaSAGq2KpDGYZZEa.', 34343434, 'public/img/perfil/default.jpg', 2),
+(52, 'Juancitogamer', 'juancito23@gmail.com', '$2y$10$5aPEOdzGxREFDMcMHdn1Xu5Oo8cDdnQlywpCC/IyEjQYAoZsc1rGm', 435435345, 'public/img/perfil/default.jpg', 2),
+(54, 'Pepito de las tinieblas', 'pepeperez@gmail.com', '$2y$10$35MjLISwGW8SZRVBmIDM7OwOpTPclorvJdg6PVEzfjIj01zHvG4re', 1234567812, 'public/img/perfil/default.jpg', 2),
+(55, 'Daniel Carrasco', 'dhcarrasco@gmail.com', '$2y$10$6WSP4Xu1ABPzVjN076zSaOv4YFHWPKuh0QxqJQOYO6VE.XE74.Fxq', 123456789, 'public/img/perfil/55.jpg', 3);
 
 -- --------------------------------------------------------
 
@@ -142,8 +145,10 @@ CREATE TABLE `USUARIOS_Rangos` (
 --
 
 INSERT INTO `USUARIOS_Rangos` (`rid`, `nombre`, `color`) VALUES
-(1, 'Admin', '#000'),
-(2, 'Usuario', '#FFF');
+(1, 'Admin', '#B6B6B6'),
+(2, 'Usuario', '#FFF'),
+(3, 'Emperador', '#E5E200'),
+(4, 'Supremo Lider', '#000');
 
 -- --------------------------------------------------------
 
@@ -251,7 +256,7 @@ ALTER TABLE `PRODUCTOS`
 -- AUTO_INCREMENT de la tabla `USUARIOS`
 --
 ALTER TABLE `USUARIOS`
-  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT de la tabla `USUARIOS_Direcciones`
@@ -263,7 +268,7 @@ ALTER TABLE `USUARIOS_Direcciones`
 -- AUTO_INCREMENT de la tabla `USUARIOS_Rangos`
 --
 ALTER TABLE `USUARIOS_Rangos`
-  MODIFY `rid` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `rid` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `USUARIOS_Tarjetas`

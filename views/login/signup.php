@@ -1,5 +1,7 @@
 <?php
 
+/*
+
   require 'libs/connect.php';
 
   $message = '';
@@ -45,6 +47,8 @@
   else{
     $message = "Las contraseñas no coinciden";
   }}
+
+  */
 ?>
 <!DOCTYPE html>
 <html>
@@ -74,8 +78,8 @@
 
     <form action="signup" method="POST">
 
-    <?php if(!empty($message)): ?>
-      <p id="mensaje"><?= $message ?></p>
+    <?php if(!empty($this->message)): ?>
+      <p id="mensaje"><?= $this->message ?></p>
     <?php endif; ?>
 
       <label for="user_correo">Correo</label>

@@ -1,8 +1,9 @@
 <?php
 
-if (isset($_SESSION['uid'])) {
+/*if (isset($_SESSION['uid'])) {
     header('Location: ../ecommerce');
 }
+
 require 'libs/connect.php';
 
 if (!empty($_POST['user_correo']) && !empty($_POST['user_pass'])) { // Si recibe algo...
@@ -20,7 +21,7 @@ if (!empty($_POST['user_correo']) && !empty($_POST['user_pass'])) { // Si recibe
     } else {
         $message = 'Nombre o contraseña incorrectos'; // Sino, aparece esto
     }
-}
+}*/
 
 ?>
 

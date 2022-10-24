@@ -9,16 +9,16 @@ body {
 
 #rosa {
   position: relative;
-  display: flex;
-  background-color: #DF173F;
+  position: flex;
+  background-color: #56070C;
   padding-left: 2vw;
   grid-column: 1;
   width: 20vw;
   min-height: 80vh;
-  height: auto;
+  height: 125vh;
   flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
 #muro {
@@ -28,7 +28,7 @@ body {
   column-gap: 5vw;
   width: 80vw;
   height: 80vh;
-  margin: 0 auto;
+
 }
 
 .profilepic {
@@ -53,7 +53,7 @@ body {
 
 #editprofile {
   color: white;
-  border: none!important;
+  border: none !important;
   grid-column: 1;
   font-family: monospace;
   font-size: 1.2vw;
@@ -68,12 +68,33 @@ body {
   text-decoration: none;
 }
 
-#soyadmin{
+.rango {
   color: white;
-  margin: 1vh 0;
   font-family: monospace;
   font-size: 1vw;
+  margin: 0;
 }
+
+#darth {
+  grid-column: 1;
+  width: 8vw;
+  height: 8vw;
+}
+
+#leader {
+  grid-column: 1;
+  width: 8vw;
+  height: 10vw;
+}
+
+#lider {
+
+  font-family: monospace;
+  font-size: 1vw;
+  margin: 0;
+  text-shadow: rgb(255, 255, 255) 3px 0px 0px, rgb(255, 255, 255) 2.83487px 0.981584px 0px, rgb(255, 255, 255) 2.35766px 1.85511px 0px, rgb(255, 255, 255) 1.62091px 2.52441px 0px, rgb(255, 255, 255) 0.705713px 2.91581px 0px, rgb(255, 255, 255) -0.287171px 2.98622px 0px, rgb(255, 255, 255) -1.24844px 2.72789px 0px, rgb(255, 255, 255) -2.07227px 2.16926px 0px, rgb(255, 255, 255) -2.66798px 1.37182px 0px, rgb(255, 255, 255) -2.96998px 0.42336px 0px, rgb(255, 255, 255) -2.94502px -0.571704px 0px, rgb(255, 255, 255) -2.59586px -1.50383px 0px, rgb(255, 255, 255) -1.96093px -2.27041px 0px, rgb(255, 255, 255) -1.11013px -2.78704px 0px, rgb(255, 255, 255) -0.137119px -2.99686px 0px, rgb(255, 255, 255) 0.850987px -2.87677px 0px, rgb(255, 255, 255) 1.74541px -2.43999px 0px, rgb(255, 255, 255) 2.44769px -1.73459px 0px, rgb(255, 255, 255) 2.88051px -0.838247px 0px;
+}
+
 
 #logout {
   grid-row: 1;
@@ -101,19 +122,19 @@ body {
   font-size: 1.5vw;
 }
 
-#direcciones{
+#direcciones {
   position: absolute;
-  left: 0;
   bottom: 0;
+  left: 0;
   height: 12vh;
   width: 100%;
   display: grid;
   grid-template-rows: 2vh 2vh 2vh;
   row-gap: 1vh;
-  
+
 }
 
-.direccion{
+.direccion {
   display: grid;
   padding-left: 1em;
   color: white;
