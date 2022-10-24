@@ -65,6 +65,7 @@ if ($cantidad < 0) {
     $sql = "UPDATE PRODUCTOS SET cantidad=? WHERE pid=?";
     $conn->prepare($sql)->execute([$cantidad, $id_producto]);
     
+    
     $sql = "INSERT INTO VENTAS (uid, Fecha, Total) VALUES (:uid, '2008-11-11', :total)";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':uid', $user['uid']);
