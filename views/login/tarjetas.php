@@ -76,12 +76,47 @@ if (($_GET['uid']) == ($_SESSION['uid'])): ?>
       }
 }
 
+    if (isset($_POST['añadir']) && (isset($_POST['tarjeta']))){
+        $tarjeta = $_POST['tarjeta'];
+            try{
+              $sql  = "INSERT INTO USUARIOS_Tarjetas (uid, tarjeta) VALUES (:id, :tarjeta)";
+              $stmt = $conn->prepare($sql);
+              $stmt->bindParam(':id', $_SESSION['uid']);
+              $stmt->bindParam(':tarjeta', $tarjeta);
+          
+              if ($stmt->execute()) {
+                  $message = 'Datos actualizados con exito';
+              } else {
+                  $message = 'No se han podido actualizar los datos';
+              }
+            }
+            catch(Exception $e){
+              $message = "Ha ocurrido un error"; 
+              echo "<p class=\"message\">$message<p>";
+            }
+    } else {
+        echo $message;
+    }
+    
+
+    
+
 ?>
 
 
   <h1 id="title">MIS TARJETAS</h1>
 
-  
+
+  <form action="" method="post" enctype="multipart/form-data" name="form2" id="form2">
+  <p>
+    <label for="textfield2" class="campo">
+      Añadir Tarjeta:</label>
+      <input type="text" name="tarjeta" id="textfield" /><input type="submit" name="añadir" value="Añadir tarjeta" />
+    </p>
+</form>
+    <?php if (isset($message)){
+        echo $message;
+    } ?>
 
 
     <?php 
