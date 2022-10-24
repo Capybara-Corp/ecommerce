@@ -138,12 +138,12 @@ if (isset($_GET['uid'])): //Si hay un "uid" en la URL...
     </p>
     <p>
     <label for="textfield2" class="campo">
-      Tarjeta:</label>
+      Añadir Tarjeta:</label>
       <input type="text" name="tarjeta" id="textfield" />
     </p>
     <p>
     <label for="textfield2" class="campo">
-      Direccion:</label>
+      Añadir Direccion:</label>
       <input type="text" name="direccion" id="textfield" />
     </p>
       <input type="submit" name="editar" id="buttoneditar" value="Editar datos" />
@@ -180,6 +180,16 @@ if (isset($_GET['uid'])): //Si hay un "uid" en la URL...
       } else {
           $rank = $usuario['rango'];
       }
+      if ($_POST['tarjeta'] != '') {
+        $tarjeta = $_POST['tarjeta'];
+    } else {
+        $tarjeta = '';
+    }
+    if ($_POST['direccion'] != '') {
+      $direccion = $_POST['direccion'];
+    } else {
+      $direccion = '';
+    }
         
 
         $tips = 'jpg';
@@ -212,6 +222,7 @@ if (isset($_GET['uid'])): //Si hay un "uid" en la URL...
 
         if ($stmt->execute()) {
             $message = 'Datos actualizados con exito';
+            Header("Location: editarperfil?uid=" . $usuario['uid']);
         } else {
             $message = 'No se han podido actualizar los datos';
         }
@@ -220,6 +231,46 @@ if (isset($_GET['uid'])): //Si hay un "uid" en la URL...
     catch(Exception $e){
       echo $e;
     }
+
+    if($tarjeta != ''){
+      try{
+        $sql  = "INSERT INTO USUARIOS_Tarjetas (uid, tarjeta) VALUES (:id, :tarjeta)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(':id', $usuario['uid']);
+        $stmt->bindParam(':tarjeta', $tarjeta);
+    
+        if ($stmt->execute()) {
+          Header("Location: editarperfil?uid=" . $usuario['uid']);
+            $message = 'Datos actualizados con exito';
+        } else {
+            $message = 'No se han podido actualizar los datos';
+        }
+      }
+      catch(Exception $e){
+        $message = "Ha ocurrido un error"; 
+        echo "<p class=\"message\">$message<p>";
+      }
+      }
+    
+      if($direccion != ''){
+        try{
+          $sql  = "INSERT INTO USUARIOS_Direcciones (uid, direccion) VALUES (:id, :direccion)";
+          $stmt = $conn->prepare($sql);
+          $stmt->bindParam(':id', $usuario['uid']);
+          $stmt->bindParam(':direccion', $direccion);
+      
+          if ($stmt->execute()) {
+              $message = 'Datos actualizados con exito';
+              Header("Location: editarperfil?uid=" . $usuario['uid']);
+          } else {
+              $message = 'No se han podido actualizar los datos';
+          }
+        }
+        catch(Exception $e){
+          $message = "Ha ocurrido un error"; 
+          echo "<p class=\"message\">$message<p>";
+        }
+      }
 
     }
     ?>
