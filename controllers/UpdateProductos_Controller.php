@@ -45,6 +45,7 @@ else{
 
 $data = $conn->query("SELECT * FROM PRODUCTOS")->fetchAll();
 $venta = $conn->query("SELECT * FROM VENTAS")->fetchAll();
+$detalleventa = $conn->query("SELECT * FROM DETALLEVENTA")->fetchAll();
 
 foreach ($data as $row) {
     if (strcmp($row['pid'], $id_producto) == 0) {
@@ -69,6 +70,14 @@ if ($cantidad < 0) {
     $stmt->bindParam(':uid', $user['uid']);
     $stmt->bindParam(':total', $total);
     $stmt->execute();
+    $last_id = $conn->prepare("SELECT LAST_INSERT_ID()")->execute();
+
+
+    $sql = "INSERT INTO DETALLEVENTA (vid) VALUES (:vid)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':vid', $last_id);
+    $stmt->execute();
+
 
     echo "Compra realizada con éxito";
 }
