@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 21-10-2022 a las 01:34:27
+-- Tiempo de generación: 24-10-2022 a las 22:53:50
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -35,6 +35,33 @@ CREATE TABLE `DETALLEVENTA` (
   `subtotal` int(7) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `DETALLEVENTA`
+--
+
+INSERT INTO `DETALLEVENTA` (`dvid`, `vid`, `pid`, `cantidad`, `subtotal`) VALUES
+(1, NULL, NULL, NULL, NULL),
+(2, NULL, NULL, NULL, NULL),
+(3, NULL, NULL, NULL, NULL),
+(4, NULL, NULL, NULL, NULL),
+(5, NULL, NULL, NULL, NULL),
+(6, NULL, NULL, NULL, NULL),
+(7, NULL, NULL, NULL, NULL),
+(8, NULL, NULL, NULL, NULL),
+(9, 34, NULL, NULL, NULL),
+(10, 46, NULL, NULL, NULL),
+(11, 47, NULL, NULL, NULL),
+(35, 82, NULL, NULL, NULL),
+(36, 83, NULL, NULL, NULL),
+(37, 1, NULL, NULL, NULL),
+(38, 1, NULL, NULL, NULL),
+(39, 103, NULL, NULL, NULL),
+(40, 104, NULL, NULL, NULL),
+(41, 105, NULL, NULL, NULL),
+(42, 106, NULL, NULL, NULL),
+(43, 107, NULL, NULL, NULL),
+(44, 108, NULL, NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -58,9 +85,9 @@ CREATE TABLE `PRODUCTOS` (
 --
 
 INSERT INTO `PRODUCTOS` (`pid`, `nombre`, `precio_venta`, `precio_compra`, `marca`, `tipo`, `cantidad`, `img`, `descrip`) VALUES
-(1, 'Tinto', 200, 150, 'Westinghouse', 'Tinto', 24, 'public/media/bottles/bottle1.png', 'Vino tinto recien traido del himalaya'),
-(2, 'Blanco', 300, 200, 'De la viña', 'Blanco', 109, 'public/media/bottles/bottle2.png', 'Vino blanco para acompañar un asado con amigos'),
-(3, 'Escoces', 500, 350, 'Santa rosana', 'Escoces', 18, 'public/media/bottles/bottle3.png', 'Vino escocés, traido directamente de Alemania'),
+(1, 'Tinto', 200, 150, 'Westinghouse', 'Tinto', 67, 'public/media/bottles/bottle1.png', 'Vino tinto recien traido del himalaya'),
+(2, 'Blanco', 300, 200, 'De la viña', 'Blanco', 99, 'public/media/bottles/bottle2.png', 'Vino blanco para acompañar un asado con amigos'),
+(3, 'Escoces', 500, 350, 'Santa rosana', 'Escoces', 17, 'public/media/bottles/bottle3.png', 'Vino escocés, traido directamente de Alemania'),
 (4, 'Rosado', 200, 100, 'Naturalvinos', 'Rosado', 53, 'public/media/bottles/bottle4.png', 'Vino rosado, color azul, perfecto para acompañar una sopa'),
 (5, 'Tannat', 300, 200, 'Los paisanos', 'Tannat', 72, 'public/media/bottles/bottle5.png', 'Tannat, directamente traido desde tannatlandia'),
 (6, 'Dulce', 350, 200, 'Las chauchas', 'Rosado dulce', 40, 'public/media/bottles/bottle6.png', 'Vino dulce elaborado con 3 kilos de miel por litro de vino'),
@@ -95,7 +122,7 @@ CREATE TABLE `USUARIOS` (
 
 INSERT INTO `USUARIOS` (`uid`, `nombre`, `correo`, `contrasena`, `telefono`, `avatar`, `rango`) VALUES
 (12, 'Lujambia', 'luli@gmail.com', '$2y$10$AzE18QwS0SXj3R3wYP2Ls.AiMhb3/oTs1r5Vi9OXYKygHBk6cywYS', 436436536, 'public/img/perfil/12.jpg', 1),
-(15, 'Santiago Romero', 'elsantoposada@gmail.com', '$2y$10$Ybpc.5pRvAcjif9DeckhDuV2i9TwuzI17.Fz0kxCrQNJ1GGmaQoo.', 12345678, 'public/img/perfil/15.jpg', 4),
+(15, 'Santiago Romero', 'elsantoposada@gmail.com', '$2y$10$Ybpc.5pRvAcjif9DeckhDuV2i9TwuzI17.Fz0kxCrQNJ1GGmaQoo.', 123456, 'public/img/perfil/15.jpg', 4),
 (20, 'Paz', 'elamor@gmail.com', '$2y$10$fVa13QOokk5tOWCi5Z8pcuYCflkD3deYp9bqHRsnKkjOB6M3as/CC', 1212121212, 'public/img/perfil/20.jpg', 1),
 (30, 'Prueba', 'prueba@gmail.com', '$2y$10$7VCR6BsaiXawTfsZ2fuwfeNlRHPPNz3cSTu5sLvRSwVx9.eS8yCIO', 43342323, 'public/img/perfil/default.jpg', 1),
 (37, 'JorgeGamer', 'jorgegamer@gmail.com', '$2y$10$4Ef6NiCOYL/qolyBIGzbn.IiMgvF6BRCMikDuFalyG6JrsfGtXutO', 12345678, 'public/img/perfil/default.jpg', 2),
@@ -126,7 +153,8 @@ INSERT INTO `USUARIOS_Direcciones` (`duid`, `uid`, `direccion`) VALUES
 (6, 12, 'Ricardo Montaner 333'),
 (7, 12, 'Los tanjarinos 334'),
 (8, 12, 'Direccion Pedro'),
-(9, 15, 'Una direccion');
+(10, 15, 'Enrique Zegoviano'),
+(30, 12, 'Enrique Zegoviano');
 
 -- --------------------------------------------------------
 
@@ -169,7 +197,11 @@ CREATE TABLE `USUARIOS_Tarjetas` (
 INSERT INTO `USUARIOS_Tarjetas` (`tuid`, `uid`, `tarjeta`) VALUES
 (1, 12, '44334343434'),
 (6, 12, '22222222222'),
-(11, 15, '12345678');
+(11, 15, '12345678'),
+(13, 15, '12341222'),
+(14, 15, '12341222'),
+(15, 15, '11111'),
+(16, 12, '2222222');
 
 -- --------------------------------------------------------
 
@@ -183,6 +215,116 @@ CREATE TABLE `VENTAS` (
   `Fecha` date DEFAULT NULL,
   `Total` int(7) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `VENTAS`
+--
+
+INSERT INTO `VENTAS` (`vid`, `uid`, `Fecha`, `Total`) VALUES
+(1, 15, '2008-11-11', 106),
+(2, 15, '2008-11-11', 105),
+(3, 15, '2008-11-11', 1),
+(4, 15, '2008-11-11', 3),
+(5, 15, '2008-11-11', 2),
+(6, 15, '2008-11-11', 1),
+(7, 15, '2008-11-11', 1),
+(8, 15, '2008-11-11', 1),
+(9, 15, '2008-11-11', 1),
+(10, 15, '2008-11-11', 19800),
+(11, 15, '2008-11-11', 19400),
+(12, 15, '2008-11-11', 0),
+(13, 15, '2008-11-11', 18600),
+(14, 15, '2008-11-11', 18200),
+(15, 15, '2008-11-11', 18000),
+(16, 15, '2008-11-11', 200),
+(17, 15, '2008-11-11', 400),
+(18, 15, '2008-11-11', 900),
+(19, 15, '2008-11-11', 400),
+(20, 15, '2008-11-11', 400),
+(21, 15, '2008-11-11', 400),
+(22, 15, '2008-11-11', 400),
+(23, 15, '2008-11-11', 400),
+(24, 15, '2008-11-11', 400),
+(25, 15, '2008-11-11', 400),
+(26, 15, '2008-11-11', 400),
+(27, 15, '2008-11-11', 400),
+(28, 15, '2008-11-11', 200),
+(29, 15, '2008-11-11', 400),
+(30, 15, '2008-11-11', 300),
+(31, 15, '2008-11-11', 400),
+(32, 15, '2008-11-11', 400),
+(33, 15, '2008-11-11', 400),
+(34, 15, '2008-11-11', 400),
+(35, 15, '2008-11-11', 400),
+(36, 15, '2008-11-11', 400),
+(37, 15, '2008-11-11', 400),
+(38, 15, '2008-11-11', 400),
+(39, 15, '2008-11-11', 400),
+(40, 15, '2008-11-11', 400),
+(41, 15, '2008-11-11', 400),
+(42, 15, '2008-11-11', 400),
+(43, 15, '2008-11-11', 400),
+(44, 15, '2008-11-11', 400),
+(45, 15, '2008-11-11', 400),
+(46, 15, '2008-11-11', 400),
+(47, 15, '2008-11-11', 200),
+(48, 15, '2008-11-11', 400),
+(49, 15, '2008-11-11', 400),
+(50, 15, '2008-11-11', 400),
+(51, 15, '2008-11-11', 400),
+(52, 15, '2008-11-11', 200),
+(53, 15, '2008-11-11', 400),
+(54, 15, '2008-11-11', 400),
+(55, 15, '2008-11-11', 400),
+(56, 15, '2008-11-11', 400),
+(57, 15, '2008-11-11', 400),
+(58, 15, '2008-11-11', 400),
+(59, 15, '2008-11-11', 400),
+(60, 15, '2008-11-11', 400),
+(61, 15, '2008-11-11', 400),
+(62, 15, '2008-11-11', 400),
+(63, 15, '2008-11-11', 200),
+(64, 15, '2008-11-11', 200),
+(65, 15, '2008-11-11', 200),
+(66, 15, '2008-11-11', 200),
+(67, 15, '2008-11-11', 200),
+(68, 15, '2008-11-11', 200),
+(69, 15, '2008-11-11', 200),
+(70, 15, '2008-11-11', 200),
+(71, 15, '2008-11-11', 200),
+(72, 15, '2008-11-11', 200),
+(73, 15, '2008-11-11', 200),
+(74, 15, '2008-11-11', 200),
+(75, 15, '2008-11-11', 200),
+(76, 15, '2008-11-11', 200),
+(77, 15, '2008-11-11', 200),
+(78, 15, '2008-11-11', 200),
+(79, 15, '2008-11-11', 200),
+(80, 15, '2008-11-11', 200),
+(81, 15, '2008-11-11', 200),
+(82, 15, '2008-11-11', 200),
+(83, 15, '2008-11-11', 400),
+(84, 15, '2008-11-11', 200),
+(85, 15, '2008-11-11', 400),
+(86, 15, '2008-11-11', 200),
+(91, 15, '2008-11-11', 200),
+(92, NULL, '2008-11-11', NULL),
+(93, NULL, '2022-11-11', NULL),
+(94, NULL, '2022-11-11', NULL),
+(95, NULL, '2022-11-11', NULL),
+(96, NULL, NULL, 223),
+(97, 15, '2008-11-11', 200),
+(98, 15, '2008-11-11', 200),
+(99, 15, '2008-11-11', 200),
+(100, 15, '2008-11-11', 200),
+(101, 15, '2008-11-11', 200),
+(102, 15, '2008-11-11', 200),
+(103, 15, '2008-11-11', 200),
+(104, 15, '2008-11-11', 400),
+(105, 15, '2008-11-11', 200),
+(106, 15, '2008-11-11', 300),
+(107, 15, '2008-11-11', 200),
+(108, 15, '2008-11-11', 600);
 
 --
 -- Índices para tablas volcadas
@@ -244,7 +386,7 @@ ALTER TABLE `VENTAS`
 -- AUTO_INCREMENT de la tabla `DETALLEVENTA`
 --
 ALTER TABLE `DETALLEVENTA`
-  MODIFY `dvid` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `dvid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT de la tabla `PRODUCTOS`
@@ -262,7 +404,7 @@ ALTER TABLE `USUARIOS`
 -- AUTO_INCREMENT de la tabla `USUARIOS_Direcciones`
 --
 ALTER TABLE `USUARIOS_Direcciones`
-  MODIFY `duid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `duid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT de la tabla `USUARIOS_Rangos`
@@ -274,13 +416,13 @@ ALTER TABLE `USUARIOS_Rangos`
 -- AUTO_INCREMENT de la tabla `USUARIOS_Tarjetas`
 --
 ALTER TABLE `USUARIOS_Tarjetas`
-  MODIFY `tuid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `tuid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `VENTAS`
 --
 ALTER TABLE `VENTAS`
-  MODIFY `vid` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `vid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
 
 --
 -- Restricciones para tablas volcadas
