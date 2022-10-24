@@ -69,6 +69,15 @@ body {
   text-decoration: none;
 }
 
+#direcciones {
+  color: white;
+  border: none !important;
+  grid-column: 1;
+  font-family: monospace;
+  font-size: 1.2vw;
+  text-decoration: none;
+}
+
 #panelAdmin {
   color: black;
   grid-column: 1;

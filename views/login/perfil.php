@@ -108,6 +108,10 @@ if (isset($_GET['uid'])): ?>
         Mis tarjetas
       </a>
       <br>
+      <a id="mycards" href="direcciones?uid=<?php echo ($_SESSION['uid']); ?>">
+        Mis direcciones
+      </a>
+      <br>
       <?php if ($rango['rid'] == '1' || $rango['rid'] == '3' || $rango['rid'] == '4') {?><a href="panel" id="panelAdmin" <?php if($perfil['rango'] == 4) { ?> style="color: white!important;"<?php } ?> ">Panel
         Admin</a><?php }?>
 

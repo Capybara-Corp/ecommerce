@@ -17,15 +17,15 @@ if (isset($_SESSION['uid'])) {
 
 
 
-    $records = $conn->prepare('SELECT * FROM USUARIOS_Tarjetas WHERE uid = :id');
+    $records = $conn->prepare('SELECT * FROM USUARIOS_Direcciones WHERE uid = :id');
     $records->bindParam(':id', $_SESSION['uid']);
     $records->execute();
     $results = $records->fetchAll(PDO::FETCH_ASSOC);
 
-    $tarjetas = null;
+    $direcciones = null;
 
     if (count($results) > 0) {
-        $tarjetas = $results;
+        $direcciones = $results;
     }
 
 
@@ -43,13 +43,13 @@ if (isset($_SESSION['uid'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mis tarjetas</title>
-    <link rel="stylesheet" href="public/css/login/tarjetas.css">
+    <title>Mis direcciones</title>
+    <link rel="stylesheet" href="public/css/login/direcciones.css">
     <link rel="stylesheet" href="public/css/index/headerblack.css">
     <script language="Javascript" type="text/javascript">
     function Confirmar(frm) {
     var borrar = confirm(
-      "¿Seguro que desea eliminar su tarjeta?"
+      "¿Seguro que desea eliminar su direccion?"
     );
     return borrar;
     }
@@ -66,28 +66,28 @@ if (($_GET['uid']) == ($_SESSION['uid'])): ?>
 
   <?php if (isset($_GET['borrar'])) { // Si hay algo en la URL de borrar usuario
     try{
-    $borrar = $conn->prepare('DELETE FROM USUARIOS_Tarjetas WHERE tuid = :id'); //Borramos el usuario de la BD
+    $borrar = $conn->prepare('DELETE FROM USUARIOS_Direcciones WHERE duid = :id'); //Borramos el usuario de la BD
     $borrar->bindParam(':id', $_GET['borrar']);
     $borrar->execute();
-    Header("Location: tarjetas?uid=" . $user['uid']);
+    Header("Location: direcciones?uid=" . $user['uid']);
     }
     catch(Exception $e){
         $message = "Ha ocurrido un error"; 
         echo "<p class=\"message\">$message<p>";
-      }
+    }
 }
 
-    if (isset($_POST['añadir']) && (isset($_POST['tarjeta']))){
-        $tarjeta = $_POST['tarjeta'];
+    if (isset($_POST['añadir']) && (isset($_POST['direccion']))){
+        $direccion = $_POST['direccion'];
             try{
-              $sql  = "INSERT INTO USUARIOS_Tarjetas (uid, tarjeta) VALUES (:id, :tarjeta)";
+              $sql  = "INSERT INTO USUARIOS_Direcciones (uid, direccion) VALUES (:id, :direccion)";
               $stmt = $conn->prepare($sql);
               $stmt->bindParam(':id', $_SESSION['uid']);
-              $stmt->bindParam(':tarjeta', $tarjeta);
+              $stmt->bindParam(':direccion', $direccion);
           
               if ($stmt->execute()) {
                   $message = 'Datos actualizados con exito';
-                  Header("Location: tarjetas?uid=" . $user['uid']);
+                  Header("Location: direcciones?uid=" . $user['uid']);
               } else {
                   $message = 'No se han podido actualizar los datos';
               }
@@ -106,14 +106,14 @@ if (($_GET['uid']) == ($_SESSION['uid'])): ?>
 ?>
 
 
-  <h1 id="title">MIS TARJETAS</h1>
+  <h1 id="title">MIS DIRECCIONES</h1>
 
 
   <form action="" method="post" enctype="multipart/form-data" name="form2" id="form2">
   <p>
     <label for="textfield2" class="campo">
-      Añadir Tarjeta:</label>
-      <input type="text" name="tarjeta" id="textfield" /><input type="submit" name="añadir" value="Añadir tarjeta" />
+      Añadir Direccion:</label>
+      <input type="text" name="direccion" id="textfield" /><input type="submit" name="añadir" value="Añadir direccion" />
     </p>
 </form>
     <?php if (isset($message)){
@@ -123,9 +123,9 @@ if (($_GET['uid']) == ($_SESSION['uid'])): ?>
 
     <?php 
     
-    foreach($tarjetas as $row){ ?>
+    foreach($direcciones as $row){ ?>
 
-        <p>Numero de tarjeta: <?php echo $row['tarjeta'] ?><a href="tarjetas?uid=<?php echo $_SESSION['uid'] ?>&borrar=<?php echo $row['tuid']; ?>" onclick="return Confirmar (this.form)">Borrar</a>
+        <p>Direccion: <?php echo $row['direccion'] ?><a href="direcciones?uid=<?php echo $_SESSION['uid'] ?>&borrar=<?php echo $row['duid']; ?>" onclick="return Confirmar (this.form)">Borrar</a>
 
     <?php }
 

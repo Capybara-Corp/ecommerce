@@ -93,7 +93,7 @@ if (($_GET['uid']) == ($_SESSION['uid'])): ?>
     <p>
     <label for="textfield2" class="campo">
       Teléfono:</label>
-      <input type="text" name="telefono" id="textfield" />
+      <input type="text" name="telefono" id="textfield" value="<?php echo $user['telefono']; ?>" />
     </p>
     <p>
     <label for="textfield2" class="campo">
@@ -175,6 +175,7 @@ if ($_POST['direccion'] != '') {
 
     if ($stmt->execute()) {
         $message = 'Datos actualizados con exito';
+        Header("Location: editar?uid=" . $user['uid']);
     } else {
         $message = 'No se han podido actualizar los datos';
     }
@@ -193,6 +194,7 @@ if ($_POST['direccion'] != '') {
     $stmt->bindParam(':tarjeta', $tarjeta);
 
     if ($stmt->execute()) {
+        Header("Location: editar?uid=" . $user['uid']);
         $message = 'Datos actualizados con exito';
     } else {
         $message = 'No se han podido actualizar los datos';
@@ -213,6 +215,7 @@ if ($_POST['direccion'] != '') {
   
       if ($stmt->execute()) {
           $message = 'Datos actualizados con exito';
+          Header("Location: editar?uid=" . $user['uid']);
       } else {
           $message = 'No se han podido actualizar los datos';
       }
