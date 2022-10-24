@@ -70,12 +70,10 @@ if ($cantidad < 0) {
     $stmt->bindParam(':uid', $user['uid']);
     $stmt->bindParam(':total', $total);
     $stmt->execute();
-    $last_id = $conn->prepare("SELECT LAST_INSERT_ID()")->execute();
 
 
-    $sql = "INSERT INTO DETALLEVENTA (vid) VALUES (:vid)";
+    $sql = "INSERT INTO DETALLEVENTA (vid) VALUES (LAST_INSERT_ID())";
     $stmt = $conn->prepare($sql);
-    $stmt->bindParam(':vid', $last_id);
     $stmt->execute();
 
 
