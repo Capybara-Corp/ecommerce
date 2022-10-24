@@ -97,12 +97,12 @@ if (($_GET['uid']) == ($_SESSION['uid'])): ?>
     </p>
     <p>
     <label for="textfield2" class="campo">
-      Tarjeta:</label>
+      Añadir Tarjeta:</label>
       <input type="text" name="tarjeta" id="textfield" />
     </p>
     <p>
     <label for="textfield2" class="campo">
-      Direccion:</label>
+      Añadir Direccion:</label>
       <input type="text" name="direccion" id="textfield" />
     </p>
       <input type="submit" name="editar" id="buttoneditar" value="Editar datos" />

@@ -48,8 +48,8 @@ if (!empty($_POST['user_correo']) && !empty($_POST['user_pass'])) { // Si recibe
 
   <?php include "views/index/header.php";?>
 
-  <?php if (!empty($message)): ?>
-  <p> <?=$message;?></p>
+  <?php if (!empty($this->message)): ?>
+  <p> <?=$this->message;?></p>
   <?php endif;?>
 
   <div class="login-box">

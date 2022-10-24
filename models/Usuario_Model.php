@@ -81,7 +81,8 @@ class Usuario_Model extends Model
                 $_SESSION['rango'] = $resultado['rango'];
                 header("Location: ../ecommerce"); //Verifica que todo coincida
             } else {
-                $message = 'Nombre o contrasena incorrectos'; // Sino, aparece esto
+                $message = 'Correo o contrasena incorrectos'; // Sino, aparece esto
+                return $message;
             }
 
 
