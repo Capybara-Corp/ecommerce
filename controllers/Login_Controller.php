@@ -17,10 +17,8 @@ class Login_Controller extends controller
             header('Location: ../ecommerce');
         } else if (isset($_POST['user_correo']) && (isset($_POST['user_pass']))) {
             $modelo = new Usuario_Model();
-            $modelo->login($_POST['user_correo'], $_POST['user_pass']);
-            
-
-            // Problemas retornando $message;
+            $message = $modelo->login($_POST['user_correo'], $_POST['user_pass']);
+            $this->view->message = $message;
 
         }
 

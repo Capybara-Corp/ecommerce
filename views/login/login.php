@@ -48,11 +48,14 @@ if (!empty($_POST['user_correo']) && !empty($_POST['user_pass'])) { // Si recibe
 
   <?php include "views/index/header.php";?>
 
-  <?php if (!empty($this->message)): ?>
-  <p> <?=$this->message;?></p>
-  <?php endif;?>
+  
 
   <div class="login-box">
+
+  <?php if (!empty($this->message)): ?>
+  <p id="mensaje"> <?=$this->message;?></p>
+  <?php endif;?>
+
     <h1>Iniciar sesión</h1>
 
     <form action="login" method="POST">

@@ -128,6 +128,14 @@ html,body
   padding: 70px 30px;
 }
 
+#mensaje{
+  margin: 0;
+padding: 0 0 2vw;
+text-align: center;
+font-size: 16px;
+color: white;
+}
+
 .login-box h1{
   margin: 0;
   padding: 0 0 20px;
