@@ -77,13 +77,20 @@ class Usuario_Model extends Model
             $message = '';
 
             if (is_countable($resultado) > 0 && password_verify($contrasena, $resultado['contrasena'])) {
+                if($resultado['estado'] == '1'){
                 $_SESSION['uid']   = $resultado['uid'];
                 $_SESSION['rango'] = $resultado['rango'];
                 header("Location: ../ecommerce"); //Verifica que todo coincida
+                }
+                else{
+                    $message = 'Su usuario ha sido eliminado';
+                }
             } else {
                 $message = 'Correo o contrasena incorrectos'; // Sino, aparece esto
-                return $message;
+                
             }
+
+            return $message;
 
 
         } catch (PDOException $e) {
@@ -119,7 +126,7 @@ class Usuario_Model extends Model
             
             
             try{
-            $query = $pdo->prepare("INSERT INTO USUARIOS (correo, contrasena, nombre, telefono, rango, avatar) VALUES (:user_correo, :user_pass, :user_name, :user_number, '2', 'public/img/perfil/default.jpg')");
+            $query = $pdo->prepare("INSERT INTO USUARIOS (correo, contrasena, nombre, telefono, rango, avatar, estado) VALUES (:user_correo, :user_pass, :user_name, :user_number, '2', 'public/img/perfil/default.jpg', '1')");
             
 
             if(filter_var($correo, FILTER_VALIDATE_EMAIL)){
