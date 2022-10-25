@@ -38,7 +38,7 @@ if (isset($_SESSION['uid'])) {
 
 if (!empty($_POST['nombre']) && !empty($_POST['correo']) && !empty($_POST['contrasena']) && !empty($_POST['telefono']) && !empty($_POST['rango'])) {
     try {
-        $sql  = "INSERT INTO USUARIOS (nombre, correo, contrasena, telefono, avatar, rango) VALUES (:nombre, :correo, :contrasena, :telefono, 'public/img/perfil/default.jpg', :rango)";
+        $sql  = "INSERT INTO USUARIOS (nombre, correo, contrasena, telefono, avatar, rango, estado) VALUES (:nombre, :correo, :contrasena, :telefono, 'public/img/perfil/default.jpg', :rango, '1')";
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(':nombre', $_POST['nombre']);
         $stmt->bindParam(':correo', $_POST['correo']);
@@ -73,7 +73,7 @@ if (!empty($_POST['nombre']) && !empty($_POST['correo']) && !empty($_POST['contr
   <script language="Javascript" type="text/javascript">
   function Confirmar(frm) {
     var borrar = confirm(
-      "¿Seguro que desea eliminar este usuario?"
+      "¿Seguro que desea eliminar este usuario de la base de datos?"
     ); // Javascript me pregunta si quiero eliminar el usuario, esto es por si le damos a eliminar sin querer.
     return borrar;
   }
@@ -120,9 +120,29 @@ if (isset($_GET['borrar'])) { // Si hay algo en la URL de borrar usuario
     if($usuario['avatar'] != 'public/img/perfil/default.jpg'){
     unlink("" . $usuario['avatar'] . ""); //Borramos el archivo de la foto de perfil del disco duro
     }
-    $borrar = $conn->prepare('UPDATE USUARIOS SET estado = 2 WHERE uid = :id'); //Borramos el usuario de la BD
+    $borrar = $conn->prepare('DELETE FROM USUARIOS WHERE uid = :id'); //Borramos el usuario de la BD
     $borrar->bindParam(':id', $_GET['borrar']);
     $borrar->execute();
+    header("Location: editar");
+}
+
+
+
+
+if (isset($_GET['desactivar'])) { // Si hay algo en la URL de borrar usuario
+  $desactivar = $conn->prepare('UPDATE USUARIOS SET estado = 2 WHERE uid = :id'); //Borramos el usuario de la BD
+  $desactivar->bindParam(':id', $_GET['desactivar']);
+  $desactivar->execute();
+  header("Location: editar");
+
+}
+
+if (isset($_GET['activar'])) { // Si hay algo en la URL de borrar usuario
+  $activar = $conn->prepare('UPDATE USUARIOS SET estado = 1 WHERE uid = :id'); //Borramos el usuario de la BD
+  $activar->bindParam(':id', $_GET['activar']);
+  $activar->execute();
+  header("Location: editar");
+
 }
 
 ?>
@@ -151,6 +171,21 @@ foreach ($data as $row) {
         $ran = $results; //Guarda el rango de todos los usuarios en cuestion
     }
 
+      $records = $conn->prepare('SELECT * FROM USUARIOS_Estado WHERE eid = :id');
+      $records->bindParam(':id', $row['estado']);
+      $records->execute();
+      $results = $records->fetch(PDO::FETCH_ASSOC);
+  
+      $estado = null;
+  
+      if (count($results) > 0) {
+          $estado = $results; //Guarda el estado de todos los usuarios en cuestion
+      }
+
+
+
+    
+
     ?>
     <div class="usuarios">
     <img src="../<?php echo $row['avatar']; ?>" />
@@ -158,7 +193,13 @@ foreach ($data as $row) {
     <table class="options">
       <tr>
         <td><a href="editarperfil?uid=<?php echo $row['uid']; ?>">Editar</a> | <a
-        href="editar?borrar=<?php echo $row['uid']; ?>" onclick="return Confirmar (this.form)">Borrar</a></td>
+        href="editar?borrar=<?php echo $row['uid']; ?>" onclick="return Confirmar (this.form)">Borrar</a> | 
+        
+        <?php if($row['estado'] == 1){ ?>
+        <a href="editar?desactivar=<?php echo $row['uid']; ?>">Desactivar</a></td> <?php } ?>
+        <?php if($row['estado'] == 2){ ?>
+        <a href="editar?activar=<?php echo $row['uid']; ?>">Activar</a></td> <?php } ?>
+
       </tr>
     </table>
 
@@ -167,6 +208,7 @@ foreach ($data as $row) {
         <td class="id"><?php echo $row['uid']; ?></td></tr>
         <tr><td class="rango" <?php if ($ran['rid'] == 4) { ?>style="color: red!important;"<?php } ?>><?php echo $ran['nombre']; ?></td></tr>
         <tr><td class="nombre"><?php echo $row['nombre']; ?></td></tr>
+        <tr><td class="nombre"><?php echo $estado['nombre']; ?></td></tr>
         <tr><td class="correo"><?php echo $row['correo']; ?></td></tr>
     </table>
 
