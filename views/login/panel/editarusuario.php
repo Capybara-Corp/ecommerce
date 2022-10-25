@@ -94,39 +94,13 @@ if (!empty($_POST['nombre']) && !empty($_POST['correo']) && !empty($_POST['contr
 
 
 
+
+
+<h1 id="gestionarh1">GESTIONAR USUARIOS</h1>
+  
+
+
 <section id="main">
-
-<h1>GESTIONAR USUARIOS</h1>
-  <form action="editar" method="POST">
-    <input name="nombre" type="text" placeholder="Nombre">
-    <input name="correo" type="text" placeholder="Correo electronico">
-    <input name="contrasena" type="text" placeholder="Contraseña">
-    <input name="telefono" type="text" placeholder="Telefono">
-    <p>
-      Rango:
-      <label for="select"></label>
-      <select name="rango" id="select">
-
-        <?php
-
-if($user['rango'] == '1'){
-$data = $conn->query("SELECT * FROM USUARIOS_Rangos WHERE rid = '2'")->fetchAll();
-}
-else if($user['rango'] == '3'){
-  $data = $conn->query("SELECT * FROM USUARIOS_Rangos WHERE rid <= '2'")->fetchAll();
-}
-else if($user['rango'] == '4'){
-  $data = $conn->query("SELECT * FROM USUARIOS_Rangos")->fetchAll();
-}
-
-foreach ($data as $row) // Por cada rango me muestra una opcion, notese que muestra el nombre pero almacena el valor del id del rango.
-{?>
-        <option value="<?php echo $row['rid']; ?>"><?php echo $row['nombre']; ?></option>
-        <?php }?>
-      </select>
-    </p>
-    <input type="submit" value="Agregar">
-  </form>
 
   <?php
 
@@ -202,6 +176,42 @@ foreach ($data as $row) {
       <?php }
 ?>
 </section>
+
+<div class="crear">
+<h1 id="crearh1">CREAR USUARIO</h1>
+  <form action="editar" method="POST">
+    <input name="nombre" type="text" placeholder="Nombre">
+    <input name="correo" type="text" placeholder="Correo electronico">
+    <input name="contrasena" type="text" placeholder="Contraseña">
+    <input name="telefono" type="text" placeholder="Telefono">
+    <p>
+      
+      <label for="select">Rango:</label>
+      <select name="rango" id="select">
+
+        <?php
+
+if($user['rango'] == '1'){
+$data = $conn->query("SELECT * FROM USUARIOS_Rangos WHERE rid = '2'")->fetchAll();
+}
+else if($user['rango'] == '3'){
+  $data = $conn->query("SELECT * FROM USUARIOS_Rangos WHERE rid <= '2'")->fetchAll();
+}
+else if($user['rango'] == '4'){
+  $data = $conn->query("SELECT * FROM USUARIOS_Rangos")->fetchAll();
+}
+
+foreach ($data as $row) // Por cada rango me muestra una opcion, notese que muestra el nombre pero almacena el valor del id del rango.
+{?>
+        <option value="<?php echo $row['rid']; ?>"><?php echo $row['nombre']; ?></option>
+        <?php }?>
+      </select>
+    </p>
+    <input type="submit" value="Agregar">
+  </form>
+</div>
+
+
 
 </body>
 
