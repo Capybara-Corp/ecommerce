@@ -234,7 +234,7 @@ if (isset($_POST['eliminar'])) {
     if($user['avatar'] != "public/img/perfil/default.jpg"){
       unlink("" . $user['avatar'] . ""); //Borramos el archivo de la foto de perfil del disco duro
       }
-    $borrar = $conn->prepare('DELETE FROM USUARIOS WHERE uid = :id'); //Borramos el usuario de la BD
+    $borrar = $conn->prepare('UPDATE USUARIOS SET estado = 2 WHERE uid = :id'); //Borramos el usuario de la BD
     $borrar->bindParam(':id', $_SESSION['uid']);
     $borrar->execute();
     header('Location: logout');
