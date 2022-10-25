@@ -97,7 +97,12 @@ body{
   #main{
     float: left;
     display: grid;
-    grid-template-columns: 100%;
+    position: relative;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(150px, 1fr)
+    );
+    gap: 16px;
     width: 60%;
     height: auto;
   }
@@ -118,7 +123,7 @@ body{
     float: left;
     margin: 0 2vw;
     width: 90%;
-    height: 15vh;
+    height: auto;
     background: white;
     margin-bottom: 2vh;
   }
@@ -166,6 +171,17 @@ body{
   }
   .options a{
     color: black!important;
+  }
+
+  .estado{
+    float: right;
+    color: black!important;
+    margin: 0;
+    padding: 0;
+    font-size: 1vw;
+    position: relative;
+    bottom: 0;
+    
   }
 
 

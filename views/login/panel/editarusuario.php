@@ -188,8 +188,10 @@ foreach ($data as $row) {
 
     ?>
     <div class="usuarios">
+      
     <img src="../<?php echo $row['avatar']; ?>" />
 
+    
     <table class="options">
       <tr>
         <td><a href="editarperfil?uid=<?php echo $row['uid']; ?>">Editar</a> | <a
@@ -203,17 +205,18 @@ foreach ($data as $row) {
       </tr>
     </table>
 
+      
+
     <table>
       <tr>
         <td class="id"><?php echo $row['uid']; ?></td></tr>
         <tr><td class="rango" <?php if ($ran['rid'] == 4) { ?>style="color: red!important;"<?php } ?>><?php echo $ran['nombre']; ?></td></tr>
         <tr><td class="nombre"><?php echo $row['nombre']; ?></td></tr>
-        <tr><td class="nombre"><?php echo $estado['nombre']; ?></td></tr>
         <tr><td class="correo"><?php echo $row['correo']; ?></td></tr>
     </table>
 
     
-    
+    <p class="estado"><?php echo $estado['nombre']; ?></p>
     </div>
 
       <?php }
