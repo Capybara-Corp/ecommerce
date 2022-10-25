@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 24-10-2022 a las 22:53:50
+-- Tiempo de generación: 25-10-2022 a las 16:36:48
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -60,7 +60,8 @@ INSERT INTO `DETALLEVENTA` (`dvid`, `vid`, `pid`, `cantidad`, `subtotal`) VALUES
 (41, 105, NULL, NULL, NULL),
 (42, 106, NULL, NULL, NULL),
 (43, 107, NULL, NULL, NULL),
-(44, 108, NULL, NULL, NULL);
+(44, 108, NULL, NULL, NULL),
+(45, 109, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -85,7 +86,7 @@ CREATE TABLE `PRODUCTOS` (
 --
 
 INSERT INTO `PRODUCTOS` (`pid`, `nombre`, `precio_venta`, `precio_compra`, `marca`, `tipo`, `cantidad`, `img`, `descrip`) VALUES
-(1, 'Tinto', 200, 150, 'Westinghouse', 'Tinto', 67, 'public/media/bottles/bottle1.png', 'Vino tinto recien traido del himalaya'),
+(1, 'Tinto', 200, 150, 'Westinghouse', 'Tinto', 65, 'public/media/bottles/bottle1.png', 'Vino tinto recien traido del himalaya'),
 (2, 'Blanco', 300, 200, 'De la viña', 'Blanco', 99, 'public/media/bottles/bottle2.png', 'Vino blanco para acompañar un asado con amigos'),
 (3, 'Escoces', 500, 350, 'Santa rosana', 'Escoces', 17, 'public/media/bottles/bottle3.png', 'Vino escocés, traido directamente de Alemania'),
 (4, 'Rosado', 200, 100, 'Naturalvinos', 'Rosado', 53, 'public/media/bottles/bottle4.png', 'Vino rosado, color azul, perfecto para acompañar una sopa'),
@@ -113,24 +114,25 @@ CREATE TABLE `USUARIOS` (
   `contrasena` varchar(250) NOT NULL,
   `telefono` int(32) NOT NULL,
   `avatar` varchar(50) DEFAULT NULL,
-  `rango` int(2) NOT NULL
+  `rango` int(2) NOT NULL,
+  `estado` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `USUARIOS`
 --
 
-INSERT INTO `USUARIOS` (`uid`, `nombre`, `correo`, `contrasena`, `telefono`, `avatar`, `rango`) VALUES
-(12, 'Lujambia', 'luli@gmail.com', '$2y$10$AzE18QwS0SXj3R3wYP2Ls.AiMhb3/oTs1r5Vi9OXYKygHBk6cywYS', 436436536, 'public/img/perfil/12.jpg', 1),
-(15, 'Santiago Romero', 'elsantoposada@gmail.com', '$2y$10$Ybpc.5pRvAcjif9DeckhDuV2i9TwuzI17.Fz0kxCrQNJ1GGmaQoo.', 123456, 'public/img/perfil/15.jpg', 4),
-(20, 'Paz', 'elamor@gmail.com', '$2y$10$fVa13QOokk5tOWCi5Z8pcuYCflkD3deYp9bqHRsnKkjOB6M3as/CC', 1212121212, 'public/img/perfil/20.jpg', 1),
-(30, 'Prueba', 'prueba@gmail.com', '$2y$10$7VCR6BsaiXawTfsZ2fuwfeNlRHPPNz3cSTu5sLvRSwVx9.eS8yCIO', 43342323, 'public/img/perfil/default.jpg', 1),
-(37, 'JorgeGamer', 'jorgegamer@gmail.com', '$2y$10$4Ef6NiCOYL/qolyBIGzbn.IiMgvF6BRCMikDuFalyG6JrsfGtXutO', 12345678, 'public/img/perfil/default.jpg', 2),
-(38, 'SantiagoXD', 'santiago@mail.com', '$2y$10$kL3q/wCpT3d0jo4edbeoLOpde.AqzMYaecUWUGBiFc6BO/CZ4zsBy', 434343434, 'public/img/perfil/default.jpg', 2),
-(40, 'SoyUnCorreoXDXD', 'correo@mail.com', '$2y$10$9wKcXtNCAjkfLcaSIfyHxuKEdPpKW6kXLNvKyaSAGq2KpDGYZZEa.', 34343434, 'public/img/perfil/default.jpg', 2),
-(52, 'Juancitogamer', 'juancito23@gmail.com', '$2y$10$5aPEOdzGxREFDMcMHdn1Xu5Oo8cDdnQlywpCC/IyEjQYAoZsc1rGm', 435435345, 'public/img/perfil/default.jpg', 2),
-(54, 'Pepito de las tinieblas', 'pepeperez@gmail.com', '$2y$10$35MjLISwGW8SZRVBmIDM7OwOpTPclorvJdg6PVEzfjIj01zHvG4re', 1234567812, 'public/img/perfil/default.jpg', 2),
-(55, 'Daniel Carrasco', 'dhcarrasco@gmail.com', '$2y$10$6WSP4Xu1ABPzVjN076zSaOv4YFHWPKuh0QxqJQOYO6VE.XE74.Fxq', 123456789, 'public/img/perfil/55.jpg', 3);
+INSERT INTO `USUARIOS` (`uid`, `nombre`, `correo`, `contrasena`, `telefono`, `avatar`, `rango`, `estado`) VALUES
+(12, 'Lujambia', 'luli@gmail.com', '$2y$10$AzE18QwS0SXj3R3wYP2Ls.AiMhb3/oTs1r5Vi9OXYKygHBk6cywYS', 436436536, 'public/img/perfil/12.jpg', 1, 1),
+(15, 'Santiago Romero', 'elsantoposada@gmail.com', '$2y$10$Ybpc.5pRvAcjif9DeckhDuV2i9TwuzI17.Fz0kxCrQNJ1GGmaQoo.', 123456, 'public/img/perfil/15.jpg', 4, 1),
+(20, 'Paz', 'elamor@gmail.com', '$2y$10$fVa13QOokk5tOWCi5Z8pcuYCflkD3deYp9bqHRsnKkjOB6M3as/CC', 1212121212, 'public/img/perfil/20.jpg', 1, 1),
+(30, 'Prueba', 'prueba@gmail.com', '$2y$10$7VCR6BsaiXawTfsZ2fuwfeNlRHPPNz3cSTu5sLvRSwVx9.eS8yCIO', 43342323, 'public/img/perfil/30.jpg', 1, 1),
+(37, 'JorgeGamer', 'jorgegamer@gmail.com', '$2y$10$4Ef6NiCOYL/qolyBIGzbn.IiMgvF6BRCMikDuFalyG6JrsfGtXutO', 12345678, 'public/img/perfil/default.jpg', 2, 1),
+(38, 'SantiagoXD', 'santiago@mail.com', '$2y$10$kL3q/wCpT3d0jo4edbeoLOpde.AqzMYaecUWUGBiFc6BO/CZ4zsBy', 434343434, 'public/img/perfil/default.jpg', 2, 1),
+(40, 'SoyUnCorreoXDXD', 'correo@mail.com', '$2y$10$9wKcXtNCAjkfLcaSIfyHxuKEdPpKW6kXLNvKyaSAGq2KpDGYZZEa.', 34343434, 'public/img/perfil/default.jpg', 2, 1),
+(52, 'Juancitogamer', 'juancito23@gmail.com', '$2y$10$5aPEOdzGxREFDMcMHdn1Xu5Oo8cDdnQlywpCC/IyEjQYAoZsc1rGm', 435435345, 'public/img/perfil/default.jpg', 2, 1),
+(54, 'Pepito de las tinieblas', 'pepeperez@gmail.com', '$2y$10$35MjLISwGW8SZRVBmIDM7OwOpTPclorvJdg6PVEzfjIj01zHvG4re', 1234567812, 'public/img/perfil/default.jpg', 2, 1),
+(55, 'Daniel Carrasco', 'dhcarrasco@gmail.com', '$2y$10$6WSP4Xu1ABPzVjN076zSaOv4YFHWPKuh0QxqJQOYO6VE.XE74.Fxq', 123456789, 'public/img/perfil/55.jpg', 3, 1);
 
 -- --------------------------------------------------------
 
@@ -155,6 +157,25 @@ INSERT INTO `USUARIOS_Direcciones` (`duid`, `uid`, `direccion`) VALUES
 (8, 12, 'Direccion Pedro'),
 (10, 15, 'Enrique Zegoviano'),
 (30, 12, 'Enrique Zegoviano');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `USUARIOS_Estado`
+--
+
+CREATE TABLE `USUARIOS_Estado` (
+  `eid` int(2) NOT NULL,
+  `nombre` varchar(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `USUARIOS_Estado`
+--
+
+INSERT INTO `USUARIOS_Estado` (`eid`, `nombre`) VALUES
+(1, 'Activo'),
+(2, 'Inactivo');
 
 -- --------------------------------------------------------
 
@@ -324,7 +345,8 @@ INSERT INTO `VENTAS` (`vid`, `uid`, `Fecha`, `Total`) VALUES
 (105, 15, '2008-11-11', 200),
 (106, 15, '2008-11-11', 300),
 (107, 15, '2008-11-11', 200),
-(108, 15, '2008-11-11', 600);
+(108, 15, '2008-11-11', 600),
+(109, 15, '2022-10-25', 400);
 
 --
 -- Índices para tablas volcadas
@@ -359,6 +381,12 @@ ALTER TABLE `USUARIOS_Direcciones`
   ADD KEY `uid` (`uid`);
 
 --
+-- Indices de la tabla `USUARIOS_Estado`
+--
+ALTER TABLE `USUARIOS_Estado`
+  ADD PRIMARY KEY (`eid`);
+
+--
 -- Indices de la tabla `USUARIOS_Rangos`
 --
 ALTER TABLE `USUARIOS_Rangos`
@@ -386,7 +414,7 @@ ALTER TABLE `VENTAS`
 -- AUTO_INCREMENT de la tabla `DETALLEVENTA`
 --
 ALTER TABLE `DETALLEVENTA`
-  MODIFY `dvid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `dvid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT de la tabla `PRODUCTOS`
@@ -398,13 +426,19 @@ ALTER TABLE `PRODUCTOS`
 -- AUTO_INCREMENT de la tabla `USUARIOS`
 --
 ALTER TABLE `USUARIOS`
-  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
 -- AUTO_INCREMENT de la tabla `USUARIOS_Direcciones`
 --
 ALTER TABLE `USUARIOS_Direcciones`
   MODIFY `duid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+
+--
+-- AUTO_INCREMENT de la tabla `USUARIOS_Estado`
+--
+ALTER TABLE `USUARIOS_Estado`
+  MODIFY `eid` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `USUARIOS_Rangos`
@@ -422,7 +456,7 @@ ALTER TABLE `USUARIOS_Tarjetas`
 -- AUTO_INCREMENT de la tabla `VENTAS`
 --
 ALTER TABLE `VENTAS`
-  MODIFY `vid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
+  MODIFY `vid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=110;
 
 --
 -- Restricciones para tablas volcadas
