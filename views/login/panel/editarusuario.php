@@ -67,7 +67,7 @@ if (!empty($_POST['nombre']) && !empty($_POST['correo']) && !empty($_POST['contr
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Editar Usuarios</title>
-  <link rel="stylesheet" href="../public/css/login/panel.css">
+  <link rel="stylesheet" href="../public/css/login/panelusuarios.css">
 
   <script language="Javascript" type="text/javascript">
   function Confirmar(frm) {
@@ -80,8 +80,23 @@ if (!empty($_POST['nombre']) && !empty($_POST['correo']) && !empty($_POST['contr
 </head>
 
 <body>
-  <?php include "views/login/panel/navegacion.php";?>
-  <p>Crear Usuario</p>
+
+<nav class="noselect">
+  
+  <ul class="main-menu" id="main-menu">
+    <li><a href="<?php echo constant('URL'); ?>">INICIO</a></li>
+    <li><a href="<?php echo constant('URL'); ?>panel/producto">EDITAR PRODUCTOS</a></li>
+    <li><a href="<?php echo constant('URL'); ?>perfil?uid=<?php echo $_SESSION['uid'] ?>">REGRESAR A MI PERFIL</a></li>
+
+  </ul>
+</nav>
+
+
+
+
+<section id="main">
+
+<h1>GESTIONAR USUARIOS</h1>
   <form action="editar" method="POST">
     <input name="nombre" type="text" placeholder="Nombre">
     <input name="correo" type="text" placeholder="Correo electronico">
@@ -137,20 +152,6 @@ if (isset($_GET['borrar'])) { // Si hay algo en la URL de borrar usuario
 
 ?>
 
-
-
-  <table width="200" border="1">
-    <thead>
-      <tr>
-        <td>ID</td>
-        <td>Usuario</td>
-        <td>Avatar</td>
-        <td>Rango</td>
-        <td>Opciones</td>
-      </tr>
-    </thead>
-    <tbody>
-
       <?php
 
 if($user['rango'] == '1'){
@@ -176,21 +177,31 @@ foreach ($data as $row) {
     }
 
     ?>
+    <div class="usuarios">
+    <img src="../<?php echo $row['avatar']; ?>" />
+
+    <table class="options">
       <tr>
-        <td><?php echo $row['uid']; ?></td>
-        <td><?php echo $row['nombre']; ?></td>
-        <td><img src="../<?php echo $row['avatar']; ?>" width="50px" height="50px"></td>
-        <td><?php echo $ran['nombre']; ?></td>
         <td><a href="editarperfil?uid=<?php echo $row['uid']; ?>">Editar</a> | <a
-            href="editar?borrar=<?php echo $row['uid']; ?>" onclick="return Confirmar (this.form)">Borrar</a></td>
+        href="editar?borrar=<?php echo $row['uid']; ?>" onclick="return Confirmar (this.form)">Borrar</a></td>
       </tr>
+    </table>
+
+    <table>
+      <tr>
+        <td class="id"><?php echo $row['uid']; ?></td></tr>
+        <tr><td class="rango" <?php if ($ran['rid'] == 4) { ?>style="color: red!important;"<?php } ?>><?php echo $ran['nombre']; ?></td></tr>
+        <tr><td class="nombre"><?php echo $row['nombre']; ?></td></tr>
+        <tr><td class="correo"><?php echo $row['correo']; ?></td></tr>
+    </table>
+
+    
+    
+    </div>
 
       <?php }
 ?>
-    </tbody>
-  </table>
-
-  <?php include "views/index/footer.php";?>
+</section>
 
 </body>
 
