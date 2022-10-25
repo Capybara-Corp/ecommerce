@@ -1,5 +1,8 @@
 <?php
 
+$message = "";
+$existe = false;
+
 require 'libs/connect.php';
 require "config/config.php";
 if (isset($_SESSION['uid'])) {
@@ -26,6 +29,7 @@ if (isset($_SESSION['uid'])) {
 
     if (count($results) > 0) {
         $tarjetas = $results;
+        $existe = true;
     }
 
 
@@ -123,11 +127,12 @@ if (($_GET['uid']) == ($_SESSION['uid'])): ?>
 
     <?php 
     
+    if ($existe == true) {
     foreach($tarjetas as $row){ ?>
 
         <p>Numero de tarjeta: <?php echo $row['tarjeta'] ?><a href="tarjetas?uid=<?php echo $_SESSION['uid'] ?>&borrar=<?php echo $row['tuid']; ?>" onclick="return Confirmar (this.form)">Borrar</a>
 
-    <?php }
+    <?php }}
 
     ?>
 
