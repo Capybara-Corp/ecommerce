@@ -1,5 +1,6 @@
 <?php
 
+$message = '';
 
 require 'libs/connect.php';
 require "config/config.php";
@@ -52,7 +53,7 @@ if (!empty($_POST['nombre']) && !empty($_POST['correo']) && !empty($_POST['contr
             $message = 'Ha ocurrido un error ejecutando la consulta';
         }
     } catch (Exception $e) {
-        echo "Ha ocurrido un error";
+        $message = "Ha ocurrido un error";
     }
 }
 
@@ -209,8 +210,10 @@ foreach ($data as $row) // Por cada rango me muestra una opcion, notese que mues
     </p>
     <input type="submit" value="Agregar">
   </form>
+  <?php if (!empty($message)): ?>
+  <p id="mensaje"> <?=$message;?></p>
+  <?php endif;?>
 </div>
-
 
 
 </body>
