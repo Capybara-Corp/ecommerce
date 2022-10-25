@@ -4,6 +4,7 @@ $id_producto       = $_POST["pid"];
 $cantidad_producto = $_POST["cantidad"];
 $cantidad          = 0;
 $total = 0;
+$date = date("Y-m-d");
 
 
 include '../libs/connect.php';
@@ -66,9 +67,10 @@ if ($cantidad < 0) {
     $conn->prepare($sql)->execute([$cantidad, $id_producto]);
     
     
-    $sql = "INSERT INTO VENTAS (uid, Fecha, Total) VALUES (:uid, '2008-11-11', :total)";
+    $sql = "INSERT INTO VENTAS (uid, Fecha, Total) VALUES (:uid, :date, :total)";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':uid', $user['uid']);
+    $stmt->bindParam(':date', $date);
     $stmt->bindParam(':total', $total);
     $stmt->execute();
 

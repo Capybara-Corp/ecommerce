@@ -39,6 +39,7 @@ $user = $results; // Me carga en "$user" los datos de mi usuario de mi sesión
 
 </head>
 
+
 <body>
   <section id="container_big">
     <!-- Es todo el contenedor de arriba, es decir, el que tiene la imagen de los barriles de fondo -->
