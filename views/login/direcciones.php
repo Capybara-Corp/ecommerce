@@ -1,5 +1,8 @@
 <?php
 
+$message = "";
+$existe = false;
+
 require 'libs/connect.php';
 require "config/config.php";
 if (isset($_SESSION['uid'])) {
@@ -26,6 +29,7 @@ if (isset($_SESSION['uid'])) {
 
     if (count($results) > 0) {
         $direcciones = $results;
+        $existe = true;
     }
 
 
@@ -122,12 +126,13 @@ if (($_GET['uid']) == ($_SESSION['uid'])): ?>
 
 
     <?php 
-    
+
+    if ($existe == true) {
     foreach($direcciones as $row){ ?>
 
         <p>Direccion: <?php echo $row['direccion'] ?><a href="direcciones?uid=<?php echo $_SESSION['uid'] ?>&borrar=<?php echo $row['duid']; ?>" onclick="return Confirmar (this.form)">Borrar</a>
 
-    <?php }
+    <?php }}
 
     ?>
 
