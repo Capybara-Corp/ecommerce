@@ -88,21 +88,21 @@ if (($_GET['uid']) == ($_SESSION['uid'])): ?>
     <p>
     <label for="textfield2" class="campo">
       Contraseña:</label>
-      <input type="text" name="contrasena" id="textfield" />
+      <input type="password" name="contrasena" id="textfield" />
     </p>
     <p>
     <label for="textfield2" class="campo">
       Teléfono:</label>
-      <input type="text" name="telefono" id="textfield" />
+      <input type="text" name="telefono" id="textfield" value="<?php echo $user['telefono']; ?>" />
     </p>
     <p>
     <label for="textfield2" class="campo">
-      Tarjeta:</label>
+      Añadir Tarjeta:</label>
       <input type="text" name="tarjeta" id="textfield" />
     </p>
     <p>
     <label for="textfield2" class="campo">
-      Direccion:</label>
+      Añadir Direccion:</label>
       <input type="text" name="direccion" id="textfield" />
     </p>
       <input type="submit" name="editar" id="buttoneditar" value="Editar datos" />
@@ -175,6 +175,7 @@ if ($_POST['direccion'] != '') {
 
     if ($stmt->execute()) {
         $message = 'Datos actualizados con exito';
+        Header("Location: editar?uid=" . $user['uid']);
     } else {
         $message = 'No se han podido actualizar los datos';
     }
@@ -193,6 +194,7 @@ if ($_POST['direccion'] != '') {
     $stmt->bindParam(':tarjeta', $tarjeta);
 
     if ($stmt->execute()) {
+        Header("Location: editar?uid=" . $user['uid']);
         $message = 'Datos actualizados con exito';
     } else {
         $message = 'No se han podido actualizar los datos';
@@ -213,6 +215,7 @@ if ($_POST['direccion'] != '') {
   
       if ($stmt->execute()) {
           $message = 'Datos actualizados con exito';
+          Header("Location: editar?uid=" . $user['uid']);
       } else {
           $message = 'No se han podido actualizar los datos';
       }
@@ -231,7 +234,7 @@ if (isset($_POST['eliminar'])) {
     if($user['avatar'] != "public/img/perfil/default.jpg"){
       unlink("" . $user['avatar'] . ""); //Borramos el archivo de la foto de perfil del disco duro
       }
-    $borrar = $conn->prepare('DELETE FROM USUARIOS WHERE uid = :id'); //Borramos el usuario de la BD
+    $borrar = $conn->prepare('UPDATE USUARIOS SET estado = 2 WHERE uid = :id'); //Borramos el usuario de la BD
     $borrar->bindParam(':id', $_SESSION['uid']);
     $borrar->execute();
     header('Location: logout');

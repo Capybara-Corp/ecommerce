@@ -138,7 +138,7 @@ a{
   margin-left: auto;
   margin-right: auto;
   margin-top: 70px;
-  border: 0.2vw solid #56070C;
+  border: 0.2vw solid black;
   border-radius: 10px;
   width: 300px;
   height: 70px;
@@ -149,13 +149,13 @@ a{
   text-align: center;
   margin-top: 17px;
   font-family: 'Noto Sans', sans-serif;
-  color: #56070C;
+  color: black;
   font-size: 25px;
   font-weight: 900;
 }
 
 #shop:hover {
-  background: #56070C;
+  background: #C51575;
 }
 
 #shop:hover p{

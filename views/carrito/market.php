@@ -25,6 +25,7 @@ if (isset($_SESSION['uid'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tienda</title>
   <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/carrito/style_market.css">
+  <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/carrito/header_black_market.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -53,6 +54,18 @@ if (isset($_SESSION['uid'])) {
 
   <input type="hidden" value="<?php echo constant('URL'); ?>" id="urlBase">
   <h1 id="title">TIENDA</h1>
+  
+
+
+  <form action="market" method="POST" id="buscar">
+    <input name="nombre" type="text" placeholder="Buscar producto">
+    <input type="submit" value="Buscar">
+  </form>
+  
+
+
+
+
   <div id="contenedor_market">
 
     <section class="celda_market"></section>

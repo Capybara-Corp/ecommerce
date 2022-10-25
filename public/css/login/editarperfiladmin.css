@@ -43,7 +43,7 @@ body {
     display: block;
 }
 
-input[type="text"]{
+input[type="text"], input[type="password"]{
     height: 3vh;
     width: 80%;
     font-size: 1vw;

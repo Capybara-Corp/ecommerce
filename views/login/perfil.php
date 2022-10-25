@@ -77,7 +77,7 @@ if (isset($_GET['uid'])): ?>
   <?php include "views/index/header.php";?>
 
   <section id="muro">
-    <div id="rosa">
+    <div id="rosa" <?php if($perfil['rango'] == 4){ ?> style="background: #202020!important;" <?php } ?>>  
       <br>
       <img src="<?php echo $perfil['avatar']; ?>" class="profilepic">
 
@@ -94,7 +94,7 @@ if (isset($_GET['uid'])): ?>
       <?php if ($perfil['rango'] == '4') {?>
       <p id="lider">(supremo lider)</p><?php }?>
 
-      <h1 style="color:<?php echo $rango['color']; ?>" id=profilename>
+      <h1 style="color:<?php echo $rango['color']; ?>;<?php if($perfil['rango'] == 4){?> -webkit-text-stroke: 0.05vw white; <?php } ?>" id=profilename>
         <?=$perfil['nombre'];?>
       </h1>
       <?php if (($_GET['uid']) == ($_SESSION['uid'])) {?>
@@ -104,7 +104,15 @@ if (isset($_GET['uid'])): ?>
         Editar mi perfil
       </a>
       <br>
-      <?php if ($rango['rid'] == '1' || $rango['rid'] == '3' || $rango['rid'] == '4') {?><a href="panel" id="panelAdmin">Panel
+      <a id="mycards" href="tarjetas?uid=<?php echo ($_SESSION['uid']); ?>">
+        Mis tarjetas
+      </a>
+      <br>
+      <a id="mycards" href="direcciones?uid=<?php echo ($_SESSION['uid']); ?>">
+        Mis direcciones
+      </a>
+      <br>
+      <?php if ($rango['rid'] == '1' || $rango['rid'] == '3' || $rango['rid'] == '4') {?><a href="panel" id="panelAdmin" <?php if($perfil['rango'] == 4) { ?> style="color: white!important;"<?php } ?> ">Panel
         Admin</a><?php }?>
 
 
@@ -130,15 +138,7 @@ if (isset($_GET['uid'])): ?>
 
       <br>
 
-      <?php if ($perfil['rango'] == '3') {?>
-      <img src="https://www.pngmart.com/files/12/Darth-Vader-Helmet-PNG-File.png
-" alt="" id="darth"><?php }?>
-
-<?php if ($perfil['rango'] == '4') {?>
-      <img src="https://pngimg.com/uploads/kim_jong_un/kim_jong_un_PNG6.png
-" alt="" id="leader"><?php }?>
-
-
+  
 
 
 
