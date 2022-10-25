@@ -54,6 +54,18 @@ if (isset($_SESSION['uid'])) {
 
   <input type="hidden" value="<?php echo constant('URL'); ?>" id="urlBase">
   <h1 id="title">TIENDA</h1>
+  
+
+
+  <form action="market" method="POST" id="buscar">
+    <input name="nombre" type="text" placeholder="Buscar producto">
+    <input type="submit" value="Buscar">
+  </form>
+  
+
+
+
+
   <div id="contenedor_market">
 
     <section class="celda_market"></section>
