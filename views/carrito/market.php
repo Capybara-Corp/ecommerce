@@ -70,6 +70,7 @@ $user = $results;
 
     <section class="celda_market"></section>
     <section class="celda_carrito">
+
       <h1>CARRITO</h1>
       <div id="separator1" class="separator"></div>
 
@@ -107,6 +108,9 @@ $user = $results;
     const market = document.querySelector(".celda_market");
     let data = new FormData();
     data.set("buscar", document.querySelector(".botonbuscar").value);
+    let urlBase = document.getElementById("urlBase").value;
+    console.log("print");
+    console.log(urlBase);
 
     fetch('/ecommerce/views/cargararticulos/listar.php', {
         method: 'POST',

@@ -3,7 +3,7 @@
 //$defaultUrl = constant('URL');
 //$var        = 1;
 
-require 'connect.php';
+require 'libs/connect.php';
 $buscStr = $_POST["buscar"] ?? "";
 
 if ($buscStr != "") {
