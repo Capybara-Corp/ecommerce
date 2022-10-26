@@ -98,6 +98,9 @@ if (isset($_GET['uid'])): //Si hay un "uid" en la URL...
     <p>
       <input type="submit" name="editarfoto" id="button" value="Editar" />
     </p>
+    <p>
+      <input type="submit" name="eliminarfoto" id="button" value="Eliminar foto" />
+    </p>
   </form>
 </div>
 
@@ -273,6 +276,26 @@ if (isset($_GET['uid'])): //Si hay un "uid" en la URL...
       }
 
     }
+
+    if (isset($_POST['eliminarfoto'])) {
+      if($usuario['avatar'] != "public/img/perfil/default.jpg"){
+        unlink("" . $usuario['avatar'] . ""); //Borramos el archivo de la foto de perfil del disco duro
+        try{
+          $cambiar = $conn->prepare('UPDATE USUARIOS SET avatar = "public/img/perfil/default.jpg" WHERE uid = :id'); //Borramos el usuario de la BD
+          $cambiar->bindParam(':id', $usuario['uid']);
+          $cambiar->execute();
+          Header("Location: editarperfil?uid=" . $usuario['uid']);
+        }
+        catch(Exception $e){
+          $message = "Ha ocurrido un error"; 
+          echo "<p class=\"message\">$message<p>";
+        }}
+      else{
+        echo "<p class=\"message\">No tienes una foto<p>";
+      }
+    
+    }
+
     ?>
 
   <?php endif;?>
