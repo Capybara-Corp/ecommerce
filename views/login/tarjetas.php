@@ -1,5 +1,8 @@
 <?php
 
+$message = "";
+$existe = False;
+
 require 'libs/connect.php';
 require "config/config.php";
 if (isset($_SESSION['uid'])) {
@@ -26,6 +29,7 @@ if (isset($_SESSION['uid'])) {
 
     if (count($results) > 0) {
         $tarjetas = $results;
+        $existe = True;
     }
 
 
@@ -116,7 +120,8 @@ if (($_GET['uid']) == ($_SESSION['uid'])): ?>
       <input type="text" name="tarjeta" id="textfield" /><input type="submit" name="añadir" value="Añadir tarjeta" />
     </p>
 </form>
-    <?php if (isset($message)){
+
+    <?php if ($existe == True){
         echo $message;
     } ?>
 
