@@ -77,12 +77,12 @@ if (($_GET['uid']) == ($_SESSION['uid'])): ?>
     }
     catch(Exception $e){
         $message = "Ha ocurrido un error"; 
-        echo "<p class=\"message\">$message<p>";
       }
 }
 
     if (isset($_POST['añadir']) && (isset($_POST['tarjeta']))){
         $tarjeta = $_POST['tarjeta'];
+        if($tarjeta != ''){
             try{
               $sql  = "INSERT INTO USUARIOS_Tarjetas (uid, tarjeta) VALUES (:id, :tarjeta)";
               $stmt = $conn->prepare($sql);
@@ -91,20 +91,30 @@ if (($_GET['uid']) == ($_SESSION['uid'])): ?>
           
               if ($stmt->execute()) {
                   $message = 'Datos actualizados con exito';
-                  Header("Location: tarjetas?uid=" . $user['uid']);
+                  $records = $conn->prepare('SELECT * FROM USUARIOS_Tarjetas WHERE uid = :id');
+                  $records->bindParam(':id', $_SESSION['uid']);
+                  $records->execute();
+                  $results = $records->fetchAll(PDO::FETCH_ASSOC);
+
+                  $tarjetas = null;
+
+                  if (count($results) > 0) {
+                      $tarjetas = $results;
+                      $existe = True;
+                      Header("Location: tarjetas?uid=" . $user['uid']);
+                  }
+                  
               } else {
                   $message = 'No se han podido actualizar los datos';
               }
             }
             catch(Exception $e){
               $message = "Ha ocurrido un error"; 
-              echo "<p class=\"message\">$message<p>";
+            }}
+            else{
+              $message = "Ingrese una tarjeta";
             }
-    } else {
-        echo $message;
-    }
-    
-
+    } 
     
 
 ?>
@@ -122,18 +132,23 @@ if (($_GET['uid']) == ($_SESSION['uid'])): ?>
 </form>
 
     <?php if (isset($message)){
-        echo $message;
+        echo "<p class=\"message\">$message<p>";
     } ?>
 
 
     <?php 
     
-    if ($existe == true) {
+    if ($existe == true) { ?>
+    
+    <section id="tarjetas"> <?php
+
     foreach($tarjetas as $row){ ?>
 
         <p>Numero de tarjeta: <?php echo $row['tarjeta'] ?><a href="tarjetas?uid=<?php echo $_SESSION['uid'] ?>&borrar=<?php echo $row['tuid']; ?>" onclick="return Confirmar (this.form)">Borrar</a>
 
-    <?php }}
+    <?php }
+  ?> </section> <?php  
+  }
 
     ?>
 
