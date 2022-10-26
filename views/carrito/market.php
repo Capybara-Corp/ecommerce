@@ -107,12 +107,14 @@ $user = $results;
   function buscar_ahora() {
     const market = document.querySelector(".celda_market");
     let data = new FormData();
-    data.set("buscar", document.querySelector(".botonbuscar").value);
+    let texto = document.getElementById("buscar").value;
+    data.set("buscar", texto);
+    console.log(texto);
     let urlBase = document.getElementById("urlBase").value;
     console.log("print");
     console.log(urlBase);
 
-    fetch('/ecommerce/views/cargararticulos/listar.php', {
+    fetch(urlBase + 'buscarArticulos/buscar', {
         method: 'POST',
         body: data
       })

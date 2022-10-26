@@ -23,16 +23,30 @@ class BuscarArticulos_Model extends Model
 
             if ($buscStr != "") {
                 //codigo cuando busco
-                $data = $pdo->prepare("SELECT * FROM PRODUCTOS");
+                $query = $pdo->prepare("SELECT * FROM PRODUCTOS");
             } else {
                 $query = $pdo->prepare("SELECT * FROM PRODUCTOS");
                 //muestro todo
             }
 
-            $resultado = $query->execute();
+            //$resultado = $query->execute();
             //$filasAf   = $query->rowCount();
 
-            $items = $resultado->fetchAll();
+            $query->execute();
+            while ($row = $query->fetch()) {
+                $item              = new ArticuloDto();
+                $item->id_producto = $row['pid'];
+                $item->img         = $row['img'];
+                $item->nombre      = $row['nombre'];
+                $item->precio      = $row['precio_venta'];
+                $item->descrip     = $row['descrip'];
+                $item->marca       = $row['marca'];
+                $item->cantidad    = $row['cantidad'];
+                //array_push($items, $item);
+                $items[] = $item;
+
+            } //end while
+
             return $items;
 
         } catch (PDOException $e) {
