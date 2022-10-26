@@ -53,11 +53,17 @@ form label{
 #tarjetas{
   height: auto;
   width: auto;
-  background: red;
 }
 
 #tarjetas p{
   text-align: center;
+  font-size: 1vw;
+  font-family: monospace;
+  font-weight: 300;
+}
+
+#tarjetas p a{
+  text-decoration: none;
 }
 
 

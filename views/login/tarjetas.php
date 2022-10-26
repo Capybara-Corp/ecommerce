@@ -138,14 +138,18 @@ if (($_GET['uid']) == ($_SESSION['uid'])): ?>
 
     <?php 
     
-    if ($existe == true) { ?>
+    if ($existe == true) { 
+      
+      $num = 1;
+      ?>
     
     <section id="tarjetas"> <?php
 
     foreach($tarjetas as $row){ ?>
 
-        <p>Numero de tarjeta: <?php echo $row['tarjeta'] ?><a href="tarjetas?uid=<?php echo $_SESSION['uid'] ?>&borrar=<?php echo $row['tuid']; ?>" onclick="return Confirmar (this.form)">Borrar</a>
-
+        <p>Numero de tarjeta <?php echo $num ?>: <?php echo $row['tarjeta'] ?> <a href="tarjetas?uid=<?php echo $_SESSION['uid'] ?>&borrar=<?php echo $row['tuid']; ?>" onclick="return Confirmar (this.form)">Borrar</a></p>
+        
+        <?php $num++; ?>
     <?php }
   ?> </section> <?php  
   }
