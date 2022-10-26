@@ -121,18 +121,19 @@ if (($_GET['uid']) == ($_SESSION['uid'])): ?>
     </p>
 </form>
 
-    <?php if ($existe == True){
+    <?php if (isset($message)){
         echo $message;
     } ?>
 
 
     <?php 
     
+    if ($existe == true) {
     foreach($tarjetas as $row){ ?>
 
         <p>Numero de tarjeta: <?php echo $row['tarjeta'] ?><a href="tarjetas?uid=<?php echo $_SESSION['uid'] ?>&borrar=<?php echo $row['tuid']; ?>" onclick="return Confirmar (this.form)">Borrar</a>
 
-    <?php }
+    <?php }}
 
     ?>
 
