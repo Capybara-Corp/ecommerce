@@ -19,14 +19,27 @@ class BuscarArticulos_Model extends Model
         $pdo       = $this->db->connect();
         try {
 
-            $query = $pdo->prepare("SELECT * FROM PRODUCTOS WHERE nombre LIKE LOWER('%" . $buscStr . "%')");
+            //$query = $pdo->prepare("SELECT * FROM PRODUCTOS WHERE nombre LIKE LOWER('%" . $buscStr . "%')");
 
             if ($buscStr != "") {
                 //codigo cuando busco
-                $query = $pdo->prepare("SELECT * FROM PRODUCTOS");
+                $query = $pdo->prepare("SELECT * FROM PRODUCTOS WHERE nombre LIKE :textostr");
+                //$query = $pdo->prepare('SELECT codigo, descripcion FROM productos WHERE descripcion LIKE :textostr');
+                // $query = '%' . $search . '%';
+                $term = "%$buscStr%";
+
+//$query
+                //$query->bindParam(':textostr', '%' . $search . '%');
+                $query->bindParam(':textostr', $term, PDO::PARAM_STR);
+//$query->execute(['nombre' => $nombre]);
+                $query->execute();
+
+                // } else {
+                //  $query = $pdo->prepare("SELECT * FROM PRODUCTOS");
+                //muestro todo
             } else {
                 $query = $pdo->prepare("SELECT * FROM PRODUCTOS");
-                //muestro todo
+
             }
 
             //$resultado = $query->execute();
