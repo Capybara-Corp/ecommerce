@@ -3,18 +3,18 @@
 /*require 'libs/connect.php';
 
 if (isset($_SESSION['uid'])) {
-    $records = $conn->prepare('SELECT * FROM USUARIOS WHERE uid = :id');
-    $records->bindParam(':id', $_SESSION['uid']);
-    $records->execute();
-    $results = $records->fetch(PDO::FETCH_ASSOC);
+$records = $conn->prepare('SELECT * FROM USUARIOS WHERE uid = :id');
+$records->bindParam(':id', $_SESSION['uid']);
+$records->execute();
+$results = $records->fetch(PDO::FETCH_ASSOC);
 
-    $user = null;
+$user = null;
 
-    if (count($results) > 0) {
-        $user = $results;
-    }
+if (count($results) > 0) {
+$user = $results;
+}
 }*/
-?>
+;?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -55,13 +55,13 @@ if (isset($_SESSION['uid'])) {
 
   <input type="hidden" value="<?php echo constant('URL'); ?>" id="urlBase">
   <h1 id="title">TIENDA</h1>
-  
+
 
 
   <input type="text" class="form-control" id="buscar" name="buscar">
 
-  <button onclick="buscar_ahora($('#buscar').val());" class="botonbuscar">Buscar</button>
-  
+  <button onclick="buscar_ahora();" class="botonbuscar">Buscar</button>
+
 
 
 
@@ -93,9 +93,9 @@ if (isset($_SESSION['uid'])) {
     echo "<h1 id=\"get1\" style=\"display: none;\">" . $results['pid'] . "</h1>";
     echo "<h1 id=\"get2\" style=\"display: none;\">" . $results['nombre'] . "</h1>";
     echo "<h1 id=\"get3\" style=\"display: none;\">" . $results['precio_venta'] . "</h1>";
-    
-    }
-  ?>
+
+}
+?>
 
   <?php include "views/index/footer.php";?>
 
@@ -103,16 +103,28 @@ if (isset($_SESSION['uid'])) {
 
 
   <script type="text/javascript">
-  function buscar_ahora(buscar) {
-    var parametros = {"buscar":buscar};
-    $.ajax({
-    data:parametros,
-    type: 'POST',
-    url: '/ecommerce/views/cargararticulos/listar.php' ,
-    success: function(data) {
-    document.getElementsByClassName("celda_market").innerHTML = data;
-    }
-    });
+  function buscar_ahora() {
+    const market = document.querySelector(".celda_market");
+    let data = new FormData();
+    data.set("buscar", document.querySelector(".botonbuscar").value);
+
+    fetch('/ecommerce/views/cargararticulos/listar.php', {
+        method: 'POST',
+        body: data
+      })
+      .then(function(response) {
+        if (response.ok) {
+          return response.text();
+        } else {
+          throw "Error";
+        }
+      })
+      .then(function(texto) {
+        market.innerHTML = texto;
+      })
+      .catch(function(err) {
+        console.log(err);
+      });
   }
   </script>
 
