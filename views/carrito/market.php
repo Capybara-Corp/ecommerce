@@ -41,6 +41,7 @@ if (isset($_SESSION['uid'])) {
 
   <script src="<?php echo constant('URL'); ?>public/js/carrito/script_shop_loaded.js"></script>
   <script src="<?php echo constant('URL'); ?>public/js/carrito/script_carrito_charger.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
 </head>
 
@@ -57,10 +58,9 @@ if (isset($_SESSION['uid'])) {
   
 
 
-  <form action="market" method="POST" id="buscar">
-    <input name="nombre" type="text" placeholder="Buscar producto">
-    <input type="submit" value="Buscar">
-  </form>
+  <input type="text" class="form-control" id="buscar" name="buscar">
+
+  <button onclick="buscar_ahora($('#buscar').val());" class="botonbuscar">Buscar</button>
   
 
 
@@ -101,6 +101,20 @@ if (isset($_SESSION['uid'])) {
 
   <script src="<?php echo constant('URL'); ?>public/js/menu.js"></script>
 
+
+  <script type="text/javascript">
+  function buscar_ahora(buscar) {
+    var parametros = {"buscar":buscar};
+    $.ajax({
+    data:parametros,
+    type: 'POST',
+    url: '/ecommerce/views/cargararticulos/listar.php' ,
+    success: function(data) {
+    document.getElementsByClassName("celda_market").innerHTML = data;
+    }
+    });
+  }
+  </script>
 
 </body>
 

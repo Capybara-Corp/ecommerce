@@ -35,6 +35,12 @@ a{
   
 }
 
+.botonbuscar{
+  position: absolute!important;
+  top: 10vh!important;
+  left: 34vw!important;
+}
+
 
 
 
@@ -169,7 +175,7 @@ a{
   font-family: monospace;
 }
 
-button{
+.celda_market button{
   float: left;
   margin-left: -13vw;
   margin-top: 24vh;

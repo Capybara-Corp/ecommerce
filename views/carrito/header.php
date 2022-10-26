@@ -1,7 +1,7 @@
 <nav class="noselect">
   <!-- Es el menu superior -->
   <div id="toggle-menu" class="toggle-menu">
-    <img src="public/media/menu.png">
+    <img src="../public/media/menu.png">
   </div> <!-- Este div contiene la imagen del boton para abrir el menu -->
   <ul class="main-menu" id="main-menu">
     <li><a href="<?php echo constant('URL'); ?>">INICIO</a></li>
