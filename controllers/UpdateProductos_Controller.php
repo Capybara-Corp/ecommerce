@@ -5,12 +5,14 @@ $cantidad_producto = $_POST["cantidad"];
 $cantidad          = 0;
 $total = 0;
 $date = date("Y-m-d");
+$lastventa = 0;
 
 session_start();
 
 include '../libs/connect.php';
 
-include 'GenerarVenta_Controller.php';
+//require_once 'GenerarVenta_Controller.php';
+
 
 require "../config/config.php";
 
@@ -43,13 +45,15 @@ else{
 
 
 
-
+$sql2 = "SELECT MAX(vid) FROM VENTAS";
+    $stmt = $conn->prepare($sql2);
+    $stmt->execute();
+  $lastventa = $stmt->fetch();
 
 
 
 
 $data = $conn->query("SELECT * FROM PRODUCTOS")->fetchAll();
-$venta = $conn->query("SELECT * FROM VENTAS")->fetchAll();
 $detalleventa = $conn->query("SELECT * FROM DETALLEVENTA")->fetchAll();
 
 foreach ($data as $row) {
@@ -71,10 +75,7 @@ if ($cantidad < 0) {
     $conn->prepare($sql)->execute([$cantidad, $id_producto]);
     
     
-    $sql = "INSERT INTO DETALLEVENTA (vid, pid, cantidad, subtotal) VALUES ($lastventa, '3', '45', '450')";
+    $sql = "INSERT INTO DETALLEVENTA (vid, pid, cantidad, subtotal) VALUES ({$lastventa['MAX(vid)']}, '3', '45', '450')";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
-
-
-    echo "Compra realizada con éxito";
 }

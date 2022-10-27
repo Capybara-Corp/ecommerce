@@ -8,7 +8,7 @@ session_start();
 
 $total = $_POST["sum"];
 
-$lastventa = 0;
+
 
 
 include '../libs/connect.php';
@@ -55,8 +55,5 @@ if ($cantidad < 0) {
     $stmt->bindParam(':total', $total);
     $stmt->execute();
 
-    $lastventa = $conn->lastInsertId();
-
-
-    echo "Venta realizada con exito";
+    echo "Compra realizada con éxito";
 }
