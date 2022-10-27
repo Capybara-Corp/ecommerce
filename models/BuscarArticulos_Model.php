@@ -22,6 +22,8 @@ class BuscarArticulos_Model extends Model
             //$query = $pdo->prepare("SELECT * FROM PRODUCTOS WHERE nombre LIKE LOWER('%" . $buscStr . "%')");
 
             if ($buscStr != "") {
+                $buscStr = trim($buscStr);
+                $buscStr = strtolower($buscStr);
                 //codigo cuando busco
                 $query = $pdo->prepare("SELECT * FROM PRODUCTOS WHERE nombre LIKE :textostr");
                 //$query = $pdo->prepare('SELECT codigo, descripcion FROM productos WHERE descripcion LIKE :textostr');

@@ -1,6 +1,7 @@
 <?php
 
-/*require 'libs/connect.php';
+require 'libs/connect.php';
+/*
 
 if (isset($_SESSION['uid'])) {
 $records = $conn->prepare('SELECT * FROM USUARIOS WHERE uid = :id');
@@ -58,9 +59,8 @@ $user = $results;
 
 
 
-  <input type="text" class="form-control" id="buscar" name="buscar">
+  <input onkeyup="buscar_ahora();" type="text" class="form-control" id="buscar" name="buscar">
 
-  <button onclick="buscar_ahora();" class="botonbuscar">Buscar</button>
 
 
 
@@ -85,7 +85,8 @@ $user = $results;
     </section>
   </div>
 
-  <?php if (isset($_GET['pid'])) {
+  <?php 
+  if (isset($_GET['pid'])) {
     $records = $conn->prepare('SELECT * FROM PRODUCTOS WHERE pid=:pid');
     $records->bindParam(':pid', $_GET['pid']);
     $records->execute();

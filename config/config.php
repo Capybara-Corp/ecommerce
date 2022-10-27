@@ -8,7 +8,7 @@ if (!defined('HOST')) {
     define('HOST', 'localhost');
 }
 if (!defined('PORT')) {
-    define('PORT', '3307');
+    define('PORT', '');
 }
 if (!defined('DB')) {
     define('DB', 'ECOMMERCE');

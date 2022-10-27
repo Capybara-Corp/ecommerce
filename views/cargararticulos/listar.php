@@ -1,7 +1,7 @@
 <?php
 
 //$defaultUrl = constant('URL');
-//$var        = 1;
+$var        = 1;
 
 require 'libs/connect.php';
 $buscStr = $_POST["buscar"] ?? "";
@@ -16,6 +16,7 @@ if ($buscStr != "") {
 }
 
 foreach ($data as $row) {
+    $var += 1;
     echo "<section style='background-image: url(../" . $row['img'] . ");background-size: 5vw, contain;background-repeat: no-repeat;background-position: left;background-position-x: 5vw;'><p class='nombre'>" . $row['nombre'] . "</p><p class='stock'>STOCK: " . $row['cantidad'] . "</p><p class='precio'>$" . $row['precio_venta'] . "</p><p class='descrip'>" . $row['descrip'] . "</p><p class='marca'>" . $row['marca'] . "</p><button onclick='carrito_charger(\"" . $row['pid'] . "\", \"" . $row['nombre'] . "\", \"" . $row['precio_venta'] . "\")'> <p>AÑADIR</button></section>";
 }
 
@@ -58,4 +59,4 @@ background-position-x: 5vw;'
 (\"" . $row->id_producto . "\", \"" . $row->nombre . "\", \"" . $row->precio . "\")'> <p>AÑADIR</button></section>";
 }}*/
 
-//echo "<p id=\"totalProductos\" style=\"display: none;\">$var</p>";
+echo "<p id=\"totalProductos\" style=\"display: none;\">$var</p>";
