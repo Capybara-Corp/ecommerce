@@ -69,11 +69,12 @@ function refreshCarrito() {
 }
 
 function generar_compra() {
+  fetch_async_venta();
   for (const [k, v] of map_productos_carrito.entries()) {
     //alert('esto funciona');
     fetch_async_compra(k, v.cant);
   }
-  fetch_async_venta();
+  
 }
 
 function fetch_async_compra(pid, cant) {

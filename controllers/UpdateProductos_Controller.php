@@ -9,7 +9,11 @@ $date = date("Y-m-d");
 session_start();
 
 include '../libs/connect.php';
+
+include 'GenerarVenta_Controller.php';
+
 require "../config/config.php";
+
 if (isset($_SESSION['uid'])) {
     $records = $conn->prepare('SELECT * FROM USUARIOS WHERE uid = :id');
     $records->bindParam(':id', $_SESSION['uid']);
@@ -67,11 +71,9 @@ if ($cantidad < 0) {
     $conn->prepare($sql)->execute([$cantidad, $id_producto]);
     
     
-
-
-    /*$sql = "INSERT INTO DETALLEVENTA (vid) VALUES (LAST_INSERT_ID())";
+    $sql = "INSERT INTO DETALLEVENTA (vid, pid, cantidad, subtotal) VALUES ($lastventa, '3', '45', '450')";
     $stmt = $conn->prepare($sql);
-    $stmt->execute();*/
+    $stmt->execute();
 
 
     echo "Compra realizada con éxito";
