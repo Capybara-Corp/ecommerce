@@ -103,6 +103,7 @@ nav {
 .dropbtn {
   all: unset;
   cursor: pointer;
+  white-space: nowrap;
 }
 
 
