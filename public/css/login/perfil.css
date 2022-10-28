@@ -60,7 +60,7 @@ body {
   text-decoration: none;
 }
 
-#mycards {
+.mycards {
   color: white;
   border: none !important;
   grid-column: 1;
