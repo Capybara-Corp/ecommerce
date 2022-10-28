@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 27-10-2022 a las 23:28:51
+-- Tiempo de generación: 28-10-2022 a las 17:30:51
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -35,6 +35,15 @@ CREATE TABLE `DETALLEVENTA` (
   `subtotal` int(7) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `DETALLEVENTA`
+--
+
+INSERT INTO `DETALLEVENTA` (`dvid`, `vid`, `pid`, `cantidad`, `subtotal`) VALUES
+(120, 282, 1, 2, 400),
+(121, 282, 2, 3, 900),
+(122, 282, 4, 1, 200);
+
 -- --------------------------------------------------------
 
 --
@@ -58,10 +67,10 @@ CREATE TABLE `PRODUCTOS` (
 --
 
 INSERT INTO `PRODUCTOS` (`pid`, `nombre`, `precio_venta`, `precio_compra`, `marca`, `tipo`, `cantidad`, `img`, `descrip`) VALUES
-(1, 'Tinto', 200, 150, 'Westinghouse', 'Tinto', 1275, 'public/media/bottles/bottle1.png', 'Vino tinto recien traido del himalaya'),
-(2, 'Blanco', 300, 200, 'De la viña', 'Blanco', 64, 'public/media/bottles/bottle2.png', 'Vino blanco para acompañar un asado con amigos'),
+(1, 'Tinto', 200, 150, 'Westinghouse', 'Tinto', 1271, 'public/media/bottles/bottle1.png', 'Vino tinto recien traido del himalaya'),
+(2, 'Blanco', 300, 200, 'De la viña', 'Blanco', 59, 'public/media/bottles/bottle2.png', 'Vino blanco para acompañar un asado con amigos'),
 (3, 'Escoces', 500, 350, 'Santa rosana', 'Escoces', 9, 'public/media/bottles/bottle3.png', 'Vino escocés, traido directamente de Alemania'),
-(4, 'Rosado', 200, 100, 'Naturalvinos', 'Rosado', 51, 'public/media/bottles/bottle4.png', 'Vino rosado, color azul, perfecto para acompañar una sopa'),
+(4, 'Rosado', 200, 100, 'Naturalvinos', 'Rosado', 50, 'public/media/bottles/bottle4.png', 'Vino rosado, color azul, perfecto para acompañar una sopa'),
 (5, 'Tannat', 300, 200, 'Los paisanos', 'Tannat', 72, 'public/media/bottles/bottle5.png', 'Tannat, directamente traido desde tannatlandia'),
 (6, 'Dulce', 350, 200, 'Las chauchas', 'Rosado dulce', 40, 'public/media/bottles/bottle6.png', 'Vino dulce elaborado con 3 kilos de miel por litro de vino'),
 (7, 'Mexicano', 250, 150, 'Mexicanito', 'Tinto', 34, 'public/media/bottles/bottle7.png', 'Vino mexicano recién traido de Cataluña.'),
@@ -126,8 +135,7 @@ INSERT INTO `USUARIOS_Direcciones` (`duid`, `uid`, `direccion`) VALUES
 (6, 12, 'Ricardo Montaner 333'),
 (7, 12, 'Los tanjarinos 334'),
 (8, 12, 'Direccion Pedro'),
-(30, 12, 'Enrique Zegoviano'),
-(31, 15, 'Enrique Zegoviano');
+(30, 12, 'Enrique Zegoviano');
 
 -- --------------------------------------------------------
 
@@ -206,6 +214,13 @@ CREATE TABLE `VENTAS` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Volcado de datos para la tabla `VENTAS`
+--
+
+INSERT INTO `VENTAS` (`vid`, `uid`, `Fecha`, `Total`) VALUES
+(282, 15, '2022-10-28', 1500);
+
+--
 -- Índices para tablas volcadas
 --
 
@@ -271,7 +286,7 @@ ALTER TABLE `VENTAS`
 -- AUTO_INCREMENT de la tabla `DETALLEVENTA`
 --
 ALTER TABLE `DETALLEVENTA`
-  MODIFY `dvid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=118;
+  MODIFY `dvid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=123;
 
 --
 -- AUTO_INCREMENT de la tabla `PRODUCTOS`
@@ -313,7 +328,7 @@ ALTER TABLE `USUARIOS_Tarjetas`
 -- AUTO_INCREMENT de la tabla `VENTAS`
 --
 ALTER TABLE `VENTAS`
-  MODIFY `vid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=281;
+  MODIFY `vid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=283;
 
 --
 -- Restricciones para tablas volcadas

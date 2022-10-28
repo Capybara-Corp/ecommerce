@@ -138,6 +138,7 @@ body {
   color: #DF173F;
   font-family: monospace;
   font-size: 1.5vw;
+  white-space: nowrap;
 }
 
 #direcciones {

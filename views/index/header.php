@@ -4,7 +4,7 @@ require_once 'traduccion/Translate.php';
 use \SimpleTranslation\Translate;
 
 
-$idioma = $_COOKIE['idioma'];
+$idioma = $_COOKIE['idioma'] ?? 'es';
 Translate::init($idioma, "lang/".$idioma.".php");
 
 ;?>

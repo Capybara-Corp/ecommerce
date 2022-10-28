@@ -51,7 +51,7 @@ if (is_countable($results) > 0) {
     $userdireccion[] = '';
 }
 
-$records = $conn->query('SELECT nombre, marca FROM PRODUCTOS INNER JOIN DETALLEVENTA ON PRODUCTOS.pid = DETALLEVENTA.pid INNER JOIN VENTAS ON VENTAS.uid = "'.$perfil['uid'].'" LIMIT 5;')->fetchAll();
+$records = $conn->query('SELECT * FROM PRODUCTOS INNER JOIN DETALLEVENTA ON PRODUCTOS.pid = DETALLEVENTA.pid INNER JOIN VENTAS ON VENTAS.uid = "'.$perfil['uid'].'" LIMIT 5;')->fetchAll();
 //$records->bindParam(':id', $_GET['uid']);
 
 if (is_countable($records) > 0) {
@@ -165,7 +165,7 @@ if (isset($_GET['uid'])): ?>
     <?php if (isset($productos)) {
 
     foreach ($productos as $prod) {
-        echo "<h1 class=\"vino\">".$prod['nombre'].", ".$prod['marca']."</h1>";
+        echo "<h1 class=\"vino\">Total: ".$prod['subtotal']."<br>".$prod['nombre'].", ".$prod['marca'].", ".$prod['cantidad']." unidades, ".$prod['Fecha']."</h1>";
     }
   }
     else{
