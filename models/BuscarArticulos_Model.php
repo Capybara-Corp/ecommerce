@@ -14,6 +14,9 @@ class BuscarArticulos_Model extends Model
 
     public function buscar($buscStr)
     {
+        /*if($_POST['buscar'] == 'pacman'){
+            echo '<img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Pacman_HD.png">';
+        }*/
 
         $resultado = false;
         $pdo       = $this->db->connect();
@@ -24,6 +27,9 @@ class BuscarArticulos_Model extends Model
             if ($buscStr != "") {
                 $buscStr = trim($buscStr);
                 $buscStr = strtolower($buscStr);
+                /*if($buscStr == 'pacman'){
+                    echo '<img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Pacman_HD.png">';
+                }*/
                 //codigo cuando busco
                 $query = $pdo->prepare("SELECT * FROM PRODUCTOS WHERE nombre LIKE :textostr");
                 //$query = $pdo->prepare('SELECT codigo, descripcion FROM productos WHERE descripcion LIKE :textostr');

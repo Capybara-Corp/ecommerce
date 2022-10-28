@@ -14,7 +14,12 @@ class BuscarArticulos_Controller extends Controller
     {
 
         $buscStr = $_POST["buscar"] ?? "";
+        if($buscStr == 'pacman'){
+            echo '<a style="width: 20vw; height: 20vw;" href="../public/media/PacMan/index.html"><img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Pacman_HD.png"></a>';
+        }
         $data    = $this->model->buscar($buscStr);
+
+        
 
         foreach ($data as $row) {
             //$var += 1;
