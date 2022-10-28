@@ -56,8 +56,6 @@ function load_shop() {
 
 document.addEventListener("DOMContentLoaded", function (event) {
   carrito = document.querySelector("#carrito_content");
-  urlBase02 = document.getElementById("urlBase").value;
   load_shop();
-  console.log(urlBase02);
   //alert("cargo");
 });

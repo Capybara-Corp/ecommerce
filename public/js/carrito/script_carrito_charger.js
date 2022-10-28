@@ -159,7 +159,5 @@ function fetch_async_venta() {
 document.addEventListener("DOMContentLoaded", function (event) {
   carrito = document.querySelector("#carrito_content");
   //alert("script02");
-  let urlBase = document.getElementById("urlBase").value;
-  console.log(urlBase);
 });
 

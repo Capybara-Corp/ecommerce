@@ -51,6 +51,20 @@ if (is_countable($results) > 0) {
     $userdireccion[] = '';
 }
 
+
+$records = $conn->prepare('SELECT nombre, marca FROM PRODUCTOS INNER JOIN DETALLEVENTA ON PRODUCTOS.pid = DETALLEVENTA.pid INNER JOIN VENTAS ON VENTAS.uid = :id LIMIT 5;');
+$records->bindParam(':id', $_GET['uid']);
+$records->execute();
+
+if (is_countable($results) > 0) {
+    while ($results = $records->fetch(PDO::FETCH_ASSOC)) {
+        $productos[] = $results;
+    }
+} else {
+    $productos[] = '';
+}
+
+
 ; //! Con todo esto, lo que hace es sacar el usuario de la sesión y el rango de ese mismo usuario
 
 ?>
@@ -142,19 +156,25 @@ if (isset($_GET['uid'])): ?>
 
 
 
-
     </div>
     <h1 id="historial">Ultimos vinos comprados</h1>
-    <h1 class="vino">Vino 1</h1>
-    <h1 class="vino">Vino 2</h1>
-    <h1 class="vino">Vino 3</h1>
-    <h1 class="vino">Vino 4</h1>
-    <h1 class="vino">Vino 5</h1>
+
+
+    <?php if (isset($productos)) {
+
+    foreach ($productos as $prod) {
+        echo "<h1 class=\"vino\">" . $prod['nombre'] . "</h1>";
+    }
+  }
+    ?>
 
 
   </section>
+
   <?php else: ?>
+
   <?php Header('Location: login');?>
+
   <?php endif;?>
 
   <?php include "views/index/footer.php";?>
