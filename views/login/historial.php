@@ -21,7 +21,7 @@ if (isset($_SESSION['uid'])) {
 
 
 
-    $records = $conn->prepare('SELECT * FROM PRODUCTOS INNER JOIN DETALLEVENTA ON PRODUCTOS.pid = DETALLEVENTA.pid INNER JOIN VENTAS ON VENTAS.uid = :id');
+    $records = $conn->prepare('SELECT * FROM PRODUCTOS INNER JOIN DETALLEVENTA ON PRODUCTOS.pid = DETALLEVENTA.pid INNER JOIN VENTAS ON VENTAS.vid = DETALLEVENTA.vid WHERE VENTAS.uid = :id');
     $records->bindParam(':id', $_SESSION['uid']);
     $records->execute();
     $results = $records->fetchAll(PDO::FETCH_ASSOC);
