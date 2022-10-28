@@ -75,7 +75,7 @@ if ($cantidad < 0) {
     $conn->prepare($sql)->execute([$cantidad, $id_producto]);
     
     
-    $sql = "INSERT INTO DETALLEVENTA (vid, pid, cantidad, subtotal) VALUES ({$lastventa['MAX(vid)']}, '3', '45', '450')";
+    $sql = "INSERT INTO DETALLEVENTA (vid, pid, cantidad, subtotal) VALUES ({$lastventa['MAX(vid)']}, $id_producto, $cantidad_producto, $total)";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
 }
