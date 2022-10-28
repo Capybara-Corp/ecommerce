@@ -1,3 +1,7 @@
+<?php
+  setcookie("usuario");
+?>
+
 <nav class="noselect">
   <!-- Es el menu superior -->
   <div id="toggle-menu" class="toggle-menu">

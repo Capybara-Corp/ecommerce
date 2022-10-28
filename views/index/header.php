@@ -1,8 +1,13 @@
 <nav class="noselect">
   <!-- Es el menu superior -->
   <div id="toggle-menu" class="toggle-menu">
-    <img src="public/media/menu.png">
+  <img src="public/media/menu.png">
   </div> <!-- Este div contiene la imagen del boton para abrir el menu -->
+  <div style="text-align: center;">
+  <a href="<?php echo constant('URL'); ?>?lang=es"><img src="public/lang/spanish.png" class="language" id="spanish"></a>
+  <a href="<?php echo constant('URL'); ?>?lang=en""><img src="public/lang/english.png" class="language" id="english"></a>
+  <a href="<?php echo constant('URL'); ?>?lang=jav""><img src="public/lang/japanese.png" class="language" id="japanese"></a>
+  </div>
   <ul class="main-menu" id="main-menu">
     <li><a href="<?php echo constant('URL'); ?>">INICIO</a></li>
     <li><a href="<?php echo constant('URL'); ?>nosotros">NOSOTROS</a></li>
@@ -11,6 +16,13 @@
     <li><a href="">PRODUCTOS</a></li>
     <li><a href="">CONTACTO</a></li>
 
+    
+    
+    <?php 
+    if(isset($_GET['lang'])){
+    setcookie("idioma", $_GET['lang'], time()+ 86400 * 365); 
+    header('Location: ../ecommerce');
+    } ?>
 
     <?php if (isset($_SESSION['uid'])): ?>
 

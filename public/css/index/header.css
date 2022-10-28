@@ -10,6 +10,10 @@ nav {
   img{
     max-width: 100%;
   }
+
+  .language{
+    width: 2vw;
+  }
   
   .toggle-menu{
     position: absolute;

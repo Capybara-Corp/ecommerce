@@ -1,5 +1,13 @@
 <?php
 
+require_once 'traduccion/Translate.php';
+use \SimpleTranslation\Translate;
+
+
+$idioma = $_COOKIE['idioma'];
+Translate::init($idioma, "lang/".$idioma.".php");
+
+
 //require 'libs/connect.php';
 
 /*if (isset($_SESSION['uid'])) {
@@ -46,11 +54,9 @@ $user = $results; // Me carga en "$user" los datos de mi usuario de mi sesión
     <?php include "header.php";?>
     <img class="noselect" id="banner_portada" src="public/media/winery-factory.jpg">
     <div class="container_big_div noselect">
-      <p id="welcome">Vinos de la mejor calidad</p>
+      <p id="welcome"><?=Translate::__('vinosdelamejorcalidad');?></p>
       <img src="public/media/separator.png" id="separator">
-      <p id="message">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque neque nulla, ornare vel
-        pulvinar sed, tempor ut turpis. Phasellus nec suscipit ipsum. Praesent a molestie ipsum, non gravida mauris.
-        Fusce</p>
+      <p id="message"><?=Translate::__('nuestrosvinos');?></p>
     </div> <!-- Este es el div que dice "vinos de la mejor calidad" -->
   </section>
 
