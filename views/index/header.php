@@ -1,3 +1,14 @@
+<?php
+
+require_once 'traduccion/Translate.php';
+use \SimpleTranslation\Translate;
+
+
+$idioma = $_COOKIE['idioma'];
+Translate::init($idioma, "lang/".$idioma.".php");
+
+;?>
+
 <nav class="noselect">
   <!-- Es el menu superior -->
   <div id="toggle-menu" class="toggle-menu">
@@ -9,8 +20,8 @@
   <a href="<?php echo constant('URL'); ?>?lang=jav"><img src="public/lang/japanese.png" class="language" id="japanese"></a>
   </div>
   <ul class="main-menu" id="main-menu">
-    <li><a href="<?php echo constant('URL'); ?>">INICIO</a></li>
-    <li><a href="<?php echo constant('URL'); ?>nosotros">NOSOTROS</a></li>
+    <li><a href="<?php echo constant('URL'); ?>"><?=Translate::__('inicio');?></a></li>
+    <li><a href="<?php echo constant('URL'); ?>nosotros"><?=Translate::__('nosotros');?></a></li>
     <li><a href="<?php echo constant('URL'); ?>carrito/market">TIENDA</a></li>
     <li><a href="">NOTICIAS</a></li>
     <li><a href="">PRODUCTOS</a></li>

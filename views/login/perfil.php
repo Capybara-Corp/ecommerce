@@ -164,6 +164,9 @@ if (isset($_GET['uid'])): ?>
         echo "<h1 class=\"vino\">".$prod['nombre'].", ".$prod['marca']."</h1>";
     }
   }
+    else{
+      echo "<h1 class=\"vino\">No ha comprado ningún vino</h1>";
+    }
     ?>
 
 
