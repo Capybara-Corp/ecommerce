@@ -61,7 +61,7 @@ $user = $results; // Me carga en "$user" los datos de mi usuario de mi sesión
   </section>
 
   <div id="top3">
-    <p id="top3_text">NUESTROS 3 BESTSELLER</p>
+    <p id="top3_text"><?=Translate::__('nuestros3bestseller');?></p>
     <img src="public/media/separator.png" id="separator_black" class="noselect">
   </div>
   <!--Este div es el que contiene el separador con el titulo "Nuestros 3 bestseller"-->
@@ -75,14 +75,14 @@ $user = $results; // Me carga en "$user" los datos de mi usuario de mi sesión
   <img src="public/media/bgwine.png" id="bgwine" class="noselect"> <!-- Esta es la imagen de fondo -->
 
   <div id="shop" class="noselect">
-    <p>COMPRAR AHORA</p>
+    <p><?=Translate::__('comprarahora');?></p>
   </div> <!-- Este div contiene el botón "Comprar ahora" -->
 
   <div id="search">
     <form id="formulario">
-      <p id="eslogan">De nuestros viñedos, a su mesa</p>
-      <input type="text" name="buscador" id="buscador" placeholder="Busque su producto">
-      <button class="button" type="submit" id="boton">Buscar</button>
+      <p id="eslogan"><?=Translate::__('denuestrosviñedosasumesa');?></p>
+      <input type="text" name="buscador" id="buscador" placeholder="<?=Translate::__('busquesuproducto');?>">
+      <button class="button" type="submit" id="boton"><?=Translate::__('buscar');?></button>
     </form>
   </div> <!-- Este div contiene el buscador con la imagen de parras de fondo -->
 
@@ -95,7 +95,7 @@ $user = $results; // Me carga en "$user" los datos de mi usuario de mi sesión
     <div id="buy" class="noselect">
       <p>Vino Premium XXS</p>
       <div id="abuy">
-        <a href="">COMPRAR</a>
+        <a href=""><?=Translate::__('comprarahora');?></a>
       </div>
     </div> <!-- Es el botón -->
 

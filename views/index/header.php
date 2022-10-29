@@ -57,7 +57,7 @@ Translate::init($idioma, "lang/".$idioma.".php");
 
     <?php else: ?>
 
-    <li><a href="<?php echo constant('URL'); ?>login">|&nbsp;&nbsp;&nbsp;LOGIN</a></li>
+    <li><a href="<?php echo constant('URL'); ?>login">|&nbsp;&nbsp;&nbsp;<?=Translate::__('login');?></a></li>
     <?php endif;?>
 
   </ul>
