@@ -34,10 +34,12 @@ nav {
   
   .main-menu {
     width: 100%;
-    height: 7vh;
+    height: 100vh;
     display: flex;
     /*el display flex nos permite manipular la orientacion a gusto de los elementos hijos de un contenedor*/
     flex-direction: column; /* Con esto cada elemento del menú aparece abajo del otro */
+    overflow-x: hidden;
+    overflow-y: visible;
     flex-wrap: nowrap;
     align-items: center;
     /*alinea en vertical*/
@@ -69,6 +71,7 @@ nav {
       font-weight: 300!important;
       font-size: 1.3vw!important;
       /* Atributos que cambian. Lo más importante es que le sacamos el color de fondo */
+      
     }
   }
   
@@ -90,6 +93,7 @@ nav {
     font-size: 3vw;
   }
   
+  
   .main-menu li:hover {
     cursor: pointer;
     transition: all 0.2s ease;
@@ -104,6 +108,7 @@ nav {
   all: unset;
   cursor: pointer;
   white-space: nowrap;
+  max-width: 100%;
 }
 
 
@@ -111,6 +116,7 @@ nav {
 .dropdown {
   margin-right: 5vw;
   display: inline-block;
+  width: 100%;
 }
 
 /* Dropdown Content (Hidden by Default) */
@@ -173,3 +179,13 @@ nav {
 
   
   /* CSS MENU - fin*/
+
+  @media all and (max-width: 768px){
+    #miperfil{
+
+    width: 102%;
+  }
+  #myDropdown .show{
+    transform: translateY(150); /* Esto hace que el menú vaya para abajo, en otras palabras que aparezca */
+  }
+  }
