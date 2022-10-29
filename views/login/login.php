@@ -42,6 +42,7 @@ if (!empty($_POST['user_correo']) && !empty($_POST['user_pass'])) { // Si recibe
   <!-- Cosas para que la pagina funcione -->
   <link rel="stylesheet" href="public/css/login/login.css">
   <link rel="stylesheet" href="public/css/index/header.css">
+  <link rel="stylesheet" href="public/css/index/footer.css">
 </head>
 
 <body class="noselect">
