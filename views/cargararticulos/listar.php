@@ -18,7 +18,7 @@ if ($buscStr != "") {
         echo '<img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Pacman_HD.png">';
     }*/
     //codigo cuando busco
-    $data = $conn->query("SELECT * FROM PRODUCTOS WHERE nombre LIKE LOWER('%" . $buscStr . "%')");
+    //$data = $conn->query("SELECT * FROM PRODUCTOS WHERE nombre LIKE LOWER('%" . $buscStr . "%') OR marca LIKE LOWER('%" . $buscStr . "%')");
 
 } else {
     //muestro todo

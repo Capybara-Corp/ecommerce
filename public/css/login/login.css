@@ -51,7 +51,7 @@ html,body
   margin: 0;
 padding: 0 0 2vw;
 text-align: center;
-font-size: 16px;
+font-size: 1vw;
 color: white;
 }
 
@@ -110,3 +110,46 @@ color: white;
   /*Login*/
 
 
+  @media all and (max-width: 768px){
+  
+.login-box {
+  width: 50vw;
+  height: 60vh;
+}
+
+#mensaje{
+font-size: 2vw;
+color: white;
+}
+
+.login-box h1{
+  font-size: 3.5vw;
+}
+
+.login-box label{
+  margin: 3vw 3vw ;
+  font-size: 3vw;
+}
+
+.login-box input{
+  margin-bottom: 30px;
+
+}
+
+.login-box input[type="text"],
+.login-box input[type="password"]{
+  height: 20px;
+  font-size: 3vw;
+}
+
+.login-box input[type="submit"]{
+  height: 10vw;
+  font-size: 3vw;
+}
+
+.login-box a{
+  font-size: 2vw;
+}
+
+
+}
