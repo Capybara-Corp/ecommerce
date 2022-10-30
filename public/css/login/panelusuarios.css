@@ -106,6 +106,16 @@ body{
     width: 60%;
     height: auto;
   }
+
+  #total{
+    display: grid;
+    grid-column: 1;
+    margin: 2vh 2vw;
+    height: 1em;
+    font-size: 1.2vw;
+    color: black;
+    font-weight: 500;
+  }
   
   #gestionarh1{
     display: grid;

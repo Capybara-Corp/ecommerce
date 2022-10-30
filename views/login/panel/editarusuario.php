@@ -99,7 +99,19 @@ if (!empty($_POST['nombre']) && !empty($_POST['correo']) && !empty($_POST['contr
 
 <h1 id="gestionarh1">GESTIONAR USUARIOS</h1>
   
+<?php 
+    $records = $conn->prepare('SELECT COUNT(uid) FROM USUARIOS;');
+    $records->execute();
+    $results = $records->fetch(PDO::FETCH_ASSOC);
 
+    $cantidad = null;
+
+    if (count($results) > 0) {
+        $cantidad = $results; // Guardamos los datos del usuario de la URL
+    }
+    ?>
+
+<p id="total">TOTAL: <?php echo $cantidad['COUNT(uid)'] ?></p>
 
 <section id="main">
 
