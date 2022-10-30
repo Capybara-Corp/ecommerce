@@ -34,12 +34,12 @@ nav {
   
   .main-menu {
     width: 100%;
-    height: 100vh;
+    height: 9vh;
     display: flex;
     /*el display flex nos permite manipular la orientacion a gusto de los elementos hijos de un contenedor*/
     flex-direction: column; /* Con esto cada elemento del menú aparece abajo del otro */
     overflow-x: hidden;
-    overflow-y: visible;
+    overflow-y: hidden;
     flex-wrap: nowrap;
     align-items: center;
     /*alinea en vertical*/
@@ -188,6 +188,10 @@ nav {
   #myDropdown .show{
     transform: translateY(150); /* Esto hace que el menú vaya para abajo, en otras palabras que aparezca */
   }
+  .main-menu {
+    width: 100%;
+    height: 100vh;
+    overflow-y: visible;
   }
 
   /*Intentar hacer menu mi perfil responsive*/
