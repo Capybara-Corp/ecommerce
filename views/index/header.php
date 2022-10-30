@@ -42,12 +42,7 @@ Translate::init($idioma, "lang/".$idioma.".php");
 
   <li id="miperfil"><button onclick="mostrarmenu()" class="dropbtn">|&nbsp;&nbsp;&nbsp;<?=Translate::__('miperfil');?></button></li>
 
-    <div id="myDropdown" class="dropdown-content">
-
-      <a id="miperfil" href="<?php echo constant('URL'); ?>perfil?uid=<?php echo ($_SESSION['uid']); ?>"><?=Translate::__('miperfil');?></a>
-      <a id="edit" href="editar?uid=<?php echo ($_SESSION['uid']); ?>"><?=Translate::__('editarmiperfil');?></a>
-      <a id="logout" href="logout"><?=Translate::__('cerrarsesion');?></a>
-    </div>
+    
     
   </div>
     
@@ -62,5 +57,12 @@ Translate::init($idioma, "lang/".$idioma.".php");
 
   </ul>
 </nav> <!-- Aqui termina el menu -->
+
+<div id="myDropdown" class="dropdown-content">
+
+      <a id="miperfil" href="<?php echo constant('URL'); ?>perfil?uid=<?php echo ($_SESSION['uid']); ?>"><?=Translate::__('miperfil');?></a>
+      <a id="edit" href="editar?uid=<?php echo ($_SESSION['uid']); ?>"><?=Translate::__('editarmiperfil');?></a>
+      <a id="logout" href="logout"><?=Translate::__('cerrarsesion');?></a>
+    </div>
 
 <script src="<?php echo constant('URL'); ?>public/js/perfil.js"></script>
