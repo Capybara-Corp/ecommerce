@@ -75,6 +75,9 @@ function generar_compra() {
     //alert('esto funciona');
     fetch_async_compra(k, v.cant);
   }}
+  else{
+    alert("Debes seleccionar un producto");
+  }
   
 }
 
