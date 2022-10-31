@@ -2,7 +2,6 @@
 
 #require_once 'entidades/alumno.php';
 require_once 'entidades/ArticuloDto.php';
-
 class BuscarArticulos_Model extends Model
 {
 
@@ -10,6 +9,51 @@ class BuscarArticulos_Model extends Model
     {
 
         parent::__construct();
+    }
+
+    public function mayoramenor($buscStr)
+    {
+        /*if($_POST['buscar'] == 'pacman'){
+            echo '<img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Pacman_HD.png">';
+        }*/
+        $resultado = false;
+        $pdo       = $this->db->connect();
+        try {
+
+            if ($buscStr != ""){
+                $query = $pdo->prepare("SELECT * FROM PRODUCTOS WHERE nombre LIKE :textostr ORDER BY precio_venta DESC");
+                $term = "%$buscStr%";
+                $query->bindParam(':textostr', $term, PDO::PARAM_STR);
+                
+            }
+            else{
+                $query = $pdo->prepare("SELECT * FROM PRODUCTOS ORDER BY precio_venta DESC");
+            }
+                
+    
+            $query->execute();
+            while ($row = $query->fetch()) {
+                $item              = new ArticuloDto();
+                $item->id_producto = $row['pid'];
+                $item->img         = $row['img'];
+                $item->nombre      = $row['nombre'];
+                $item->precio      = $row['precio_venta'];
+                $item->descrip     = $row['descrip'];
+                $item->marca       = $row['marca'];
+                $item->cantidad    = $row['cantidad'];
+                //array_push($items, $item);
+                $items[] = $item;
+
+            } //end while
+
+            return $items;
+
+        } catch (PDOException $e) {
+            return false;
+        } finally {
+            $pdo = null;
+            $orden = "mayoramenor";
+        }
     }
 
     public function buscar($buscStr)
@@ -31,10 +75,17 @@ class BuscarArticulos_Model extends Model
                     echo '<img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Pacman_HD.png">';
                 }*/
                 //codigo cuando busco
+
+                if ($orden == "mayoramenor"){
+                    $query = $pdo->prepare("SELECT * FROM PRODUCTOS WHERE nombre LIKE :textostr ORDER BY precio_venta DESC");
+                }
+                else{
                 $query = $pdo->prepare("SELECT * FROM PRODUCTOS WHERE nombre LIKE :textostr");
+                }
                 //$query = $pdo->prepare('SELECT codigo, descripcion FROM productos WHERE descripcion LIKE :textostr');
                 // $query = '%' . $search . '%';
                 $term = "%$buscStr%";
+
 
 //$query
                 //$query->bindParam(':textostr', '%' . $search . '%');
@@ -46,7 +97,12 @@ class BuscarArticulos_Model extends Model
                 //  $query = $pdo->prepare("SELECT * FROM PRODUCTOS");
                 //muestro todo
             } else {
-                $query = $pdo->prepare("SELECT * FROM PRODUCTOS");
+                if ($orden == "mayoramenor"){
+                $query = $pdo->prepare("SELECT * FROM PRODUCTOS ORDER BY precio_venta DESC");
+                }
+                else{
+                    $query = $pdo->prepare("SELECT * FROM PRODUCTOS");
+                }
 
             }
 
@@ -75,7 +131,9 @@ class BuscarArticulos_Model extends Model
         } finally {
             $pdo = null;
         }
-    } //end actualizar
+    }
+    
+    //end actualizar
 
     /* public function crear($articulo)
     {
