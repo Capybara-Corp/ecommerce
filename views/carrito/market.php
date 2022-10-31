@@ -62,7 +62,7 @@ $user = $results;
   <input onkeyup="buscar_ahora();" type="text" class="form-control" id="buscar" name="buscar">
 
 
-
+  <input type="submit" onclick="ordenar_ahora();" name="mayoramenor" value="mayoramenor">
 
 
 
@@ -106,6 +106,34 @@ $user = $results;
 
   <script type="text/javascript">
   function buscar_ahora() {
+    const market = document.querySelector(".celda_market");
+    let data = new FormData();
+    let texto = document.getElementById("buscar").value;
+    data.set("buscar", texto);
+    console.log(texto);
+    let urlBase = document.getElementById("urlBase").value;
+    console.log("print");
+    console.log(urlBase);
+
+    fetch(urlBase + 'buscarArticulos/buscar', {
+        method: 'POST',
+        body: data
+      })
+      .then(function(response) {
+        if (response.ok) {
+          return response.text();
+        } else {
+          throw "Error";
+        }
+      })
+      .then(function(texto) {
+        market.innerHTML = texto;
+      })
+      .catch(function(err) {
+        console.log(err);
+      });
+  }
+  function ordenar_ahora() {
     const market = document.querySelector(".celda_market");
     let data = new FormData();
     let texto = document.getElementById("buscar").value;
