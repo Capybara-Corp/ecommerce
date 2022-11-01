@@ -30,9 +30,31 @@ a{
 
 #buscar{
   position: absolute;
-  top: 10vh;
-  left: 25vw;
-  
+    top: 15vh;
+    left: 25vw;
+    height: 4vh;
+    width: 20vw;
+    font-size: 1vw;
+}
+
+#menoramayor{
+  position: absolute;
+    top: 15vh;
+    left: 58vw;
+    height: 4vh;
+    width: 10vw;
+    font-size: 1vw;
+}
+
+#mayoramenor{
+
+  position: absolute;
+    top: 15vh;
+    left: 48vw;
+    height: 4vh;
+    width: 10vw;
+    font-size: 1vw;
+
 }
 
 .botonbuscar{
