@@ -113,7 +113,14 @@ if (!empty($_POST['nombre']) && !empty($_POST['correo']) && !empty($_POST['contr
 
 <p id="total">TOTAL: <?php echo $cantidad['COUNT(uid)'] ?></p>
 
+<form action="editar" method="POST">
+<label for="nombre">Buscar usuario por nombre:</label>
+<input name="nombre" type="text" placeholder="Ingrese el nombre">
+<input type="submit" value="Buscar">
+</form>
+
 <section id="main">
+
 
   <?php
 
@@ -158,17 +165,36 @@ if (isset($_GET['activar'])) { // Si hay algo en la URL de borrar usuario
 }
 
 ?>
-
+<?php 
+  //QUERY = SELECT * FROM USUARIOS WHERE nombre LIKE '%vir%'
+?>
       <?php
 
 if($user['rango'] == '1'){
+  if(isset($_POST['submit'])){
+  }
+  else{
 $data = $conn->query("SELECT * FROM USUARIOS WHERE rango = '2'")->fetchAll();
+  }
 }
 else if($user['rango'] == '3'){
   $data = $conn->query("SELECT * FROM USUARIOS WHERE rango <= '2'")->fetchAll();
 }
+
 else if($user['rango'] == '4'){
-  $data = $conn->query("SELECT * FROM USUARIOS")->fetchAll();
+  if($_POST['nombre'] != ""){
+    $buscStr = $_POST['nombre'];
+    $buscStr = trim($buscStr);
+    $buscStr = strtolower($buscStr);
+    $data = $conn->query("SELECT * FROM USUARIOS WHERE nombre LIKE '%$buscStr%'");
+    //No se deberia poner asi
+    //$data->bindParam(':textostr', $buscStr, PDO::PARAM_STR);
+    //$term = "%$buscStr%";
+    //$data->bindParam(':textostr', $term, PDO::PARAM_STR);
+  }
+  else{
+    $data = $conn->query("SELECT * FROM USUARIOS")->fetchAll();
+  }
 }
 
 foreach ($data as $row) {
