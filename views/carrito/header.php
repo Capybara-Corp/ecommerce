@@ -12,7 +12,7 @@ Translate::init($idioma, "lang/".$idioma.".php");
 <nav class="noselect">
   <!-- Es el menu superior -->
   <div id="toggle-menu" class="toggle-menu">
-  <img src="public/media/menu.png" id="menupic">
+  <img src="../public/media/menu.png" id="menupic">
   </div> <!-- Este div contiene la imagen del boton para abrir el menu -->
   <div style="text-align: center;" id="languages">
   <a href="<?php echo constant('URL'); ?>?lang=es"><img src="../public/lang/spanish.png" class="language" id="spanish"></a>
