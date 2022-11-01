@@ -62,8 +62,8 @@ $user = $results;
   <input onkeyup="buscar_ahora();" type="text" class="form-control" id="buscar" name="buscar">
 
 
-  <input type="submit" onclick="menoramayor();" id="menoramayor" name="menoramayor" value="menoramayor">
-  <input type="submit" onclick="mayoramenor();" id="mayoramenor" name="mayoramenor" value="mayoramenor">
+  <input type="submit" onclick="menoramayor();" id="menoramayor" name="menoramayor" value="Menor a mayor precio">
+  <input type="submit" onclick="mayoramenor();" id="mayoramenor" name="mayoramenor" value="Mayor a menor precio">
 
 
   <div id="contenedor_market">

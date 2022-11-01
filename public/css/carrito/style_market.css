@@ -39,22 +39,43 @@ a{
 
 #menoramayor{
   position: absolute;
-    top: 15vh;
-    left: 58vw;
-    height: 4vh;
-    width: 10vw;
-    font-size: 1vw;
+  top: 15vh;
+  left: 60vw;
+  height: 4vh;
+  width: 10vw;
+  font-size: 0.8vw;
+  background-color: #ff4d00;
+  border-radius:28px;
+  border:1px solid #a63200;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  text-decoration:none;
+  text-shadow:0px 1px 0px #3c1200;
+    
+}
+#menoramayor:hover {
+  background-color:#a63200;
 }
 
 #mayoramenor{
-
   position: absolute;
-    top: 15vh;
-    left: 48vw;
-    height: 4vh;
-    width: 10vw;
-    font-size: 1vw;
-
+  top: 15vh;
+  left: 48vw;
+  height: 4vh;
+  width: 10vw;
+  font-size: 0.8vw;
+  background-color: #ff4d00;
+  border-radius:28px;
+  border:1px solid #a63200;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  text-decoration:none;
+  text-shadow:0px 1px 0px #3c1200;
+}
+#mayoramenor:hover {
+  background-color:#a63200;
 }
 
 .botonbuscar{
