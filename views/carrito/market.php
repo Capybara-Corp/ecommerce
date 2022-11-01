@@ -62,7 +62,7 @@ $user = $results;
   <input onkeyup="buscar_ahora();" type="text" class="form-control" id="buscar" name="buscar">
 
 
-  <input type="submit" onclick="menoramenor();" id="menoramayor" name="menoramayor" value="menoramayor">
+  <input type="submit" onclick="menoramayor();" id="menoramayor" name="menoramayor" value="menoramayor">
   <input type="submit" onclick="mayoramenor();" id="mayoramenor" name="mayoramenor" value="mayoramenor">
 
 
@@ -142,6 +142,32 @@ $user = $results;
     let urlBase = document.getElementById("urlBase").value;
 
     fetch(urlBase + 'buscarArticulos/mayoramenor', {
+        method: 'POST',
+        body: data
+      })
+      .then(function(response) {
+        if (response.ok) {
+          return response.text();
+        } else {
+          throw "Error";
+        }
+      })
+      .then(function(texto) {
+        market.innerHTML = texto;
+      })
+      .catch(function(err) {
+        console.log(err);
+      });
+  }
+  function menoramayor() {
+    const market = document.querySelector(".celda_market");
+    let data = new FormData();
+    let texto = document.getElementById("menoramayor").value;
+    data.set("menoramayor", texto);
+    console.log(texto);
+    let urlBase = document.getElementById("urlBase").value;
+
+    fetch(urlBase + 'buscarArticulos/menoramayor', {
         method: 'POST',
         body: data
       })

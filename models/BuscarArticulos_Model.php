@@ -55,6 +55,50 @@ class BuscarArticulos_Model extends Model
             $_SESSION['orden'] = "mayoramenor";
         }
     }
+    public function menoramayor($buscStr)
+    {
+        /*if($_POST['buscar'] == 'pacman'){
+            echo '<img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Pacman_HD.png">';
+        }*/
+        $resultado = false;
+        $pdo       = $this->db->connect();
+        try {
+
+            if ($buscStr != ""){
+                $query = $pdo->prepare("SELECT * FROM PRODUCTOS WHERE nombre LIKE :textostr ORDER BY precio_venta ASC");
+                $term = "%$buscStr%";
+                $query->bindParam(':textostr', $term, PDO::PARAM_STR);
+                
+            }
+            else{
+                $query = $pdo->prepare("SELECT * FROM PRODUCTOS ORDER BY precio_venta ASC");
+            }
+                
+    
+            $query->execute();
+            while ($row = $query->fetch()) {
+                $item              = new ArticuloDto();
+                $item->id_producto = $row['pid'];
+                $item->img         = $row['img'];
+                $item->nombre      = $row['nombre'];
+                $item->precio      = $row['precio_venta'];
+                $item->descrip     = $row['descrip'];
+                $item->marca       = $row['marca'];
+                $item->cantidad    = $row['cantidad'];
+                //array_push($items, $item);
+                $items[] = $item;
+
+            } //end while
+
+            return $items;
+
+        } catch (PDOException $e) {
+            return false;
+        } finally {
+            $pdo = null;
+            $_SESSION['orden'] = "menoramayor";
+        }
+    }
 
     public function buscar($buscStr)
     {
@@ -79,6 +123,9 @@ class BuscarArticulos_Model extends Model
                 if ($_SESSION['orden'] == "mayoramenor"){
                     $query = $pdo->prepare("SELECT * FROM PRODUCTOS WHERE nombre LIKE :textostr ORDER BY precio_venta DESC");
                 }
+                else if ($_SESSION['orden'] == "menoramayor"){
+                    $query = $pdo->prepare("SELECT * FROM PRODUCTOS WHERE nombre LIKE :textostr ORDER BY precio_venta ASC");
+                }
                 else{
                 $query = $pdo->prepare("SELECT * FROM PRODUCTOS WHERE nombre LIKE :textostr");
                 }
@@ -99,6 +146,9 @@ class BuscarArticulos_Model extends Model
             } else {
                 if ($_SESSION['orden'] == "mayoramenor"){
                 $query = $pdo->prepare("SELECT * FROM PRODUCTOS ORDER BY precio_venta DESC");
+                }
+                else if ($_SESSION['orden'] == "menoramayor"){
+                    $query = $pdo->prepare("SELECT * FROM PRODUCTOS ORDER BY precio_venta ASC");
                 }
                 else{
                     $query = $pdo->prepare("SELECT * FROM PRODUCTOS");
