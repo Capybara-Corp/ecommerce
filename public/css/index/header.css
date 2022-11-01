@@ -45,24 +45,25 @@ nav {
     flex-wrap: nowrap;
     align-items: center;
     /*alinea en vertical*/
+    position: absolute;
     margin: 0;
     padding: 0;
     transition: transform 0.3s; /* Esto hace que el menu se traslade a una velocidad determinada */
-    transform: translateY(-1800%); /* Esto sirve para que el menu aparezca por defecto arriba, tan arriba que ni se ve */
+    visibility: hidden; /* Esto sirve para que el menu aparezca por defecto arriba, tan arriba que ni se ve */
   }
   
   .main-menu--show{
-    transform: translateY(0); /* Esto hace que el menú vaya para abajo, en otras palabras que aparezca */
+    visibility: visible; /* Esto hace que el menú vaya para abajo, en otras palabras que aparezca */
   }
   
   @media all and (min-width: 768px){
     .main-menu {
       flex-direction: row; /* Con esto el menú aparece "En un mismo renglón" */
-      transform: translateY(0); /* Con esto hago que el menú se vea si la pantalla supera los 768 pixeles de ancho */
+      visibility: visible; /* Con esto hago que el menú se vea si la pantalla supera los 768 pixeles de ancho */
     }
   
     .toggle-menu{
-      display: none; /* El botón no se muestra si la pantalla supera los 768 pixeles de ancho */
+      visibility: hidden; /* El botón no se muestra si la pantalla supera los 768 pixeles de ancho */
     }
     .main-menu li {
       background: none!important;
@@ -143,7 +144,6 @@ nav {
   font-weight: 300!important;
   font-size: 1vw!important;
   font-family: 'Roboto', sans-serif;
-  
 }
 
 /* Change color of dropdown links on hover */
@@ -185,7 +185,38 @@ nav {
   .main-menu {
     width: 100%;
     height: 100vh;
-    overflow-y: visible;
+  }
+
+  .dropdown {
+  margin-right: 5vw;
+  display: inline-block;
+  width: 100%;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  /*display: none;*/
+  top: 102vh;
+  left: 0;
+  width: 100vw;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  width: 90vw;
+  height: 10vh;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 300!important;
+  font-size: 3vw!important;
+  font-family: 'Roboto', sans-serif;
+}
+
+
   }
 
   /*Intentar hacer menu mi perfil responsive*/
