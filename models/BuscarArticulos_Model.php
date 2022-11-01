@@ -52,7 +52,7 @@ class BuscarArticulos_Model extends Model
             return false;
         } finally {
             $pdo = null;
-            $orden = "mayoramenor";
+            $_SESSION['orden'] = "mayoramenor";
         }
     }
 
@@ -76,7 +76,7 @@ class BuscarArticulos_Model extends Model
                 }*/
                 //codigo cuando busco
 
-                if ($orden == "mayoramenor"){
+                if ($_SESSION['orden'] == "mayoramenor"){
                     $query = $pdo->prepare("SELECT * FROM PRODUCTOS WHERE nombre LIKE :textostr ORDER BY precio_venta DESC");
                 }
                 else{
@@ -97,7 +97,7 @@ class BuscarArticulos_Model extends Model
                 //  $query = $pdo->prepare("SELECT * FROM PRODUCTOS");
                 //muestro todo
             } else {
-                if ($orden == "mayoramenor"){
+                if ($_SESSION['orden'] == "mayoramenor"){
                 $query = $pdo->prepare("SELECT * FROM PRODUCTOS ORDER BY precio_venta DESC");
                 }
                 else{
