@@ -1,8 +1,4 @@
-@media all and (min-width: 768px){
-  .toggle-menu{
-    display: none;
-  }
-}
+
 
 body {
   box-sizing: border-box;
@@ -90,7 +86,7 @@ a{
 #nuestrosobj{
   grid-row: 2;
   grid-column: 2;
-  margin-top: 3em;
+  margin-top: 0;
   justify-self: center;
   align-self: start;
 }
@@ -99,6 +95,7 @@ a{
   grid-row: 2;
   grid-column: 2;
   width: 16em;
+  margin-top: 25vh;
   justify-self: center;
   align-self: center;
 }
@@ -138,4 +135,104 @@ a{
 .footer p {
   color: white;
   font-size: 1vw;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media all and (max-width: 768px) {
+
+  #mid_container{
+    height: 500vh;
+    grid-template-columns: 100%;
+    grid-template-rows: 25% 25% 25% 25%;
+    margin-bottom: 100vh;
+  }
+
+  
+  #firstLocal{
+    width: 80vw;
+    grid-row: 2;
+    grid-column: 1;
+    align-self: start;
+  }
+  
+  #firstLocalI{
+    font-size: 4vw;
+    grid-row: 2;
+    grid-column: 1;
+    margin-bottom: 0;
+    margin-left: 8vw;
+    justify-self: start;
+    align-self: start;
+  }
+  
+  
+  .title{
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 6vw;
+  }
+  .paragraph{
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 4vw;
+  }
+  
+  #nuestrosobj{
+    grid-row: 3;
+    grid-column: 1;
+    margin-top: 3em;
+    justify-self: center;
+    align-self: start;
+  }
+  
+  #parrafo2{
+    grid-row: 3;
+    grid-column: 1;
+    width: 16em;
+    justify-self: center;
+    align-self: start;
+  }
+  
+  #partners{
+    width: 80vw;
+    grid-row: 4;
+    margin-top: 5vh;
+    grid-column: 1;
+    align-self: start;
+  }
+  #partnersI{
+    font-size: 4vw;
+    grid-row: 4;
+    grid-column: 1;
+    margin-bottom: 0;
+    margin-left: 8vw;
+    justify-self: start;
+    align-self: start;
+  }
+
+  .footer {
+
+    height: 5%;
+
+  }
+  .footer p {
+    font-size: 3vw;
+  }
 }
