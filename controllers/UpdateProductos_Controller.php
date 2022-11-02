@@ -7,6 +7,8 @@ $total = 0;
 $date = date("Y-m-d");
 $lastventa = 0;
 
+$numeromagico = 0;
+
 session_start();
 
 include '../libs/connect.php';
@@ -45,11 +47,12 @@ else{
 
 
 
-$sql2 = "SELECT MAX(vid) FROM VENTAS";
-    $stmt = $conn->prepare($sql2);
-    $stmt->execute();
-  $lastventa = $stmt->fetch();
-
+$sql2 = "SELECT MAX(vid) AS max FROM VENTAS";
+$stmt = $conn->prepare($sql2);
+$stmt->execute();
+$lastventa = $stmt->fetch();
+$numeromagico = $lastventa['max']+1;
+echo $numeromagico;
 
 
 
@@ -70,12 +73,14 @@ $cantidad -= $cantidad_producto;
 /*realizo update*/
 if ($cantidad < 0) {
     echo "Stock Insuficiente";
+    
 } else {
     $sql = "UPDATE PRODUCTOS SET cantidad=? WHERE pid=?";
     $conn->prepare($sql)->execute([$cantidad, $id_producto]);
     
     
-    $sql = "INSERT INTO DETALLEVENTA (vid, pid, cantidad, subtotal) VALUES ({$lastventa['MAX(vid)']}, $id_producto, $cantidad_producto, $total)";
+    $sql = "INSERT INTO DETALLEVENTA (vid, pid, cantidad, subtotal) VALUES ($numeromagico, $id_producto, $cantidad_producto, $total)";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
+    echo "Detalleventa ingresado";
 }
