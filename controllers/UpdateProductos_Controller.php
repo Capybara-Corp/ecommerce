@@ -7,7 +7,6 @@ $total = 0;
 $date = date("Y-m-d");
 $lastventa = 0;
 
-$numeromagico = 0;
 
 session_start();
 
@@ -47,12 +46,11 @@ else{
 
 
 
-$sql2 = "SELECT MAX(vid) AS max FROM VENTAS";
-$stmt = $conn->prepare($sql2);
-$stmt->execute();
-$lastventa = $stmt->fetch();
-$numeromagico = $lastventa['max']+1;
-echo $numeromagico;
+$sql2 = "SELECT MAX(vid) FROM VENTAS";
+    $stmt = $conn->prepare($sql2);
+    $stmt->execute();
+  $lastventa = $stmt->fetch();
+
 
 
 
@@ -79,7 +77,7 @@ if ($cantidad < 0) {
     $conn->prepare($sql)->execute([$cantidad, $id_producto]);
     
     
-    $sql = "INSERT INTO DETALLEVENTA (vid, pid, cantidad, subtotal) VALUES ($numeromagico, $id_producto, $cantidad_producto, $total)";
+    $sql = "INSERT INTO DETALLEVENTA (vid, pid, cantidad, subtotal) VALUES ({$lastventa['MAX(vid)']}, $id_producto, $cantidad_producto, $total)";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
     echo "Detalleventa ingresado";

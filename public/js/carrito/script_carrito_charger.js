@@ -70,6 +70,7 @@ function refreshCarrito() {
 
 function generar_compra() {
   if (sum > 0){
+  fetch_async_void_venta();
   for (const [k, v] of map_productos_carrito.entries()) {
     //alert('esto funciona');
     fetch_async_compra(k, v.cant);
@@ -81,6 +82,36 @@ function generar_compra() {
   }
   
 }
+
+function fetch_async_void_venta() {
+  const data3 = new FormData();
+  data3.set("sum", sum);
+
+  fetch("/ecommerce/controllers/GenerarVentaVoid_Controller.php", {
+    method: "POST",
+    body: data3,
+  })
+    .then(function (response) {
+      //alert('esto funciona');
+      if (response.ok) {
+        return response.text();
+      } else {
+        throw "Error";
+      }
+    })
+    .then(function (texto) {
+      //alert('esto funciona');
+      alert(texto);
+      load_shop();
+      window.location.href = "market";
+      //alert('esto funciona');
+    })
+    .catch(function (err) {
+      console.log(err);
+    });
+  
+}
+
 
 function fetch_async_compra(pid, cant) {
   //alert('esto funciona');

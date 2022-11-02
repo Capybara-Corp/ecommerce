@@ -1,13 +1,7 @@
 <?php
 
 
-
-$date = date("Y-m-d");
-
 session_start();
-
-
-
 
 
 include '../libs/connect.php';
@@ -40,31 +34,14 @@ else{
   die();
 }
 
-echo "Existo";
-
-$sql2 = "SELECT MAX(vid) FROM VENTAS";
-    $stmt = $conn->prepare($sql2);
-    $stmt->execute();
-  $lastventa = $stmt->fetch();
-
-  
-$sql3 = "SELECT SUM(subtotal) FROM DETALLEVENTA WHERE vid = '".$lastventa['MAX(vid)']."'";
-$stmt = $conn->prepare($sql3);
-    $stmt->execute();
-  $total = $stmt->fetch();
-
-  echo $total['SUM(subtotal)'];
 
 if ($cantidad < 0) {
     echo "Stock Insuficiente";
 } else {
-
-  $sql = "UPDATE VENTAS SET Fecha = :date, Total = :total WHERE vid = '".$lastventa['MAX(vid)']."'";
+    $sql = "INSERT INTO VENTAS (uid) VALUES (:uid)";
     $stmt = $conn->prepare($sql);
-    $stmt->bindParam(':date', $date);
-    $stmt->bindParam(':total', $total['SUM(subtotal)']);
+    $stmt->bindParam(':uid', $user['uid']);
     $stmt->execute();
 
-
-    echo "Compra realizada con éxito";
+    echo "Generada venta vacia";
 }
