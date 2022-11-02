@@ -418,16 +418,79 @@ button p:hover{
     margin-bottom: 250px;
     margin-top: 230px;
     grid-template-columns: 100%;
-    grid-template-rows: 80vh 30vh;
+    grid-template-rows: 80vh 50vh;
 }
+
 
   .celda_market {
     height: 100%;
-    background: green;
     grid-template-columns: 80vw;
     grid-auto-rows: 20vw;
-    grid-gap: 2vh;
+    
+    grid-gap: 5vh;
   }
+
+
+  .celda_market section {
+    background-size: 8vw!important;
+  }
+
+
+  .nombre{
+    width: 10em;
+    font-size: 3vw;
+    margin-left: 5vw;
+    margin-top: 10px;
+  }
+  .marca{
+    font-size: 2vw;
+    margin-top: 35px;
+    margin-left: -20vw;
+  }
+  
+  .stock{
+    display: none;
+  }
+  
+  .descrip{
+    width: 15em;
+    float: right;
+    margin-left: -10vw;
+    margin-top: 35px;
+    font-size: 2vw;
+
+  }
+  .precio{
+
+    margin-right: 5vw;
+    font-size: 2vw;
+
+  }
+  
+  .celda_market button{
+    margin-left: -20vw;
+    margin-top: 100px;
+    width: 15vw;
+    height: 5vh;
+  }
+  
+  button p{
+    font-size: 3vw!important;
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   .celda_carrito{
     display: grid;
