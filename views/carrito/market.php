@@ -59,7 +59,7 @@ $user = $results;
 
 
 
-  <input onkeyup="buscar_ahora();" type="text" class="form-control" id="buscar" name="buscar">
+  <input onkeyup="buscar_ahora();" type="text" class="form-control" id="buscar" name="buscar" placeholder="Busque su producto">
 
 
   <input type="submit" onclick="menoramayor();" id="menoramayor" name="menoramayor" value="Menor a mayor precio">

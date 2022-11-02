@@ -101,7 +101,7 @@ a{
     width: 90vw;
     height: 80vh;
     margin-left: 5vw;
-    margin-top: 2vh;
+    margin-top: 5vh;
     grid-template-columns: 80% 20%;
     grid-template-rows: 80vh;
     background: #1A1A1A;
@@ -296,9 +296,6 @@ button p:hover{
   margin: 0 auto;
 }
 
-#separator2{
-  margin-top: 3vh;
-}
 
 .celda_carrito p {
     color: white;
@@ -380,14 +377,64 @@ button p:hover{
   }
 
 
-  @media all and (max-width: 768px){
-  
+  @media all and (max-width: 768px) {
+
+    #title{
+        font-size: 6vw;
+    }
+
+   
+  #buscar{
+      top: 200px;
+      left: 5vw;
+      height: 50px;
+      width: 90vw;
+      font-size: 4vw;
+  }
+
+  #menoramayor{
+    top: 280px;
+    left: 40vw;
+    height: 50px;
+    width: 30vw;
+    font-size: 2.5vw;
+  }
 
   
-  
-  
-  
-  
-  
-  
+  #mayoramenor{
+    top: 280px;
+    left: 5vw;
+    height: 50px;
+    width: 30vw;
+    font-size: 2.5vw;
   }
+
+
+
+
+  #contenedor_market {
+    width: 90vw;
+    height: 110vh;
+    margin-bottom: 250px;
+    margin-top: 230px;
+    grid-template-columns: 100%;
+    grid-template-rows: 80vh 30vh;
+}
+
+  .celda_market {
+    height: 100%;
+    background: green;
+    grid-template-columns: 80vw;
+    grid-auto-rows: 20vw;
+    grid-gap: 2vh;
+  }
+
+  .celda_carrito{
+    display: grid;
+    grid-row: 2;
+    grid-column: 1;
+    background: darkblue;
+    z-index: 2;
+  }
+
+}
