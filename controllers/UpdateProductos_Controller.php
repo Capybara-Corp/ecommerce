@@ -40,7 +40,6 @@ if (isset($_SESSION['uid'])) {
   }
 }
 else{
-  echo "Debes iniciar sesión para proceder";
   die();
 }
 
@@ -80,5 +79,4 @@ if ($cantidad < 0) {
     $sql = "INSERT INTO DETALLEVENTA (vid, pid, cantidad, subtotal) VALUES ({$lastventa['MAX(vid)']}, $id_producto, $cantidad_producto, $total)";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
-    echo "Detalleventa ingresado";
 }

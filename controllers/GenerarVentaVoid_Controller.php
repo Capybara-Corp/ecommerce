@@ -35,13 +35,9 @@ else{
 }
 
 
-if ($cantidad < 0) {
-    echo "Stock Insuficiente";
-} else {
+
     $sql = "INSERT INTO VENTAS (uid) VALUES (:uid)";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':uid', $user['uid']);
     $stmt->execute();
 
-    echo "Generada venta vacia";
-}

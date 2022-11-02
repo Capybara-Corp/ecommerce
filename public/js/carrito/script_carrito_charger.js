@@ -139,7 +139,9 @@ function fetch_async_compra(pid, cant) {
     })
     .then(function (texto) {
       //alert('esto funciona');
+      if(texto != ""){
       alert(texto);
+      }
       map_productos_carrito.clear();
       refreshCarrito();
       for (let i = 0; i < precioIndividual.length; i++) {
@@ -178,7 +180,9 @@ function fetch_async_venta() {
     })
     .then(function (texto) {
       //alert('esto funciona');
+      if(texto != ""){
       alert(texto);
+      }
       load_shop();
       window.location.href = "market";
       //alert('esto funciona');

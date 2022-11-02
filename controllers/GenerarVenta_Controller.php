@@ -36,11 +36,9 @@ if (isset($_SESSION['uid'])) {
   }
 }
 else{
-  echo "Debes iniciar sesión para proceder";
   die();
 }
 
-echo "Existo";
 
 $sql2 = "SELECT MAX(vid) FROM VENTAS";
     $stmt = $conn->prepare($sql2);
@@ -53,12 +51,10 @@ $stmt = $conn->prepare($sql3);
     $stmt->execute();
   $subtotal = $stmt->fetch();
 
-  echo $subtotal['SUM(subtotal)'];
   $total = $subtotal['SUM(subtotal)'];
 
-if ($cantidad < 0) {
-    echo "Stock Insuficiente";
-} else {
+
+
 
   if($total > 0){
   $sql = "UPDATE VENTAS SET Fecha = :date, Total = :total WHERE vid = '".$lastventa['MAX(vid)']."'";
@@ -72,13 +68,9 @@ if ($cantidad < 0) {
     $sql = "DELETE FROM VENTAS WHERE vid = '".$lastventa['MAX(vid)']."'";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
-    echo "Stock Insuficiente2";
   }
 
 
 
 
     //DELETE FROM Customers WHERE CustomerName='Alfreds Futterkiste';
-
-    
-}
