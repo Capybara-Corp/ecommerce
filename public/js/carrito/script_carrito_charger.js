@@ -77,6 +77,7 @@ function generar_compra() {
   }
   fetch_async_venta();
   }
+  
   else{
     alert("Debes seleccionar un producto");
   }
