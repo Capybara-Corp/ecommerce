@@ -19,4 +19,7 @@ return [
     'denuestrosviñedosasumesa' => 'From our vineyards, to your table',
     'busquesuproducto' => 'Search for products',
     'buscar' => 'Search',
+    'idioma' => 'LANGUAGE',
+    'vinopremium' => 'Premium Wine',
+    'nuestrahistoria' => 'OUR HISTORY',
 ];

@@ -19,4 +19,8 @@ return [
     'denuestrosviñedosasumesa' => '私たちのブドウ園からあなたの食卓へ',
     'busquesuproducto' => '製品を検索する',
     'buscar' => '探す',
+    'idioma' => '言語',
+    'vinopremium' => 'プレミアムワイン',
+    'nuestrahistoria' => '私たちの歴史',
+    
 ];

@@ -1,6 +1,13 @@
 <?php
 
 require 'libs/connect.php';
+
+require_once 'traduccion/Translate.php';
+use \SimpleTranslation\Translate;
+
+
+$idioma = $_COOKIE['idioma'];
+Translate::init($idioma, "lang/".$idioma.".php");
 /*
 
 if (isset($_SESSION['uid'])) {
@@ -24,7 +31,7 @@ $user = $results;
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tienda</title>
+  <title><?=Translate::__('tienda');?></title>
   <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/carrito/style_market.css">
   <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/carrito/header_black_market.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -55,15 +62,15 @@ $user = $results;
 
 
   <input type="hidden" value="<?php echo constant('URL'); ?>" id="urlBase">
-  <h1 id="title">TIENDA</h1>
+  <h1 id="title"><?=Translate::__('tienda');?></h1>
 
 
 
-  <input onkeyup="buscar_ahora();" type="text" class="form-control" id="buscar" name="buscar" placeholder="Busque su producto" <?php if(isset($_POST['buscador'])){ ?>value="<?php echo $_POST['buscador'] ?>"<?php } ?>>
+  <input onkeyup="buscar_ahora();" type="text" class="form-control" id="buscar" name="buscar" placeholder="<?=Translate::__('busquesuproducto');?>" <?php if(isset($_POST['buscador'])){ ?>value="<?php echo $_POST['buscador'] ?>"<?php } ?>>
 
 
-  <input type="submit" onclick="menoramayor();" id="menoramayor" name="menoramayor" value="Menor a mayor precio">
-  <input type="submit" onclick="mayoramenor();" id="mayoramenor" name="mayoramenor" value="Mayor a menor precio">
+  <input type="submit" onclick="menoramayor();" id="menoramayor" name="menoramayor" value="<?=Translate::__('menoramayor');?>">
+  <input type="submit" onclick="mayoramenor();" id="mayoramenor" name="mayoramenor" value="<?=Translate::__('mayoramenor');?>">
 
 
   <div id="contenedor_market">
@@ -71,15 +78,15 @@ $user = $results;
     <section class="celda_market"></section>
     <section class="celda_carrito">
 
-      <h1>CARRITO</h1>
+      <h1><?=Translate::__('carrito');?></h1>
       <div id="separator1" class="separator"></div>
 
       <span id="carrito_content">
       </span>
       <div id="separator2" class="separator"></div>
-      <p id="preciototal">PRECIO TOTAL: </p>
+      <p id="preciototal"><?=Translate::__('preciototal');?></p>
       <p id="total">$0</p>
-      <button id="efectivo" onclick="generar_compra();">REALIZAR COMPRA </button>
+      <button id="efectivo" onclick="generar_compra();"><?=Translate::__('realizarcompra');?></button>
       <h1 id="o">O</h1>
       <button id="paypal"><img src="../public/media/paypal.png" alt=""></button>
     </section>

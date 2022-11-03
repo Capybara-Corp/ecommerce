@@ -1,5 +1,12 @@
 <?php
 
+require_once 'traduccion/Translate.php';
+use \SimpleTranslation\Translate;
+
+
+$idioma = $_COOKIE['idioma'];
+Translate::init($idioma, "lang/".$idioma.".php");
+
   /*require 'libs/connect.php';
 
   if (isset($_SESSION['uid'])) {
@@ -28,30 +35,22 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Roboto:wght@100;300;400&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@200&family=Roboto+Condensed:wght@400;700&family=Roboto:wght@100;300;400&display=swap" rel="stylesheet">   
-  	<title>Nosotros</title>
+  	<title><?=Translate::__('nosotros');?></title>
 </head>
 <body>
 	<?php include "header.php"; ?>
 
 	<section id="mid_container">
-		<h1 class="title" id="nuestrahist">NUESTRA HISTORIA</h1>
-		<p class="paragraph" id="parrafo1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-		consequat.
-		</p>
+		<h1 class="title" id="nuestrahist"><?=Translate::__('nuestrahistoria');?></h1>
+		<p class="paragraph" id="parrafo1"><?=Translate::__('parrafo1');?></p>
 		<img src="public/media/ancient.jpg" id="firstLocal" class="noselect">
-		<i class="paragraph" id="firstLocalI">Nuestro primer local, inaugurado en 1963</i>
+		<i class="paragraph" id="firstLocalI"><?=Translate::__('primerlocal');?></i>
 
 		
 		<img src="public/media/team.png" id="partners" class="noselect">
-		<i class="paragraph" id="partnersI" >Nuestro equipo de trabajo</i>
-		<h1 class="title" id="nuestrosobj">NUESTROS OBJETIVOS</h1>
-		<p class="paragraph" id="parrafo2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-		consequat.
-		</p>
+		<i class="paragraph" id="partnersI" ><?=Translate::__('nuestroequipo');?></i>
+		<h1 class="title" id="nuestrosobj"><?=Translate::__('nuestrosobjetivos');?></h1>
+		<p class="paragraph" id="parrafo2"><?=Translate::__('parrafo2');?></p>
 	</section>
 
 	<?php include "footer.php"; ?>

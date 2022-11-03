@@ -93,7 +93,7 @@ $user = $results; // Me carga en "$user" los datos de mi usuario de mi sesión
     </div> <!-- Es la imagen grande -->
 
     <div id="buy" class="noselect">
-      <p>Vino Premium XXS</p>
+      <p><?=Translate::__('vinopremium');?></p>
 
       <a href="carrito/market">
       <div id="abuy">
