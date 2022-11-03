@@ -187,6 +187,11 @@ nav {
   transform: scale(1.05);
 }
 
+.languages-content a:hover {
+  transition: all 0.2s ease;
+  transform: scale(1.05);
+}
+
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {
   display:block;
