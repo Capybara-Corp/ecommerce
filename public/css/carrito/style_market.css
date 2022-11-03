@@ -414,11 +414,11 @@ button p:hover{
 
   #contenedor_market {
     width: 90vw;
-    height: 110vh;
+    height: 180vh;
     margin-bottom: 250px;
     margin-top: 230px;
     grid-template-columns: 100%;
-    grid-template-rows: 80vh 50vh;
+    grid-template-rows: 80vh 100vh;
 }
 
 
@@ -426,7 +426,6 @@ button p:hover{
     height: 100%;
     grid-template-columns: 80vw;
     grid-auto-rows: 20vw;
-    
     grid-gap: 5vh;
   }
 
@@ -499,5 +498,55 @@ button p:hover{
     background: darkblue;
     z-index: 2;
   }
+  .celda_carrito h1{
+    font-size: 6vw;
+    margin: 15px auto;
+    padding-top: 15px;
+  }
+  .separator{
+    height: 0.5vh;
+  }
+
+  #separator2{
+    display: none;
+  }
+
+  #carrito_content {
+    margin-bottom: 40vh;
+    height: 40vh;
+
+}
+
+#o{
+  font-size: 3vw;
+}
+
+#carrito_content p {
+  font-size: 3vw;
+
+}
+
+#preciototal {
+  font-size: 3vw;
+  bottom: 27%;
+  left: 5%;
+}
+
+#total{
+  font-size: 3vw;
+  bottom: 27%;
+  right: 5%;
+}
+
+.celda_carrito #efectivo {
+  font-size: 3vw;
+
+}
+
+.celda_carrito #paypal img{
+  width: auto;
+  height: 6vh;
+}
+
 
 }
