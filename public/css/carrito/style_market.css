@@ -384,6 +384,8 @@ button p:hover{
         font-size: 6vw;
     }
 
+    
+
    
   #buscar{
       top: 200px;
@@ -469,7 +471,7 @@ button p:hover{
   
   .celda_market button{
     margin-left: -20vw;
-    margin-top: 100px;
+    margin-top: 60px;
     width: 15vw;
     height: 5vh;
   }
@@ -496,7 +498,7 @@ button p:hover{
     display: grid;
     grid-row: 2;
     grid-column: 1;
-    background: darkblue;
+    background: black;
     z-index: 2;
   }
   .celda_carrito h1{
@@ -510,6 +512,10 @@ button p:hover{
 
   #separator2{
     display: none;
+  }
+
+  .hide{
+    display: none!important;
   }
 
   #carrito_content {

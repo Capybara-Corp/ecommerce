@@ -65,13 +65,13 @@ $user = $results;
   <h1 id="title"><?=Translate::__('tienda');?></h1>
 
 
-
+<div id="buscadores">
   <input onkeyup="buscar_ahora();" type="text" class="form-control" id="buscar" name="buscar" placeholder="<?=Translate::__('busquesuproducto');?>" <?php if(isset($_POST['buscador'])){ ?>value="<?php echo $_POST['buscador'] ?>"<?php } ?>>
 
 
   <input type="submit" onclick="menoramayor();" id="menoramayor" name="menoramayor" value="<?=Translate::__('menoramayor');?>">
   <input type="submit" onclick="mayoramenor();" id="mayoramenor" name="mayoramenor" value="<?=Translate::__('mayoramenor');?>">
-
+</div>
 
   <div id="contenedor_market">
 

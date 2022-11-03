@@ -236,6 +236,24 @@ nav {
 }
 
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   /* CSS MENU - fin*/
 
   @media all and (max-width: 768px){
@@ -260,8 +278,8 @@ nav {
 
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
-  display: none;
-  top: 102vh;
+  /*display: none;*/
+  top: 100vh;
   left: 0;
   width: 100vw;
 }
@@ -271,15 +289,22 @@ nav {
   width: 90vw;
   height: 10vh;
   margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  text-decoration: none;
-  font-weight: 300!important;
   font-size: 3vw!important;
-  font-family: 'Roboto', sans-serif;
 }
+
+.languages-content {
+  top: 100vh;
+  right: 0;
+  width: 100vw;
+}
+
+.languages-content a {
+  width: 90vw;
+  height: 10vh;
+  margin: 0 auto;
+  font-size: 3vw!important;
+}
+
 
 
   }

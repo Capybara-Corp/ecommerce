@@ -33,7 +33,7 @@ nav {
     top: 1.5vh;
     right: 2vw;
     cursor: pointer; /* Con esto hago que aparezca una manita en el mouse cuando se le pasa arriba */
-    filter:invert(1); /* Con esto invierto los colores */
+    filter:invert(0); /* Con esto invierto los colores */
     width: 40px;
     z-index: 1; /* Con esto hago que aparezca arriba del todo. El z-index nos permite organizar las capas */
   }
@@ -82,7 +82,7 @@ nav {
   .main-menu li {
     background: rgba(255, 255, 255, 0.9); /* Le doy un color de fondo para que se vea correctamente */
     width: 100%;
-    
+    z-index: 99;
     padding: 5vh 0 ; /* Las unidades "em" sirven para delimitar según el ancho de la letra */
     text-align: center;
     float: left;
@@ -138,7 +138,7 @@ nav {
   right: 0;
   background-color: rgba(255, 255, 255, 1);
   min-width: 14vw;
-  z-index: 2;
+  z-index: 10;
   text-transform: uppercase;
 }
 
@@ -236,6 +236,24 @@ nav {
 }
 
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   /* CSS MENU - fin*/
 
   @media all and (max-width: 768px){
@@ -260,8 +278,8 @@ nav {
 
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
-  display: none;
-  top: 102vh;
+  /*display: none;*/
+  top: 100vh;
   left: 0;
   width: 100vw;
 }
@@ -271,15 +289,22 @@ nav {
   width: 90vw;
   height: 10vh;
   margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  text-decoration: none;
-  font-weight: 300!important;
   font-size: 3vw!important;
-  font-family: 'Roboto', sans-serif;
 }
+
+.languages-content {
+  top: 100vh;
+  right: 0;
+  width: 100vw;
+}
+
+.languages-content a {
+  width: 90vw;
+  height: 10vh;
+  margin: 0 auto;
+  font-size: 3vw!important;
+}
+
 
 
   }
