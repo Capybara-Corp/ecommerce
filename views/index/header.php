@@ -14,11 +14,7 @@ Translate::init($idioma, "lang/".$idioma.".php");
   <div id="toggle-menu" class="toggle-menu">
   <img src="public/media/menu.png" id="menupic">
   </div> <!-- Este div contiene la imagen del boton para abrir el menu -->
-  <div style="text-align: center;" id="languages">
-  <a href="<?php echo constant('URL'); ?>?lang=es"><img src="public/lang/spanish.png" class="language" id="spanish"></a>
-  <a href="<?php echo constant('URL'); ?>?lang=en"><img src="public/lang/english.png" class="language" id="english"></a>
-  <a href="<?php echo constant('URL'); ?>?lang=jav"><img src="public/lang/japanese.png" class="language" id="japanese"></a>
-  </div>
+
   <ul class="main-menu" id="main-menu">
     <li><a href="<?php echo constant('URL'); ?>"><?=Translate::__('inicio');?></a></li>
     <li><a href="<?php echo constant('URL'); ?>nosotros"><?=Translate::__('nosotros');?></a></li>
@@ -62,8 +58,17 @@ Translate::init($idioma, "lang/".$idioma.".php");
 
       <a id="miperfil" href="<?php echo constant('URL'); ?>perfil?uid=<?php echo ($_SESSION['uid']); ?>"><?=Translate::__('miperfil');?></a>
       <a id="edit" href="editar?uid=<?php echo ($_SESSION['uid']); ?>"><?=Translate::__('editarmiperfil');?></a>
-      <a id="idioma"><button onclick="mostrarmenu()" class="dropbtn">IDIOMA</button></a>
+      <a id="idioma"><button onclick="mostraridiomas()" class="dropbtnLan">IDIOMA</button></a>
       <a id="logout" href="logout"><?=Translate::__('cerrarsesion');?></a>
     </div>
 
+
+
+<div id="myLanguages" class="languages-content">
+    <a href="<?php echo constant('URL'); ?>?lang=es" id="es">Español</a>
+    <a href="<?php echo constant('URL'); ?>?lang=en" id="en">Ingles</a>
+    <a href="<?php echo constant('URL'); ?>?lang=jav" id="jav">Japanese</a>
+</div>
+
 <script src="<?php echo constant('URL'); ?>public/js/perfil.js"></script>
+<script src="<?php echo constant('URL'); ?>public/js/languages.js"></script>
