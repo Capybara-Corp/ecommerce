@@ -171,14 +171,39 @@ if (isset($_GET['activar'])) { // Si hay algo en la URL de borrar usuario
       <?php
 
 if($user['rango'] == '1'){
-  if(isset($_POST['submit'])){
+  if($_POST['nombre'] != ""){
+    $buscStr = $_POST['nombre'];
+    $buscStr = trim($buscStr);
+    $buscStr = strtolower($buscStr);
+    $data = $conn->query("SELECT * FROM USUARIOS WHERE nombre LIKE '%$buscStr%' AND rango = '2'");
+    
+    //No se deberia poner asi
+
+    //$data->bindParam(':textostr', $buscStr, PDO::PARAM_STR);
+    //$term = "%$buscStr%";
+    //$data->bindParam(':textostr', $term, PDO::PARAM_STR);
   }
   else{
-$data = $conn->query("SELECT * FROM USUARIOS WHERE rango = '2'")->fetchAll();
+    $data = $conn->query("SELECT * FROM USUARIOS WHERE rango = '2'")->fetchAll();
   }
 }
 else if($user['rango'] == '3'){
-  $data = $conn->query("SELECT * FROM USUARIOS WHERE rango <= '2'")->fetchAll();
+  if($_POST['nombre'] != ""){
+    $buscStr = $_POST['nombre'];
+    $buscStr = trim($buscStr);
+    $buscStr = strtolower($buscStr);
+    $data = $conn->query("SELECT * FROM USUARIOS WHERE nombre LIKE '%$buscStr%' AND rango <= '2'");
+    
+    //No se deberia poner asi
+
+    //$data->bindParam(':textostr', $buscStr, PDO::PARAM_STR);
+    //$term = "%$buscStr%";
+    //$data->bindParam(':textostr', $term, PDO::PARAM_STR);
+  }
+  else{
+    $data = $conn->query("SELECT * FROM USUARIOS WHERE rango <= '2'")->fetchAll();
+  }
+  
 }
 
 else if($user['rango'] == '4'){

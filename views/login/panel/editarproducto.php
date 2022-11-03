@@ -110,6 +110,26 @@ if (!empty($_POST['nombre']) && !empty($_POST['precio_venta']) && !empty($_POST[
 
 <h1 id="gestionarh1">GESTIONAR PRODUCTOS</h1>
 
+<?php 
+    $records = $conn->prepare('SELECT COUNT(pid) FROM PRODUCTOS;');
+    $records->execute();
+    $results = $records->fetch(PDO::FETCH_ASSOC);
+
+    $cantidad = null;
+
+    if (count($results) > 0) {
+        $cantidad = $results; // Guardamos los datos del usuario de la URL
+    }
+    ?>
+
+<p id="total">TOTAL: <?php echo $cantidad['COUNT(pid)'] ?></p>
+
+<form action="producto" method="POST">
+<label for="nombre">Buscar producto por nombre:</label>
+<input name="nombre" type="text" placeholder="Ingrese el nombre">
+<input type="submit" value="Buscar">
+</form>
+
 <section id="main">
 
 <?php 
