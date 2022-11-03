@@ -79,7 +79,7 @@ $user = $results; // Me carga en "$user" los datos de mi usuario de mi sesión
   </div></a> <!-- Este div contiene el botón "Comprar ahora" -->
 
   <div id="search">
-    <form id="formulario">
+    <form id="formulario" action="carrito/market" method="post">
       <p id="eslogan"><?=Translate::__('denuestrosviñedosasumesa');?></p>
       <input type="text" name="buscador" id="buscador" placeholder="<?=Translate::__('busquesuproducto');?>">
       <button class="button" type="submit" id="boton"><?=Translate::__('buscar');?></button>

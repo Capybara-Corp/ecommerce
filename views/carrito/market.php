@@ -46,7 +46,7 @@ $user = $results;
 
 </head>
 
-<body>
+<body <?php if(isset($_POST['buscador'])) { ?>onLoad="buscar_ahora()"<?php }?>>
   <?php include "header.php";?>
 
   <!--Importo mi header -->
@@ -59,7 +59,7 @@ $user = $results;
 
 
 
-  <input onkeyup="buscar_ahora();" type="text" class="form-control" id="buscar" name="buscar" placeholder="Busque su producto">
+  <input onkeyup="buscar_ahora();" type="text" class="form-control" id="buscar" name="buscar" placeholder="Busque su producto" <?php if(isset($_POST['buscador'])){ ?>value="<?php echo $_POST['buscador'] ?>"<?php } ?>>
 
 
   <input type="submit" onclick="menoramayor();" id="menoramayor" name="menoramayor" value="Menor a mayor precio">
