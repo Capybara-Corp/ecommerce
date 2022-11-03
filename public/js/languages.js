@@ -1,29 +1,28 @@
 /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
 function mostraridiomas() {
-    document.getElementById("myLanguages").classList.toggle("show");
-  }
-  
-  // Close the dropdown menu if the user clicks outside of it
-  window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn') && !event.target.matches('#myLanguages') && !event.target.matches('.dropbtnLan')) {
-      var dropdowns = document.getElementsByClassName("dropdown-content");
-      var languages = document.getElementById("myLanguages");
-      var menu = document.getElementById("main-menu");
-      var i;
-      for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
+var mylanguages = document.getElementById("myLanguages");
+    var mainMenu = document.getElementById("main-menu");
+
+    if(mylanguages.classList.contains('show')){
+        mylanguages.classList.remove('show');
+        activado -= 1;
+        //alert(activado);
+    }
+    else{
+        mylanguages.classList.add("show");
+        activado += 1;
+        //alert(activado);
+    }
+
+    if(mainMenu.classList.contains('menu-negro')){
+        if(activado == 0){
+        mainMenu.classList.remove("menu-negro");
         }
-        if (menu.classList.contains('menu-negro')) {
-          menu.classList.remove('menu-negro');
-        }
+    }
+    else{
+        mainMenu.classList.add("menu-negro");
         
-      }
-      if (languages.classList.contains('show')) {
-        languages.classList.remove('show');
-      }
-    
-  }
+    }
+ 
   }

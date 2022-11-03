@@ -9,6 +9,11 @@ Translate::init($idioma, "lang/".$idioma.".php");
 
 ;?>
 
+<script>
+  var activado = 0;
+
+</script>
+
 <nav class="noselect">
   <!-- Es el menu superior -->
   <div id="toggle-menu" class="toggle-menu">
@@ -20,8 +25,9 @@ Translate::init($idioma, "lang/".$idioma.".php");
     <li><a href="<?php echo constant('URL'); ?>nosotros"><?=Translate::__('nosotros');?></a></li>
     <li><a href="<?php echo constant('URL'); ?>carrito/market"><?=Translate::__('tienda');?></a></li>
     <li><a href=""><?=Translate::__('noticias');?></a></li>
-    <li><a href=""><?=Translate::__('productos');?></a></li>
     <li><a href=""><?=Translate::__('contacto');?></a></li>
+    <li><a id="idioma"><button onclick="mostraridiomas()" class="dropbtnLan">IDIOMA</button></a></li>
+    
 
     
     
@@ -58,7 +64,6 @@ Translate::init($idioma, "lang/".$idioma.".php");
 
       <a id="miperfil" href="<?php echo constant('URL'); ?>perfil?uid=<?php echo ($_SESSION['uid']); ?>"><?=Translate::__('miperfil');?></a>
       <a id="edit" href="editar?uid=<?php echo ($_SESSION['uid']); ?>"><?=Translate::__('editarmiperfil');?></a>
-      <a id="idioma"><button onclick="mostraridiomas()" class="dropbtnLan">IDIOMA</button></a>
       <a id="logout" href="logout"><?=Translate::__('cerrarsesion');?></a>
     </div>
 

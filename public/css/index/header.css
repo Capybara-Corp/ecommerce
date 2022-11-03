@@ -218,8 +218,7 @@ nav {
 }
 
 #idioma button{
-  padding: 1vw 4.4vw;
-  width: 12vw;
+  width: auto;
   height: auto;
   margin: 0 auto;
   display: flex;
