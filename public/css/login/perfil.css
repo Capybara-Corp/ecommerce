@@ -6,6 +6,28 @@ body {
   min-height: 150vh;
 }
 
+@keyframes animateRight{
+  from{
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to{
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes animateUp{
+	from{
+		opacity: 0;
+		transform: translateY(50px);
+	}
+	to{
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
 
 #rosa {
   position: relative;
@@ -19,6 +41,7 @@ body {
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+  animation: animateRight 1s forwards;
 }
 
 #muro {
@@ -131,6 +154,7 @@ body {
   color: #DF173F;
   font-family: arial;
   font-size: 2vw;
+  animation: animateUp 1s forwards;
 }
 
 .vino {
