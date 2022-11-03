@@ -74,9 +74,9 @@ $user = $results; // Me carga en "$user" los datos de mi usuario de mi sesión
 
   <img src="public/media/bgwine.png" id="bgwine" class="noselect"> <!-- Esta es la imagen de fondo -->
 
-  <div id="shop" class="noselect">
+  <a href="carrito/market"><div id="shop">
     <p><?=Translate::__('comprarahora');?></p>
-  </div> <!-- Este div contiene el botón "Comprar ahora" -->
+  </div></a> <!-- Este div contiene el botón "Comprar ahora" -->
 
   <div id="search">
     <form id="formulario">
@@ -94,9 +94,13 @@ $user = $results; // Me carga en "$user" los datos de mi usuario de mi sesión
 
     <div id="buy" class="noselect">
       <p>Vino Premium XXS</p>
+
+      <a href="carrito/market">
       <div id="abuy">
-        <a href=""><?=Translate::__('comprarahora');?></a>
+        <p><?=Translate::__('comprarahora');?></p>
       </div>
+      </a>
+
     </div> <!-- Es el botón -->
 
   </section> <!-- Este section contiene la imagen grande con los quesos, y el botón de comprar -->

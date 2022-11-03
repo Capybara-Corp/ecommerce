@@ -110,7 +110,6 @@ a{
 }
 
 #mid_container {
-  cursor: pointer;
   margin-left: auto;
   margin-right: auto;
   margin-top: 50px;
@@ -142,7 +141,9 @@ a{
 }
 
 #shop {
+  position: relative;
   margin-left: auto;
+  cursor: pointer;
   margin-right: auto;
   margin-top: 70px;
   border: 0.2vw solid black;
@@ -151,6 +152,7 @@ a{
   height: 70px;
   cursor: pointer;
   transition: .3s ease-in-out all;
+  z-index: 2;
 }
 #shop p {
   text-align: center;
@@ -252,20 +254,20 @@ a{
   background: white;
   cursor: pointer;
   transition: .3s ease-in-out all;
+
 }
 
 #abuy:hover {
   background: #0E9CFF;
 }
 
-#abuy:hover a{
+#abuy:hover p{
   color: white;
 }
 
-#abuy a {
-  position: relative;
-  top: 8px;
-  left: 75px;
+#abuy p {
+  text-align: center;
+  padding-top: 10px;
   font-family: 'Noto Sans', sans-serif;
   color: #1D31FF;
   text-decoration: none;
