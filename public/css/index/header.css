@@ -1,7 +1,20 @@
+@keyframes animateDown{
+  from{
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 nav {
     width: 100%;
     height: 12vh;
+    animation: animateDown 1s forwards;
   }
+
   nav a{
     color: white;
     text-decoration: none;
@@ -170,6 +183,23 @@ nav {
   border-top: 0.2vh solid white;
 }
 
+#idioma{
+  border-top: 0.2vh solid white;
+  cursor: pointer;
+}
+
+#idioma button{
+  padding: 1vw 4.4vw;
+  width: 12vw;
+  height: auto;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+}
+
   
   /* CSS MENU - fin*/
 
@@ -195,7 +225,7 @@ nav {
 
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
-  /*display: none;*/
+  display: none;
   top: 102vh;
   left: 0;
   width: 100vw;

@@ -62,6 +62,7 @@ Translate::init($idioma, "lang/".$idioma.".php");
 
       <a id="miperfil" href="<?php echo constant('URL'); ?>perfil?uid=<?php echo ($_SESSION['uid']); ?>"><?=Translate::__('miperfil');?></a>
       <a id="edit" href="editar?uid=<?php echo ($_SESSION['uid']); ?>"><?=Translate::__('editarmiperfil');?></a>
+      <a id="idioma"><button onclick="mostrarmenu()" class="dropbtn">IDIOMA</button></a>
       <a id="logout" href="logout"><?=Translate::__('cerrarsesion');?></a>
     </div>
 
