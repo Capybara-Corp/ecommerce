@@ -1,13 +1,13 @@
 <?php
 
 return [
-    'inicio' => 'INICIO',
-    'nosotros' => 'NOSOTROS',
-    'tienda' => 'TIENDA',
+    'inicio' => 'Inicio',
+    'nosotros' => 'Nosotros',
+    'tienda' => 'Tienda',
     'noticias' => 'NOTICIAS',
     'productos' => 'PRODUCTOS',
     'contacto' => 'CONTACTO',
-    'login' => 'INICIAR SESIÓN',
+    'login' => 'Iniciar sesión',
     'miperfil' => 'MI PERFIL',
     'editarmiperfil' => 'EDITAR MI PERFIL',
     'cerrarsesion' => 'CERRAR SESIÓN',
@@ -32,4 +32,10 @@ return [
     'carrito' => 'CARRITO',
     'preciototal' => 'PRECIO TOTAL: ',
     'realizarcompra' => 'REALIZAR COMPRA',
+    'correo' => 'Correo',
+    'ingresesucorreo' => 'Ingrese su correo',
+    'contrasena' => 'Contraseña',
+    'ingresesucontrasena' => 'Ingrese su contraseña',
+    'iniciarsesion' => 'Iniciar sesión',
+    'notienescuenta' => '¿No tienes una cuenta?',
 ];

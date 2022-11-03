@@ -1,5 +1,12 @@
 <?php
 
+require_once 'traduccion/Translate.php';
+use \SimpleTranslation\Translate;
+
+
+$idioma = $_COOKIE['idioma'];
+Translate::init($idioma, "lang/".$idioma.".php");
+
 /*if (isset($_SESSION['uid'])) {
     header('Location: ../ecommerce');
 }
@@ -30,7 +37,7 @@ if (!empty($_POST['user_correo']) && !empty($_POST['user_pass'])) { // Si recibe
 
 <head>
   <meta charset="utf-8">
-  <title>Iniciar sesión</title>
+  <title><?=Translate::__('login');?></title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -55,23 +62,23 @@ if (!empty($_POST['user_correo']) && !empty($_POST['user_pass'])) { // Si recibe
 
   
 
-    <h1>Iniciar sesión</h1>
+    <h1><?=Translate::__('login');?></h1>
 
     <?php if (!empty($this->message)): ?>
   <p id="mensaje"> <?=$this->message;?></p>
   <?php endif;?>
 
     <form action="login" method="POST">
-      <label for="user_correo">Correo</label>
-      <input name="user_correo" type="text" placeholder="Ingrese su correo">
+      <label for="user_correo"><?=Translate::__('correo');?></label>
+      <input name="user_correo" type="text" placeholder="<?=Translate::__('ingresesucorreo');?>">
 
-      <label for="user_pass">Contraseña</label>
-      <input name="user_pass" type="password" placeholder="Ingrese su contraseña">
+      <label for="user_pass"><?=Translate::__('contrasena');?></label>
+      <input name="user_pass" type="password" placeholder="<?=Translate::__('ingresesucontrasena');?>">
 
 
-      <input type="submit" value="Iniciar sesión">
+      <input type="submit" value="<?=Translate::__('iniciarsesion');?>">
 
-      <a href="<?php echo constant('URL'); ?>signup">¿No tienes una cuenta?</a>
+      <a href="<?php echo constant('URL'); ?>signup"><?=Translate::__('notienescuenta');?></a>
     </form>
   </div>
 
