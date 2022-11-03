@@ -1,5 +1,12 @@
 <?php
 
+require_once 'traduccion/Translate.php';
+use \SimpleTranslation\Translate;
+
+
+$idioma = $_COOKIE['idioma'];
+Translate::init($idioma, "lang/".$idioma.".php");
+
 $message = '';
 $existe = False;
 
@@ -48,7 +55,7 @@ if (isset($_SESSION['uid'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Historial de compra</title>
+    <title><?=Translate::__('historialdecompra');?></title>
     <link rel="stylesheet" href="public/css/login/historial.css">
     <link rel="stylesheet" href="public/css/index/headerblack.css">
 </head>
@@ -62,7 +69,7 @@ if (($_GET['uid']) == ($_SESSION['uid'])): ?>
   <?php include "views/index/header.php";?>
 
 
-  <h1 id="title">HISTORIAL DE COMPRA</h1>
+  <h1 id="title"><?=Translate::__('historialdecompra');?></h1>
 
 
     <?php if (isset($message)){

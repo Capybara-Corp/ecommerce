@@ -1,5 +1,12 @@
 <?php
 
+require_once 'traduccion/Translate.php';
+use \SimpleTranslation\Translate;
+
+
+$idioma = $_COOKIE['idioma'];
+Translate::init($idioma, "lang/".$idioma.".php");
+
 require 'libs/connect.php';
 require "config/config.php";
 if (isset($_SESSION['uid'])) {
@@ -29,7 +36,7 @@ if (isset($_SESSION['uid'])) {
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Editar mi perfil</title>
+  <title><?=Translate::__('editarmiperfil');?></title>
   <script language="Javascript" type="text/javascript">
   function Confirmar(frm) {
     var borrar = confirm(
@@ -52,7 +59,7 @@ if (($_GET['uid']) == ($_SESSION['uid'])): ?>
   <?php include "views/index/header.php";?>
 
 
-  <h1 id="title">EDITAR PERFIL</h1>
+  <h1 id="title"><?=Translate::__('editarmiperfil');?></h1>
 
   <div id="editar">
 
@@ -61,7 +68,7 @@ if (($_GET['uid']) == ($_SESSION['uid'])): ?>
 
   <div id="profilepic">
   <form action="" method="post" enctype="multipart/form-data" name="form1" id="form1">
-  <p>Imagen de perfil</p>
+  <p><?=Translate::__('imagendeperfil');?></p>
     <p><img src="<?php echo $user['avatar']; ?>" />
     </p>
     <p>
@@ -69,10 +76,10 @@ if (($_GET['uid']) == ($_SESSION['uid'])): ?>
       <input type="file" name="avatar" id="fileField" />
     </p>
     <p>
-      <input type="submit" name="editarfoto" id="button" value="Editar foto" />
+      <input type="submit" name="editarfoto" id="button" value="<?=Translate::__('editarfoto');?>" />
     </p>
     <p>
-      <input type="submit" name="eliminarfoto" id="button" value="Eliminar foto" />
+      <input type="submit" name="eliminarfoto" id="button" value="<?=Translate::__('eliminarfoto');?>" />
     </p>
 </form>
 </div>
@@ -84,33 +91,33 @@ if (($_GET['uid']) == ($_SESSION['uid'])): ?>
 <form action="" method="post" enctype="multipart/form-data" name="form2" id="form2">
     <p>
       <label for="textfield2" class="campo">
-      Nombre:</label>
+      <?=Translate::__('nombre');?>:</label>
       
       <input type="text" name="nombre" id="textfield2" value="<?php echo $user['nombre']; ?>" />
     </p>
     <p>
     <label for="textfield2" class="campo">
-      Contraseña:</label>
+    <?=Translate::__('contrasena');?>:</label>
       <input type="password" name="contrasena" id="textfield" />
     </p>
     <p>
     <label for="textfield2" class="campo">
-      Teléfono:</label>
+    <?=Translate::__('telefono');?></label>
       <input type="text" name="telefono" id="textfield" value="<?php echo $user['telefono']; ?>" />
     </p>
     <p>
     <label for="textfield2" class="campo">
-      Añadir Tarjeta:</label>
+    <?=Translate::__('anadirtarjeta');?>:</label>
       <input type="text" name="tarjeta" id="textfield" />
     </p>
     <p>
     <label for="textfield2" class="campo">
-      Añadir Direccion:</label>
+    <?=Translate::__('anadirdireccion');?>:</label>
       <input type="text" name="direccion" id="textfield" />
     </p>
-      <input type="submit" name="editar" id="buttoneditar" value="Editar datos" />
+      <input type="submit" name="editar" id="buttoneditar" value="<?=Translate::__('editardatos');?>" />
       
-      <input type="submit" name="eliminar" id="buttoneliminar" onclick="return Confirmar (this.form)" value="Eliminar mi usuario" /></li>
+      <input type="submit" name="eliminar" id="buttoneliminar" onclick="return Confirmar (this.form)" value="<?=Translate::__('eliminarmiusuario');?>" /></li>
  
     </form>
 </div>

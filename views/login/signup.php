@@ -1,5 +1,12 @@
 <?php
 
+require_once 'traduccion/Translate.php';
+use \SimpleTranslation\Translate;
+
+
+$idioma = $_COOKIE['idioma'];
+Translate::init($idioma, "lang/".$idioma.".php");
+
 /*
 
   require 'libs/connect.php';
@@ -54,7 +61,7 @@
 <html>
   <head>
   <meta charset="utf-8">
-  <title>Registrarse</title>
+  <title><?=Translate::__('registrarse');?></title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -74,7 +81,7 @@
 
 
     <div class="register-box">
-    <h1>Registrarse</h1>
+    <h1><?=Translate::__('registrarse');?></h1>
 
     <form action="signup" method="POST">
 
@@ -82,24 +89,24 @@
       <p id="mensaje"><?= $this->message ?></p>
     <?php endif; ?>
 
-      <label for="user_correo">Correo</label>
+      <label for="user_correo"><?=Translate::__('correo');?></label>
       <input name="user_correo" type="text" placeholder="Ingrese su correo">
 
-      <label for="user_pass">Contraseña</label>
-      <input name="user_pass" type="password" placeholder="Ingrese su contraseña">
+      <label for="user_pass"><?=Translate::__('contrasena');?></label>
+      <input name="user_pass" type="password" placeholder="<?=Translate::__('ingresesucontrasena');?>">
 
-      <label for="confirm_password">Confirme su contraseña</label>
-      <input name="confirm_password" type="password" placeholder="Ingrese su contraseña">
+      <label for="confirm_password"><?=Translate::__('confirmesucontrasena');?></label>
+      <input name="confirm_password" type="password" placeholder="<?=Translate::__('ingresesucontrasena');?>">
 
-      <label for="user_name">Ingrese su nombre</label>
-      <input name="user_name" type="text" placeholder="Enter your name">
+      <label for="user_name"><?=Translate::__('ingresesunombre');?></label>
+      <input name="user_name" type="text" placeholder="<?=Translate::__('ingresesunombre');?>">
 
-      <label for="user_number">Ingrese su número de teléfono</label>
-      <input name="user_number" type="text" placeholder="Enter your phone number">
+      <label for="user_number"><?=Translate::__('ingresesunumero');?></label>
+      <input name="user_number" type="text" placeholder="<?=Translate::__('ingresesunumero');?>">
 
-      <input type="submit" value="Registrarse">
+      <input type="submit" value="<?=Translate::__('registrarse');?>">
 
-      <a href="<?php echo constant('URL'); ?>login">Ya tienes una cuenta?</a>
+      <a href="<?php echo constant('URL'); ?>login"><?=Translate::__('yatienesunacuenta');?></a>
     </form>
     </div>
 

@@ -1,5 +1,12 @@
 <?php
 
+require_once 'traduccion/Translate.php';
+use \SimpleTranslation\Translate;
+
+
+$idioma = $_COOKIE['idioma'];
+Translate::init($idioma, "lang/".$idioma.".php");
+
 require 'libs/connect.php';
 require "config/config.php";
 if (isset($_SESSION['uid'])) {
@@ -74,7 +81,7 @@ if (is_countable($records) > 0) {
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Perfil de: <?=$perfil['nombre'];?></title>
+  <title><?=Translate::__('perfilde');?><?=$perfil['nombre'];?></title>
   <link rel="stylesheet" href="public/css/login/perfil.css">
   <link rel="stylesheet" href="public/css/index/headerblack.css">
   <link rel="stylesheet" href="public/css/index/footer.css">
@@ -98,13 +105,13 @@ if (isset($_GET['uid'])): ?>
 
 
       <?php if ($perfil['rango'] == '1') {?>
-      <p class="rango">(admin)</p><?php }?>
+      <p class="rango">(<?=Translate::__('admin');?>)</p><?php }?>
 
       <?php if ($perfil['rango'] == '3') {?>
-      <p class="rango">(emperador)</p><?php }?>
+      <p class="rango">(<?=Translate::__('emperador');?>)</p><?php }?>
 
       <?php if ($perfil['rango'] == '4') {?>
-      <p id="lider">(supremo lider)</p><?php }?>
+      <p id="lider">(<?=Translate::__('supremolider');?>)</p><?php }?>
 
       <h1 style="color:<?php echo $rango['color']; ?>;<?php if($perfil['rango'] == 4){?> -webkit-text-stroke: 0.05vw white; <?php } ?>" id=profilename>
         <?=$perfil['nombre'];?>
@@ -113,23 +120,22 @@ if (isset($_GET['uid'])): ?>
 
 
       <a id="editprofile" href="editar?uid=<?php echo ($_SESSION['uid']); ?>">
-        Editar mi perfil
+      <?=Translate::__('editarmiperfil');?>
       </a>
       <br>
       <a class="mycards" href="tarjetas?uid=<?php echo ($_SESSION['uid']); ?>">
-        Mis tarjetas
+      <?=Translate::__('mistarjetas');?>
       </a>
       <br>
       <a class="mycards" href="direcciones?uid=<?php echo ($_SESSION['uid']); ?>">
-        Mis direcciones
+      <?=Translate::__('misdirecciones');?>
       </a>
       <br>
       <a class="mycards" href="historial?uid=<?php echo ($_SESSION['uid']); ?>">
-        Historial de compra
+      <?=Translate::__('historialdecompra');?>
       </a>
       <br>
-      <?php if ($rango['rid'] == '1' || $rango['rid'] == '3' || $rango['rid'] == '4') {?><a href="panel" id="panelAdmin" <?php if($perfil['rango'] == 4) { ?> style="color: white!important;"<?php } ?> ">Panel
-        Admin</a><?php }?>
+      <?php if ($rango['rid'] == '1' || $rango['rid'] == '3' || $rango['rid'] == '4') {?><a href="panel" id="panelAdmin" <?php if($perfil['rango'] == 4) { ?> style="color: white!important;"<?php } ?> "><?=Translate::__('paneladmin');?></a><?php }?>
 
 
 
@@ -159,7 +165,7 @@ if (isset($_GET['uid'])): ?>
 
 
     </div>
-    <h1 id="historial">Ultimos vinos comprados</h1>
+    <h1 id="historial"><?=Translate::__('ultimosvinoscomprados');?></h1>
 
 
     <?php if (isset($productos)) {
@@ -168,9 +174,9 @@ if (isset($_GET['uid'])): ?>
         echo "<h1 class=\"vino\">Total: ".$prod['subtotal']."<br>".$prod['nombre'].", ".$prod['marca'].", ".$prod['cantidad']." unidades, ".$prod['Fecha']."</h1>";
     }
   }
-    else{
-      echo "<h1 class=\"vino\">No ha comprado ningún vino</h1>";
-    }
+    else{?>
+      <h1 class="vino"><?=Translate::__('nohacompradoningunvino');?></h1>
+    <?php }
     ?>
 
 

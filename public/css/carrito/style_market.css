@@ -26,6 +26,7 @@ a{
   letter-spacing: 0.1vw;
   font-size: 2vw;
   margin-left: 12vw;
+  text-transform: uppercase;
 }
 
 #buscar{

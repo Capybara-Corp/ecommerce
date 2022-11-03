@@ -1,5 +1,13 @@
 <?php
 
+
+require_once 'traduccion/Translate.php';
+use \SimpleTranslation\Translate;
+
+
+$idioma = $_COOKIE['idioma'];
+Translate::init($idioma, "lang/".$idioma.".php");
+
 $message = "";
 $existe = False;
 
@@ -47,7 +55,7 @@ if (isset($_SESSION['uid'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mis tarjetas</title>
+    <title><?=Translate::__('mistarjetas');?></title>
     <link rel="stylesheet" href="public/css/login/tarjetas.css">
     <link rel="stylesheet" href="public/css/index/headerblack.css">
     <script language="Javascript" type="text/javascript">
@@ -120,14 +128,14 @@ if (($_GET['uid']) == ($_SESSION['uid'])): ?>
 ?>
 
 
-  <h1 id="title">MIS TARJETAS</h1>
+  <h1 id="title"><?=Translate::__('mistarjetas');?></h1>
 
 
   <form action="" method="post" enctype="multipart/form-data" name="form2" id="form2">
   <p>
     <label for="textfield2" class="campo">
-      Añadir Tarjeta:</label>
-      <input type="text" name="tarjeta" id="textfield" /><input type="submit" name="añadir" value="Añadir tarjeta" />
+    <?=Translate::__('anadirtarjeta');?></label>
+      <input type="text" name="tarjeta" id="textfield" /><input type="submit" name="añadir" value="<?=Translate::__('anadirtarjeta');?>" />
     </p>
 </form>
 
@@ -147,7 +155,7 @@ if (($_GET['uid']) == ($_SESSION['uid'])): ?>
 
     foreach($tarjetas as $row){ ?>
 
-        <p>Numero de tarjeta <?php echo $num ?>: <?php echo $row['tarjeta'] ?> <a href="tarjetas?uid=<?php echo $_SESSION['uid'] ?>&borrar=<?php echo $row['tuid']; ?>" onclick="return Confirmar (this.form)">Borrar</a></p>
+        <p><?=Translate::__('numerodetarjeta');?><?php echo $num ?>: <?php echo $row['tarjeta'] ?> <a href="tarjetas?uid=<?php echo $_SESSION['uid'] ?>&borrar=<?php echo $row['tuid']; ?>" onclick="return Confirmar (this.form)">Borrar</a></p>
         
         <?php $num++; ?>
     <?php }
