@@ -197,13 +197,11 @@ nav {
   background-color: rgba(0, 0, 0, 1);
 }
 
-#en{
+.conborde{
   border-top: 0.2vh solid white;
 }
 
-#jav{
-  border-top: 0.2vh solid white;
-}
+
 
 
 #logout{

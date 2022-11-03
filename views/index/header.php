@@ -66,8 +66,15 @@ Translate::init($idioma, "lang/".$idioma.".php");
 
 <div id="myLanguages" class="languages-content">
     <a href="<?php echo constant('URL'); ?>?lang=es" id="es">Español</a>
-    <a href="<?php echo constant('URL'); ?>?lang=en" id="en">Ingles</a>
-    <a href="<?php echo constant('URL'); ?>?lang=jav" id="jav">Japanese</a>
+    <a href="<?php echo constant('URL'); ?>?lang=en" id="en" class="conborde">Ingles</a>
+    <a href="<?php echo constant('URL'); ?>?lang=jav" id="jav" class="conborde">Japanese</a>
+    <a href="<?php echo constant('URL'); ?>?lang=es" id="ru" class="conborde">Ruso</a>
+    <a href="<?php echo constant('URL'); ?>?lang=en" id="ch" class="conborde">Chino</a>
+    <a href="<?php echo constant('URL'); ?>?lang=jav" id="co" class="conborde">Coreano</a>
+    <a href="<?php echo constant('URL'); ?>?lang=es" id="fr" class="conborde">Frances</a>
+    <a href="<?php echo constant('URL'); ?>?lang=en" id="ar" class="conborde">Arabe</a>
+    <a href="<?php echo constant('URL'); ?>?lang=jav" id="gri" class="conborde">Griego</a>
+    <a href="<?php echo constant('URL'); ?>?lang=jav" id="hin" class="conborde">Hindi</a>
 </div>
 
 <script src="<?php echo constant('URL'); ?>public/js/perfil.js"></script>
