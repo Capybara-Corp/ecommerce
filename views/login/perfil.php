@@ -51,7 +51,7 @@ if (is_countable($results) > 0) {
     $userdireccion[] = '';
 }
 
-$records = $conn->query('SELECT * FROM PRODUCTOS INNER JOIN DETALLEVENTA ON PRODUCTOS.pid = DETALLEVENTA.pid INNER JOIN VENTAS ON VENTAS.vid = DETALLEVENTA.vid WHERE VENTAS.uid = "'.$_GET['uid'].'" LIMIT 5')->fetchAll();
+$records = $conn->query('SELECT * FROM PRODUCTOS INNER JOIN DETALLEVENTA ON PRODUCTOS.pid = DETALLEVENTA.pid INNER JOIN VENTAS ON VENTAS.vid = DETALLEVENTA.vid WHERE VENTAS.uid = "'.$_GET['uid'].'" ORDER BY VENTAS.vid DESC LIMIT 5')->fetchAll();
 //$records->bindParam(':id', $_GET['uid']);
 
 if (is_countable($records) > 0) {
