@@ -155,7 +155,20 @@ if (!empty($_POST['nombre']) && !empty($_POST['precio_venta']) && !empty($_POST[
       
 ?>
 <?php
-$data = $conn->query("SELECT * FROM PRODUCTOS")->fetchAll();
+
+if($_POST['nombre'] != ""){
+  $buscStr = $_POST['nombre'];
+  $buscStr = trim($buscStr);
+  $buscStr = strtolower($buscStr);
+  $data = $conn->query("SELECT * FROM PRODUCTOS WHERE nombre LIKE '%$buscStr%'");
+  //No se deberia poner asi
+  //$data->bindParam(':textostr', $buscStr, PDO::PARAM_STR);
+  //$term = "%$buscStr%";
+  //$data->bindParam(':textostr', $term, PDO::PARAM_STR);
+}
+else{
+  $data = $conn->query("SELECT * FROM PRODUCTOS")->fetchAll();
+}
 
   foreach ($data as $row){ 
     ?>
