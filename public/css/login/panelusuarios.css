@@ -1,266 +1,244 @@
-body{
-    margin: 0;
-    padding: 0;
-    background: #DADADA;
-    font-family: monospace;
-  }
-  
-  a {
-    text-decoration: none;
-    /* Con esto le saco el underline y esas cosas que tienen los a */
-    color: white;
-  }
-  
-  nav {
-    background: #008FE7;
-    width: 100%;
-    height: 7vh;
-  }
-  
+body {
+  margin: 0;
+  padding: 0;
+  background: #dadada;
+  font-family: monospace;
+}
+
+a {
+  text-decoration: none;
+  /* Con esto le saco el underline y esas cosas que tienen los a */
+  color: white;
+}
+
+nav {
+  background: #008fe7;
+  width: 100%;
+  height: 7vh;
+}
+
+.main-menu {
+  width: 100%;
+  height: 7vh;
+  display: flex;
+  /*el display flex nos permite manipular la orientacion a gusto de los elementos hijos de un contenedor*/
+  flex-direction: column;
+  /* Con esto cada elemento del menú aparece abajo del otro */
+  flex-wrap: nowrap;
+  align-items: center;
+  /*alinea en vertical*/
+  margin: 0;
+  padding: 0;
+  transition: transform 0.3s;
+  /* Esto hace que el menu se traslade a una velocidad determinada */
+  transform: translateY(-1500%);
+  /* Esto sirve para que el menu aparezca por defecto arriba, tan arriba que ni se ve */
+}
+
+.main-menu--show {
+  transform: translateY(0);
+  /* Esto hace que el menú vaya para abajo, en otras palabras que aparezca */
+}
+
+@media all and (min-width: 768px) {
   .main-menu {
-    width: 100%;
-    height: 7vh;
-    display: flex;
-    /*el display flex nos permite manipular la orientacion a gusto de los elementos hijos de un contenedor*/
-    flex-direction: column;
-    /* Con esto cada elemento del menú aparece abajo del otro */
-    flex-wrap: nowrap;
-    align-items: center;
-    /*alinea en vertical*/
-    margin: 0;
-    padding: 0;
-    transition: transform 0.3s;
-    /* Esto hace que el menu se traslade a una velocidad determinada */
-    transform: translateY(-1500%);
-    /* Esto sirve para que el menu aparezca por defecto arriba, tan arriba que ni se ve */
-  }
-  
-  .main-menu--show {
+    flex-direction: row;
+    /* Con esto el menú aparece "En un mismo renglón" */
     transform: translateY(0);
-    /* Esto hace que el menú vaya para abajo, en otras palabras que aparezca */
+    /* Con esto hago que el menú se vea si la pantalla supera los 768 pixeles de ancho */
   }
-  
-  @media all and (min-width: 768px) {
-    .main-menu {
-      flex-direction: row;
-      /* Con esto el menú aparece "En un mismo renglón" */
-      transform: translateY(0);
-      /* Con esto hago que el menú se vea si la pantalla supera los 768 pixeles de ancho */
-    }
-  
-    .toggle-menu {
-      display: none;
-      /* El botón no se muestra si la pantalla supera los 768 pixeles de ancho */
-    }
-  
-    .main-menu li {
-      background: none !important;
-      padding: 0.5em !important;
-      font-weight: 300 !important;
-      font-size: 1.3vw !important;
-      /* Atributos que cambian. Lo más importante es que le sacamos el color de fondo */
-    }
+
+  .toggle-menu {
+    display: none;
+    /* El botón no se muestra si la pantalla supera los 768 pixeles de ancho */
   }
-  
+
   .main-menu li {
-    background: rgba(0, 0, 0, 0.9);
-    /* Le doy un color de fondo para que se vea correctamente */
-    width: 100%;
-    padding: 2.3em;
-    /* Las unidades "em" sirven para delimitar según el ancho de la letra */
-    text-align: center;
-    float: left;
-    /*propiedad que permite a diferentes elementos posicionarse al lado del otro*/
-    margin: 0 3vw;
-    /*margin acepta 2 (arriba y abajo, derecha e izquierda) y 4 (arriba, derecha, abajo, izquierda)*/
-    list-style: none;
-    color: black;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 900;
-    /*propiedad que nos permite establecer el grosor de una fuente, va de 0 a 900 en centenas*/
-    font-size: 3vw;
+    background: none !important;
+    padding: 0.5em !important;
+    font-weight: 300 !important;
+    font-size: 1.3vw !important;
+    /* Atributos que cambian. Lo más importante es que le sacamos el color de fondo */
   }
-  
-  .main-menu li:hover {
-    cursor: pointer;
-    transition: all 0.2s ease;
-    transform: scale(1.1);
-    /* Animaciones para cuando se le hace hover al menú */
-  }
-  
-  
-  
-  
-  
-  
-  
-  #main{
-    float: left;
-    display: grid;
-    position: relative;
-    grid-template-columns: repeat(
-        auto-fit,
-        minmax(150px, 1fr)
-    );
-    gap: 16px;
-    width: 60%;
-    height: auto;
-  }
+}
 
-  #total{
-    display: grid;
-    grid-column: 1;
-    margin: 2vh 2vw;
-    height: 1em;
-    font-size: 1.2vw;
-    color: black;
-    font-weight: 500;
-  }
-  
-  #gestionarh1{
-    display: grid;
-    grid-column: 1;
-    margin: 2vh 2vw;
-    height: 1em;
-    width: 50%;
-    font-size: 2vw;
-    color: black;
-    font-weight: 500;
-  }
-  
-  .usuarios{
-    grid-column: 1;
-    float: left;
-    margin: 0 2vw;
-    width: 90%;
-    height: auto;
-    background: white;
-    margin-bottom: 2vh;
-  }
-  .usuarios img{
-    float: left;
-    margin: 0.2% 0.2%;
-    padding: 1vw;
-    width: 5vw;
-    height: 5vw;
-  }
-  
-  .usuarios .id{
-    float: left;
-    margin-left: 4%;
-    font-size: 1vw;
-    font-weight: 900;
-  }
-  .usuarios .nombre{
-    float: left;
-    margin-left: 4%;
-    font-size: 1.8vw;
-    white-space: nowrap;
-    font-weight: 900;
-  }
-  
-  .usuarios .correo{
-    float: left;
-    margin-left: 4%;
-    font-size: 1vw;
-    white-space: nowrap;
-  }
+.main-menu li {
+  background: rgba(0, 0, 0, 0.9);
+  /* Le doy un color de fondo para que se vea correctamente */
+  width: 100%;
+  padding: 2.3em;
+  /* Las unidades "em" sirven para delimitar según el ancho de la letra */
+  text-align: center;
+  float: left;
+  /*propiedad que permite a diferentes elementos posicionarse al lado del otro*/
+  margin: 0 3vw;
+  /*margin acepta 2 (arriba y abajo, derecha e izquierda) y 4 (arriba, derecha, abajo, izquierda)*/
+  list-style: none;
+  color: black;
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  /*propiedad que nos permite establecer el grosor de una fuente, va de 0 a 900 en centenas*/
+  font-size: 3vw;
+}
 
-  .usuarios .rango{
-    float: left;
-    margin-left: 4%;
-    font-size: 1vw;
-    white-space: nowrap;
-  }
+.main-menu li:hover {
+  cursor: pointer;
+  transition: all 0.2s ease;
+  transform: scale(1.1);
+  /* Animaciones para cuando se le hace hover al menú */
+}
 
-  .options{
-    float: right;
-    margin-right: 1%;
-    font-size: 1vw;
-    white-space: nowrap;
-  }
-  .options a{
-    color: black!important;
-  }
+#main {
+  float: left;
+  display: grid;
+  position: relative;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;
+  width: 60%;
+  height: auto;
+}
 
-  .estado{
-    float: right;
-    color: black!important;
-    margin: 0;
-    padding: 0;
-    font-size: 1vw;
-    position: relative;
-    bottom: 0;
-    
-  }
+#total {
+  display: grid;
+  grid-column: 1;
+  margin: 2vh 2vw;
+  height: 1em;
+  font-size: 1.2vw;
+  color: black;
+  font-weight: 500;
+}
 
+#gestionarh1 {
+  display: grid;
+  grid-column: 1;
+  margin: 2vh 2vw;
+  height: 1em;
+  width: 50%;
+  font-size: 2vw;
+  color: black;
+  font-weight: 500;
+}
 
+.usuarios {
+  grid-column: 1;
+  float: left;
+  margin: 0 2vw;
+  width: 90%;
+  height: auto;
+  background: white;
+  margin-bottom: 2vh;
+}
+.usuarios img {
+  float: left;
+  margin: 0.2% 0.2%;
+  padding: 1vw;
+  width: 5vw;
+  height: 5vw;
+}
 
+.usuarios .id {
+  float: left;
+  margin-left: 4%;
+  font-size: 1vw;
+  font-weight: 900;
+}
+.usuarios .nombre {
+  float: left;
+  margin-left: 4%;
+  font-size: 1.8vw;
+  white-space: nowrap;
+  font-weight: 900;
+}
 
+.usuarios .correo {
+  float: left;
+  margin-left: 4%;
+  font-size: 1vw;
+  white-space: nowrap;
+}
 
+.usuarios .rango {
+  float: left;
+  margin-left: 4%;
+  font-size: 1vw;
+  white-space: nowrap;
+}
 
-  .crear{
-    margin: 0 auto;
-    width: 20%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+.options {
+  float: right;
+  margin-right: 1%;
+  font-size: 1vw;
+  white-space: nowrap;
+}
+.options a {
+  color: black !important;
+}
 
-  #crearh1{
-    margin: 0 auto;
-    height: 1em;
-    font-size: 1.5vw;
-    color: black;
-    font-weight: 500;
-  }
+.estado {
+  float: right;
+  color: black !important;
+  margin: 0;
+  padding: 0;
+  font-size: 1vw;
+  position: relative;
+  bottom: 0;
+}
 
-  .crear form{
-    display: block;
-    margin: 0 auto;
-  }
+.crear {
+  margin: 0 auto;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-  .crear input{
-    width: 100%;
-    height: 2vh;
-    font-size: 1vw;
-    margin-top: 2vh;
-    border: 0.1vw solid black;
-  }
+#crearh1 {
+  margin: 0 auto;
+  height: 1em;
+  font-size: 1.5vw;
+  color: black;
+  font-weight: 500;
+}
 
-  
+.crear form {
+  display: block;
+  margin: 0 auto;
+}
 
-  .crear p{
-    display: block;
-    width: auto;
-  }
+.crear input {
+  width: 100%;
+  height: 2vh;
+  font-size: 1vw;
+  margin-top: 2vh;
+  border: 0.1vw solid black;
+}
 
-  .crear select{
-    width: 60%;
-    height: 3vh;
-    font-size: 1vw;
-    margin-top: 2vh;
-    border: 0.1vw solid black;
-  }
+.crear p {
+  display: block;
+  width: auto;
+}
 
-  .crear label{
-    width: 100%;
-    height: 3vh;
-    font-size: 1vw;
-    margin-top: 2vh;
-  }
+.crear select {
+  width: 60%;
+  height: 3vh;
+  font-size: 1vw;
+  margin-top: 2vh;
+  border: 0.1vw solid black;
+}
 
+.crear label {
+  width: 100%;
+  height: 3vh;
+  font-size: 1vw;
+  margin-top: 2vh;
+}
 
+.crear input[type="submit"] {
+  width: 100%;
+  height: 5vh;
+  font-size: 1vw;
+  margin-top: 2vh;
+}
 
-
-
-  .crear input[type="submit"]{
-    width: 100%;
-    height: 5vh;
-    font-size: 1vw;
-    margin-top: 2vh;
-  }
-
-
-  /*.crear input[type="submit"]:hover{
+/*.crear input[type="submit"]:hover{
   }*/

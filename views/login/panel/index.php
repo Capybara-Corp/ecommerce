@@ -46,11 +46,20 @@ else {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel Admin</title>
     <link rel="stylesheet" href="public/css/login/panel.css">
-    <link rel="stylesheet" href="public/css/index/header.css">
 </head>
 <body>
 
-<?php include "views/index/header.php";?>
+<nav class="noselect">
+  
+  <ul class="main-menu" id="main-menu">
+    <li><a href="<?php echo constant('URL'); ?>">INICIO</a></li>
+    <li><a href="<?php echo constant('URL'); ?>panel/producto">EDITAR PRODUCTOS</a></li>
+    <li><a href="<?php echo constant('URL'); ?>panel/editar">EDITAR USUARIOS</a></li>
+    <li><a href="<?php echo constant('URL'); ?>perfil?uid=<?php echo $_SESSION['uid'] ?>">REGRESAR A MI PERFIL</a></li>
+
+  </ul>
+</nav>
+
 
 
 <?php if ($rango['rid'] == '4'){ ?>
@@ -60,13 +69,6 @@ else{ ?>
 <h1>Lord <?php echo $user['nombre'] ?>, bienvenido al panel admin</h1> <!-- Nos dan la bienvenida al panel -->
 <?php } ?>
 
-
-
-<div>
-    <?php include "views/login/panel/navegacion.php" ?> 
-</div>
-
-<?php include "views/index/footer.php"; ?>
 
 </body>
 </html>
