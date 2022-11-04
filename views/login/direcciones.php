@@ -129,14 +129,23 @@ if (($_GET['uid']) == ($_SESSION['uid'])): ?>
     <?php 
     
     if ($existe == true) {
+        $num = 1;
+      ?>
+
+    <section id="direcciones"> <?php
+        
     foreach($direcciones as $row){ ?>
 
-        <p>Direccion: <?php echo $row['direccion'] ?><a href="direcciones?uid=<?php echo $_SESSION['uid'] ?>&borrar=<?php echo $row['duid']; ?>" onclick="return Confirmar (this.form)">Borrar</a>
+        <p>Direccion: <?php echo $row['direccion'] ?><a href="direcciones?uid=<?php echo $_SESSION['uid'] ?>&borrar=<?php echo $row['duid']; ?>" onclick="return Confirmar (this.form)">&nbspBorrar</a>
 
-    <?php }}
+        <?php $num++; ?>
+    <?php }
+
+    ?> </section> <?php }
 
     ?>
 
+      
 
 
 

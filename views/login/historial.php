@@ -76,19 +76,22 @@ if (($_GET['uid']) == ($_SESSION['uid'])): ?>
         echo $message;
     } ?>
 
-
+    <div id="historial">
     <?php 
     
     if ($existe == true) { ?>
-    <div id="historial">
+    
     <?php 
     foreach($compras as $row){ ?>
 
         <p class="elemento"><?php echo $row['Fecha']; ?>: <?php echo $row['nombre']; ?>, <?php echo $row['marca']; ?></p>
 
     <?php } ?> </div> <?php }
+    else{ ?>
+        <p class="elemento">No hay compras</p>
+    <?php } ?>
 
-    ?>
+    
 
 
 
