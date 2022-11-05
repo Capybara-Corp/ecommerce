@@ -51,6 +51,7 @@ if (isset($_SESSION['uid'])) {
     <title>Mis direcciones</title>
     <link rel="stylesheet" href="public/css/login/direcciones.css">
     <link rel="stylesheet" href="public/css/index/headerblack.css">
+    <link rel="stylesheet" href="public/css/index/footer.css">
     <script language="Javascript" type="text/javascript">
     function Confirmar(frm) {
     var borrar = confirm(
@@ -59,6 +60,7 @@ if (isset($_SESSION['uid'])) {
     return borrar;
     }
     </script>
+    
 </head>
 <body>
 

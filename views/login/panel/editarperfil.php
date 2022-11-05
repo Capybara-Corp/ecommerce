@@ -300,7 +300,6 @@ if (isset($_GET['uid'])): //Si hay un "uid" en la URL...
 
   <?php endif;?>
 
-  <?php include "views/index/footer.php";?>
 
 </body>
 

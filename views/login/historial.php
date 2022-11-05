@@ -58,6 +58,7 @@ if (isset($_SESSION['uid'])) {
     <title><?=Translate::__('historialdecompra');?></title>
     <link rel="stylesheet" href="public/css/login/historial.css">
     <link rel="stylesheet" href="public/css/index/headerblack.css">
+    <link rel="stylesheet" href="public/css/index/footer.css">
 </head>
 <body>
 

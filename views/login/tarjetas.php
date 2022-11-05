@@ -58,6 +58,7 @@ if (isset($_SESSION['uid'])) {
     <title><?=Translate::__('mistarjetas');?></title>
     <link rel="stylesheet" href="public/css/login/tarjetas.css">
     <link rel="stylesheet" href="public/css/index/headerblack.css">
+    <link rel="stylesheet" href="public/css/index/footer.css">
     <script language="Javascript" type="text/javascript">
     function Confirmar(frm) {
     var borrar = confirm(

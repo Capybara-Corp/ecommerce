@@ -197,7 +197,5 @@ else {
 
 <?php endif; ?>
 
-<?php include "views/index/footer.php"; ?>
-
 </body>
 </html>

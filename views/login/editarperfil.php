@@ -47,6 +47,7 @@ if (isset($_SESSION['uid'])) {
   </script>
   <link rel="stylesheet" href="public/css/login/editarperfil.css">
   <link rel="stylesheet" href="public/css/index/headerblack.css">
+  <link rel="stylesheet" href="public/css/index/footer.css">
 </head>
 
 <body>
