@@ -282,10 +282,12 @@ body {
   }
 
   .vino {
-    grid-column: 2;
+    grid-column-start: 1;
+    grid-column-end: 5;
+    margin: 16px auto;
     color: #df173f;
     font-family: monospace;
-    font-size: 1.5vw;
+    font-size: 16px;
     white-space: nowrap;
   }
 
