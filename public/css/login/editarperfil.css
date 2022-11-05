@@ -1,142 +1,118 @@
 body {
-    box-sizing: border-box;
-    margin: 0;
-    position: relative;
-    padding-bottom: 3em;
-    min-height: 150vh;
+  box-sizing: border-box;
+  margin: 0;
+  position: relative;
+  padding-bottom: 3em;
+  min-height: 150vh;
 }
 
-#title{
-    font-family: monospace;
-    font-weight: 300;
-    text-align: center;
-    font-size: 1.8vw;
+#title {
+  font-family: monospace;
+  font-weight: 300;
+  text-align: center;
+  font-size: 1.8vw;
 }
 
-
-#editar{
-    position: relative;
-    display: grid;
-    grid-template-columns: 40% 60%;
-    column-gap: 5vw;
-    margin: 0 auto;
-    width: 60vw;
-    height: 80vh;
+#editar {
+  position: relative;
+  display: grid;
+  grid-template-columns: 40% 60%;
+  column-gap: 5vw;
+  margin: 0 auto;
+  width: 60vw;
+  height: 80vh;
 }
 
-
-#profilepic{
-    display: grid;
-    grid-column: 1;
+#profilepic {
+  display: grid;
+  grid-column: 1;
 }
 
-#campos{
-    display: grid;
-    grid-column: 2;
+#campos {
+  display: grid;
+  grid-column: 2;
 }
 
-.campo{
-    font-family: monospace;
-    font-size: 1vw;
-    margin: 0;
-    padding: 0;
-    display: block;
+.campo {
+  font-family: monospace;
+  font-size: 1vw;
+  margin: 0;
+  padding: 0;
+  display: block;
 }
 
-input[type="text"], input[type="password"]{
-    height: 3vh;
-    width: 80%;
-    font-size: 1vw;
+input[type="text"],
+input[type="password"] {
+  height: 3vh;
+  width: 80%;
+  font-size: 1vw;
 }
 
-
-#campos input[type="submit"]{
-    font-size: 1vw;
-    border: none;
-    display: block;
+#campos input[type="submit"] {
+  font-size: 1vw;
+  border: none;
+  display: block;
 }
 
-#buttoneditar{
-    background: #CC390A;
-    margin: 3% 20%;
-    margin-bottom: 25vh;
-    color: white;
-    height: 4vh;
-    width: 40%;
+#buttoneditar {
+  background: #cc390a;
+  margin: 3% 20%;
+  margin-bottom: 25vh;
+  color: white;
+  height: 4vh;
+  width: 40%;
 }
 
-#buttoneliminar{
-    background: black;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    color: white;
-    height: 4vh;
-    width: 20%;
+#buttoneliminar {
+  background: black;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  color: white;
+  height: 4vh;
+  width: 20%;
 }
 
-#campos input[type="submit"]:hover{
-    border: 0.15vw solid #641C05;
+#campos input[type="submit"]:hover {
+  border: 0.15vw solid #641c05;
 }
 
-
-.message{
-    float: right;
-    font-family: monospace;
-    margin-right: 20vw;
-    margin-top: -30vh;
-    font-size: 1vw;
+.message {
+  float: right;
+  font-family: monospace;
+  margin-right: 20vw;
+  margin-top: -30vh;
+  font-size: 1vw;
 }
 
-#profilepic p{
-    font-family: monospace;
-    text-align: center;
-    font-size: 1vw;
-    display: block;
+#profilepic p {
+  font-family: monospace;
+  text-align: center;
+  font-size: 1vw;
+  display: block;
 }
 
-#profilepic img{
-    width: 15vw;
-    height: 15vw;
+#profilepic img {
+  width: 15vw;
+  height: 15vw;
 }
 
-#profilepic input[type="submit"]{
-    width: 12vw;
-    height: 3vh;
-    background: #CC390A;
-    color: white;
-    font-size: 1vw;
-    border: none;
+#profilepic input[type="submit"] {
+  width: 12vw;
+  height: 3vh;
+  background: #cc390a;
+  color: white;
+  font-size: 1vw;
+  border: none;
 }
-#profilepic #fileField{
-    width: 12vw;
-    height: 3vh;
-    font-size: 0.8vw;
-    color: black;
-    border: none;
-}
-
-
-
-#profilepic input[type="submit"]:hover{
-    border: 0.15vw solid #641C05;
+#profilepic #fileField {
+  width: 12vw;
+  height: 3vh;
+  font-size: 0.8vw;
+  color: black;
+  border: none;
 }
 
-
-
-
-
-
-.footer {
-    position: absolute;
-    bottom: 0!important;
-    padding: 1em 0;
-    text-align: center;
-    height: 100px;
-    width: 100%;
-    background-color: #111111;
-  }
-  
-  .footer p {
-    color: white;
-  }
+#profilepic input[type="submit"]:hover {
+  border: 0.15vw solid #641c05;
+}

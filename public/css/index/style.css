@@ -8,32 +8,32 @@ body {
 }
 
 @font-face {
-  font-family: 'Coolvetica';
-  src: url('coolvetica.otf') format('opentype');
+  font-family: "Coolvetica";
+  src: url("coolvetica.otf") format("opentype");
   font-style: normal;
   font-weight: normal;
 }
 
-@keyframes animateUp{
-	from{
-		opacity: 0;
-		transform: translateY(50px);
-	}
-	to{
-		opacity: 1;
-		transform: translateY(0);
-	}
+@keyframes animateUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-@keyframes animateDown{
-	from{
-		opacity: 0;
-		transform: translateY(-50px);
-	}
-	to{
-		opacity: 1;
-		transform: translateY(0);
-	}
+@keyframes animateDown {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 #container_big {
@@ -42,7 +42,7 @@ body {
   background-size: 100% 120%;
 }
 
-a{
+a {
   text-decoration: none; /* Con esto le saco el underline y esas cosas que tienen los a */
   color: white;
 }
@@ -81,13 +81,13 @@ a{
 }
 
 @media all and (min-width: 768px) {
-  .container_big_div{
+  .container_big_div {
     animation: animateUp 1s forwards;
   }
 }
 
 #welcome {
-  font-family: 'Roboto', sans-serif; /* Font family sirve para especificar qué fuente queremos usar */
+  font-family: "Roboto", sans-serif; /* Font family sirve para especificar qué fuente queremos usar */
   color: white;
   font-size: 2vw;
   font-weight: 900;
@@ -101,7 +101,7 @@ a{
 }
 
 #message {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   color: white;
   font-size: 1vw;
   font-weight: 400;
@@ -123,7 +123,7 @@ a{
 
 #top3_text {
   text-align: center;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   color: black;
   font-size: 30px;
 }
@@ -144,7 +144,7 @@ a{
   width: 990px;
   height: auto;
 }
-#pics{
+#pics {
   height: 1000px;
 }
 
@@ -152,7 +152,7 @@ a{
   width: 990px;
   height: auto;
 }
-#chorrete{
+#chorrete {
   position: relative;
   top: -600px;
   z-index: -1;
@@ -179,23 +179,23 @@ a{
   width: 300px;
   height: 70px;
   cursor: pointer;
-  transition: .3s ease-in-out all;
+  transition: 0.3s ease-in-out all;
   z-index: 2;
 }
 #shop p {
   text-align: center;
   margin-top: 17px;
-  font-family: 'Noto Sans', sans-serif;
+  font-family: "Noto Sans", sans-serif;
   color: black;
   font-size: 25px;
   font-weight: 900;
 }
 
 #shop:hover {
-  background: #C51575;
+  background: #c51575;
 }
 
-#shop:hover p{
+#shop:hover p {
   color: white;
 }
 
@@ -220,7 +220,7 @@ a{
 
 #eslogan {
   text-align: center;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   color: white;
   font-size: 30px;
   font-weight: 900;
@@ -239,14 +239,12 @@ a{
   height: 36px;
 }
 
-
 #ad_section {
   position: relative;
   margin-left: auto;
   margin-right: auto;
   width: 90vw;
   height: 900px;
-
 }
 
 #ad {
@@ -266,7 +264,7 @@ a{
 }
 
 #buy p {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   text-align: center;
   color: black;
   font-size: 30px;
@@ -281,23 +279,22 @@ a{
   height: 50px;
   background: white;
   cursor: pointer;
-  transition: .3s ease-in-out all;
-
+  transition: 0.3s ease-in-out all;
 }
 
 #abuy:hover {
-  background: #0E9CFF;
+  background: #0e9cff;
 }
 
-#abuy:hover p{
+#abuy:hover p {
   color: white;
 }
 
 #abuy p {
   text-align: center;
   padding-top: 10px;
-  font-family: 'Noto Sans', sans-serif;
-  color: #1D31FF;
+  font-family: "Noto Sans", sans-serif;
+  color: #1d31ff;
   text-decoration: none;
   font-size: 25px;
   font-weight: 900;
@@ -310,24 +307,24 @@ a{
   margin-left: auto;
   margin-right: auto;
   height: 800px;
-  margin-bottom: 30vh;
+  margin-bottom: 700px;
   display: grid;
   grid-template-columns: repeat(4, 400px);
   grid-template-rows: repeat(2, 450px);
   grid-column-gap: 0.2vw; /* Establezco mi grilla, en este caso, 4 columnas y 2 filas */
 }
 
-#bot_container div{
+#bot_container div {
   cursor: pointer;
   display: grid;
 }
 
-#bot_container button{
+#bot_container button {
   cursor: pointer;
   border: none;
 }
 
-#bot_container a{
+#bot_container a {
   display: grid;
   cursor: pointer;
 }
@@ -338,15 +335,20 @@ a{
   align-self: center;
   justify-self: center;
   width: 250px;
-  background: rgb(255,255,255);
+  background: rgb(255, 255, 255);
   transition: all 0.2s ease;
-  background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(227,227,227,1) 95%, rgba(210,210,210,1) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(227, 227, 227, 1) 95%,
+    rgba(210, 210, 210, 1) 100%
+  );
 }
 
-.product:hover{
-  box-shadow: -1px 6px 8px 1px rgba(117,117,117,0.59);
--webkit-box-shadow: -1px 6px 8px 1px rgba(117,117,117,0.59);
--moz-box-shadow: -1px 6px 8px 1px rgba(117,117,117,0.59);
+.product:hover {
+  box-shadow: -1px 6px 8px 1px rgba(117, 117, 117, 0.59);
+  -webkit-box-shadow: -1px 6px 8px 1px rgba(117, 117, 117, 0.59);
+  -moz-box-shadow: -1px 6px 8px 1px rgba(117, 117, 117, 0.59);
   transition: all 0.2s ease;
   transform: scale(1.05);
 }
@@ -362,13 +364,13 @@ a{
 .product p {
   padding-top: 20px;
   margin-top: -30px;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   color: #292929;
   font-size: 15px;
 }
 
 .product .price {
-  font-size: 20px
+  font-size: 20px;
 }
 
 @media all and (max-width: 1620px) {
@@ -378,9 +380,8 @@ a{
     grid-template-rows: repeat(2, 250px);
     grid-column-gap: 10vw; /* Establezco mi grilla, en este caso, 4 columnas y 2 filas */
     grid-row-gap: 20vh;
-
-}
-  .product{
+  }
+  .product {
     width: 200px;
   }
   .product img {
@@ -390,22 +391,21 @@ a{
 }
 
 @media all and (max-width: 1366px) {
-  #mid_container{
-  width: 660px;
+  #mid_container {
+    width: 660px;
   }
-  
-  #bottles{
+
+  #bottles {
     width: 660px;
     height: auto;
   }
-  #chorrete{
+  #chorrete {
     position: relative;
     top: -550px;
     z-index: -1;
     width: 80%;
     height: 30%;
   }
-  
 
   #bot_container {
     margin-top: 20vh;
@@ -415,10 +415,8 @@ a{
     grid-template-rows: repeat(4, 150px);
     grid-column-gap: 200px; /* Establezco mi grilla, en este caso, 4 columnas y 2 filas */
     grid-row-gap: 200px;
-    margin-bottom: 50vh;
-
-}
-  .product{
+  }
+  .product {
     width: 200px;
   }
   .product img {
@@ -427,75 +425,44 @@ a{
   }
 }
 
+@media all and (max-width: 768px) {
+  /* Las famosas media query, alcanza con saber que cuando el ancho sea menor de 768 pixeles, se aplican los estilos de abajo */
 
-
-.footer {
-  position: absolute;
-  bottom: 0!important;
-  padding: 1em 0;
-  text-align: center;
-  height: 100px;
-  width: 100%;
-  background-color: #111111;
-}
-
-.footer p {
-  color: white;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@media all and (max-width: 768px) { /* Las famosas media query, alcanza con saber que cuando el ancho sea menor de 768 pixeles, se aplican los estilos de abajo */
-
-.container_big_div{
-  width: 60%;
-  height: 50vh;
-  position: static;
-  margin: 25% auto;
-  height: auto;
-  text-align: center;
-  z-index: -1;
-}
-
-#welcome {
-  font-family: 'Roboto', sans-serif; /* Font family sirve para especificar qué fuente queremos usar */
-  color: white;
-  font-size: 6vw;
-  font-weight: 900;
-  margin-bottom: 0;
-  text-transform: uppercase; /* Esto sirve para que el texto esté en mayúsculas */
-}
-
-#message {
-  font-family: 'Roboto', sans-serif;
-  color: white;
-  height: 50vh;
-  font-size: 4vw;
-  font-weight: 400;
-  text-transform: lowercase; /* Para que el texto esté en minúsculas */
-}
-
-#mid_container{
-  width: 330px;
+  .container_big_div {
+    width: 60%;
+    height: 50vh;
+    position: static;
+    margin: 25% auto;
+    height: auto;
+    text-align: center;
+    z-index: -1;
   }
 
-  #pics{
+  #welcome {
+    font-family: "Roboto", sans-serif; /* Font family sirve para especificar qué fuente queremos usar */
+    color: white;
+    font-size: 6vw;
+    font-weight: 900;
+    margin-bottom: 0;
+    text-transform: uppercase; /* Esto sirve para que el texto esté en mayúsculas */
+  }
+
+  #message {
+    font-family: "Roboto", sans-serif;
+    color: white;
+    height: 50vh;
+    font-size: 4vw;
+    font-weight: 400;
+    text-transform: lowercase; /* Para que el texto esté en minúsculas */
+  }
+
+  #mid_container {
+    width: 330px;
+  }
+
+  #pics {
     height: 500px;
   }
-  
 
   #top3 {
     margin-left: auto;
@@ -505,14 +472,14 @@ a{
     height: 50px;
     justify-content: center;
   }
-  
+
   #top3_text {
     text-align: center;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     color: black;
     font-size: 20px;
   }
-  
+
   #separator_black {
     position: relative;
     top: -4vh;
@@ -521,19 +488,18 @@ a{
     width: 330px;
     height: 60px;
   }
-  
-  #bottles{
+
+  #bottles {
     width: 330px;
     height: auto;
   }
-  #chorrete{
+  #chorrete {
     position: relative;
     top: -250px;
     z-index: -1;
     width: 80%;
     height: 30%;
   }
-  
 
   #bot_container {
     margin-top: 20vh;
@@ -543,10 +509,8 @@ a{
     grid-template-rows: repeat(4, 80px);
     grid-column-gap: 80px; /* Establezco mi grilla, en este caso, 4 columnas y 2 filas */
     grid-row-gap: 200px;
-    margin-bottom: 150vh;
-
-}
-  .product{
+  }
+  .product {
     width: 100px;
     height: auto;
   }
@@ -554,11 +518,10 @@ a{
     width: 100px;
     height: 150px;
   }
-  #bot_container a{
+  #bot_container a {
     margin: 0 auto;
   }
-  #bot_container button{
+  #bot_container button {
     margin: 0 auto;
   }
-
 }

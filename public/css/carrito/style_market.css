@@ -6,21 +6,16 @@ body {
   min-height: 150vh;
 }
 
-a{
-    text-decoration: none; /* Con esto le saco el underline y esas cosas que tienen los a */
-    color: black;
-  }
-  
+a {
+  text-decoration: none; /* Con esto le saco el underline y esas cosas que tienen los a */
+  color: black;
+}
 
-  
-  img{
-    max-width: 100%;
-  }
-  
- 
+img {
+  max-width: 100%;
+}
 
-
-#title{
+#title {
   color: black;
   font-family: monospace;
   letter-spacing: 0.1vw;
@@ -29,16 +24,16 @@ a{
   text-transform: uppercase;
 }
 
-#buscar{
+#buscar {
   position: absolute;
-    top: 15vh;
-    left: 25vw;
-    height: 4vh;
-    width: 20vw;
-    font-size: 1vw;
+  top: 15vh;
+  left: 25vw;
+  height: 4vh;
+  width: 20vw;
+  font-size: 1vw;
 }
 
-#menoramayor{
+#menoramayor {
   position: absolute;
   top: 15vh;
   left: 60vw;
@@ -46,20 +41,19 @@ a{
   width: 10vw;
   font-size: 0.8vw;
   background-color: #ff4d00;
-  border-radius:28px;
-  border:1px solid #a63200;
-  display:inline-block;
-  cursor:pointer;
-  color:#ffffff;
-  text-decoration:none;
-  text-shadow:0px 1px 0px #3c1200;
-    
+  border-radius: 28px;
+  border: 1px solid #a63200;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #3c1200;
 }
 #menoramayor:hover {
-  background-color:#a63200;
+  background-color: #a63200;
 }
 
-#mayoramenor{
+#mayoramenor {
   position: absolute;
   top: 15vh;
   left: 48vw;
@@ -67,87 +61,79 @@ a{
   width: 10vw;
   font-size: 0.8vw;
   background-color: #ff4d00;
-  border-radius:28px;
-  border:1px solid #a63200;
-  display:inline-block;
-  cursor:pointer;
-  color:#ffffff;
-  text-decoration:none;
-  text-shadow:0px 1px 0px #3c1200;
+  border-radius: 28px;
+  border: 1px solid #a63200;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #3c1200;
 }
 #mayoramenor:hover {
-  background-color:#a63200;
+  background-color: #a63200;
 }
 
-.botonbuscar{
-  position: absolute!important;
-  top: 10vh!important;
-  left: 34vw!important;
+.botonbuscar {
+  position: absolute !important;
+  top: 10vh !important;
+  left: 34vw !important;
 }
 
-
-
-
-
-
-
-
-.contenedor-index{
+.contenedor-index {
   z-index: -1;
 }
 
 #contenedor_market {
-    position: relative;
-    display: grid;
-    width: 90vw;
-    height: 80vh;
-    margin-left: 5vw;
-    margin-top: 5vh;
-    grid-template-columns: 80% 20%;
-    grid-template-rows: 80vh;
-    background: #1A1A1A;
+  position: relative;
+  display: grid;
+  width: 90vw;
+  height: 80vh;
+  margin-left: 5vw;
+  margin-top: 5vh;
+  grid-template-columns: 80% 20%;
+  grid-template-rows: 80vh;
+  background: #1a1a1a;
 }
 
 .celda_market {
-    background: #ffffff;
-    display: grid;
-    grid-template-columns: 60vw;
-    grid-auto-rows: 15vw;
-    grid-gap: 10vh;
-    justify-content: center;
-    height: 80vh;
-    overflow-y: scroll;
+  background: #ffffff;
+  display: grid;
+  grid-template-columns: 60vw;
+  grid-auto-rows: 15vw;
+  grid-gap: 10vh;
+  justify-content: center;
+  height: 80vh;
+  overflow-y: scroll;
 }
 
 .celda_market section {
-    border-radius: 0.5vw;
-    text-align: center;
-    background-color: #F2F2F2;
-    background-size: cover;
-    user-select: none;
+  border-radius: 0.5vw;
+  text-align: center;
+  background-color: #f2f2f2;
+  background-size: cover;
+  user-select: none;
 }
 
-
 .celda_carrito {
-    position: relative;
+  position: relative;
 }
 
 .celda_carrito #efectivo {
-    position: absolute;
-    bottom: 20%;
-    right: 0;
-    left: 0;
-    margin: auto;
-    border-radius: 10px;
-    color: white;
-    background-color: #ff4d00;
-    font-family: monospace;
-    font-size: 1vw;
-    height: 8%;
-    width: 80%;
-    cursor: pointer;
-    font-weight: 600;
-    border: 1px solid transparent;
+  position: absolute;
+  bottom: 20%;
+  right: 0;
+  left: 0;
+  margin: auto;
+  border-radius: 10px;
+  color: white;
+  background-color: #ff4d00;
+  font-family: monospace;
+  font-size: 1vw;
+  height: 8%;
+  width: 80%;
+  cursor: pointer;
+  font-weight: 600;
+  border: 1px solid transparent;
 }
 
 #preciototal {
@@ -159,7 +145,7 @@ a{
   left: 5%;
 }
 
-#total{
+#total {
   color: white;
   font-family: monospace;
   font-size: 1.3vw;
@@ -168,12 +154,7 @@ a{
   right: 5%;
 }
 
-
-
-
-
-
-.nombre{
+.nombre {
   width: 5em;
   font-size: 1.2vw;
   float: left;
@@ -183,7 +164,7 @@ a{
   text-transform: uppercase;
   font-family: monospace;
 }
-.marca{
+.marca {
   font-size: 1vw;
   float: left;
   margin-top: 5vh;
@@ -192,7 +173,7 @@ a{
   font-family: monospace;
 }
 
-.stock{
+.stock {
   font-size: 0.8vw;
   float: right;
   margin-right: 1vw;
@@ -200,10 +181,10 @@ a{
   font-family: monospace;
 }
 
-.descrip{
+.descrip {
   text-align: left;
   width: 12em;
-  height: 2em!important;
+  height: 2em !important;
   float: left;
   margin-left: -5vw;
   margin-top: 10vh;
@@ -211,15 +192,15 @@ a{
   font-weight: 900;
   font-family: monospace;
 }
-.precio{
+.precio {
   float: right;
   margin-right: -5vw;
-  color: #4B4B4B;
+  color: #4b4b4b;
   font-size: 1.2vw;
   font-family: monospace;
 }
 
-.celda_market button{
+.celda_market button {
   float: left;
   margin-left: -13vw;
   margin-top: 24vh;
@@ -229,33 +210,24 @@ a{
   height: 5vh;
 }
 
-button p{
+button p {
   font-family: monospace;
   margin: 0;
-  font-size: 1.5vw!important;
+  font-size: 1.5vw !important;
 }
 
-button p:hover{
+button p:hover {
   color: #ff4d00;
 }
 
-
-
-
-
-
-
-
-
-
-#o{
+#o {
   color: white;
   font-family: monospace;
   font-size: 1.5vw;
   position: absolute;
   bottom: 11.5%;
   right: 50%;
-  font-style: italic; 
+  font-style: italic;
 }
 
 .celda_carrito #paypal {
@@ -272,17 +244,18 @@ button p:hover{
   border: 1px solid transparent;
 }
 
-.celda_carrito #efectivo:hover, #paypal:hover {
-    transition: all ease 0.2s;
-    border: 1px solid #fff;
+.celda_carrito #efectivo:hover,
+#paypal:hover {
+  transition: all ease 0.2s;
+  border: 1px solid #fff;
 }
 
 .celda_carrito {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
-.celda_carrito h1{
+.celda_carrito h1 {
   color: white;
   font-family: monospace;
   font-size: 1.5vw;
@@ -290,19 +263,18 @@ button p:hover{
   margin-left: 12%;
 }
 
-.separator{
+.separator {
   width: 90%;
   height: 0.1vh;
   background-color: white;
   margin: 0 auto;
 }
 
-
 .celda_carrito p {
-    color: white;
-    font-family: monospace;
-    font-size: 1.5vw;
-    user-select: none;
+  color: white;
+  font-family: monospace;
+  font-size: 1.5vw;
+  user-select: none;
 }
 
 .celda_carrito i {
@@ -312,90 +284,69 @@ button p:hover{
 }
 
 .celda_carrito p {
-    font-size: 0.7vw;
+  font-size: 0.7vw;
 }
 
 #carrito_content {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    align-items: center;
-    overflow-y: auto;
-    height: 40vh;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  overflow-y: auto;
+  height: 40vh;
+  width: 100%;
 }
 
 #carrito_content p {
   font-size: 1vw;
   font-family: monospace;
-    padding: 0 50px 0 50px;
-
+  padding: 0 50px 0 50px;
 }
 
 #carrito_content p:hover {
-    color: rgb(240, 76, 76);
+  color: rgb(240, 76, 76);
 }
 
-#carrito_content p:hover:after{
-  content:" ELIMINAR";
+#carrito_content p:hover:after {
+  content: " ELIMINAR";
 }
-
-.footer {
-  position: absolute;
-  bottom: 0!important;
-  padding: 1em 0;
-  text-align: center;
-  height: 100px;
-  width: 100%;
-  background-color: #111111;
-}
-
-.footer p {
-  color: white;
-}
-
 
 /* ===== Scrollbar CSS ===== */
-  /* Firefox */
-  * {
-    scrollbar-width: thin;
-    scrollbar-color: #ff4d00 #ffffff;
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #ff4d00 #ffffff;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 11px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #ff4d00;
+  border-radius: 14px;
+  border: 3px outset #ffffff;
+}
+
+@media all and (max-width: 768px) {
+  #title {
+    font-size: 6vw;
   }
 
-  /* Chrome, Edge, and Safari */
-  *::-webkit-scrollbar {
-    width: 11px;
+  #buscar {
+    top: 200px;
+    left: 5vw;
+    height: 50px;
+    width: 90vw;
+    font-size: 4vw;
   }
 
-  *::-webkit-scrollbar-track {
-    background: #ffffff;
-  }
-
-  *::-webkit-scrollbar-thumb {
-    background-color: #ff4d00;
-    border-radius: 14px;
-    border: 3px outset #ffffff;
-  }
-
-
-  @media all and (max-width: 768px) {
-
-    #title{
-        font-size: 6vw;
-    }
-
-    
-
-   
-  #buscar{
-      top: 200px;
-      left: 5vw;
-      height: 50px;
-      width: 90vw;
-      font-size: 4vw;
-  }
-
-  #menoramayor{
+  #menoramayor {
     top: 280px;
     left: 40vw;
     height: 50px;
@@ -403,17 +354,13 @@ button p:hover{
     font-size: 2.5vw;
   }
 
-  
-  #mayoramenor{
+  #mayoramenor {
     top: 280px;
     left: 5vw;
     height: 50px;
     width: 30vw;
     font-size: 2.5vw;
   }
-
-
-
 
   #contenedor_market {
     width: 90vw;
@@ -422,8 +369,7 @@ button p:hover{
     margin-top: 230px;
     grid-template-columns: 100%;
     grid-template-rows: 80vh 100vh;
-}
-
+  }
 
   .celda_market {
     height: 100%;
@@ -432,128 +378,104 @@ button p:hover{
     grid-gap: 5vh;
   }
 
-
   .celda_market section {
-    background-size: 8vw!important;
+    background-size: 8vw !important;
   }
 
-
-  .nombre{
+  .nombre {
     width: 10em;
     font-size: 3vw;
     margin-left: 5vw;
     margin-top: 10px;
   }
-  .marca{
+  .marca {
     font-size: 2vw;
     margin-top: 35px;
     margin-left: -20vw;
   }
-  
-  .stock{
+
+  .stock {
     display: none;
   }
-  
-  .descrip{
+
+  .descrip {
     width: 15em;
     float: right;
     margin-left: -10vw;
     margin-top: 35px;
     font-size: 2vw;
-
   }
-  .precio{
-
+  .precio {
     margin-right: 5vw;
     font-size: 2vw;
-
   }
-  
-  .celda_market button{
+
+  .celda_market button {
     margin-left: -20vw;
     margin-top: 60px;
     width: 15vw;
     height: 5vh;
   }
-  
-  button p{
-    font-size: 3vw!important;
+
+  button p {
+    font-size: 3vw !important;
   }
-  
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-  .celda_carrito{
+  .celda_carrito {
     display: grid;
     grid-row: 2;
     grid-column: 1;
     background: black;
     z-index: 2;
   }
-  .celda_carrito h1{
+  .celda_carrito h1 {
     font-size: 6vw;
     margin: 15px auto;
     padding-top: 15px;
   }
-  .separator{
+  .separator {
     height: 0.5vh;
   }
 
-  #separator2{
+  #separator2 {
     display: none;
   }
 
-  .hide{
-    display: none!important;
+  .hide {
+    display: none !important;
   }
 
   #carrito_content {
     margin-bottom: 40vh;
     height: 40vh;
+  }
 
-}
+  #o {
+    font-size: 3vw;
+  }
 
-#o{
-  font-size: 3vw;
-}
+  #carrito_content p {
+    font-size: 3vw;
+  }
 
-#carrito_content p {
-  font-size: 3vw;
+  #preciototal {
+    font-size: 3vw;
+    bottom: 27%;
+    left: 5%;
+  }
 
-}
+  #total {
+    font-size: 3vw;
+    bottom: 27%;
+    right: 5%;
+  }
 
-#preciototal {
-  font-size: 3vw;
-  bottom: 27%;
-  left: 5%;
-}
+  .celda_carrito #efectivo {
+    font-size: 3vw;
+  }
 
-#total{
-  font-size: 3vw;
-  bottom: 27%;
-  right: 5%;
-}
-
-.celda_carrito #efectivo {
-  font-size: 3vw;
-
-}
-
-.celda_carrito #paypal img{
-  width: auto;
-  height: 6vh;
-}
-
-
+  .celda_carrito #paypal img {
+    width: auto;
+    height: 6vh;
+  }
 }

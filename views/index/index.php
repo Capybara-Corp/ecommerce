@@ -33,6 +33,7 @@ $user = $results; // Me carga en "$user" los datos de mi usuario de mi sesión
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="public/css/index/style.css">
   <link rel="stylesheet" href="public/css/index/header.css">
+  <link rel="stylesheet" href="public/css/index/footer.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
