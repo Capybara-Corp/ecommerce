@@ -4,7 +4,7 @@
       <br>
       <a href="<?php echo constant('URL'); ?>nosotros">Nosotros</a>
       <br>
-      <a href="<?php echo constant('URL'); ?>nosotros">Tienda</a>
+      <a href="<?php echo constant('URL'); ?>carrito/market">Tienda</a>
       <br>
       <a href="<?php echo constant('URL'); ?>login">Login</a>
     </div>
