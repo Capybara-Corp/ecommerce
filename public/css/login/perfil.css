@@ -57,7 +57,6 @@ body {
   width: 80vw;
   height: 80vh;
   margin: 40px auto;
-  z-index: -1;
 }
 
 .profilepic {
@@ -190,41 +189,38 @@ body {
     grid-row: 1;
     width: 100%;
     min-height: 100%;
+    flex-direction: row;
     height: auto;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
     animation: none;
   }
 
   #muro {
     display: grid;
     grid-template-columns: 20vw 40vw 10vw;
-    grid-template-rows: 25% 15% 15% 15% 15% 15%;
+    grid-template-rows: 200px 1fr 1fr 1fr 1fr 1fr;
     column-gap: 5vw;
     width: 80vw;
     height: 80vh;
     margin: 40px auto;
-    z-index: -1;
   }
 
   .profilepic {
-    padding-left: 7%;
-    grid-column: 1;
-    width: 15vw;
-    height: 15vw;
+    width: 150px;
+    height: 150px;
+    justify-self: center;
   }
 
   #profilename {
-    grid-column: 1;
     color: white;
     margin: 0;
     font-family: monospace;
-    font-size: 1.5vw;
+    font-size: 3vw;
     max-width: 12em;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    justify-self: start;
+    overflow: visible;
+    align-self: start;
+    margin-top: 50px;
+    z-index: 2;
   }
 
   #editprofile {

@@ -118,7 +118,7 @@ if (isset($_GET['uid'])): ?>
       </h1>
       <?php if (($_GET['uid']) == ($_SESSION['uid'])) {?>
 
-
+      <div id="opciones">
       <a id="editprofile" href="editar?uid=<?php echo ($_SESSION['uid']); ?>">
       <?=Translate::__('editarmiperfil');?>
       </a>
@@ -136,6 +136,7 @@ if (isset($_GET['uid'])): ?>
       </a>
       <br>
       <?php if ($rango['rid'] == '1' || $rango['rid'] == '3' || $rango['rid'] == '4') {?><a href="panel" id="panelAdmin" <?php if($perfil['rango'] == 4) { ?> style="color: white!important;"<?php } ?> "><?=Translate::__('paneladmin');?></a><?php }?>
+      </div>
 
 
 
