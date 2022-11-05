@@ -63,3 +63,39 @@
 .weaccept img {
   width: 150px;
 }
+
+@media all and (max-width: 1300px) {
+  .footer p,
+  .footer a {
+    font-size: 1.5vw;
+  }
+  .links {
+    line-height: 3vw;
+  }
+
+  .contact {
+    margin-left: 5vw;
+  }
+
+  #copyright {
+    font-size: 1.2vw;
+  }
+
+  #redes {
+    width: 10vw;
+    margin-left: 1.5vw;
+  }
+
+  .weaccept {
+    margin-left: 1vw;
+  }
+  .weaccept img {
+    width: 10vw;
+  }
+}
+
+@media all and (max-width: 1300px) {
+  .footer {
+    height: 150px;
+  }
+}
