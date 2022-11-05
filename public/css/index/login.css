@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   text-align: center;
 }
 
@@ -42,7 +42,6 @@ p {
   text-shadow: 0.1em 0.1em white;
   display: inline;
 }
-
 
 input[type="text"],
 input[type="password"] {
