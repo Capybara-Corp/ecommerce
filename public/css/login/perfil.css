@@ -96,15 +96,6 @@ body {
   text-decoration: none;
 }
 
-#direcciones {
-  color: white;
-  border: none !important;
-  grid-column: 1;
-  font-family: monospace;
-  font-size: 1.2vw;
-  text-decoration: none;
-}
-
 #panelAdmin {
   color: black;
   grid-column: 1;
@@ -161,20 +152,18 @@ body {
   position: absolute;
   bottom: 0;
   left: 0;
-  height: 12vh;
   width: 100%;
-  display: grid;
-  grid-template-rows: 2vh 2vh 2vh;
-  row-gap: 1vh;
+  display: flex;
+  flex-direction: column;
   z-index: -1;
 }
 
 .direccion {
-  display: grid;
   padding-left: 1em;
   color: white;
   font-family: monospace;
   font-size: 1vw;
+  line-height: 0.1em;
 }
 
 .hide {
@@ -182,53 +171,63 @@ body {
 }
 
 @media all and (max-width: 768px) {
-  #rosa {
-    padding-left: 0;
-    grid-column-start: 1;
-    grid-column-end: 4;
-    grid-row: 1;
-    width: 90%;
-    margin: 0 auto;
-    min-height: 100%;
-    flex-direction: row;
-    height: auto;
-    animation: none;
-  }
-
   #muro {
     display: grid;
     grid-template-columns: 30% 40% 30%;
     grid-template-rows: 200px 1fr 1fr 1fr 1fr 1fr;
     column-gap: 0;
-    width: 100%;
+    width: 90%;
     height: 80vh;
     margin: 40px auto;
+  }
+
+  #rosa {
+    padding-left: 0;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row: 1;
+    width: 100%;
+    margin: 0 auto;
+    min-height: 100%;
+    display: grid;
+    grid-template-columns: 30% 40% 30%;
+    grid-template-rows: 100%;
+    height: auto;
+    animation: none;
   }
 
   .profilepic {
     width: 150px;
     height: 150px;
-    justify-self: center;
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: start;
+    align-self: center;
   }
 
   #profilename {
     color: white;
     margin: 0;
     font-family: monospace;
-    font-size: 3vw;
+    font-size: 32px;
     max-width: 12em;
     justify-self: start;
-    overflow: visible;
     align-self: start;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     margin-top: 50px;
+    grid-column: 2;
+    grid-row: 1;
     z-index: 2;
   }
 
   #opciones {
+    justify-self: start;
     align-self: end;
-    justify-self: end;
-    text-align: end;
-    grid-column: 5;
+    text-align: left;
+    grid-column: 2;
+    grid-row: 1;
   }
 
   #editprofile {
@@ -236,7 +235,7 @@ body {
     border: none !important;
     grid-column: 1;
     font-family: monospace;
-    font-size: 2vw;
+    font-size: 16px;
     text-decoration: none;
   }
 
@@ -245,16 +244,7 @@ body {
     border: none !important;
     grid-column: 1;
     font-family: monospace;
-    font-size: 2vw;
-    text-decoration: none;
-  }
-
-  #direcciones {
-    color: white;
-    border: none !important;
-    grid-column: 1;
-    font-family: monospace;
-    font-size: 2vw;
+    font-size: 16px;
     text-decoration: none;
   }
 
@@ -262,34 +252,19 @@ body {
     color: black;
     grid-column: 1;
     font-family: monospace;
-    font-size: 2vw;
+    font-size: 16px;
     text-decoration: none;
   }
 
   .rango {
     color: white;
     font-family: monospace;
-    font-size: 1vw;
-    margin: 0;
-  }
-
-  #darth {
-    grid-column: 1;
-    width: 8vw;
-    height: 8vw;
-  }
-
-  #leader {
-    grid-column: 1;
-    width: 8vw;
-    height: 10vw;
-  }
-
-  #lider {
-    font-family: monospace;
-    font-size: 1vw;
-    margin: 0;
-    -webkit-text-stroke: 0.05vw white;
+    font-size: 16px;
+    justify-self: start;
+    align-self: start;
+    margin-top: 30px;
+    grid-column: 2;
+    grid-row: 1;
   }
 
   #historial {
@@ -313,20 +288,14 @@ body {
   #direcciones {
     position: absolute;
     bottom: 0;
-    left: 0;
-    height: 12vh;
-    width: 100%;
-    display: grid;
-    grid-template-rows: 2vh 2vh 2vh;
-    row-gap: 1vh;
+    right: 0;
     z-index: -1;
   }
 
   .direccion {
-    display: grid;
-    padding-left: 1em;
+    text-align: right;
     color: white;
     font-family: monospace;
-    font-size: 1vw;
+    font-size: 2vw;
   }
 }
