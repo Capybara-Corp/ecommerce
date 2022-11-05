@@ -7,7 +7,7 @@ body {
   z-index: -2;
 }
 
-a {
+.dropdown-content {
   color: black !important;
 }
 
@@ -35,7 +35,7 @@ a {
 
 #rosa {
   position: relative;
-  position: flex;
+  display: flex;
   background-color: #df173f;
   padding-left: 2vw;
   grid-column: 1;
@@ -46,7 +46,7 @@ a {
   justify-content: flex-start;
   align-items: flex-start;
   animation: animateRight 1s forwards;
-  z-index: -1;
+  z-index: 0;
 }
 
 #muro {
@@ -176,4 +176,153 @@ a {
   color: white;
   font-family: monospace;
   font-size: 1vw;
+}
+
+.hide {
+  display: none !important;
+}
+
+@media all and (max-width: 768px) {
+  #rosa {
+    padding-left: 0;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row: 1;
+    width: 100%;
+    min-height: 100%;
+    height: auto;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    animation: none;
+  }
+
+  #muro {
+    display: grid;
+    grid-template-columns: 20vw 40vw 10vw;
+    grid-template-rows: 25% 15% 15% 15% 15% 15%;
+    column-gap: 5vw;
+    width: 80vw;
+    height: 80vh;
+    margin: 40px auto;
+    z-index: -1;
+  }
+
+  .profilepic {
+    padding-left: 7%;
+    grid-column: 1;
+    width: 15vw;
+    height: 15vw;
+  }
+
+  #profilename {
+    grid-column: 1;
+    color: white;
+    margin: 0;
+    font-family: monospace;
+    font-size: 1.5vw;
+    max-width: 12em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  #editprofile {
+    color: white;
+    border: none !important;
+    grid-column: 1;
+    font-family: monospace;
+    font-size: 1.2vw;
+    text-decoration: none;
+  }
+
+  .mycards {
+    color: white;
+    border: none !important;
+    grid-column: 1;
+    font-family: monospace;
+    font-size: 1.2vw;
+    text-decoration: none;
+  }
+
+  #direcciones {
+    color: white;
+    border: none !important;
+    grid-column: 1;
+    font-family: monospace;
+    font-size: 1.2vw;
+    text-decoration: none;
+  }
+
+  #panelAdmin {
+    color: black;
+    grid-column: 1;
+    font-family: monospace;
+    font-size: 1.2vw;
+    text-decoration: none;
+  }
+
+  .rango {
+    color: white;
+    font-family: monospace;
+    font-size: 1vw;
+    margin: 0;
+  }
+
+  #darth {
+    grid-column: 1;
+    width: 8vw;
+    height: 8vw;
+  }
+
+  #leader {
+    grid-column: 1;
+    width: 8vw;
+    height: 10vw;
+  }
+
+  #lider {
+    font-family: monospace;
+    font-size: 1vw;
+    margin: 0;
+    -webkit-text-stroke: 0.05vw white;
+  }
+
+  #historial {
+    grid-row: 1;
+    grid-column: 2;
+    color: #df173f;
+    font-family: arial;
+    font-size: 2vw;
+    animation: animateUp 1s forwards;
+    z-index: -1;
+  }
+
+  .vino {
+    grid-column: 2;
+    color: #df173f;
+    font-family: monospace;
+    font-size: 1.5vw;
+    white-space: nowrap;
+  }
+
+  #direcciones {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 12vh;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 2vh 2vh 2vh;
+    row-gap: 1vh;
+    z-index: -1;
+  }
+
+  .direccion {
+    display: grid;
+    padding-left: 1em;
+    color: white;
+    font-family: monospace;
+    font-size: 1vw;
+  }
 }
