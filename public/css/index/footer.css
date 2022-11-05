@@ -6,6 +6,7 @@
   background-color: white;
   display: flex;
   justify-content: center;
+  overflow: hidden;
 }
 
 .footer p,
@@ -28,6 +29,7 @@
   justify-self: center;
   text-align: center;
   margin-left: 100px;
+  line-height: 1em;
 }
 
 .contact p {
@@ -70,7 +72,7 @@
     font-size: 1.5vw;
   }
   .links {
-    line-height: 3vw;
+    line-height: 2.5vw;
   }
 
   .contact {

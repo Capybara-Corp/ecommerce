@@ -24,9 +24,10 @@ a {
 }
 
 #mid_container {
-  margin: 2vh auto 20vh auto;
+  margin: 2vh auto 35vh auto;
   width: 90vw;
   height: 150vh;
+
   background-color: white;
   display: grid;
   grid-template-columns: 50% 50%;
