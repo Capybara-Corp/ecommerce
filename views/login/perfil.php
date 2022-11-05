@@ -111,7 +111,7 @@ if (isset($_GET['uid'])): ?>
       <p class="rango">(<?=Translate::__('emperador');?>)</p><?php }?>
 
       <?php if ($perfil['rango'] == '4') {?>
-      <p id="lider">(<?=Translate::__('supremolider');?>)</p><?php }?>
+      <p class="rango" id="lider">(<?=Translate::__('supremolider');?>)</p><?php }?>
 
       <h1 style="color:<?php echo $rango['color']; ?>;<?php if($perfil['rango'] == 4){?> -webkit-text-stroke: 0.05vw white; <?php } ?>" id=profilename>
         <?=$perfil['nombre'];?>
