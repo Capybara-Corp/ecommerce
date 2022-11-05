@@ -37,6 +37,7 @@ if (!empty($_POST['user_correo']) && !empty($_POST['user_pass'])) { // Si recibe
 
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title><?=Translate::__('login');?></title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
