@@ -1,44 +1,41 @@
-html,body 
-    {
-        margin:0;
-        padding:0;
-    }
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
 
+body {
+  background: url(../../media/login_background.jpg) no-repeat center top;
+  background-size: cover;
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+  position: relative;
+  padding-bottom: 3em;
+  min-height: 160vh;
+  height: auto;
+  z-index: -2;
+}
 
-    body{
-      background: url(../../media/login_background.jpg) no-repeat center top;
-      background-size: cover;
-      font-family: 'Roboto', sans-serif;
-      box-sizing: border-box;
-      position: relative;
-      padding-bottom: 3em;
-      min-height: 130vh;
-  }
+a {
+  text-decoration: none; /* Con esto le saco el underline y esas cosas que tienen los a */
+  color: white;
+}
 
-  
-
-  a{
-    text-decoration: none; /* Con esto le saco el underline y esas cosas que tienen los a */
-    color: white;
-  }
-  
-    
-  .noselect {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    /* Todo esto es una clase para que no se pueda seleccionar los elementos */
-  }
-
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* Todo esto es una clase para que no se pueda seleccionar los elementos */
+}
 
 /* Signup */
 
 .register-box {
   width: 20vw;
-  height: 40vw;
+  height: auto;
   background: black;
   color: white;
   top: 30%;
@@ -47,24 +44,25 @@ html,body
   transform: translate(-50%, -30%);
   box-sizing: border-box;
   padding: 3vw 2vh;
+  z-index: -1;
 }
 
-#mensaje{
-    margin: 0;
+#mensaje {
+  margin: 0;
   padding: 0 0 2vw;
   text-align: center;
   font-size: 16px;
   color: white;
 }
 
-.register-box h1{
+.register-box h1 {
   margin: 0;
   padding: 0 0 2vw;
   text-align: center;
   font-size: 1.5vw;
 }
 
-.register-box label{
+.register-box label {
   margin: 0;
   padding: 0;
   font-weight: bold;
@@ -72,14 +70,13 @@ html,body
   font-size: 1vw;
 }
 
-.register-box input{
+.register-box input {
   width: 100%;
   margin-bottom: 2.5vh;
-
 }
 
 .register-box input[type="text"],
-.register-box input[type="password"]{
+.register-box input[type="password"] {
   border: none;
   border-bottom: 0.1vw solid white;
   background: transparent;
@@ -89,7 +86,7 @@ html,body
   font-size: 1vw;
 }
 
-.register-box input[type="submit"]{
+.register-box input[type="submit"] {
   cursor: pointer;
   border: none;
   outline: none;
@@ -100,13 +97,52 @@ html,body
   border-radius: 1vw;
 }
 
-.register-box a{
-  color: darkgrey!important;
+.register-box a {
+  color: darkgrey !important;
   font-size: 0.8vw;
 }
 
-.register-box a:hover{
-  color: white!important;
+.register-box a:hover {
+  color: white !important;
 }
 
-  /*Signup*/
+/*Signup*/
+@media all and (max-width: 768px) {
+  .register-box {
+    width: 50vw;
+    height: auto;
+  }
+
+  #mensaje {
+    font-size: 2vw;
+    color: white;
+  }
+
+  .register-box h1 {
+    font-size: 3.5vw;
+  }
+
+  .register-box label {
+    margin: 3vw 3vw;
+    font-size: 3vw;
+  }
+
+  .register-box input {
+    margin-bottom: 30px;
+  }
+
+  .register-box input[type="text"],
+  .register-box input[type="password"] {
+    height: 40px;
+    font-size: 3vw;
+  }
+
+  .register-box input[type="submit"] {
+    height: 10vw;
+    font-size: 3vw;
+  }
+
+  .register-box a {
+    font-size: 2vw;
+  }
+}

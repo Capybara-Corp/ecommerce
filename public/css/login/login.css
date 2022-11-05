@@ -12,6 +12,7 @@ body {
   position: relative;
   padding-bottom: 3em;
   min-height: 130vh;
+  height: auto;
   z-index: -2;
 }
 
@@ -32,7 +33,7 @@ a {
 
 .login-box {
   width: 20vw;
-  height: 35vw;
+  height: auto;
   background: black;
   color: white;
   top: 30%;
@@ -108,7 +109,6 @@ a {
 @media all and (max-width: 768px) {
   .login-box {
     width: 50vw;
-    height: 60vh;
   }
 
   #mensaje {
@@ -131,7 +131,7 @@ a {
 
   .login-box input[type="text"],
   .login-box input[type="password"] {
-    height: 20px;
+    height: 40px;
     font-size: 3vw;
   }
 
