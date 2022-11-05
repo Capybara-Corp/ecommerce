@@ -34,6 +34,7 @@ $user = $results;
   <title><?=Translate::__('tienda');?></title>
   <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/carrito/style_market.css">
   <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/carrito/header_black_market.css">
+  <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/index/footer.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link

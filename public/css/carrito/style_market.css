@@ -85,6 +85,7 @@ img {
 
 #contenedor_market {
   position: relative;
+  margin-bottom: 300px;
   display: grid;
   width: 90vw;
   height: 80vh;

@@ -137,7 +137,7 @@ foreach ($this->items as $item) {
 
   <?php include "footer.php";?>
 
-  <script type="text/javascript" src="public/js/menu.js"></script> <!-- Aqui importamos el script del menú -->
+  <!-- Aqui importamos el script del menú -->
   <script src="<?php echo constant('URL'); ?>public/js/carrito/script_shop_loaded.js"></script>
   <script src="<?php echo constant('URL'); ?>public/js/carrito/script_carrito_charger.js"></script>
 

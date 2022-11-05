@@ -14,10 +14,12 @@ Translate::init($idioma, "lang/".$idioma.".php");
 
 </script>
 
+
+
 <nav class="noselect">
   <!-- Es el menu superior -->
   <div id="toggle-menu" class="toggle-menu">
-  <img src="public/media/menu.png" id="menupic">
+  <img src="<?php echo constant('URL'); ?>public/media/menu.png" id="menupic">
   </div> <!-- Este div contiene la imagen del boton para abrir el menu -->
 
   <ul class="main-menu" id="main-menu">
@@ -83,4 +85,5 @@ Translate::init($idioma, "lang/".$idioma.".php");
 </div>
 
 <script src="<?php echo constant('URL'); ?>public/js/perfil.js"></script>
+<script src="<?php echo constant('URL'); ?>public/js/menu.js"></script>
 <script src="<?php echo constant('URL'); ?>public/js/languages.js"></script>
