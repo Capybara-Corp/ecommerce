@@ -50,6 +50,9 @@ else {
 <body>
 
 <nav class="noselect">
+<div id="toggle-menu" class="toggle-menu">
+  <img src="<?php echo constant('URL'); ?>public/media/menu.png" id="menupic">
+  </div> <!-- Este div contiene la imagen del boton para abrir el menu -->
   
   <ul class="main-menu" id="main-menu">
     <li><a href="<?php echo constant('URL'); ?>">INICIO</a></li>
@@ -68,6 +71,8 @@ else {
 else{ ?>
 <h1>Lord <?php echo $user['nombre'] ?>, bienvenido al panel admin</h1> <!-- Nos dan la bienvenida al panel -->
 <?php } ?>
+
+<script src="<?php echo constant('URL'); ?>public/js/menu.js"></script>
 
 
 </body>
