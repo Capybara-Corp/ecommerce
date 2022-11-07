@@ -99,6 +99,9 @@ if (!empty($_POST['nombre']) && !empty($_POST['precio_venta']) && !empty($_POST[
 <body>
   
 <nav class="noselect">
+<div id="toggle-menu" class="toggle-menu">
+  <img src="<?php echo constant('URL'); ?>public/media/menu.png" id="menupic">
+  </div> <!-- Este div contiene la imagen del boton para abrir el menu -->
   
   <ul class="main-menu" id="main-menu">
     <li><a href="<?php echo constant('URL'); ?>">INICIO</a></li>
@@ -226,6 +229,9 @@ else{
   <p id="mensaje"> <?=$message;?></p>
   <?php endif;?>
 </div>
+
+
+<script src="<?php echo constant('URL'); ?>public/js/menu.js"></script>
 
 </body>
 
