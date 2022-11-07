@@ -117,17 +117,26 @@ a {
 
 @media all and (max-width: 768px) {
   #mid_container {
-    height: 500vh;
+    height: auto;
     grid-template-columns: 100%;
-    grid-template-rows: 25% 25% 25% 25%;
-    margin-bottom: 100vh;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    margin-bottom: 50vh;
+  }
+
+  #nuestrahist {
+    margin-top: 2em;
+  }
+
+  #parrafo1 {
+    margin-top: 7em;
   }
 
   #firstLocal {
     width: 80vw;
     grid-row: 2;
     grid-column: 1;
-    align-self: start;
+    align-self: end;
+    margin-bottom: 2rem;
   }
 
   #firstLocalI {
@@ -137,7 +146,7 @@ a {
     margin-bottom: 0;
     margin-left: 8vw;
     justify-self: start;
-    align-self: start;
+    align-self: end;
   }
 
   .title {
@@ -176,7 +185,7 @@ a {
     font-size: 4vw;
     grid-row: 4;
     grid-column: 1;
-    margin-bottom: 0;
+    margin-bottom: 10px;
     margin-left: 8vw;
     justify-self: start;
     align-self: start;
