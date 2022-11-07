@@ -305,3 +305,47 @@ body {
     font-size: 2vw;
   }
 }
+
+@media all and (max-width: 490px) {
+  .profilepic {
+    width: 100px;
+    height: 100px;
+  }
+
+  #profilename {
+    font-size: 24px;
+    max-width: 12em;
+
+    margin-top: 50px;
+  }
+
+  #editprofile {
+    font-size: 12px;
+  }
+
+  .mycards {
+    font-size: 12px;
+  }
+
+  #panelAdmin {
+    font-size: 12px;
+  }
+
+  .rango {
+    font-size: 12px;
+  }
+  #lider {
+    font-size: 12px;
+  }
+
+  .vino {
+    font-size: 12px;
+  }
+
+  .direccion {
+    text-align: right;
+    color: white;
+    font-family: monospace;
+    font-size: 1.5vw;
+  }
+}
