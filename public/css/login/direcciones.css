@@ -47,6 +47,10 @@ form label {
   font-size: 1vw;
 }
 
+br {
+  display: none;
+}
+
 #direcciones {
   margin: 0 auto;
   overflow-y: scroll;
@@ -64,4 +68,47 @@ form label {
 
 #direcciones p a {
   text-decoration: none;
+}
+
+@media all and (max-width: 768px) {
+  #title {
+    font-size: 4vw;
+  }
+
+  .message {
+    font-size: 3vw;
+  }
+
+  form p {
+    font-size: 3vw;
+  }
+
+  form input[type="text"] {
+    width: 60vw;
+    height: 5vh;
+    font-size: 3vw;
+  }
+
+  form input[type="submit"] {
+    width: 20vw;
+    height: 6vh;
+    font-size: 2vw;
+  }
+
+  form label {
+    font-size: 3vw;
+  }
+
+  br {
+    display: block;
+  }
+
+  #direcciones {
+    height: 60vh;
+    width: 80%;
+  }
+
+  #direcciones p {
+    font-size: 3vw;
+  }
 }

@@ -119,7 +119,7 @@ if (($_GET['uid']) == ($_SESSION['uid'])): ?>
   <form action="" method="post" enctype="multipart/form-data" name="form2" id="form2">
   <p>
     <label for="textfield2" class="campo">
-      Añadir Direccion:</label>
+      Añadir Direccion:</label><br>
       <input type="text" name="direccion" id="textfield" /><input type="submit" name="añadir" value="Añadir direccion" />
     </p>
 </form>
