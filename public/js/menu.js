@@ -11,4 +11,7 @@ toggleMenuElement.addEventListener("click", () => {
     document.getElementById("muro").classList.toggle("hide");
     document.getElementById("rosa").classList.toggle("hide");
   }
+  if (document.getElementById("editar")) {
+    document.getElementById("editar").classList.toggle("hide");
+  }
 });

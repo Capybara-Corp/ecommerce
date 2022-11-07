@@ -116,3 +116,7 @@ input[type="password"] {
 #profilepic input[type="submit"]:hover {
   border: 0.15vw solid #641c05;
 }
+
+.hide {
+  display: none !important;
+}
