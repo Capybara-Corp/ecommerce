@@ -127,13 +127,12 @@ if (!empty($_POST['nombre']) && !empty($_POST['precio_venta']) && !empty($_POST[
     }
     ?>
 
-<p id="total">TOTAL: <?php echo $cantidad['COUNT(pid)'] ?></p>
-
 <form action="producto" method="POST">
-<label for="nombre">Buscar producto por nombre:</label>
-<input name="nombre" type="text" placeholder="Ingrese el nombre">
-<input type="submit" value="Buscar">
+<label for="nombre">Buscar producto por nombre:</label><br>
+<input name="nombre" type="text" placeholder="Ingrese el nombre" id="inputnombre">
+<input type="submit" value="Buscar" id="inputbuscar">
 </form>
+<p id="total">TOTAL: <?php echo $cantidad['COUNT(pid)'] ?></p>
 
 <section id="main">
 

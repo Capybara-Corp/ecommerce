@@ -134,6 +134,28 @@ img {
   background: white;
   margin-bottom: 2vh;
 }
+br {
+  display: none;
+}
+
+#total {
+  font-size: 1.5vw;
+}
+
+form label {
+  font-size: 1.5vw;
+}
+
+#inputnombre {
+  font-size: 1.5vw;
+}
+
+#inputbuscar {
+  font-size: 1.5vw;
+  width: 10vw;
+  margin-bottom: 2vw;
+}
+
 .productos img {
   float: left;
   margin: 0.2% 0.2%;
@@ -274,4 +296,136 @@ img {
 
 .hide {
   display: none !important;
+}
+
+@media all and (max-width: 768px) {
+  #gestionarh1 {
+    font-size: 4vw;
+    margin: 25px auto;
+  }
+  #total {
+    font-size: 3vw;
+    margin: 25px auto;
+    text-align: center;
+  }
+
+  #inputnombre {
+    width: 70vw;
+    height: 4vh;
+    font-size: 3vw;
+  }
+  #inputbuscar {
+    width: 15vw;
+    height: 5vh;
+    font-size: 3vw;
+  }
+
+  form label {
+    font-size: 3vw;
+  }
+
+  form {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  br {
+    display: block;
+  }
+  .crear {
+    width: 80%;
+  }
+  #main {
+    float: none;
+    display: grid;
+    position: relative;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 16px;
+    margin: 0 auto;
+    width: 90%;
+    height: 60vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    margin-bottom: 25px;
+  }
+
+  .productos img {
+    justify-self: left;
+    align-self: center;
+    width: 10vw;
+  }
+
+  .productos .id {
+    font-size: 2vw;
+    margin-left: 10%;
+  }
+  .productos .nombre {
+    font-size: 3vw;
+    margin-left: 10%;
+  }
+
+  .productos .precio_venta {
+    font-size: 2vw;
+    margin-left: 10%;
+  }
+  .productos .precio_compra {
+    font-size: 1.5vw;
+    margin-left: 10%;
+  }
+  .productos .marca {
+    font-size: 2.5vw;
+    margin-left: 10%;
+  }
+  .productos .tipo {
+    font-size: 2vw;
+    margin-left: 10%;
+  }
+  .productos .cantidad {
+    font-size: 2vw;
+    margin-left: 10%;
+  }
+  .productos .descrip {
+    font-size: 2vw;
+    white-space: wrap;
+    overflow: hidden;
+    margin-left: 10%;
+    width: 20em;
+    text-overflow: ellipsis;
+  }
+
+  .options {
+    font-size: 3vw;
+  }
+  .options a {
+    color: black !important;
+  }
+
+  .crear {
+  }
+
+  #crearh1 {
+    font-size: 4vw;
+  }
+
+  .crear input {
+    height: 5vh;
+    font-size: 4vw;
+    margin-top: 4vh;
+  }
+
+  .crear select {
+    width: 60%;
+    height: 3vh;
+    font-size: 1vw;
+    margin-top: 2vh;
+    border: 0.1vw solid black;
+  }
+
+  .crear input[type="submit"] {
+    width: 100%;
+    height: 10vh;
+    font-size: 3vw;
+    margin-top: 2vh;
+    margin-bottom: 250px;
+  }
 }
