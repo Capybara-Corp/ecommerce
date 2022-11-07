@@ -4,6 +4,7 @@ body {
   position: relative;
   padding-bottom: 3em;
   min-height: 150vh;
+  height: auto;
 }
 
 #title {
@@ -119,4 +120,100 @@ input[type="password"] {
 
 .hide {
   display: none !important;
+}
+
+@media all and (max-width: 768px) {
+  body {
+    min-height: 1800px;
+  }
+
+  #title {
+    font-size: 3vw;
+  }
+
+  #editar {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    column-gap: 0;
+    width: 90vw;
+  }
+
+  #profilepic {
+    display: grid;
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  #campos {
+    justify-self: center;
+    align-self: start;
+    display: grid;
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .campo {
+    width: 80vw;
+    font-size: 2vw;
+  }
+
+  input[type="text"],
+  input[type="password"] {
+    height: 4vh;
+    width: 80vw;
+    font-size: 3vw;
+  }
+
+  #campos input[type="submit"] {
+    font-size: 3vw;
+  }
+
+  #buttoneditar {
+    background: #cc390a;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    color: white;
+    height: 6vh;
+    width: 40%;
+  }
+
+  #buttoneliminar {
+    background: black;
+    position: relative;
+    margin: 0 auto;
+    color: white;
+    height: 6vh;
+    width: 40%;
+  }
+
+  .message {
+    font-family: monospace;
+    position: absolute;
+    top: 25px;
+    left: 25%;
+    margin: 0 auto;
+    font-size: 3vw;
+  }
+
+  #profilepic p {
+    font-size: 3vw;
+  }
+
+  #profilepic img {
+    width: 40vw;
+    height: 40vw;
+  }
+
+  #profilepic input[type="submit"] {
+    width: 40%;
+    height: 6vh;
+    font-size: 3vw;
+    margin: 0 auto;
+  }
+  #profilepic #fileField {
+    width: 40vw;
+    height: 4vh;
+    font-size: 3vw;
+    margin-bottom: 25px;
+  }
 }
