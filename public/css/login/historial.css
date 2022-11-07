@@ -27,3 +27,18 @@ body {
   font-family: monospace;
   font-weight: 300;
 }
+
+@media all and (max-width: 768px) {
+  #title {
+    font-size: 4vw;
+  }
+
+  #historial {
+    height: 60vh;
+    width: 80%;
+  }
+
+  .elemento {
+    font-size: 3vw;
+  }
+}
