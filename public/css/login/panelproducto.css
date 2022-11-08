@@ -140,10 +140,12 @@ br {
 
 #total {
   font-size: 1.5vw;
+  margin-left: 2vw;
 }
 
 form label {
   font-size: 1.5vw;
+  margin-left: 2vw;
 }
 
 #inputnombre {
@@ -398,9 +400,6 @@ form label {
   }
   .options a {
     color: black !important;
-  }
-
-  .crear {
   }
 
   #crearh1 {

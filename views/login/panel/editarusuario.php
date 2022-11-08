@@ -83,6 +83,9 @@ if (!empty($_POST['nombre']) && !empty($_POST['correo']) && !empty($_POST['contr
 <body>
 
 <nav class="noselect">
+<div id="toggle-menu" class="toggle-menu">
+  <img src="<?php echo constant('URL'); ?>public/media/menu.png" id="menupic">
+  </div> <!-- Este div contiene la imagen del boton para abrir el menu -->
   
   <ul class="main-menu" id="main-menu">
     <li><a href="<?php echo constant('URL'); ?>">INICIO</a></li>
@@ -111,13 +114,14 @@ if (!empty($_POST['nombre']) && !empty($_POST['correo']) && !empty($_POST['contr
     }
     ?>
 
-<p id="total">TOTAL: <?php echo $cantidad['COUNT(uid)'] ?></p>
+
 
 <form action="editar" method="POST">
-<label for="nombre">Buscar usuario por nombre:</label>
-<input name="nombre" type="text" placeholder="Ingrese el nombre">
-<input type="submit" value="Buscar">
+<label for="nombre">Buscar usuario por nombre:</label><br>
+<input name="nombre" type="text" placeholder="Ingrese el nombre" id="inputnombre">
+<input type="submit" value="Buscar" id="inputbuscar">
 </form>
+<p id="total">TOTAL: <?php echo $cantidad['COUNT(uid)'] ?></p>
 
 <section id="main">
 
@@ -323,6 +327,7 @@ foreach ($data as $row) // Por cada rango me muestra una opcion, notese que mues
   <?php endif;?>
 </div>
 
+<script src="<?php echo constant('URL'); ?>public/js/menu.js"></script>
 
 </body>
 

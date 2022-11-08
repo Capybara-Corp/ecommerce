@@ -19,4 +19,7 @@ toggleMenuElement.addEventListener("click", () => {
     document.querySelector(".crear").classList.toggle("hide");
     document.querySelector("#main").classList.toggle("hide");
   }
+  if (document.getElementById("welcomeadmin")) {
+    document.querySelector("#welcomeadmin").classList.toggle("hide");
+  }
 });

@@ -66,10 +66,10 @@ else {
 
 
 <?php if ($rango['rid'] == '4'){ ?>
-  <h1>Nuestro amado y respetado lider supremo, hijo del profeta Mahoma, hermano del Sol y de la Luna, nieto y virrey de Dios; regente de los reinos del universo y del multiverso, soberano de soberanos, rey de reyes, emperador de emperadores, caballero extraordinario jamás vencido, firme guardián de la tumba de Jesucristo, elegido del mismísimo Dios, <?php echo $user['nombre'] ?>, bienvenido al panel admin</h1> <!-- Nos dan la bienvenida al panel -->
+  <h1 id="welcomeadmin">Nuestro amado y respetado lider supremo, hijo del profeta Mahoma, hermano del Sol y de la Luna, nieto y virrey de Dios; regente de los reinos del universo y del multiverso, soberano de soberanos, rey de reyes, emperador de emperadores, caballero extraordinario jamás vencido, firme guardián de la tumba de Jesucristo, elegido del mismísimo Dios, <?php echo $user['nombre'] ?>, bienvenido al panel admin</h1> <!-- Nos dan la bienvenida al panel -->
 <?php } 
 else{ ?>
-<h1>Lord <?php echo $user['nombre'] ?>, bienvenido al panel admin</h1> <!-- Nos dan la bienvenida al panel -->
+<h1 id="welcomeadmin">Lord <?php echo $user['nombre'] ?>, bienvenido al panel admin</h1> <!-- Nos dan la bienvenida al panel -->
 <?php } ?>
 
 <script src="<?php echo constant('URL'); ?>public/js/menu.js"></script>

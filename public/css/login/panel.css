@@ -106,3 +106,7 @@ img {
 h1 {
   margin-top: 10vh;
 }
+
+.hide {
+  display: none !important;
+}

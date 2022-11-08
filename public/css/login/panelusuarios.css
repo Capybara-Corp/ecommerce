@@ -3,6 +3,7 @@ body {
   padding: 0;
   background: #dadada;
   font-family: monospace;
+  height: 150vh;
 }
 
 a {
@@ -14,12 +15,26 @@ a {
 nav {
   background: #008fe7;
   width: 100%;
-  height: 7vh;
+  height: 9vh;
+}
+
+img {
+  max-width: 100%;
+}
+
+.toggle-menu {
+  position: absolute;
+  top: 2vh;
+  right: 2vw;
+  cursor: pointer; /* Con esto hago que aparezca una manita en el mouse cuando se le pasa arriba */
+  filter: invert(1); /* Con esto invierto los colores */
+  width: 40px;
+  z-index: 1; /* Con esto hago que aparezca arriba del todo. El z-index nos permite organizar las capas */
 }
 
 .main-menu {
   width: 100%;
-  height: 7vh;
+  height: 9vh;
   display: flex;
   /*el display flex nos permite manipular la orientacion a gusto de los elementos hijos de un contenedor*/
   flex-direction: column;
@@ -29,14 +44,14 @@ nav {
   /*alinea en vertical*/
   margin: 0;
   padding: 0;
-  transition: transform 0.3s;
+  visibility: hidden;
   /* Esto hace que el menu se traslade a una velocidad determinada */
-  transform: translateY(-1500%);
+
   /* Esto sirve para que el menu aparezca por defecto arriba, tan arriba que ni se ve */
 }
 
 .main-menu--show {
-  transform: translateY(0);
+  visibility: visible;
   /* Esto hace que el menú vaya para abajo, en otras palabras que aparezca */
 }
 
@@ -44,7 +59,7 @@ nav {
   .main-menu {
     flex-direction: row;
     /* Con esto el menú aparece "En un mismo renglón" */
-    transform: translateY(0);
+    visibility: visible;
     /* Con esto hago que el menú se vea si la pantalla supera los 768 pixeles de ancho */
   }
 
@@ -57,7 +72,7 @@ nav {
     background: none !important;
     padding: 0.5em !important;
     font-weight: 300 !important;
-    font-size: 1.3vw !important;
+    font-size: 20px !important;
     /* Atributos que cambian. Lo más importante es que le sacamos el color de fondo */
   }
 }
@@ -66,12 +81,12 @@ nav {
   background: rgba(0, 0, 0, 0.9);
   /* Le doy un color de fondo para que se vea correctamente */
   width: 100%;
-  padding: 2.3em;
+  padding: 2.3em 0;
   /* Las unidades "em" sirven para delimitar según el ancho de la letra */
   text-align: center;
   float: left;
   /*propiedad que permite a diferentes elementos posicionarse al lado del otro*/
-  margin: 0 3vw;
+  margin: 0;
   /*margin acepta 2 (arriba y abajo, derecha e izquierda) y 4 (arriba, derecha, abajo, izquierda)*/
   list-style: none;
   color: black;
@@ -95,7 +110,8 @@ nav {
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 16px;
   width: 60%;
-  height: auto;
+  height: 80vh;
+  overflow-y: scroll;
 }
 
 #total {
@@ -117,6 +133,30 @@ nav {
   font-size: 2vw;
   color: black;
   font-weight: 500;
+}
+
+br {
+  display: none;
+}
+
+#total {
+  font-size: 1.5vw;
+  margin-left: 2vw;
+}
+
+form label {
+  font-size: 1.5vw;
+  margin-left: 2vw;
+}
+
+#inputnombre {
+  font-size: 1.5vw;
+}
+
+#inputbuscar {
+  font-size: 1.5vw;
+  width: 10vw;
+  margin-bottom: 2vw;
 }
 
 .usuarios {
@@ -242,3 +282,120 @@ nav {
 
 /*.crear input[type="submit"]:hover{
   }*/
+
+.hide {
+  display: none !important;
+}
+
+@media all and (max-width: 768px) {
+  #gestionarh1 {
+    font-size: 4vw;
+    margin: 25px auto;
+  }
+  #total {
+    font-size: 3vw;
+    margin: 25px auto;
+    text-align: center;
+  }
+
+  #inputnombre {
+    width: 70vw;
+    height: 4vh;
+    font-size: 3vw;
+  }
+  #inputbuscar {
+    width: 15vw;
+    height: 5vh;
+    font-size: 3vw;
+  }
+
+  form label {
+    font-size: 3vw;
+  }
+
+  form {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  br {
+    display: block;
+  }
+  .crear {
+    width: 80%;
+  }
+  #main {
+    float: none;
+    display: grid;
+    position: relative;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 16px;
+    margin: 0 auto;
+    width: 90%;
+    height: 60vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    margin-bottom: 25px;
+  }
+
+  .usuarios img {
+    justify-self: left;
+    align-self: center;
+    width: 10vw;
+    height: 10vw;
+  }
+
+  .usuarios .id {
+    font-size: 2vw;
+  }
+  .usuarios .nombre {
+    font-size: 3vw;
+  }
+
+  .usuarios .rango {
+    font-size: 2vw;
+  }
+  .usuarios .estado {
+    font-size: 2vw;
+  }
+  .usuarios .correo {
+    font-size: 2vw;
+  }
+
+  .options {
+    font-size: 2vw;
+  }
+  .options a {
+    color: black !important;
+  }
+
+  #crearh1 {
+    font-size: 4vw;
+  }
+
+  .crear input {
+    height: 5vh;
+    font-size: 4vw;
+    margin-top: 4vh;
+  }
+
+  .crear label {
+    font-size: 3vw;
+  }
+
+  .crear select {
+    width: 80%;
+    height: 6vh;
+    font-size: 3vw;
+    margin-top: 2vh;
+    border: 0.1vw solid black;
+  }
+
+  .crear input[type="submit"] {
+    width: 100%;
+    height: 10vh;
+    font-size: 3vw;
+    margin-top: 2vh;
+    margin-bottom: 250px;
+  }
+}
