@@ -1,9 +1,10 @@
 body {
+  box-sizing: border-box;
   margin: 0;
-  padding: 0;
-  background: #dadada;
-  font-family: monospace;
-  text-align: center;
+  position: relative;
+  padding-bottom: 3em;
+  min-height: 150vh;
+  height: auto;
 }
 
 a {
@@ -103,10 +104,193 @@ img {
   /* Animaciones para cuando se le hace hover al menú */
 }
 
-h1 {
-  margin-top: 10vh;
+form {
+  width: 50vw;
+}
+
+#title {
+  font-family: monospace;
+  font-weight: 300;
+  text-align: center;
+  font-size: 1.8vw;
+}
+
+#editar {
+  position: relative;
+  column-gap: 0;
+  margin: 0 auto;
+  width: 60vw;
+  height: 80vh;
+}
+
+#campos {
+  float: right;
+}
+
+.campo {
+  font-family: monospace;
+  font-size: 1vw;
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+
+p {
+  font-size: 1vw;
+  font-family: monospace;
+}
+
+input[type="text"],
+input[type="password"] {
+  height: 3vh;
+  width: 30vw;
+  font-size: 1vw;
+}
+
+#campos input[type="submit"] {
+  font-size: 1vw;
+  border: none;
+  display: block;
+}
+
+#button {
+  background: #cc390a;
+  margin: 3% 30%;
+  margin-bottom: 25vh;
+  color: white;
+  height: 4vh;
+  width: 40%;
+}
+
+#campos input[type="submit"]:hover {
+  border: 0.15vw solid #641c05;
+}
+
+.message {
+  float: right;
+  font-family: monospace;
+  margin-right: 20vw;
+  margin-top: -30vh;
+  font-size: 1vw;
+}
+
+#profilepic {
+  float: left;
+}
+
+#profilepic p {
+  font-family: monospace;
+  text-align: center;
+  font-size: 1vw;
+  display: block;
+}
+
+#profilepic img {
+  width: 10vw;
+  height: auto;
+}
+
+#profilepic input[type="submit"]:hover {
+  border: 0.15vw solid #641c05;
 }
 
 .hide {
   display: none !important;
 }
+
+/*@media all and (max-width: 768px) {
+  body {
+    min-height: 1800px;
+  }
+
+  #title {
+    font-size: 3vw;
+  }
+
+  #editar {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    column-gap: 0;
+    width: 90vw;
+  }
+
+  #profilepic {
+    display: grid;
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  #campos {
+    justify-self: center;
+    align-self: start;
+    display: grid;
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .campo {
+    width: 80vw;
+    font-size: 2vw;
+  }
+
+  input[type="text"],
+  input[type="password"] {
+    height: 4vh;
+    width: 80vw;
+    font-size: 3vw;
+  }
+
+  #campos input[type="submit"] {
+    font-size: 3vw;
+  }
+
+  #buttoneditar {
+    background: #cc390a;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    color: white;
+    height: 6vh;
+    width: 40%;
+  }
+
+  #buttoneliminar {
+    background: black;
+    position: relative;
+    margin: 0 auto;
+    color: white;
+    height: 6vh;
+    width: 40%;
+  }
+
+  .message {
+    font-family: monospace;
+    position: absolute;
+    top: 25px;
+    left: 25%;
+    margin: 0 auto;
+    font-size: 3vw;
+  }
+
+  #profilepic p {
+    font-size: 3vw;
+  }
+
+  #profilepic img {
+    width: 40vw;
+    height: 40vw;
+  }
+
+  #profilepic input[type="submit"] {
+    width: 40%;
+    height: 6vh;
+    font-size: 3vw;
+    margin: 0 auto;
+  }
+  #profilepic #fileField {
+    width: 40vw;
+    height: 4vh;
+    font-size: 3vw;
+    margin-bottom: 25px;
+  }
+}
+*/

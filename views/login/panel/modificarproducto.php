@@ -42,12 +42,23 @@ else {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../public/css/login/panel.css">
+    <title>Editar producto</title>
+    <link rel="stylesheet" href="../public/css/login/editarproducto.css">
 </head>
 <body>
-    <?php include "navegacion.php" ?>
-    <?php 
+<nav class="noselect">
+<div id="toggle-menu" class="toggle-menu">
+  <img src="<?php echo constant('URL'); ?>public/media/menu.png" id="menupic">
+  </div> <!-- Este div contiene la imagen del boton para abrir el menu -->
+  
+  <ul class="main-menu" id="main-menu">
+    <li><a href="<?php echo constant('URL'); ?>">INICIO</a></li>
+    <li><a href="<?php echo constant('URL'); ?>panel/producto">EDITAR PRODUCTOS</a></li>
+    <li><a href="<?php echo constant('URL'); ?>panel/editar">EDITAR USUARIOS</a></li>
+    <li><a href="<?php echo constant('URL'); ?>perfil?uid=<?php echo $_SESSION['uid'] ?>">REGRESAR A MI PERFIL</a></li>
+
+  </ul>
+</nav> <?php
 
     if(isset($_GET['pid'])): //Si hay un "pid" en la URL...
       $records = $conn->prepare('SELECT * FROM PRODUCTOS WHERE pid = :id');
@@ -65,49 +76,60 @@ else {
 
 
 
+<h1 id="title">Editar producto</h1>
 
+<div id="editar">
 
 <form action="" method="post" enctype="multipart/form-data" name="form2" id="form2">
-    <p>
-        <label for="textfield2"></label>
-        Nombre:
-        <input type="text" name="nombre" id="textfield2" value="<?php echo $producto['nombre']; ?>" />
-    </p>
-    <p>
-    Precio Venta:
-        <input type="text" name="precioventa" id="textfield2" value="<?php echo $producto['precio_venta']; ?>" />
-    </p>
-    <p>
-    Precio Compra:
-        <input type="text" name="preciocompra" id="textfield2" value="<?php echo $producto['precio_compra']; ?>" />
-    </p>
-    <p>
-    Marca:
-        <input type="text" name="marca" id="textfield2" value="<?php echo $producto['marca']; ?>" />
-    </p>
-    <p>
-    Tipo:
-        <input type="text" name="tipo" id="textfield2" value="<?php echo $producto['tipo']; ?>" />
-    </p>
-    <p>
-    Cantidad:
-        <input type="text" name="cantidad" id="textfield2" value="<?php echo $producto['cantidad']; ?>" />
-    </p>
+<div id="profilepic">
     <p>Imagen</p>
         <p><img src="../<?php echo $producto['img']; ?>" height="100" width="100" />
     </p>
+    </div>
+<div id="campos">
     <p>
-        <label for="fileField"></label>
-        <input type="file" name="img" id="fileField" />
+        <label for="textfield2"></label>
+        Nombre:<br>
+        <input type="text" name="nombre" id="textfield2" value="<?php echo $producto['nombre']; ?>" />
     </p>
     <p>
-    Descripcion:
-        <input style="width: 300px;" type="text" name="descripcion" id="textfield2" value="<?php echo $producto['descrip']; ?>" />
+    Precio Venta:<br>
+        <input type="text" name="precioventa" id="textfield2" value="<?php echo $producto['precio_venta']; ?>" />
     </p>
     <p>
+    Precio Compra:<br>
+        <input type="text" name="preciocompra" id="textfield2" value="<?php echo $producto['precio_compra']; ?>" />
+    </p>
+    <p>
+    Marca:<br>
+        <input type="text" name="marca" id="textfield2" value="<?php echo $producto['marca']; ?>" />
+    </p>
+    <p>
+    Tipo:<br>
+        <input type="text" name="tipo" id="textfield2" value="<?php echo $producto['tipo']; ?>" />
+    </p>
+    <p>
+    Cantidad:<br>
+        <input type="text" name="cantidad" id="textfield2" value="<?php echo $producto['cantidad']; ?>" />
+    </p>
+    <p>
+    Descripcion:<br>
+        <input type="text" name="descripcion" id="textfield2" value="<?php echo $producto['descrip']; ?>" />
+    </p>
+    
+    
+    <p>
+    Imagen:<br>
+        <input type="file" name="img" id="upload" />
+    </p>
+    
+    <p>
+        
         <input type="submit" name="editar" id="button" value="Editar" />
     </p>
     </form>
+    </div>
+    </div>
 
     <?php 
     if(isset($_POST['editar'])) { //Si hay algo en POST, y presionamos en "editar"...
@@ -194,8 +216,11 @@ else {
 
     }
     ?>
+    
 
 <?php endif; ?>
+
+
 
 </body>
 </html>
