@@ -58,6 +58,8 @@ input[type="password"] {
   font-size: 1vw;
   border: 0.1vw solid black;
   display: block;
+  width: 100%;
+  height: 4vh;
 }
 
 #buttoneditar {
@@ -122,3 +124,299 @@ input[type="password"] {
 #profilepic input[type="submit"]:hover {
   border: 0.15vw solid #641c05;
 }
+body {
+  box-sizing: border-box;
+  margin: 0;
+  position: relative;
+  padding-bottom: 3em;
+  min-height: 150vh;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+  /* Con esto le saco el underline y esas cosas que tienen los a */
+  color: white;
+}
+
+nav {
+  background: #008fe7;
+  width: 100%;
+  height: 9vh;
+}
+
+img {
+  max-width: 100%;
+}
+
+.toggle-menu {
+  position: absolute;
+  top: 2vh;
+  right: 2vw;
+  cursor: pointer; /* Con esto hago que aparezca una manita en el mouse cuando se le pasa arriba */
+  filter: invert(1); /* Con esto invierto los colores */
+  width: 40px;
+  z-index: 1; /* Con esto hago que aparezca arriba del todo. El z-index nos permite organizar las capas */
+}
+
+.main-menu {
+  width: 100%;
+  height: 9vh;
+  display: flex;
+  /*el display flex nos permite manipular la orientacion a gusto de los elementos hijos de un contenedor*/
+  flex-direction: column;
+  /* Con esto cada elemento del menú aparece abajo del otro */
+  flex-wrap: nowrap;
+  align-items: center;
+  /*alinea en vertical*/
+  margin: 0;
+  padding: 0;
+  visibility: hidden;
+  /* Esto hace que el menu se traslade a una velocidad determinada */
+
+  /* Esto sirve para que el menu aparezca por defecto arriba, tan arriba que ni se ve */
+}
+
+.main-menu--show {
+  visibility: visible;
+  /* Esto hace que el menú vaya para abajo, en otras palabras que aparezca */
+}
+
+@media all and (min-width: 768px) {
+  .main-menu {
+    flex-direction: row;
+    /* Con esto el menú aparece "En un mismo renglón" */
+    visibility: visible;
+    /* Con esto hago que el menú se vea si la pantalla supera los 768 pixeles de ancho */
+  }
+
+  .toggle-menu {
+    display: none;
+    /* El botón no se muestra si la pantalla supera los 768 pixeles de ancho */
+  }
+
+  .main-menu li {
+    background: none !important;
+    padding: 0.5em !important;
+    font-weight: 300 !important;
+    font-size: 1.2vw !important;
+    /* Atributos que cambian. Lo más importante es que le sacamos el color de fondo */
+  }
+}
+
+.main-menu li {
+  background: rgba(0, 0, 0, 0.9);
+  /* Le doy un color de fondo para que se vea correctamente */
+  width: 100%;
+  padding: 2.3em 0;
+  /* Las unidades "em" sirven para delimitar según el ancho de la letra */
+  text-align: center;
+  float: left;
+  /*propiedad que permite a diferentes elementos posicionarse al lado del otro*/
+  margin: 0;
+  /*margin acepta 2 (arriba y abajo, derecha e izquierda) y 4 (arriba, derecha, abajo, izquierda)*/
+  list-style: none;
+  color: black;
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  /*propiedad que nos permite establecer el grosor de una fuente, va de 0 a 900 en centenas*/
+  font-size: 3vw;
+}
+
+.main-menu li:hover {
+  cursor: pointer;
+  transition: all 0.2s ease;
+  transform: scale(1.1);
+  /* Animaciones para cuando se le hace hover al menú */
+}
+
+form {
+  width: 50vw;
+}
+
+#title {
+  font-family: monospace;
+  font-weight: 300;
+  text-align: center;
+  font-size: 1.8vw;
+}
+
+#editar {
+  position: relative;
+  column-gap: 0;
+  margin: 0 auto;
+  width: 60vw;
+  height: 80vh;
+}
+
+#campos {
+  float: right;
+}
+
+.campo {
+  font-family: monospace;
+  font-size: 1vw;
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+
+p {
+  font-size: 1vw;
+  font-family: monospace;
+}
+
+input[type="text"],
+input[type="password"] {
+  height: 3vh;
+  width: 30vw;
+  font-size: 1vw;
+}
+
+#campos input[type="submit"] {
+  font-size: 1vw;
+  border: none;
+  display: block;
+}
+
+#button {
+  background: #cc390a;
+  margin: 3% 30%;
+  margin-bottom: 25vh;
+  color: white;
+  height: 4vh;
+  width: 40%;
+}
+
+#campos input[type="submit"]:hover {
+  border: 0.15vw solid #641c05;
+}
+
+.message {
+  float: right;
+  font-family: monospace;
+  margin-right: 20vw;
+  margin-top: -30vh;
+  font-size: 1vw;
+}
+
+#profilepic {
+  float: left;
+}
+
+#profilepic p {
+  font-family: monospace;
+  text-align: center;
+  font-size: 1vw;
+  display: block;
+}
+
+#profilepic img {
+  width: 10vw;
+  height: auto;
+}
+
+#profilepic input[type="submit"]:hover {
+  border: 0.15vw solid #641c05;
+}
+
+.hide {
+  display: none !important;
+}
+
+/*@media all and (max-width: 768px) {
+  body {
+    min-height: 1800px;
+  }
+
+  #title {
+    font-size: 3vw;
+  }
+
+  #editar {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    column-gap: 0;
+    width: 90vw;
+  }
+
+  #profilepic {
+    display: grid;
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  #campos {
+    justify-self: center;
+    align-self: start;
+    display: grid;
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .campo {
+    width: 80vw;
+    font-size: 2vw;
+  }
+
+  input[type="text"],
+  input[type="password"] {
+    height: 4vh;
+    width: 80vw;
+    font-size: 3vw;
+  }
+
+  #campos input[type="submit"] {
+    font-size: 3vw;
+  }
+
+  #buttoneditar {
+    background: #cc390a;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    color: white;
+    height: 6vh;
+    width: 40%;
+  }
+
+  #buttoneliminar {
+    background: black;
+    position: relative;
+    margin: 0 auto;
+    color: white;
+    height: 6vh;
+    width: 40%;
+  }
+
+  .message {
+    font-family: monospace;
+    position: absolute;
+    top: 25px;
+    left: 25%;
+    margin: 0 auto;
+    font-size: 3vw;
+  }
+
+  #profilepic p {
+    font-size: 3vw;
+  }
+
+  #profilepic img {
+    width: 40vw;
+    height: 40vw;
+  }
+
+  #profilepic input[type="submit"] {
+    width: 40%;
+    height: 6vh;
+    font-size: 3vw;
+    margin: 0 auto;
+  }
+  #profilepic #fileField {
+    width: 40vw;
+    height: 4vh;
+    font-size: 3vw;
+    margin-bottom: 25px;
+  }
+}
+*/

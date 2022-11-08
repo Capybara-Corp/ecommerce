@@ -49,8 +49,21 @@ if (isset($_SESSION['uid'])) {
 </head>
 
 <body>
-  <?php include "navegacion.php";?>
-  <?php
+<nav class="noselect">
+<div id="toggle-menu" class="toggle-menu">
+  <img src="<?php echo constant('URL'); ?>public/media/menu.png" id="menupic">
+  </div> <!-- Este div contiene la imagen del boton para abrir el menu -->
+  
+  <ul class="main-menu" id="main-menu">
+    <li><a href="<?php echo constant('URL'); ?>">INICIO</a></li>
+    <li><a href="<?php echo constant('URL'); ?>panel/producto">EDITAR PRODUCTOS</a></li>
+    <li><a href="<?php echo constant('URL'); ?>panel/editar">EDITAR USUARIOS</a></li>
+    <li><a href="<?php echo constant('URL'); ?>perfil?uid=<?php echo $_SESSION['uid'] ?>">REGRESAR A MI PERFIL</a></li>
+
+  </ul>
+</nav>
+
+<?php
 
 
 if (isset($_GET['uid'])): //Si hay un "uid" en la URL...
@@ -82,30 +95,14 @@ if (isset($_GET['uid'])): //Si hay un "uid" en la URL...
 
 <div id="editar">
 
-<div id="profilepic">
-
-
-
 
   <form action="" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <div id="profilepic">
   <p>Avatar</p>
     <p><img src="../<?php echo $usuario['avatar']; ?>" />
     </p>
-    <p>
-      <label for="fileField"></label>
-      <input type="file" name="avatar" id="fileField" />
-    </p>
-    <p>
-      <input type="submit" name="editarfoto" id="button" value="Editar" />
-    </p>
-    <p>
-      <input type="submit" name="eliminarfoto" id="button" value="Eliminar foto" />
-    </p>
-  </form>
-</div>
-
-
-<div id="campos">
+  </div>
+  <div id="campos">
 
 <form action="" method="post" enctype="multipart/form-data" name="form2" id="form2">
     <p>
@@ -148,6 +145,10 @@ if (isset($_GET['uid'])): //Si hay un "uid" en la URL...
     <label for="textfield2" class="campo">
       Añadir Direccion:</label>
       <input type="text" name="direccion" id="textfield" />
+
+    </p>
+    <p>
+      <input type="file" name="avatar" id="fileField" />
     </p>
       <input type="submit" name="editar" id="buttoneditar" value="Editar datos" />
       
@@ -277,24 +278,6 @@ if (isset($_GET['uid'])): //Si hay un "uid" en la URL...
 
     }
 
-    if (isset($_POST['eliminarfoto'])) {
-      if($usuario['avatar'] != "public/img/perfil/default.jpg"){
-        unlink("" . $usuario['avatar'] . ""); //Borramos el archivo de la foto de perfil del disco duro
-        try{
-          $cambiar = $conn->prepare('UPDATE USUARIOS SET avatar = "public/img/perfil/default.jpg" WHERE uid = :id'); //Borramos el usuario de la BD
-          $cambiar->bindParam(':id', $usuario['uid']);
-          $cambiar->execute();
-          Header("Location: editarperfil?uid=" . $usuario['uid']);
-        }
-        catch(Exception $e){
-          $message = "Ha ocurrido un error"; 
-          echo "<p class=\"message\">$message<p>";
-        }}
-      else{
-        echo "<p class=\"message\">No tienes una foto<p>";
-      }
-    
-    }
 
     ?>
 
