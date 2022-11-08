@@ -145,9 +145,10 @@ if (isset($_GET['uid'])): //Si hay un "uid" en la URL...
     <label for="textfield2" class="campo">
       Añadir Direccion:</label>
       <input type="text" name="direccion" id="textfield" />
-
     </p>
     <p>
+    <label for="textfield2" class="campo">
+      Imagen:</label>
       <input type="file" name="avatar" id="fileField" />
     </p>
       <input type="submit" name="editar" id="buttoneditar" value="Editar datos" />
