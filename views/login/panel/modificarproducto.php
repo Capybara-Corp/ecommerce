@@ -217,6 +217,7 @@ else {
     }
     ?>
     
+    <script src="<?php echo constant('URL'); ?>public/js/menu.js"></script>
 
 <?php endif; ?>
 

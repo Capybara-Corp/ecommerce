@@ -282,6 +282,8 @@ if (isset($_GET['uid'])): //Si hay un "uid" en la URL...
 
     ?>
 
+<script src="<?php echo constant('URL'); ?>public/js/menu.js"></script>
+
   <?php endif;?>
 
 
