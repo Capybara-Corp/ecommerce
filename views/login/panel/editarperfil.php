@@ -120,15 +120,22 @@ if (isset($_GET['uid'])): //Si hay un "uid" en la URL...
 
       <label for="select" class="campo">Rango:</label><br>
       <select name="rango" id="select">
-        <?php
+      <?php
 
-    $data = $conn->query("SELECT * FROM USUARIOS_Rangos")->fetchAll();
+if($user['rango'] == '1'){
+$data = $conn->query("SELECT * FROM USUARIOS_Rangos WHERE rid = '2'")->fetchAll();
+}
+else if($user['rango'] == '3'){
+  $data = $conn->query("SELECT * FROM USUARIOS_Rangos WHERE rid <= '2'")->fetchAll();
+}
+else if($user['rango'] == '4'){
+  $data = $conn->query("SELECT * FROM USUARIOS_Rangos")->fetchAll();
+}
 
-    foreach ($data as $row) // Por cada rango me muestra una opcion, notese que muestra el nombre pero almacena el valor del id del rango.
+foreach ($data as $row) // Por cada rango me muestra una opcion, notese que muestra el nombre pero almacena el valor del id del rango.
 {?>
         <option value="<?php echo $row['rid']; ?>"><?php echo $row['nombre']; ?></option>
         <?php }?>
-
       </select>
     </p>
     <p>
