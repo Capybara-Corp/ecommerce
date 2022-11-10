@@ -13,9 +13,12 @@ toggleMenuElement.addEventListener("click", () => {
   }
   if (document.getElementById("editar")) {
     document.getElementById("editar").classList.toggle("hide");
+    document.getElementById("title").classList.toggle("hide");
   }
   if (document.getElementById("gestionarh1")) {
     document.querySelector("form").classList.toggle("hide");
+    document.getElementById("gestionarh1").classList.toggle("hide");
+    document.getElementById("total").classList.toggle("hide");
     document.querySelector(".crear").classList.toggle("hide");
     document.querySelector("#main").classList.toggle("hide");
   }
