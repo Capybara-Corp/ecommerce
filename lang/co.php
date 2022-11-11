@@ -9,7 +9,7 @@ return [
     'contacto' => 'CONTACT',
     'login' => 'LOGIN',
     'miperfil' => 'MY PROFILE',
-    'editarmiperfil' => 'EDIT MY PROFILE',
+    'editarmiperfil' => 'Edit my profile',
     'cerrarsesion' => 'LOG OUT',
     'vinosdelamejorcalidad' => 'BEST QUALITY WINES',
     'nuestrosvinos' => 'Our wines are made from the most careful and delicious grapes that guarantee the highest quality.
@@ -22,7 +22,7 @@ return [
     'idioma' => 'LANGUAGE',
     'vinopremium' => 'Premium Wine',
     'nuestrahistoria' => 'OUR HISTORY',
-    'parrafo1' => 'Nuestra empresa empezó en el año 1962, producto de dos jovenes emprendedores que decidieron emprender un camino juntos. La empresa creció hasta llegar a tener viñedos en muchas zonas del país',
+    'parrafo1' => 'Our company started in 1962, the product of two young entrepreneurs who decided to embark on a journey together. The company grew to have vineyards in many areas of the country',
     'primerlocal' => 'Our first store, opened in 1963',
     'nuestroequipo' => 'Our work team',
     'nuestrosobjetivos' => 'OUR GOALS',
