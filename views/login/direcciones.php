@@ -1,5 +1,13 @@
 <?php
 
+require_once 'traduccion/Translate.php';
+use \SimpleTranslation\Translate;
+
+
+$idioma = $_COOKIE['idioma'];
+Translate::init($idioma, "lang/".$idioma.".php");
+
+
 $message = '';
 $existe = False;
 
@@ -48,7 +56,7 @@ if (isset($_SESSION['uid'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mis direcciones</title>
+    <title><?=Translate::__('misdirecciones');?></title>
     <link rel="stylesheet" href="public/css/login/direcciones.css">
     <link rel="stylesheet" href="public/css/index/headerblack.css">
     <link rel="stylesheet" href="public/css/index/footer.css">
@@ -113,14 +121,14 @@ if (($_GET['uid']) == ($_SESSION['uid'])): ?>
 ?>
 
 
-  <h1 id="title">MIS DIRECCIONES</h1>
+  <h1 id="title"><?=Translate::__('misdirecciones');?></h1>
 
 
   <form action="" method="post" enctype="multipart/form-data" name="form2" id="form2">
   <p>
     <label for="textfield2" class="campo">
-      Añadir Direccion:</label><br>
-      <input type="text" name="direccion" id="textfield" /><input type="submit" name="añadir" value="Añadir direccion" />
+    <?=Translate::__('anadirdireccion');?>:</label><br>
+      <input type="text" name="direccion" id="textfield" /><input type="submit" name="añadir" value="<?=Translate::__('anadirdireccion');?>" />
     </p>
 </form>
     <?php if (isset($message)){
@@ -138,7 +146,7 @@ if (($_GET['uid']) == ($_SESSION['uid'])): ?>
         
     foreach($direcciones as $row){ ?>
 
-        <p>Direccion: <?php echo $row['direccion'] ?><a href="direcciones?uid=<?php echo $_SESSION['uid'] ?>&borrar=<?php echo $row['duid']; ?>" onclick="return Confirmar (this.form)">&nbspBorrar</a>
+        <p><?=Translate::__('direccion');?>: <?php echo $row['direccion'] ?><a href="direcciones?uid=<?php echo $_SESSION['uid'] ?>&borrar=<?php echo $row['duid']; ?>" onclick="return Confirmar (this.form)">&nbsp<?=Translate::__('borrar');?></a>
 
         <?php $num++; ?>
     <?php }
@@ -160,3 +168,6 @@ if (($_GET['uid']) == ($_SESSION['uid'])): ?>
     
 </body>
 </html>
+
+
+<!-- TRADUCIDO -->

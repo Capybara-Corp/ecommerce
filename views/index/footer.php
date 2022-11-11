@@ -32,5 +32,6 @@ Translate::init($idioma, "lang/".$idioma.".php");
     </div>    
     <img src="<?php echo constant('URL')?>public/media/media.png" id="redes">
 
-  </footer
+</footer>
   
+  <!-- TRADUCIDO -->

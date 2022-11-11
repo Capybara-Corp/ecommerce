@@ -156,7 +156,7 @@ if (($_GET['uid']) == ($_SESSION['uid'])): ?>
 
     foreach($tarjetas as $row){ ?>
 
-        <p><?=Translate::__('numerodetarjeta');?><?php echo $num ?>: <?php echo $row['tarjeta'] ?> <a href="tarjetas?uid=<?php echo $_SESSION['uid'] ?>&borrar=<?php echo $row['tuid']; ?>" onclick="return Confirmar (this.form)">Borrar</a></p>
+        <p><?=Translate::__('numerodetarjeta');?><?php echo $num ?>: <?php echo $row['tarjeta'] ?> <a href="tarjetas?uid=<?php echo $_SESSION['uid'] ?>&borrar=<?php echo $row['tuid']; ?>" onclick="return Confirmar (this.form)"><?=Translate::__('borrar');?></a></p>
         
         <?php $num++; ?>
     <?php }
