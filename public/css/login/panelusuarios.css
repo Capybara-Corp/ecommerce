@@ -72,6 +72,7 @@ img {
     background: none !important;
     padding: 0.5em !important;
     font-weight: 300 !important;
+    text-transform: uppercase;
     font-size: 1.2vw !important;
     /* Atributos que cambian. Lo más importante es que le sacamos el color de fondo */
   }

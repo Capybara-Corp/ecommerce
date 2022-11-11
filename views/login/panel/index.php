@@ -1,5 +1,12 @@
 <?php 
 
+require_once 'traduccion/Translate.php';
+use \SimpleTranslation\Translate;
+
+
+$idioma = $_COOKIE['idioma'];
+Translate::init($idioma, "lang/".$idioma.".php");
+
 require 'libs/connect.php';
 require "config/config.php";
 if (isset($_SESSION['uid'])) {
@@ -44,7 +51,7 @@ else {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panel Admin</title>
+    <title><?=Translate::__('paneladmin');?></title>
     <link rel="stylesheet" href="public/css/login/panel.css">
 </head>
 <body>
@@ -55,10 +62,10 @@ else {
   </div> <!-- Este div contiene la imagen del boton para abrir el menu -->
   
   <ul class="main-menu" id="main-menu">
-    <li><a href="<?php echo constant('URL'); ?>">INICIO</a></li>
-    <li><a href="<?php echo constant('URL'); ?>panel/producto">EDITAR PRODUCTOS</a></li>
-    <li><a href="<?php echo constant('URL'); ?>panel/editar">EDITAR USUARIOS</a></li>
-    <li><a href="<?php echo constant('URL'); ?>perfil?uid=<?php echo $_SESSION['uid'] ?>">REGRESAR A MI PERFIL</a></li>
+    <li><a href="<?php echo constant('URL'); ?>"><?=Translate::__('inicio');?></a></li>
+    <li><a href="<?php echo constant('URL'); ?>panel/producto"><?=Translate::__('editarproductos');?></a></li>
+    <li><a href="<?php echo constant('URL'); ?>panel/editar"><?=Translate::__('editarusuarios');?></a></li>
+    <li><a href="<?php echo constant('URL'); ?>perfil?uid=<?php echo $_SESSION['uid'] ?>"><?=Translate::__('regresaramiperfil');?></a></li>
 
   </ul>
 </nav>
@@ -66,10 +73,10 @@ else {
 
 
 <?php if ($rango['rid'] == '4'){ ?>
-  <h1 id="welcomeadmin">Nuestro amado y respetado lider supremo, hijo del profeta Mahoma, hermano del Sol y de la Luna, nieto y virrey de Dios; regente de los reinos del universo y del multiverso, soberano de soberanos, rey de reyes, emperador de emperadores, caballero extraordinario jamás vencido, firme guardián de la tumba de Jesucristo, elegido del mismísimo Dios, <?php echo $user['nombre'] ?>, bienvenido al panel admin</h1> <!-- Nos dan la bienvenida al panel -->
+  <h1 id="welcomeadmin"><?=Translate::__('bienvenidosupremo');?><?php echo $user['nombre'] ?><?=Translate::__('bienvenidoalpaneladmin');?></h1> <!-- Nos dan la bienvenida al panel -->
 <?php } 
 else{ ?>
-<h1 id="welcomeadmin">Lord <?php echo $user['nombre'] ?>, bienvenido al panel admin</h1> <!-- Nos dan la bienvenida al panel -->
+<h1 id="welcomeadmin"><?php echo $user['nombre'] ?><?=Translate::__('bienvenidoalpaneladmin');?></h1> <!-- Nos dan la bienvenida al panel -->
 <?php } ?>
 
 <script src="<?php echo constant('URL'); ?>public/js/menu.js"></script>
@@ -77,3 +84,5 @@ else{ ?>
 
 </body>
 </html>
+
+<!-- TRADUCIDO -->

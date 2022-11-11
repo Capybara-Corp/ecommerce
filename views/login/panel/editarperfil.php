@@ -1,5 +1,12 @@
 <?php
 
+require_once 'traduccion/Translate.php';
+use \SimpleTranslation\Translate;
+
+
+$idioma = $_COOKIE['idioma'];
+Translate::init($idioma, "lang/".$idioma.".php");
+
 require 'libs/connect.php';
 require "config/config.php";
 

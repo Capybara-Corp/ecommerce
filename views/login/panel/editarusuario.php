@@ -1,5 +1,12 @@
 <?php
 
+require_once 'traduccion/Translate.php';
+use \SimpleTranslation\Translate;
+
+
+$idioma = $_COOKIE['idioma'];
+Translate::init($idioma, "lang/".$idioma.".php");
+
 $message = '';
 
 require 'libs/connect.php';
@@ -67,7 +74,7 @@ if (!empty($_POST['nombre']) && !empty($_POST['correo']) && !empty($_POST['contr
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Editar Usuarios</title>
+  <title><?=Translate::__('editarusuarios');?></title>
   <link rel="stylesheet" href="../public/css/login/panelusuarios.css">
 
   <script language="Javascript" type="text/javascript">
@@ -88,10 +95,10 @@ if (!empty($_POST['nombre']) && !empty($_POST['correo']) && !empty($_POST['contr
   </div> <!-- Este div contiene la imagen del boton para abrir el menu -->
   
   <ul class="main-menu" id="main-menu">
-    <li><a href="<?php echo constant('URL'); ?>">INICIO</a></li>
-    <li><a href="<?php echo constant('URL'); ?>panel/producto">EDITAR PRODUCTOS</a></li>
-    <li><a href="<?php echo constant('URL'); ?>panel/editar">EDITAR USUARIOS</a></li>
-    <li><a href="<?php echo constant('URL'); ?>perfil?uid=<?php echo $_SESSION['uid'] ?>">REGRESAR A MI PERFIL</a></li>
+    <li><a href="<?php echo constant('URL'); ?>"><?=Translate::__('inicio');?></a></li>
+    <li><a href="<?php echo constant('URL'); ?>panel/producto"><?=Translate::__('editarproductos');?></a></li>
+    <li><a href="<?php echo constant('URL'); ?>panel/editar"><?=Translate::__('editarusuarios');?></a></li>
+    <li><a href="<?php echo constant('URL'); ?>perfil?uid=<?php echo $_SESSION['uid'] ?>"><?=Translate::__('regresaramiperfil');?></a></li>
 
   </ul>
 </nav>
@@ -100,7 +107,7 @@ if (!empty($_POST['nombre']) && !empty($_POST['correo']) && !empty($_POST['contr
 
 
 
-<h1 id="gestionarh1">GESTIONAR USUARIOS</h1>
+<h1 id="gestionarh1"><?=Translate::__('gestionarusuarios');?></h1>
   
 <?php 
     $records = $conn->prepare('SELECT COUNT(uid) FROM USUARIOS;');
@@ -117,11 +124,11 @@ if (!empty($_POST['nombre']) && !empty($_POST['correo']) && !empty($_POST['contr
 
 
 <form action="editar" method="POST">
-<label for="nombre">Buscar usuario por nombre:</label><br>
-<input name="nombre" type="text" placeholder="Ingrese el nombre" id="inputnombre">
-<input type="submit" value="Buscar" id="inputbuscar">
+<label for="nombre"><?=Translate::__('buscarusuariopornombre');?>:</label><br>
+<input name="nombre" type="text" placeholder="<?=Translate::__('ingreseelnombre');?>" id="inputnombre">
+<input type="submit" value="<?=Translate::__('buscar');?>" id="inputbuscar">
 </form>
-<p id="total">TOTAL: <?php echo $cantidad['COUNT(uid)'] ?></p>
+<p id="total"><?=Translate::__('total');?>: <?php echo $cantidad['COUNT(uid)'] ?></p>
 
 <section id="main">
 
@@ -261,13 +268,13 @@ foreach ($data as $row) {
     
     <table class="options">
       <tr>
-        <td><a href="editarperfil?uid=<?php echo $row['uid']; ?>">Editar</a> | <a
-        href="editar?borrar=<?php echo $row['uid']; ?>" onclick="return Confirmar (this.form)">Borrar</a> | 
+        <td><a href="editarperfil?uid=<?php echo $row['uid']; ?>"><?=Translate::__('editar');?></a> | <a
+        href="editar?borrar=<?php echo $row['uid']; ?>" onclick="return Confirmar (this.form)"><?=Translate::__('borrar');?></a> | 
         
         <?php if($row['estado'] == 1){ ?>
-        <a href="editar?desactivar=<?php echo $row['uid']; ?>">Desactivar</a></td> <?php } ?>
+        <a href="editar?desactivar=<?php echo $row['uid']; ?>"><?=Translate::__('desactivar');?></a></td> <?php } ?>
         <?php if($row['estado'] == 2){ ?>
-        <a href="editar?activar=<?php echo $row['uid']; ?>">Activar</a></td> <?php } ?>
+        <a href="editar?activar=<?php echo $row['uid']; ?>"><?=Translate::__('activar');?></a></td> <?php } ?>
 
       </tr>
     </table>
@@ -291,15 +298,15 @@ foreach ($data as $row) {
 </section>
 
 <div class="crear">
-<h1 id="crearh1">CREAR USUARIO</h1>
+<h1 id="crearh1"><?=Translate::__('crearusuario');?></h1>
   <form action="editar" method="POST">
-    <input name="nombre" type="text" placeholder="Nombre">
-    <input name="correo" type="text" placeholder="Correo electronico">
-    <input name="contrasena" type="text" placeholder="Contraseña">
-    <input name="telefono" type="text" placeholder="Telefono">
+    <input name="nombre" type="text" placeholder="<?=Translate::__('nombre');?>">
+    <input name="correo" type="text" placeholder="<?=Translate::__('correo');?>">
+    <input name="contrasena" type="text" placeholder="<?=Translate::__('contrasena');?>">
+    <input name="telefono" type="text" placeholder="<?=Translate::__('telefono');?>">
     <p>
       
-      <label for="select">Rango:</label>
+      <label for="select"><?=Translate::__('rango');?>:</label>
       <select name="rango" id="select">
 
         <?php
@@ -320,7 +327,7 @@ foreach ($data as $row) // Por cada rango me muestra una opcion, notese que mues
         <?php }?>
       </select>
     </p>
-    <input type="submit" value="Agregar">
+    <input type="submit" value="<?=Translate::__('agregar');?>">
   </form>
   <?php if (!empty($message)): ?>
   <p id="mensaje"> <?=$message;?></p>
@@ -332,3 +339,5 @@ foreach ($data as $row) // Por cada rango me muestra una opcion, notese que mues
 </body>
 
 </html>
+
+<!-- TRADUCIDO -->

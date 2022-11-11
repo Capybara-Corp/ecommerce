@@ -1,4 +1,13 @@
 <?php 
+
+require_once 'traduccion/Translate.php';
+use \SimpleTranslation\Translate;
+
+
+$idioma = $_COOKIE['idioma'];
+Translate::init($idioma, "lang/".$idioma.".php");
+
+
 require 'libs/connect.php';
 require "config/config.php";
 if (isset($_SESSION['uid'])) {
@@ -83,7 +92,7 @@ if (!empty($_POST['nombre']) && !empty($_POST['precio_venta']) && !empty($_POST[
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Editar Productos</title>
+  <title><?=Translate::__('editarproductos');?></title>
   <link rel="stylesheet" href="../public/css/login/panelproducto.css">
 
   <script language="Javascript" type="text/javascript">
@@ -104,16 +113,16 @@ if (!empty($_POST['nombre']) && !empty($_POST['precio_venta']) && !empty($_POST[
   </div> <!-- Este div contiene la imagen del boton para abrir el menu -->
   
   <ul class="main-menu" id="main-menu">
-    <li><a href="<?php echo constant('URL'); ?>">INICIO</a></li>
-    <li><a href="<?php echo constant('URL'); ?>panel/producto">EDITAR PRODUCTOS</a></li>
-    <li><a href="<?php echo constant('URL'); ?>panel/editar">EDITAR USUARIOS</a></li>
-    <li><a href="<?php echo constant('URL'); ?>perfil?uid=<?php echo $_SESSION['uid'] ?>">REGRESAR A MI PERFIL</a></li>
+    <li><a href="<?php echo constant('URL'); ?>"><?=Translate::__('inicio');?></a></li>
+    <li><a href="<?php echo constant('URL'); ?>panel/producto"><?=Translate::__('editarproductos');?></a></li>
+    <li><a href="<?php echo constant('URL'); ?>panel/editar"><?=Translate::__('editarusuarios');?></a></li>
+    <li><a href="<?php echo constant('URL'); ?>perfil?uid=<?php echo $_SESSION['uid'] ?>"><?=Translate::__('regresaramiperfil');?></a></li>
 
   </ul>
 </nav>
 
 
-<h1 id="gestionarh1">GESTIONAR PRODUCTOS</h1>
+<h1 id="gestionarh1"><?=Translate::__('gestionarproductos');?></h1>
 
 <?php 
     $records = $conn->prepare('SELECT COUNT(pid) FROM PRODUCTOS;');
@@ -128,11 +137,11 @@ if (!empty($_POST['nombre']) && !empty($_POST['precio_venta']) && !empty($_POST[
     ?>
 
 <form action="producto" method="POST">
-<label for="nombre">Buscar producto por nombre:</label><br>
-<input name="nombre" type="text" placeholder="Ingrese el nombre" id="inputnombre">
-<input type="submit" value="Buscar" id="inputbuscar">
+<label for="nombre"><?=Translate::__('buscarproductopornombre');?>:</label><br>
+<input name="nombre" type="text" placeholder="<?=Translate::__('ingreseelnombre');?>" id="inputnombre">
+<input type="submit" value="<?=Translate::__('buscar');?>" id="inputbuscar">
 </form>
-<p id="total">TOTAL: <?php echo $cantidad['COUNT(pid)'] ?></p>
+<p id="total"><?=Translate::__('total');?>: <?php echo $cantidad['COUNT(pid)'] ?></p>
 
 <section id="main">
 
@@ -183,8 +192,8 @@ else{
     
     <table class="options">
       <tr>
-        <td><a href="editarproducto?pid=<?php echo $row['pid']; ?>">Editar</a> | <a
-        href="producto?borrar=<?php echo $row['pid']; ?>" onclick="return Confirmar (this.form)">Borrar</a> 
+        <td><a href="editarproducto?pid=<?php echo $row['pid']; ?>"><?=Translate::__('editar');?></a> | <a
+        href="producto?borrar=<?php echo $row['pid']; ?>" onclick="return Confirmar (this.form)"><?=Translate::__('borrar');?></a> 
       </tr>
     </table>
 
@@ -196,11 +205,11 @@ else{
       <tr>
         <td class="id"><?php echo $row['pid']; ?></td></tr>
         <tr><td class="nombre"><?php echo $row['nombre']; ?></td></tr>
-        <tr><td class="precio_venta">Precio venta: <?php echo $row['precio_venta']; ?></td></tr>
-        <tr><td class="precio_compra">Precio compra: <?php echo $row['precio_compra']; ?></td></tr>
+        <tr><td class="precio_venta"><?=Translate::__('precioventa');?>: <?php echo $row['precio_venta']; ?></td></tr>
+        <tr><td class="precio_compra"><?=Translate::__('preciocompra');?>: <?php echo $row['precio_compra']; ?></td></tr>
         <tr><td class="marca"><?php echo $row['marca']; ?></td></tr>
         <tr><td class="tipo"><?php echo $row['tipo']; ?></td></tr>
-        <tr><td class="cantidad">Cantidad: <?php echo $row['cantidad']; ?></td></tr>
+        <tr><td class="cantidad"><?=Translate::__('cantidad');?>: <?php echo $row['cantidad']; ?></td></tr>
         <tr><td class="descrip"><?php echo $row['descrip']; ?></td></tr>
     </table>
     
@@ -212,16 +221,16 @@ else{
 
 
 <div class="crear">
-<h1 id="crearh1">CREAR PRODUCTO</h1>
+<h1 id="crearh1"><?=Translate::__('crearproducto');?></h1>
   <form action="producto" method="POST">
-    <input name="nombre" type="text" placeholder="Nombre">
-    <input name="precio_venta" type="text" placeholder="Precio de venta">
-    <input name="precio_compra" type="text" placeholder="Precio de compra">
-    <input name="marca" type="text" placeholder="Marca">
-    <input name="tipo" type="text" placeholder="Tipo">
-    <input name="cantidad" type="text" placeholder="Cantidad">
-    <input name="descrip" type="text" placeholder="Descripcion">
-    <input type="submit" value="Agregar">
+    <input name="nombre" type="text" placeholder="<?=Translate::__('nombre');?>">
+    <input name="precio_venta" type="text" placeholder="<?=Translate::__('precioventa');?>">
+    <input name="precio_compra" type="text" placeholder="<?=Translate::__('preciocompra');?>">
+    <input name="marca" type="text" placeholder="<?=Translate::__('marca');?>">
+    <input name="tipo" type="text" placeholder="<?=Translate::__('tipo');?>">
+    <input name="cantidad" type="text" placeholder="<?=Translate::__('cantidad');?>">
+    <input name="descrip" type="text" placeholder="<?=Translate::__('descripcion');?>">
+    <input type="submit" value="<?=Translate::__('agregar');?>">
   </form> 
 
   <?php if (!empty($message)): ?>
@@ -235,3 +244,5 @@ else{
 </body>
 
 </html>
+
+<!-- TRADUCIDO -->
