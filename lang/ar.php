@@ -95,3 +95,4 @@ return [
     'imagen' => 'Image',
     'editarproducto' => 'Edit product',
 ];
+
