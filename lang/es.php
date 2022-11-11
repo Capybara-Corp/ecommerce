@@ -63,6 +63,7 @@ return [
     'anadirdireccion' => 'Añadir dirección',
     'editardatos' => 'Editar datos',
     'eliminarmiusuario' => 'Eliminar mi usuario',
+    'aceptamos' => 'Aceptamos',
     
 
 ];

@@ -295,3 +295,5 @@ if (isset($_POST['eliminarfoto'])) {
 </body>
 
 </html>
+
+<!-- TRADUCIDO -->

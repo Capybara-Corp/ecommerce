@@ -106,3 +106,5 @@ if (($_GET['uid']) == ($_SESSION['uid'])): ?>
     
 </body>
 </html>
+
+<!-- TRADUCIDO -->

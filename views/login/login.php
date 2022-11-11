@@ -94,3 +94,5 @@ if (!empty($_POST['user_correo']) && !empty($_POST['user_pass'])) { // Si recibe
 </body>
 
 </html>
+
+<!-- TRADUCIDO -->
