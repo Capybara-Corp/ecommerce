@@ -144,3 +144,5 @@ foreach ($this->items as $item) {
 </body>
 
 </html>
+
+<!-- TRADUCIDO -->

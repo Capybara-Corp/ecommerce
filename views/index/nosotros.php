@@ -61,3 +61,5 @@ Translate::init($idioma, "lang/".$idioma.".php");
 
 </body>
 </html>
+
+<!-- TRADUCIDO -->

@@ -87,3 +87,5 @@ Translate::init($idioma, "lang/".$idioma.".php");
 <script src="<?php echo constant('URL'); ?>public/js/perfil.js"></script>
 <script src="<?php echo constant('URL'); ?>public/js/menu.js"></script>
 <script src="<?php echo constant('URL'); ?>public/js/languages.js"></script>
+
+<!-- TRADUCIDO -->
