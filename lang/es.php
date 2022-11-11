@@ -93,6 +93,7 @@ return [
     'editarperfil' => 'Editar perfil',
     'avatar' => 'Avatar',
     'imagen' => 'Imagen',
+    'editarproducto' => 'Editar producto',
 
     
 

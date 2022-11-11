@@ -1,5 +1,12 @@
 <?php 
 
+require_once 'traduccion/Translate.php';
+use \SimpleTranslation\Translate;
+
+
+$idioma = $_COOKIE['idioma'];
+Translate::init($idioma, "lang/".$idioma.".php");
+
 require 'libs/connect.php';
 require "config/config.php";
 if (isset($_SESSION['uid'])) {
@@ -42,7 +49,7 @@ else {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar producto</title>
+    <title><?=Translate::__('editarproducto');?></title>
     <link rel="stylesheet" href="../public/css/login/editarproducto.css">
 </head>
 <body>
@@ -52,10 +59,10 @@ else {
   </div> <!-- Este div contiene la imagen del boton para abrir el menu -->
   
   <ul class="main-menu" id="main-menu">
-    <li><a href="<?php echo constant('URL'); ?>">INICIO</a></li>
-    <li><a href="<?php echo constant('URL'); ?>panel/producto">EDITAR PRODUCTOS</a></li>
-    <li><a href="<?php echo constant('URL'); ?>panel/editar">EDITAR USUARIOS</a></li>
-    <li><a href="<?php echo constant('URL'); ?>perfil?uid=<?php echo $_SESSION['uid'] ?>">REGRESAR A MI PERFIL</a></li>
+    <li><a href="<?php echo constant('URL'); ?>"><?=Translate::__('inicio');?></a></li>
+    <li><a href="<?php echo constant('URL'); ?>panel/producto"><?=Translate::__('editarproductos');?></a></li>
+    <li><a href="<?php echo constant('URL'); ?>panel/editar"><?=Translate::__('editarusuarios');?></a></li>
+    <li><a href="<?php echo constant('URL'); ?>perfil?uid=<?php echo $_SESSION['uid'] ?>"><?=Translate::__('regresaramiperfil');?></a></li>
 
   </ul>
 </nav> <?php
@@ -76,56 +83,56 @@ else {
 
 
 
-<h1 id="title">Editar producto</h1>
+<h1 id="title"><?=Translate::__('editarproducto');?></h1>
 
 <div id="editar">
 
 <form action="" method="post" enctype="multipart/form-data" name="form2" id="form2">
 <div id="profilepic">
-    <p>Imagen</p>
+    <p><?=Translate::__('imagen');?></p>
         <p><img src="../<?php echo $producto['img']; ?>" height="100" width="100" />
     </p>
     </div>
 <div id="campos">
     <p>
         <label for="textfield2"></label>
-        Nombre:<br>
+        <?=Translate::__('nombre');?>:<br>
         <input type="text" name="nombre" id="textfield2" value="<?php echo $producto['nombre']; ?>" />
     </p>
     <p>
-    Precio Venta:<br>
+    <?=Translate::__('precioventa');?>:<br>
         <input type="text" name="precioventa" id="textfield2" value="<?php echo $producto['precio_venta']; ?>" />
     </p>
     <p>
-    Precio Compra:<br>
+    <?=Translate::__('preciocompra');?>:<br>
         <input type="text" name="preciocompra" id="textfield2" value="<?php echo $producto['precio_compra']; ?>" />
     </p>
     <p>
-    Marca:<br>
+    <?=Translate::__('marca');?>:<br>
         <input type="text" name="marca" id="textfield2" value="<?php echo $producto['marca']; ?>" />
     </p>
     <p>
-    Tipo:<br>
+    <?=Translate::__('tipo');?>:<br>
         <input type="text" name="tipo" id="textfield2" value="<?php echo $producto['tipo']; ?>" />
     </p>
     <p>
-    Cantidad:<br>
+    <?=Translate::__('cantidad');?>:<br>
         <input type="text" name="cantidad" id="textfield2" value="<?php echo $producto['cantidad']; ?>" />
     </p>
     <p>
-    Descripcion:<br>
+    <?=Translate::__('descripcion');?>:<br>
         <input type="text" name="descripcion" id="textfield2" value="<?php echo $producto['descrip']; ?>" />
     </p>
     
     
     <p>
-    Imagen:<br>
+    <?=Translate::__('imagen');?>:<br>
         <input type="file" name="img" id="upload" />
     </p>
     
     <p>
         
-        <input type="submit" name="editar" id="button" value="Editar" />
+        <input type="submit" name="editar" id="button" value="<?=Translate::__('editar');?>" />
     </p>
     </form>
     </div>
@@ -225,3 +232,5 @@ else {
 
 </body>
 </html>
+
+<!-- TRADUCIDO -->

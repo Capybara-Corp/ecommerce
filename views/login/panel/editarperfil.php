@@ -62,10 +62,10 @@ if (isset($_SESSION['uid'])) {
   </div> <!-- Este div contiene la imagen del boton para abrir el menu -->
   
   <ul class="main-menu" id="main-menu">
-    <li><a href="<?php echo constant('URL'); ?>">INICIO</a></li>
-    <li><a href="<?php echo constant('URL'); ?>panel/producto">EDITAR PRODUCTOS</a></li>
-    <li><a href="<?php echo constant('URL'); ?>panel/editar">EDITAR USUARIOS</a></li>
-    <li><a href="<?php echo constant('URL'); ?>perfil?uid=<?php echo $_SESSION['uid'] ?>">REGRESAR A MI PERFIL</a></li>
+    <li><a href="<?php echo constant('URL'); ?>"><?=Translate::__('inicio');?></a></li>
+    <li><a href="<?php echo constant('URL'); ?>panel/producto"><?=Translate::__('editarproductos');?></a></li>
+    <li><a href="<?php echo constant('URL'); ?>panel/editar"><?=Translate::__('editarusuarios');?></a></li>
+    <li><a href="<?php echo constant('URL'); ?>perfil?uid=<?php echo $_SESSION['uid'] ?>"><?=Translate::__('regresaramiperfil');?></a></li>
 
   </ul>
 </nav>
