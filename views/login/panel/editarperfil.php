@@ -50,7 +50,7 @@ if (isset($_SESSION['uid'])) {
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Editar perfil</title>
+  <title><?=Translate::__('editarperfil');?></title>
   <link rel="stylesheet" href="../public/css/login/panel.css">
   <link rel="stylesheet" href="../public/css/login/editarperfiladmin.css">
 </head>
@@ -98,14 +98,14 @@ if (isset($_GET['uid'])): //Si hay un "uid" en la URL...
 
     ?>
 
-<h1 id="title">EDITAR PERFIL</h1>
+<h1 id="title"><?=Translate::__('editarperfil');?></h1>
 
 <div id="editar">
 
 
   <form action="" method="post" enctype="multipart/form-data" name="form1" id="form1">
   <div id="profilepic">
-  <p>Avatar</p>
+  <p><?=Translate::__('avatar');?></p>
     <p><img src="../<?php echo $usuario['avatar']; ?>" />
     </p>
   </div>
@@ -114,18 +114,18 @@ if (isset($_GET['uid'])): //Si hay un "uid" en la URL...
 <form action="" method="post" enctype="multipart/form-data" name="form2" id="form2">
     <p>
       <label for="textfield2" class="campo">
-      Nombre:</label>
+      <?=Translate::__('nombre');?>:</label>
       
       <input type="text" name="nombre" id="textfield2" value="<?php echo $usuario['nombre']; ?>" />
     </p>
     <p>
     <label for="textfield2" class="campo">
-      Contraseña:</label>
+    <?=Translate::__('contrasena');?>:</label>
       <input type="password" name="contrasena" id="textfield" />
     </p>
     <p>
 
-      <label for="select" class="campo">Rango:</label><br>
+      <label for="select" class="campo"><?=Translate::__('rango');?>:</label><br>
       <select name="rango" id="select">
       <?php
 
@@ -147,25 +147,25 @@ foreach ($data as $row) // Por cada rango me muestra una opcion, notese que mues
     </p>
     <p>
     <label for="textfield2" class="campo">
-      Teléfono:</label>
+    <?=Translate::__('telefono');?>:</label>
       <input type="text" name="telefono" id="textfield" />
     </p>
     <p>
     <label for="textfield2" class="campo">
-      Añadir Tarjeta:</label>
+    <?=Translate::__('anadirtarjeta');?>:</label>
       <input type="text" name="tarjeta" id="textfield" />
     </p>
     <p>
     <label for="textfield2" class="campo">
-      Añadir Direccion:</label>
+    <?=Translate::__('anadirdireccion');?>:</label>
       <input type="text" name="direccion" id="textfield" />
     </p>
     <p>
     <label for="textfield2" class="campo">
-      Imagen:</label>
+    <?=Translate::__('imagen');?>:</label>
       <input type="file" name="avatar" id="fileField" />
     </p>
-      <input type="submit" name="editar" id="buttoneditar" value="Editar datos" />
+      <input type="submit" name="editar" id="buttoneditar" value="<?=Translate::__('editardatos');?>" />
       
  
     </form>
@@ -304,3 +304,5 @@ foreach ($data as $row) // Por cada rango me muestra una opcion, notese que mues
 </body>
 
 </html>
+
+<!-- TRADUCIDO -->

@@ -90,6 +90,9 @@ return [
     'desactivar' => 'Desactivar',
     'crearusuario' => 'CREAR USUARIO',
     'rango' => 'Rango',
+    'editarperfil' => 'Editar perfil',
+    'avatar' => 'Avatar',
+    'imagen' => 'Imagen',
 
     
 
