@@ -69,6 +69,17 @@ if (isset($_SESSION['uid'])) {
   </ul>
 </nav>
 
+<div class="ventas">
+  <table>
+            <thead>
+            <tr>
+            <td>ID</td>
+            <td>Usuario</td>
+            <td>Fecha</td>
+            <td>Total</td></tr>
+            </thead>
+            <tbody>
+
     <?php 
     $data = $conn->query("SELECT * FROM VENTAS")->fetchAll();
     
@@ -87,7 +98,7 @@ if (isset($_SESSION['uid'])) {
       }
 
         ?>
-        <div class="ventas">
+        
         
         <!-- 
             <table class="options">
@@ -99,28 +110,22 @@ if (isset($_SESSION['uid'])) {
     
         
     
-        <table>
-            <thead>
-            <tr>
-            <td>ID</td>
-            <td>Usuario</td>
-            <td>Fecha</td>
-            <td>Total</td></tr>
-            </thead>
-            <tbody>
+        
           <tr>
             <td class="id"><?php echo $row['vid']; ?></td>
             <td class="nombre"><?php echo $usuario['correo']; ?></td>
             <td class="precio_venta"><?php echo $row['Fecha']; ?></td>
             <td class="precio_compra"><?php echo $row['Total']; ?></td></tr>
-            </tbody>
             
-        </table>
         
-        </div>
+       
     
           <?php }
     ?>
+    </tbody>
+            
+            </table>
+            </div>
 
 </body>
 </html>
