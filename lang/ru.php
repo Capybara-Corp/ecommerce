@@ -96,4 +96,5 @@ return [
     'editarproducto' => 'Редактировать продукт',
     'nohaycompras' => 'Без покупок',
     'historialadmin' => 'История администратора',
+    
 ];
