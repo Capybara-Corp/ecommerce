@@ -3,6 +3,8 @@
 require_once 'models/Articulos_Model.php';
 require_once 'models/Carrito_Model.php';
 
+$buscStr = "";
+
 class BuscarArticulos_Controller extends Controller
 {
     public function __construct()
@@ -17,6 +19,7 @@ class BuscarArticulos_Controller extends Controller
         if($buscStr == 'pacman'){
             echo '<a style="width: 20vw; height: 20vw;" href="../public/media/PacMan/index.html"><img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Pacman_HD.png"></a>';
         }
+
         $data    = $this->model->buscar($buscStr);
 
         
