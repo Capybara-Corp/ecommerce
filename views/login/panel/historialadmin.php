@@ -49,9 +49,24 @@ if (isset($_SESSION['uid'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>VENTAS</title>
+    <link rel="stylesheet" href="../public/css/login/historialadmin.css">
 </head>
 <body>
+
+<nav class="noselect">
+<div id="toggle-menu" class="toggle-menu">
+  <img src="<?php echo constant('URL'); ?>public/media/menu.png" id="menupic">
+  </div> <!-- Este div contiene la imagen del boton para abrir el menu -->
+  
+  <ul class="main-menu" id="main-menu">
+    <li><a href="<?php echo constant('URL'); ?>"><?=Translate::__('inicio');?></a></li>
+    <li><a href="<?php echo constant('URL'); ?>panel/producto"><?=Translate::__('editarproductos');?></a></li>
+    <li><a href="<?php echo constant('URL'); ?>panel/editar"><?=Translate::__('editarusuarios');?></a></li>
+    <li><a href="<?php echo constant('URL'); ?>perfil?uid=<?php echo $_SESSION['uid'] ?>"><?=Translate::__('regresaramiperfil');?></a></li>
+
+  </ul>
+</nav>
 
     <?php 
     $data = $conn->query("SELECT * FROM VENTAS")->fetchAll();
@@ -94,7 +109,7 @@ if (isset($_SESSION['uid'])) {
             <tbody>
           <tr>
             <td class="id"><?php echo $row['vid']; ?></td>
-            <td class="nombre"><?php echo $usuario['nombre']; ?></td>
+            <td class="nombre"><?php echo $usuario['correo']; ?></td>
             <td class="precio_venta"><?php echo $row['Fecha']; ?></td>
             <td class="precio_compra"><?php echo $row['Total']; ?></td></tr>
             </tbody>
