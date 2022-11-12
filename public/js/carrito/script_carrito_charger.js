@@ -69,19 +69,11 @@ function refreshCarrito() {
 }
 
 function generar_compra() {
-  if (sum > 0){
-  fetch_async_void_venta();
-  for (const [k, v] of map_productos_carrito.entries()) {
-    //alert('esto funciona');
-    fetch_async_compra(k, v.cant);
-  }
-  fetch_async_venta();
-  }
-  
-  else{
+  if (sum > 0) {
+    fetch_async_void_venta();
+  } else {
     alert("Debes seleccionar un producto");
   }
-  
 }
 
 function fetch_async_void_venta() {
@@ -103,6 +95,12 @@ function fetch_async_void_venta() {
     .then(function (texto) {
       //alert('esto funciona');
       alert(texto);
+      for (const [k, v] of map_productos_carrito.entries()) {
+        //alert('esto funciona');
+        fetch_async_compra(k, v.cant);
+      }
+      fetch_async_venta();
+
       load_shop();
       window.location.href = "market";
       //alert('esto funciona');
@@ -110,9 +108,7 @@ function fetch_async_void_venta() {
     .catch(function (err) {
       console.log(err);
     });
-  
 }
-
 
 function fetch_async_compra(pid, cant) {
   //alert('esto funciona');
@@ -139,9 +135,10 @@ function fetch_async_compra(pid, cant) {
     })
     .then(function (texto) {
       //alert('esto funciona');
-      if(texto != ""){
-      alert(texto);
+      if (texto != "") {
+        alert(texto);
       }
+
       map_productos_carrito.clear();
       refreshCarrito();
       for (let i = 0; i < precioIndividual.length; i++) {
@@ -162,7 +159,6 @@ function fetch_async_compra(pid, cant) {
 }
 
 function fetch_async_venta() {
-
   const data2 = new FormData();
   data2.set("sum", sum);
 
@@ -180,8 +176,8 @@ function fetch_async_venta() {
     })
     .then(function (texto) {
       //alert('esto funciona');
-      if(texto != ""){
-      alert(texto);
+      if (texto != "") {
+        alert(texto);
       }
       load_shop();
       window.location.href = "market";
@@ -190,15 +186,9 @@ function fetch_async_venta() {
     .catch(function (err) {
       console.log(err);
     });
-  
 }
-
-
-
-
 
 document.addEventListener("DOMContentLoaded", function (event) {
   carrito = document.querySelector("#carrito_content");
   //alert("script02");
 });
-
