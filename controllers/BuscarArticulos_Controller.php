@@ -45,7 +45,7 @@ class BuscarArticulos_Controller extends Controller
     public function mayoramenor()
     {
 
-        if(isset($buscStr)){
+        $buscStr = $_POST["buscar"] ?? "";
         $data    = $this->model->mayoramenor($buscStr);
 
         foreach ($data as $row) {
@@ -65,11 +65,11 @@ class BuscarArticulos_Controller extends Controller
 
         //$this->view->render('cargararticulos/listar');
 
-    }}
+    }
     public function menoramayor()
     {
 
-        if(isset($buscStr)){
+        $buscStr = $_POST["buscar"] ?? "";
         $data    = $this->model->menoramayor($buscStr);
 
 
@@ -90,5 +90,5 @@ class BuscarArticulos_Controller extends Controller
 
         //$this->view->render('cargararticulos/listar');
 
-    }}
+    }
 }
