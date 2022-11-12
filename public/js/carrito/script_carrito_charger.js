@@ -94,7 +94,6 @@ function fetch_async_void_venta() {
     })
     .then(function (texto) {
       //alert('esto funciona');
-      alert(texto);
       for (const [k, v] of map_productos_carrito.entries()) {
         //alert('esto funciona');
         fetch_async_compra(k, v.cant);
@@ -135,7 +134,7 @@ function fetch_async_compra(pid, cant) {
     })
     .then(function (texto) {
       //alert('esto funciona');
-      if (texto != "") {
+      if (texto == "Stock Insuficiente") {
         alert(texto);
       }
 

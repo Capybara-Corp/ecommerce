@@ -30,5 +30,10 @@ class Panel_Controller extends controller
     {
         $this->view->render('login/panel/modificarproducto');
     }
+    public function historialadmin()
+    {
+        $this->view->render('login/panel/historialadmin');
+    }
+
 
 }

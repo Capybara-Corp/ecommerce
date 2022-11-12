@@ -136,6 +136,8 @@ if (isset($_GET['uid'])): ?>
       </a>
       <br>
       <?php if ($rango['rid'] == '1' || $rango['rid'] == '3' || $rango['rid'] == '4') {?><a href="panel" id="panelAdmin" <?php if($perfil['rango'] == 4) { ?> style="color: white!important;"<?php } ?> "><?=Translate::__('paneladmin');?></a><?php }?>
+      <br>
+      <?php if ($rango['rid'] == '1' || $rango['rid'] == '3' || $rango['rid'] == '4') {?><a href="panel/historialadmin" id="panelAdmin" <?php if($perfil['rango'] == 4) { ?> style="color: white!important;"<?php } ?> ">Historial Admin</a><?php }?>
       </div>
 
 
