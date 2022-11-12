@@ -95,5 +95,6 @@ return [
     "imagen" => "صورة" ,
     'editarproducto' => 'تحرير المنتج' ,
     'nohaycompras' => 'لا تسوق',
+    'historialadmin' => 'محفوظات المسؤول',
 ];
 

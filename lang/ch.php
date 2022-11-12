@@ -95,4 +95,5 @@ return [
     'imagen' => '图片',
     'editarproducto' => '编辑产品',
     'nohaycompras' => '没有购买',
+    'historialadmin' => '管理员历史',
 ];

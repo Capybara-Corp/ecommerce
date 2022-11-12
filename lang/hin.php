@@ -95,4 +95,5 @@ return [
     'imagen' => 'इमेज',
     'editarproducto' => 'उत्पाद संपादित करें',
     'nohaycompras' => 'कोई खरीदारी नहीं',
+    'historialadmin' => 'व्यवस्थापक इतिहास',
 ];

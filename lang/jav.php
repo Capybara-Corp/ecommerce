@@ -95,4 +95,5 @@ return [
     'imagen' => '画像',
     'editarproducto' => '編集製品',
     'nohaycompras' => '購入なし',
+    'historialadmin' => '管理者履歴',
 ];

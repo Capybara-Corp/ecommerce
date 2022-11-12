@@ -95,4 +95,5 @@ return [
     'imagen' => '이미지',
     'editarproducto' => '상품 수정',
     'nohaycompras' => '쇼핑 금지',
+    'historialadmin' => '관리자 기록',
 ];

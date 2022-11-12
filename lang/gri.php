@@ -95,4 +95,5 @@ return [
     'imagen' => 'Εικόνα',
     'editarproducto' => 'Επεξεργασία προϊόντος',
     'nohaycompras' => 'Δεν υπάρχουν αγορές',
+    'historialadmin' => 'Ιστορικό διαχειριστή',
 ];

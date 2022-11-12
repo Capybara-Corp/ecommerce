@@ -95,6 +95,7 @@ return [
     'imagen' => 'Imagen',
     'editarproducto' => 'Editar producto',
     'nohaycompras' => 'No hay compras',
+    'historialadmin' => 'Historial admin',
 
     
 

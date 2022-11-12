@@ -95,4 +95,5 @@ return [
     'imagen' => 'Image',
     'editarproducto' => 'Editer le produit',
     'nohaycompras' => 'Aucun achat',
+    'historialadmin' => 'Historique des administrateurs',
 ];
