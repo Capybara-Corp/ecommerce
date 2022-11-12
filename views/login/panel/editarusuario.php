@@ -124,8 +124,8 @@ if (!empty($_POST['nombre']) && !empty($_POST['correo']) && !empty($_POST['contr
 
 
 <form action="editar" method="POST">
-<label for="nombre"><?=Translate::__('buscarusuariopornombre');?>:</label><br>
-<input name="nombre" type="text" placeholder="<?=Translate::__('ingreseelnombre');?>" id="inputnombre">
+<label for="buscar"><?=Translate::__('buscarusuariopornombre');?>:</label><br>
+<input name="buscar" type="text" placeholder="<?=Translate::__('ingreseelnombre');?>" id="inputnombre">
 <input type="submit" value="<?=Translate::__('buscar');?>" id="inputbuscar">
 </form>
 <p id="total"><?=Translate::__('total');?>: <?php echo $cantidad['COUNT(uid)'] ?></p>
@@ -182,8 +182,8 @@ if (isset($_GET['activar'])) { // Si hay algo en la URL de borrar usuario
       <?php
 
 if($user['rango'] == '1'){
-  if($_POST['nombre'] != ""){
-    $buscStr = $_POST['nombre'];
+  if(isset($_POST['buscar'])){
+    $buscStr = $_POST['buscar'];
     $buscStr = trim($buscStr);
     $buscStr = strtolower($buscStr);
     $data = $conn->query("SELECT * FROM USUARIOS WHERE nombre LIKE '%$buscStr%' AND rango = '2'");
@@ -199,8 +199,8 @@ if($user['rango'] == '1'){
   }
 }
 else if($user['rango'] == '3'){
-  if($_POST['nombre'] != ""){
-    $buscStr = $_POST['nombre'];
+  if(isset($_POST['buscar'])){
+    $buscStr = $_POST['buscar'];
     $buscStr = trim($buscStr);
     $buscStr = strtolower($buscStr);
     $data = $conn->query("SELECT * FROM USUARIOS WHERE nombre LIKE '%$buscStr%' AND rango <= '2'");
@@ -218,8 +218,8 @@ else if($user['rango'] == '3'){
 }
 
 else if($user['rango'] == '4'){
-  if($_POST['nombre'] != ""){
-    $buscStr = $_POST['nombre'];
+  if(isset($_POST['buscar'])){
+    $buscStr = $_POST['buscar'];
     $buscStr = trim($buscStr);
     $buscStr = strtolower($buscStr);
     $data = $conn->query("SELECT * FROM USUARIOS WHERE nombre LIKE '%$buscStr%'");

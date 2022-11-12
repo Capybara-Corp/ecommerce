@@ -137,8 +137,8 @@ if (!empty($_POST['nombre']) && !empty($_POST['precio_venta']) && !empty($_POST[
     ?>
 
 <form action="producto" method="POST">
-<label for="nombre"><?=Translate::__('buscarproductopornombre');?>:</label><br>
-<input name="nombre" type="text" placeholder="<?=Translate::__('ingreseelnombre');?>" id="inputnombre">
+<label for="buscar"><?=Translate::__('buscarproductopornombre');?>:</label><br>
+<input name="buscar" type="text" placeholder="<?=Translate::__('ingreseelnombre');?>" id="inputnombre">
 <input type="submit" value="<?=Translate::__('buscar');?>" id="inputbuscar">
 </form>
 <p id="total"><?=Translate::__('total');?>: <?php echo $cantidad['COUNT(pid)'] ?></p>
@@ -169,8 +169,8 @@ if (!empty($_POST['nombre']) && !empty($_POST['precio_venta']) && !empty($_POST[
 ?>
 <?php
 
-if($_POST['nombre'] != ""){
-  $buscStr = $_POST['nombre'];
+if(isset($_POST['buscar'])){
+  $buscStr = $_POST['buscar'];
   $buscStr = trim($buscStr);
   $buscStr = strtolower($buscStr);
   $data = $conn->query("SELECT * FROM PRODUCTOS WHERE nombre LIKE '%$buscStr%'");
