@@ -94,4 +94,5 @@ return [
     'avatar' => 'Avatar',
     'imagen' => 'Image',
     'editarproducto' => 'Edit product',
+    'nohaycompras' => 'No purchases',
 ];

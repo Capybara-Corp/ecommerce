@@ -94,5 +94,6 @@ return [
     'avatar' => 'Avatar' ,
     "imagen" => "صورة" ,
     'editarproducto' => 'تحرير المنتج' ,
+    'nohaycompras' => 'لا تسوق',
 ];
 

@@ -94,5 +94,5 @@ return [
     'avatar' => 'アバター',
     'imagen' => '画像',
     'editarproducto' => '編集製品',
-    
+    'nohaycompras' => '購入なし',
 ];

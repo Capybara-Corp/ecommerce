@@ -94,4 +94,5 @@ return [
     'avatar' => 'अवतार',
     'imagen' => 'इमेज',
     'editarproducto' => 'उत्पाद संपादित करें',
+    'nohaycompras' => 'कोई खरीदारी नहीं',
 ];

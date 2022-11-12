@@ -91,7 +91,7 @@ Translate::init($idioma, "lang/".$idioma.".php");
     <?php endif; ?>
 
       <label for="user_correo"><?=Translate::__('correo');?></label>
-      <input name="user_correo" type="text" placeholder="Ingrese su correo">
+      <input name="user_correo" type="text" placeholder="<?=Translate::__('ingresesucorreo');?>">
 
       <label for="user_pass"><?=Translate::__('contrasena');?></label>
       <input name="user_pass" type="password" placeholder="<?=Translate::__('ingresesucontrasena');?>">

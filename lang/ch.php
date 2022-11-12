@@ -94,4 +94,5 @@ return [
     'avatar' => '阿凡达',
     'imagen' => '图片',
     'editarproducto' => '编辑产品',
+    'nohaycompras' => '没有购买',
 ];

@@ -89,7 +89,7 @@ if (($_GET['uid']) == ($_SESSION['uid'])): ?>
 
     <?php } ?> </div> <?php }
     else{ ?>
-        <p class="elemento">No hay compras</p>
+        <p class="elemento"><?=Translate::__('nohaycompras');?></p>
     <?php } ?>
 
     

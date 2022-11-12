@@ -94,4 +94,5 @@ return [
     'avatar' => 'Άβαταρ',
     'imagen' => 'Εικόνα',
     'editarproducto' => 'Επεξεργασία προϊόντος',
+    'nohaycompras' => 'Δεν υπάρχουν αγορές',
 ];

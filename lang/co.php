@@ -94,4 +94,5 @@ return [
     'avatar' => '아바타',
     'imagen' => '이미지',
     'editarproducto' => '상품 수정',
+    'nohaycompras' => '쇼핑 금지',
 ];
