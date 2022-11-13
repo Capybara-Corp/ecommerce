@@ -2,6 +2,8 @@
 
 #require_once 'entidades/alumno.php';
 require_once 'entidades/ArticuloDto.php';
+$_SESSION['orden'] = "";
+//dcds
 class BuscarArticulos_Model extends Model
 {
 
@@ -14,23 +16,21 @@ class BuscarArticulos_Model extends Model
     public function mayoramenor($buscStr)
     {
         /*if($_POST['buscar'] == 'pacman'){
-            echo '<img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Pacman_HD.png">';
+        echo '<img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Pacman_HD.png">';
         }*/
         $resultado = false;
         $pdo       = $this->db->connect();
         try {
 
-            if ($buscStr != ""){
+            if ($buscStr != "") {
                 $query = $pdo->prepare("SELECT * FROM PRODUCTOS WHERE nombre LIKE :textostr ORDER BY precio_venta DESC");
-                $term = "%$buscStr%";
+                $term  = "%$buscStr%";
                 $query->bindParam(':textostr', $term, PDO::PARAM_STR);
-                
-            }
-            else{
+
+            } else {
                 $query = $pdo->prepare("SELECT * FROM PRODUCTOS ORDER BY precio_venta DESC");
             }
-                
-    
+
             $query->execute();
             while ($row = $query->fetch()) {
                 $item              = new ArticuloDto();
@@ -51,30 +51,28 @@ class BuscarArticulos_Model extends Model
         } catch (PDOException $e) {
             return false;
         } finally {
-            $pdo = null;
+            $pdo               = null;
             $_SESSION['orden'] = "mayoramenor";
         }
     }
     public function menoramayor($buscStr)
     {
         /*if($_POST['buscar'] == 'pacman'){
-            echo '<img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Pacman_HD.png">';
+        echo '<img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Pacman_HD.png">';
         }*/
         $resultado = false;
         $pdo       = $this->db->connect();
         try {
 
-            if ($buscStr != ""){
+            if ($buscStr != "") {
                 $query = $pdo->prepare("SELECT * FROM PRODUCTOS WHERE nombre LIKE :textostr ORDER BY precio_venta ASC");
-                $term = "%$buscStr%";
+                $term  = "%$buscStr%";
                 $query->bindParam(':textostr', $term, PDO::PARAM_STR);
-                
-            }
-            else{
+
+            } else {
                 $query = $pdo->prepare("SELECT * FROM PRODUCTOS ORDER BY precio_venta ASC");
             }
-                
-    
+
             $query->execute();
             while ($row = $query->fetch()) {
                 $item              = new ArticuloDto();
@@ -95,7 +93,7 @@ class BuscarArticulos_Model extends Model
         } catch (PDOException $e) {
             return false;
         } finally {
-            $pdo = null;
+            $pdo               = null;
             $_SESSION['orden'] = "menoramayor";
         }
     }
@@ -103,11 +101,12 @@ class BuscarArticulos_Model extends Model
     public function buscar($buscStr)
     {
         /*if($_POST['buscar'] == 'pacman'){
-            echo '<img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Pacman_HD.png">';
+        echo '<img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Pacman_HD.png">';
         }*/
 
         $resultado = false;
         $pdo       = $this->db->connect();
+        $items     = [];
         try {
 
             //$query = $pdo->prepare("SELECT * FROM PRODUCTOS WHERE nombre LIKE LOWER('%" . $buscStr . "%')");
@@ -116,23 +115,20 @@ class BuscarArticulos_Model extends Model
                 $buscStr = trim($buscStr);
                 $buscStr = strtolower($buscStr);
                 /*if($buscStr == 'pacman'){
-                    echo '<img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Pacman_HD.png">';
+                echo '<img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Pacman_HD.png">';
                 }*/
                 //codigo cuando busco
 
-                if ($_SESSION['orden'] == "mayoramenor"){
+                if ($_SESSION['orden'] == "mayoramenor") {
                     $query = $pdo->prepare("SELECT * FROM PRODUCTOS WHERE nombre LIKE :textostr ORDER BY precio_venta DESC");
-                }
-                else if ($_SESSION['orden'] == "menoramayor"){
+                } else if ($_SESSION['orden'] == "menoramayor") {
                     $query = $pdo->prepare("SELECT * FROM PRODUCTOS WHERE nombre LIKE :textostr ORDER BY precio_venta ASC");
-                }
-                else{
-                $query = $pdo->prepare("SELECT * FROM PRODUCTOS WHERE nombre LIKE :textostr");
+                } else {
+                    $query = $pdo->prepare("SELECT * FROM PRODUCTOS WHERE nombre LIKE :textostr");
                 }
                 //$query = $pdo->prepare('SELECT codigo, descripcion FROM productos WHERE descripcion LIKE :textostr');
                 // $query = '%' . $search . '%';
                 $term = "%$buscStr%";
-
 
 //$query
                 //$query->bindParam(':textostr', '%' . $search . '%');
@@ -144,13 +140,11 @@ class BuscarArticulos_Model extends Model
                 //  $query = $pdo->prepare("SELECT * FROM PRODUCTOS");
                 //muestro todo
             } else {
-                if ($_SESSION['orden'] == "mayoramenor"){
-                $query = $pdo->prepare("SELECT * FROM PRODUCTOS ORDER BY precio_venta DESC");
-                }
-                else if ($_SESSION['orden'] == "menoramayor"){
+                if ($_SESSION['orden'] == "mayoramenor") {
+                    $query = $pdo->prepare("SELECT * FROM PRODUCTOS ORDER BY precio_venta DESC");
+                } else if ($_SESSION['orden'] == "menoramayor") {
                     $query = $pdo->prepare("SELECT * FROM PRODUCTOS ORDER BY precio_venta ASC");
-                }
-                else{
+                } else {
                     $query = $pdo->prepare("SELECT * FROM PRODUCTOS");
                 }
 
@@ -182,7 +176,7 @@ class BuscarArticulos_Model extends Model
             $pdo = null;
         }
     }
-    
+
     //end actualizar
 
     /* public function crear($articulo)

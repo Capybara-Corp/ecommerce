@@ -103,7 +103,7 @@ CREATE TABLE `PRODUCTOS` (
 
 INSERT INTO `PRODUCTOS` (`pid`, `nombre`, `precio_venta`, `precio_compra`, `marca`, `tipo`, `cantidad`, `img`, `descrip`) VALUES
 (1, 'Tinto', 200, 150, 'Westinghouse', 'Tinto', 1158, 'public/media/bottles/bottle1.png', 'Vino tinto recien traido del himalaya'),
-(2, 'Blanco', 300, 200, 'De la viï¿½a', 'Blanco', 1451, 'public/media/bottles/bottle2.png', 'Vino blanco para acompaï¿½ar un asado con amigos'),
+(2, 'Blanco', 300, 200, 'De la viña', 'Blanco', 1451, 'public/media/bottles/bottle2.png', 'Vino blanco para acompañar un asado con amigos'),
 (3, 'Escoces', 500, 350, 'Santa rosana', 'Escoces', 0, 'public/media/bottles/bottle3.png', 'Vino escocés, traido directamente de Alemania'),
 (4, 'Rosado', 200, 100, 'Naturalvinos', 'Rosado', 29, 'public/media/bottles/bottle4.png', 'Corta descripcion'),
 (5, 'Tannat', 300, 200, 'Los paisanos', 'Tannat', 60, 'public/media/bottles/bottle5.png', 'Tannat, directamente traido desde tannatlandia'),
@@ -141,7 +141,7 @@ CREATE TABLE `USUARIOS` (
 
 INSERT INTO `USUARIOS` (`uid`, `nombre`, `correo`, `contrasena`, `telefono`, `avatar`, `rango`, `estado`) VALUES
 (12, 'Lujambia', 'luli@gmail.com', '$2y$10$AzE18QwS0SXj3R3wYP2Ls.AiMhb3/oTs1r5Vi9OXYKygHBk6cywYS', 436436536, 'public/img/perfil/12.jpg', 3, 1),
-(15, 'ã‹ã¿ã•ã¾', 'elsantoposada@gmail.com', '$2y$10$Ybpc.5pRvAcjif9DeckhDuV2i9TwuzI17.Fz0kxCrQNJ1GGmaQoo.', 123456, 'public/img/perfil/15.jpg', 4, 1),
+(15, 'PPPPP', 'elsantoposada@gmail.com', '$2y$10$Ybpc.5pRvAcjif9DeckhDuV2i9TwuzI17.Fz0kxCrQNJ1GGmaQoo.', 123456, 'public/img/perfil/15.jpg', 4, 1),
 (20, 'Paz', 'elamor@gmail.com', '$2y$10$fVa13QOokk5tOWCi5Z8pcuYCflkD3deYp9bqHRsnKkjOB6M3as/CC', 1212121212, 'public/img/perfil/20.jpg', 1, 1),
 (30, 'Prueba', 'prueba@gmail.com', '$2y$10$7VCR6BsaiXawTfsZ2fuwfeNlRHPPNz3cSTu5sLvRSwVx9.eS8yCIO', 43342323, 'public/img/perfil/default.jpg', 1, 1),
 (38, 'SantiagoXD', 'santiago@mail.com', '$2y$10$kL3q/wCpT3d0jo4edbeoLOpde.AqzMYaecUWUGBiFc6BO/CZ4zsBy', 434343434, 'public/img/perfil/default.jpg', 2, 1),
