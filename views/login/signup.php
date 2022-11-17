@@ -91,7 +91,7 @@ Translate::init($idioma, "lang/".$idioma.".php");
     <?php endif; ?>
 
       <label for="user_correo"><?=Translate::__('correo');?></label>
-      <input name="user_correo" type="text" placeholder="<?=Translate::__('ingresesucorreo');?>">
+      <input name="user_correo" type="text" placeholder="<?=Translate::__('ingresesucorreo');?>" maxlength="60">
 
       <label for="user_pass"><?=Translate::__('contrasena');?></label>
       <input name="user_pass" type="password" placeholder="<?=Translate::__('ingresesucontrasena');?>">
@@ -100,10 +100,10 @@ Translate::init($idioma, "lang/".$idioma.".php");
       <input name="confirm_password" type="password" placeholder="<?=Translate::__('ingresesucontrasena');?>">
 
       <label for="user_name"><?=Translate::__('ingresesunombre');?></label>
-      <input name="user_name" type="text" placeholder="<?=Translate::__('ingresesunombre');?>">
+      <input name="user_name" type="text" placeholder="<?=Translate::__('ingresesunombre');?>" maxlength="40">
 
       <label for="user_number"><?=Translate::__('ingresesunumero');?></label>
-      <input name="user_number" type="text" placeholder="<?=Translate::__('ingresesunumero');?>">
+      <input name="user_number" type="text" placeholder="<?=Translate::__('ingresesunumero');?>" maxlength="32">
 
       <input type="submit" value="<?=Translate::__('registrarse');?>">
 

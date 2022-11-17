@@ -71,7 +71,7 @@ if (!empty($_POST['user_correo']) && !empty($_POST['user_pass'])) { // Si recibe
 
     <form action="login" method="POST">
       <label for="user_correo"><?=Translate::__('correo');?></label>
-      <input name="user_correo" type="text" placeholder="<?=Translate::__('ingresesucorreo');?>">
+      <input name="user_correo" type="text" placeholder="<?=Translate::__('ingresesucorreo');?>" maxlength="60">
 
       <label for="user_pass"><?=Translate::__('contrasena');?></label>
       <input name="user_pass" type="password" placeholder="<?=Translate::__('ingresesucontrasena');?>">

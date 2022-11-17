@@ -41,7 +41,7 @@ return [
     'registrarse' => 'Registrarse',
     'confirmesucontrasena' => 'Confirme su contraseña',
     'ingresesunombre' => 'Ingrese su nombre',
-    'ingresesunumero' => 'Ingrese su numero',
+    'ingresesunumero' => 'Ingrese su numero de teléfono',
     'yatienesunacuenta' => '¿Ya tienes una cuenta?',
     'perfilde' => 'Perfil de: ',
     'admin' => 'admin',
